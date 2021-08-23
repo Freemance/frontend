@@ -13,9 +13,11 @@
 /out/
 
 # production
+/.storybook
 /build
 
 # misc
+/.vscode
 .DS_Store
 *.pem
 
