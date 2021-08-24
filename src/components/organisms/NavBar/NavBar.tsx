@@ -8,6 +8,7 @@ import {
   Hidden,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import DrawerNav from '@components/molecules/Drawer';
 // Styles
 import { useNavBarStyle } from './NavBar.style';
 
@@ -16,6 +17,7 @@ const NavBar = () => {
 
   return (
     <div className={classes.root}>
+      <DrawerNav />
       <AppBar
         style={{ background: 'transparent', boxShadow: 'none' }}
         position="static"
@@ -29,7 +31,7 @@ const NavBar = () => {
               color="inherit"
               style={{ marginRight: '8px', color: 'gray' }}
             >
-              Login
+              Sign In
             </Button>
             <Button color="inherit" style={{ background: '#6886c5' }}>
               Get Early Access

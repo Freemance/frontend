@@ -1,1 +1,1 @@
-export interface INavBar {}
+export default interface INavBar {}
