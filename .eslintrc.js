@@ -13,7 +13,27 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  rules: {
+    'valid-jsdoc': [
+      0,
+      {
+        requireParamDescription: false,
+        requireReturnDescription: false,
+        requireReturn: false,
+        prefer: { returns: 'return' },
+      },
+    ],
+    'require-jsdoc': [
+      0,
+      {
+        require: {
+          'function-declaration': true,
+          'method-definition': true,
+          'class-declaration': true,
+        },
+      },
+    ],
+  },
   settings: {
     react: {
       version: 'latest',
