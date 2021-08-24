@@ -1,6 +1,6 @@
 import { createTheme, ThemeOptions } from '@material-ui/core';
 import * as palette from './palettes';
-import overrides from './overrides';
+import { overrides } from './overrides';
 import { typography } from './typography';
 
 const options = (dark: boolean): ThemeOptions => {
