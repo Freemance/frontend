@@ -1,5 +1,7 @@
-import { Container, Typography } from "@material-ui/core";
-import NavBar from "components/NavBar";
+import * as React from 'react';
+import { Container, Typography } from '@material-ui/core';
+import NavBar from '@components/organisms/NavBar';
+
 export default function AppLayout() {
   return (
     <>
