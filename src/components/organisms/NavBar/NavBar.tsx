@@ -1,10 +1,13 @@
 import * as React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  Button,
+  Hidden,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import Button from '@material-ui/core/Button';
 // Styles
 import { useNavBarStyle } from './NavBar.style';
 
@@ -18,10 +21,10 @@ const NavBar = () => {
         position="static"
       >
         <Toolbar>
-          <Typography className={classes.title} variant="h4" noWrap>
+          <Typography className={classes.title} variant="h3">
             Freemance
           </Typography>
-          <div className={classes.buttons}>
+          <Hidden xsDown>
             <Button
               color="inherit"
               style={{ marginRight: '8px', color: 'gray' }}
@@ -31,10 +34,12 @@ const NavBar = () => {
             <Button color="inherit" style={{ background: '#6886c5' }}>
               Get Early Access
             </Button>
-          </div>
-          <IconButton edge="end" className={classes.menuButton}>
-            <MenuIcon />
-          </IconButton>
+          </Hidden>
+          <Hidden smUp>
+            <IconButton edge="start" className={classes.menuButton}>
+              <MenuIcon />
+            </IconButton>
+          </Hidden>
         </Toolbar>
       </AppBar>
     </div>
