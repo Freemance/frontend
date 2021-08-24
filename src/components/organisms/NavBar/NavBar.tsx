@@ -6,8 +6,10 @@ import {
   Typography,
   Button,
   Hidden,
+  Link,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import DrawerNav from '@components/molecules/Drawer';
 // Styles
 import { useNavBarStyle } from './NavBar.style';
 
@@ -16,16 +18,22 @@ const NavBar = () => {
 
   return (
     <div className={classes.root}>
+      {/* <DrawerNav /> */}
       <AppBar
         style={{ background: 'transparent', boxShadow: 'none' }}
         position="static"
       >
         <Toolbar>
-          <Typography className={classes.title} variant="h3">
-            Freemance
-          </Typography>
+          <Link href="/" underline="none">
+            <Typography className={classes.title} variant="h3">
+              Freemance
+            </Typography>
+          </Link>
           <Hidden xsDown>
-            <Button color="primary" style={{ marginRight: '8px' }}>
+            <Button
+              color="primary"
+              style={{ marginRight: '8px', marginLeft: 'auto' }}
+            >
               Login
             </Button>
             <Button color="primary" variant="contained">

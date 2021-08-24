@@ -6,7 +6,7 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
     },
     menuButton: {
       marginRight: '0px',
-      marginLeft: '0px',
+      marginLeft: 'auto',
       color: 'gray',
     },
     title: {
@@ -14,6 +14,7 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
       display: 'block',
       color: 'black',
       cursor: 'pointer',
+      fontWeight: 'bold',
       fontFamily: 'Saira',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
