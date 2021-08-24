@@ -10,7 +10,18 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     menuButton: {
-      marginRight: theme.spacing(2),
+      marginRight: '0px',
+      paddingRight: '0px',
+      color: 'gray',
+      [theme.breakpoints.up('sm')]: {
+        display: 'none',
+      },
+    },
+    buttons: {
+      display: 'none',
+      [theme.breakpoints.up('sm')]: {
+        display: 'inline',
+      },
     },
     title: {
       flexGrow: 1,
