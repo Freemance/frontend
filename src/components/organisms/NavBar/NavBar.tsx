@@ -27,15 +27,8 @@ const NavBar = () => {
             Freemance
           </Typography>
           <Hidden xsDown>
-            <Button
-              color="inherit"
-              style={{ marginRight: '8px', color: 'gray' }}
-            >
-              Sign In
             </Button>
-            <Button color="inherit" style={{ background: '#6886c5' }}>
-              Get Early Access
-            </Button>
+            <Button color="primary">Get Early Access</Button>
           </Hidden>
           <Hidden smUp>
             <IconButton edge="start" className={classes.menuButton}>
