@@ -3,40 +3,40 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["plugin:react/recommended", "google", "prettier"],
-  parser: "@typescript-eslint/parser",
+  extends: ['plugin:react/recommended', 'google', 'prettier'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ['react', '@typescript-eslint'],
   rules: {
-    "valid-jsdoc": [
+    'valid-jsdoc': [
       0,
       {
         requireParamDescription: false,
         requireReturnDescription: false,
         requireReturn: false,
-        prefer: { returns: "return" },
+        prefer: { returns: 'return' },
       },
     ],
-    "require-jsdoc": [
+    'require-jsdoc': [
       0,
       {
         require: {
-          "function-declaration": true,
-          "method-definition": true,
-          "class-declaration": true,
+          'function-declaration': true,
+          'method-definition': true,
+          'class-declaration': true,
         },
       },
     ],
   },
   settings: {
     react: {
-      version: "latest",
+      version: 'latest',
     },
   },
 };

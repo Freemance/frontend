@@ -1,9 +1,9 @@
 import * as React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
+// import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
+// import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 // Styles
 import { useNavBarStyle } from './NavBar.style';
@@ -39,6 +39,6 @@ const NavBar = () => {
       </AppBar>
     </div>
   );
-}
+};
 
-export default 
+export default NavBar;
