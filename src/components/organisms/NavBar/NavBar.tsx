@@ -28,7 +28,9 @@ const NavBar = () => {
             <Button color="primary" style={{ marginRight: '8px' }}>
               Login
             </Button>
-            <Button color="primary">Get Early Access</Button>
+            <Button color="primary" variant="contained">
+              Get Early Access
+            </Button>
           </Hidden>
           <Hidden smUp>
             <IconButton edge="start" className={classes.menuButton}>
