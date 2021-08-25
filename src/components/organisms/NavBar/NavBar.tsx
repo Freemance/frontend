@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -6,26 +6,48 @@ import {
   Typography,
   Button,
   Hidden,
+  Link,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import DrawerNav from '@components/molecules/Drawer';
 // Styles
 import { useNavBarStyle } from './NavBar.style';
 
 const NavBar = () => {
   const classes = useNavBarStyle();
+  const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className={classes.root}>
+      <Hidden smUp>
+        <DrawerNav
+          variant="persistent"
+          open={open}
+          handleDrawerClose={handleDrawerClose}
+        />
+      </Hidden>
       <AppBar
         style={{ background: 'transparent', boxShadow: 'none' }}
         position="static"
       >
         <Toolbar>
-          <Typography className={classes.title} variant="h3">
-            Freemance
-          </Typography>
+          <Link href="/" underline="none">
+            <Typography className={classes.title} variant="h3">
+              Freemance
+            </Typography>
+          </Link>
           <Hidden xsDown>
-            <Button color="primary" style={{ marginRight: '8px' }}>
+            <Button
+              color="primary"
+              style={{ marginRight: '8px', marginLeft: 'auto' }}
+            >
               Login
             </Button>
             <Button color="primary" variant="contained">
@@ -33,7 +55,11 @@ const NavBar = () => {
             </Button>
           </Hidden>
           <Hidden smUp>
-            <IconButton edge="start" className={classes.menuButton}>
+            <IconButton
+              onClick={() => handleDrawerOpen()}
+              edge="start"
+              className={classes.menuButton}
+            >
               <MenuIcon />
             </IconButton>
           </Hidden>
