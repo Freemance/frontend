@@ -6,8 +6,8 @@ import {
   Typography,
   Button,
   Hidden,
-  Link,
 } from '@material-ui/core';
+import Link from 'next/link';
 import MenuIcon from '@material-ui/icons/Menu';
 import DrawerNav from '@components/molecules/Drawer';
 // Styles
@@ -38,18 +38,23 @@ const NavBar: React.FC = () => {
         position="static"
       >
         <Toolbar>
-          <Link href="/" underline="none">
-            <Typography className={classes.title} variant="h3">
-              Freemance
-            </Typography>
-          </Link>
+          <div>
+            <Link href="/">
+              <Typography className={classes.title} variant="h3">
+                Freemance
+              </Typography>
+            </Link>
+          </div>
           <Hidden xsDown>
-            <Button
-              color="primary"
-              style={{ marginRight: '8px', marginLeft: 'auto' }}
-            >
-              Login
-            </Button>
+            <Link href="/login">
+              <Button
+                color="primary"
+                style={{ marginRight: '8px', marginLeft: 'auto' }}
+              >
+                Login
+              </Button>
+            </Link>
+
             <Button color="primary" variant="contained">
               Get Early Access
             </Button>
