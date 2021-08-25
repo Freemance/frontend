@@ -13,6 +13,5 @@ export const useDrawerListStyle = makeStyles((theme) => ({
   },
   textstyle: {
     color: '#ffff',
-    fontFamily: 'Saira',
   },
 }));

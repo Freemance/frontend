@@ -1,5 +1,6 @@
-import React from 'react';
-import { List, ListItem, Typography, Link } from '@material-ui/core';
+import * as React from 'react';
+import { List, ListItem, Typography } from '@material-ui/core';
+import Link from 'next/link';
 // Style
 import { useDrawerListStyle } from './DrawerList.style';
 import IDrawerList from '@components/atoms/DrawerList/types';
@@ -9,11 +10,11 @@ const DrawerList = ({ text, link }: IDrawerList) => {
     <div>
       <List className={classes.drawerList}>
         <ListItem button className={classes.button}>
-          <Typography variant="h2">
-            <Link href={link} className={classes.textstyle} underline="none">
+          <Link href={link}>
+            <Typography variant="h2" className={classes.textstyle}>
               {text}
-            </Link>
-          </Typography>
+            </Typography>
+          </Link>
         </ListItem>
       </List>
     </div>
