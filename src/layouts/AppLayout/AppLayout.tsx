@@ -1,15 +1,13 @@
 import * as React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import NavBar from '@components/organisms/NavBar';
-
+import Hero from '@components/organisms/Hero';
 const AppLayout: React.FC = () => {
   return (
     <>
-      <NavBar />
       <Container maxWidth="lg">
-        <Typography variant="h6">
-          Lorem ipsum dolor sit amet, consectetur adip
-        </Typography>
+        <NavBar />
+        <Hero />
       </Container>
     </>
   );

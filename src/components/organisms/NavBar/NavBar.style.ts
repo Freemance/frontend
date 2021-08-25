@@ -12,12 +12,15 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
       display: 'block',
-      color: 'black',
+      color: theme.palette.primary.main,
       cursor: 'pointer',
       fontWeight: 'bold',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
       },
+    },
+    spantitle: {
+      color: theme.palette.error.main,
     },
   })
 );

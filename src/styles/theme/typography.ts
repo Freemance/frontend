@@ -53,14 +53,14 @@ export const typography: TypographyOptions = {
   },
   subtitle1: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.main,
+    color: palette.lightPalette.primary.light,
     fontSize: '16px',
     letterSpacing: '-0.05px',
     lineHeight: '25px',
   },
   subtitle2: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.light,
+    color: palette.lightPalette.primary.dark,
     fontWeight: 400,
     fontSize: '14px',
     letterSpacing: '-0.05px',
