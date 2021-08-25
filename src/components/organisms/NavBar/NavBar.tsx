@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import * as React from 'react';
 import {
   AppBar,
   Toolbar,
@@ -13,9 +13,9 @@ import DrawerNav from '@components/molecules/Drawer';
 // Styles
 import { useNavBarStyle } from './NavBar.style';
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   const classes = useNavBarStyle();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
