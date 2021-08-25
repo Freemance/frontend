@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Head from 'next/head';
+
 import UserLayout from '@layouts/UserLayout/index';
+import LoginCard from '@components/organisms/LoginCard';
 
 export default function Home() {
   return (
@@ -10,7 +12,9 @@ export default function Home() {
         <meta name="description" content="Freemance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <UserLayout />
+      <UserLayout>
+        <LoginCard />
+      </UserLayout>
     </React.Fragment>
   );
 }
