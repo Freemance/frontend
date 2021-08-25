@@ -25,10 +25,10 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
     outline: {
       '&:hover': { borderColor: theme.palette.error.main },
       color: theme.palette.error.main,
-      marginLeft: '10px',
+      marginLeft: '0px',
       borderColor: theme.palette.error.main,
-      [theme.breakpoints.down('md')]: {
-        marginLeft: '0px',
+      [theme.breakpoints.up(391)]: {
+        marginLeft: '10px',
       },
     },
   })
