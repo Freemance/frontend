@@ -15,7 +15,6 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
       color: 'black',
       cursor: 'pointer',
       fontWeight: 'bold',
-      fontFamily: 'Saira',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
       },

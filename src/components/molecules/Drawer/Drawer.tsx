@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Drawer, IconButton } from '@material-ui/core';
 //  Styles
 import { useDrawerStyles } from './Drawer.style';
@@ -17,7 +17,7 @@ const DrawerNav = ({ variant, open, handleDrawerClose }: IDrawer) => {
     >
       <IconButton
         onClick={() => handleDrawerClose()}
-        className={classes.buttonofclose}
+        className={classes.buttonOfClose}
       >
         <CloseIcon />
       </IconButton>

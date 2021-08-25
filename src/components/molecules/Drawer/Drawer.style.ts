@@ -11,7 +11,7 @@ export const useDrawerStyles = makeStyles((theme) => ({
     height: '100%',
     background: '#122744',
   },
-  buttonofclose: {
+  buttonOfClose: {
     display: 'flex',
     marginLeft: 'auto',
     color: '#ffff',
