@@ -3,8 +3,19 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 export const useLoginCardStyle = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
-      marginTop: '25%',
-      padding: 12,
+      padding: 32,
+      display: 'flex',
+      [theme.breakpoints.up('xs')]: {
+        height: '90vh',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      [theme.breakpoints.down('xs')]: {
+        borderRadius: '0px',
+        marginTop: '0%',
+        height: '100vh',
+        width: '100%',
+      },
     },
     form: {
       width: '100%',

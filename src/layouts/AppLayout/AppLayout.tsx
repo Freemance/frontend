@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Container, Typography } from '@material-ui/core';
 import NavBar from '@components/organisms/NavBar';
-import LoginCard from '@components/organisms/LoginCard';
+
 const AppLayout: React.FC = () => {
   return (
     <>
@@ -10,7 +10,6 @@ const AppLayout: React.FC = () => {
         <Typography variant="h6">
           Lorem ipsum dolor sit amet, consectetur adip
         </Typography>
-        <LoginCard />
       </Container>
     </>
   );
