@@ -1,7 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import {
   Button,
-  Container,
+  Card,
+  CardContent,
   Grid,
   Link,
   TextField,
@@ -10,22 +11,27 @@ import {
 
 import { useLoginCardStyle } from './LoginCard.style';
 
-const LoginCard = () => {
+const LoginCard: React.FC = () => {
   const classes = useLoginCardStyle();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h3">
+    <Card className={classes.paper}>
+      <CardContent>
+        <Typography component="h1" variant="h3" className={classes.title}>
           Sign in
         </Typography>
-        <Typography component="h1" variant="subtitle2">
+        <Typography
+          component="h2"
+          variant="subtitle2"
+          className={classes.subTitle}
+        >
           Continue to your Freemance profile
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
-            variant="filled"
+            color="primary"
             margin="normal"
+            variant="outlined"
             required
             fullWidth
             id="email"
@@ -35,8 +41,9 @@ const LoginCard = () => {
             autoFocus
           />
           <TextField
-            variant="filled"
+            color="primary"
             margin="normal"
+            variant="outlined"
             required
             fullWidth
             name="password"
@@ -49,12 +56,13 @@ const LoginCard = () => {
             className={classes.submit}
             type="submit"
             fullWidth
+            size="large"
             variant="contained"
             color="primary"
           >
             Sign In
           </Button>
-          <Grid container>
+          <Grid container spacing={4}>
             <Grid item xs>
               <Link href="#" variant="body2">
                 Forgot password?
@@ -67,8 +75,8 @@ const LoginCard = () => {
             </Grid>
           </Grid>
         </form>
-      </div>
-    </Container>
+      </CardContent>
+    </Card>
   );
 };
 

@@ -12,8 +12,23 @@ export default class MyDocument extends Document {
             name="theme-color"
             content={theme.lightTheme.palette.primary.main}
           />
+
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Saira:wght@100&display=swap"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Saira:wght@700&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Saira:ital@0;1&display=swap"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,400;0,500;1,400&display=swap"
             rel="stylesheet"
           />
         </Head>
