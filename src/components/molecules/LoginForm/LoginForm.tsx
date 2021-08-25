@@ -1,11 +1,9 @@
 import React from 'react';
-import { Button, Grid, Link, TextField } from '@material-ui/core';
+import { Grid, Link, TextField } from '@material-ui/core';
 
-import { useLoginFormStyle } from './LoginForm.style';
+import SubmitButton from '@components/atoms/SubmitButton';
 
 const LoginForm = () => {
-  const classes = useLoginFormStyle();
-
   return (
     <>
       <TextField
@@ -32,16 +30,7 @@ const LoginForm = () => {
         id="password"
         autoComplete="current-password"
       />
-      <Button
-        className={classes.submit}
-        type="submit"
-        fullWidth
-        size="large"
-        variant="contained"
-        color="primary"
-      >
-        Sign In
-      </Button>
+      <SubmitButton label="Sign In" />
       <Grid container spacing={4}>
         <Grid item xs>
           <Link href="#" variant="body2">
