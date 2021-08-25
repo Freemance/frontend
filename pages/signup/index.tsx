@@ -1,6 +1,9 @@
 import * as React from 'react';
 import Head from 'next/head';
+
 import UserLayout from '@layouts/UserLayout/index';
+import FormCard from '@components/organisms/FormCard';
+import SignUpForm from '@components/molecules/SignUpForm';
 
 export default function SignUp() {
   return (
@@ -10,7 +13,14 @@ export default function SignUp() {
         <meta name="description" content="Freemance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <UserLayout />
+      <UserLayout>
+        <FormCard
+          title="Get early access"
+          subtitle="Create your Freemance profile"
+        >
+          <SignUpForm />
+        </FormCard>
+      </UserLayout>
     </React.Fragment>
   );
 }
