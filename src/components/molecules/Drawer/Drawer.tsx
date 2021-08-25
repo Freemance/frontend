@@ -4,16 +4,21 @@ import { Drawer, IconButton } from '@material-ui/core';
 import { useDrawerStyles } from './Drawer.style';
 import DrawerList from '@components/atoms/DrawerList';
 import CloseIcon from '@material-ui/icons/Close';
+import IDrawer from './types';
 
-const DrawerNav = () => {
+const DrawerNav = ({ variant, open, handleDrawerClose }: IDrawer) => {
   const classes = useDrawerStyles();
   return (
     <Drawer
       className={classes.drawer}
-      variant="permanent"
+      variant={variant}
+      open={open}
       classes={{ paper: classes.drawerPaper }}
     >
-      <IconButton className={classes.buttonofclose}>
+      <IconButton
+        onClick={() => handleDrawerClose()}
+        className={classes.buttonofclose}
+      >
         <CloseIcon />
       </IconButton>
       <DrawerList text="Sign In" link="login" />

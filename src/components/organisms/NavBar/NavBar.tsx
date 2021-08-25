@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -15,10 +15,24 @@ import { useNavBarStyle } from './NavBar.style';
 
 const NavBar = () => {
   const classes = useNavBarStyle();
+  const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className={classes.root}>
-      {/* <DrawerNav /> */}
+      <Hidden smUp>
+        <DrawerNav
+          variant="persistent"
+          open={open}
+          handleDrawerClose={handleDrawerClose}
+        />
+      </Hidden>
       <AppBar
         style={{ background: 'transparent', boxShadow: 'none' }}
         position="static"
@@ -41,7 +55,11 @@ const NavBar = () => {
             </Button>
           </Hidden>
           <Hidden smUp>
-            <IconButton edge="start" className={classes.menuButton}>
+            <IconButton
+              onClick={() => handleDrawerOpen()}
+              edge="start"
+              className={classes.menuButton}
+            >
               <MenuIcon />
             </IconButton>
           </Hidden>
