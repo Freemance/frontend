@@ -5,7 +5,7 @@ const FontFamily = 'Saira';
 export const typography: TypographyOptions = {
   h1: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.dark,
+    color: palette.lightPalette.primary.main,
     fontWeight: 500,
     fontSize: '35px',
     letterSpacing: '-0.24px',
@@ -13,7 +13,7 @@ export const typography: TypographyOptions = {
   },
   h2: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.dark,
+    color: palette.lightPalette.primary.main,
     fontWeight: 500,
     fontSize: '29px',
     letterSpacing: '-0.24px',
@@ -21,7 +21,7 @@ export const typography: TypographyOptions = {
   },
   h3: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.dark,
+    color: palette.lightPalette.primary.main,
     fontWeight: 500,
     fontSize: '24px',
     letterSpacing: '-0.06px',
@@ -29,7 +29,7 @@ export const typography: TypographyOptions = {
   },
   h4: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.dark,
+    color: palette.lightPalette.primary.main,
     fontWeight: 500,
     fontSize: '20px',
     letterSpacing: '-0.06px',
@@ -37,7 +37,7 @@ export const typography: TypographyOptions = {
   },
   h5: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.dark,
+    color: palette.lightPalette.primary.main,
     fontWeight: 500,
     fontSize: '16px',
     letterSpacing: '-0.05px',
@@ -45,7 +45,7 @@ export const typography: TypographyOptions = {
   },
   h6: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.dark,
+    color: palette.lightPalette.primary.main,
     fontWeight: 500,
     fontSize: '14px',
     letterSpacing: '-0.05px',
@@ -53,7 +53,7 @@ export const typography: TypographyOptions = {
   },
   subtitle1: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.dark,
+    color: palette.lightPalette.primary.main,
     fontSize: '16px',
     letterSpacing: '-0.05px',
     lineHeight: '25px',
