@@ -39,7 +39,7 @@ const Hero = () => {
           variant="outlined"
           size="large"
           className={classes.outline}
-          style={{ marginTop: '20px', marginLeft: '10px' }}
+          style={{ marginTop: '20px' }}
         >
           Become Freemancer
         </Button>
