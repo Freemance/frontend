@@ -1,11 +1,8 @@
 import * as React from 'react';
 import Head from 'next/head';
-
 import UserLayout from '@layouts/UserLayout/index';
-import FormCard from '@components/organisms/FormCard';
-import LoginForm from '@components/molecules/LoginForm';
 
-export default function Home() {
+export default function SignUp() {
   return (
     <React.Fragment>
       <Head>
@@ -13,11 +10,7 @@ export default function Home() {
         <meta name="description" content="Freemance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <UserLayout>
-        <FormCard title="Sign in" subtitle="Continue to your Freemance profile">
-          <LoginForm />
-        </FormCard>
-      </UserLayout>
+      <UserLayout />
     </React.Fragment>
   );
 }
