@@ -8,7 +8,7 @@ const ProfileLayout = ({ children }: IProfileLayout) => {
   const classes = useProfileLayoutStyle();
 
   return (
-    <Container className={classes.contain} maxWidth="lg">
+    <Container className={classes.contain} maxWidth="md">
       {children}
     </Container>
   );
