@@ -3,9 +3,9 @@ import Head from 'next/head';
 
 import UserLayout from '@layouts/UserLayout/index';
 import FormCard from '@components/organisms/FormCard';
-import LoginForm from '@components/molecules/LoginForm';
+import SignUpForm from '@components/molecules/SignUpForm';
 
-export default function Home() {
+export default function SignUp() {
   return (
     <React.Fragment>
       <Head>
@@ -14,8 +14,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <UserLayout>
-        <FormCard title="Sign in" subtitle="Continue to your Freemance profile">
-          <LoginForm />
+        <FormCard
+          title="Get early access"
+          subtitle="Create your Freemance profile"
+        >
+          <SignUpForm />
         </FormCard>
       </UserLayout>
     </React.Fragment>

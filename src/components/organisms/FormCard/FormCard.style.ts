@@ -1,6 +1,6 @@
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
-export const useLoginCardStyle = makeStyles((theme: Theme) =>
+export const useFormCardStyle = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
       padding: 32,
