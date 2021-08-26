@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 
 import ProfileLayout from '@layouts/ProfileLayout';
+import ProfileHeader from '@components/organisms/ProfileHeader';
 
 export default function Profile() {
   return (
@@ -11,7 +12,9 @@ export default function Profile() {
         <meta name="description" content="Freemance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ProfileLayout />
+      <ProfileLayout>
+        <ProfileHeader />
+      </ProfileLayout>
     </React.Fragment>
   );
 }
