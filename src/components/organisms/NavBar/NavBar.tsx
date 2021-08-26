@@ -35,13 +35,13 @@ const NavBar: React.FC = () => {
       </Hidden>
       <AppBar
         style={{ background: 'transparent', boxShadow: 'none' }}
-        position="static"
+        position="relative"
       >
-        <Toolbar>
-          <div>
+        <Toolbar disableGutters={true}>
+          <div className="hello">
             <Link href="/">
-              <Typography className={classes.title} variant="h3">
-                Freemance
+              <Typography className={classes.title} variant="h2">
+                Free<span className={classes.spantitle}>mance</span>
               </Typography>
             </Link>
           </div>
