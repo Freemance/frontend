@@ -22,7 +22,7 @@ const DrawerNav = ({ variant, open, handleDrawerClose }: IDrawer) => {
         <CloseIcon />
       </IconButton>
       <DrawerList text="Sign In" link="login" />
-      <DrawerList text="Get Early Access" link="register" />
+      <DrawerList text="Get Early Access" link="signup" />
     </Drawer>
   );
 };
