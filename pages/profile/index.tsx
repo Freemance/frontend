@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import ProfileLayout from '@layouts/ProfileLayout';
 import ProfileHeader from '@components/organisms/ProfileHeader';
+import ProfileBody from '@components/organisms/ProfileBody';
 
 export default function Profile() {
   return (
@@ -14,6 +15,7 @@ export default function Profile() {
       </Head>
       <ProfileLayout>
         <ProfileHeader />
+        <ProfileBody />
       </ProfileLayout>
     </React.Fragment>
   );
