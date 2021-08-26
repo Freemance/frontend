@@ -54,10 +54,11 @@ const NavBar: React.FC = () => {
                 Login
               </Button>
             </Link>
-
-            <Button color="primary" variant="contained">
-              Get Early Access
-            </Button>
+            <Link href="/signup">
+              <Button color="primary" variant="contained">
+                Get Early Access
+              </Button>
+            </Link>
           </Hidden>
           <Hidden smUp>
             <IconButton
