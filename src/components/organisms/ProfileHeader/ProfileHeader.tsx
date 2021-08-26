@@ -1,19 +1,17 @@
 import React from 'react';
-import { Avatar, Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
-import { useProfileHeaderStyle } from './ProfileHeader.style';
+import ProfileAvatar from '@components/molecules/ProfileAvatar';
+import ProfileInfo from '@components/molecules/ProfileInfo';
 
 const ProfileHeader = () => {
-  const classes = useProfileHeaderStyle();
-
   return (
-    <Grid container spacing={3}>
-      <Grid item xs={3}>
-        <Avatar className={classes.avatar}>
-          <Typography className={classes.avatarText} variant="h1">
-            F
-          </Typography>
-        </Avatar>
+    <Grid container spacing={3} justifyContent="center" alignItems="flex-start">
+      <Grid item md={3}>
+        <ProfileAvatar />
+      </Grid>
+      <Grid item md={9}>
+        <ProfileInfo />
       </Grid>
     </Grid>
   );
