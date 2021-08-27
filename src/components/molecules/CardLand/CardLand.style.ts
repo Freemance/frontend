@@ -24,6 +24,7 @@ export const useCardLandStyles = makeStyles((theme: Theme) => ({
     },
   },
   imagen: {
+    background: theme.palette.error.main,
     margin: 'auto',
     width: '60px',
     height: '60px',
