@@ -1,19 +1,18 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 
-export const useDrawerStyles = makeStyles((theme) => ({
+export const useDrawerStyles = makeStyles((theme: Theme) => ({
   drawer: {
     width: '100%',
     height: '100%',
-    flexShrink: 0,
   },
   drawerPaper: {
     width: '100%',
     height: '100%',
-    background: '#122744',
+    background: theme.palette.secondary.dark,
   },
   buttonOfClose: {
     display: 'flex',
     marginLeft: 'auto',
-    color: '#ffff',
+    color: theme.palette.primary.contrastText,
   },
 }));
