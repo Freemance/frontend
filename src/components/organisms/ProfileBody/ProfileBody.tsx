@@ -9,7 +9,7 @@ const ProfileBody = () => {
   return (
     <div className={classes.contain}>
       <Divider />
-      <Tabs value={0}>
+      <Tabs value={0} variant="scrollable">
         <Tab value={0} label="Projects" />
         <Tab label="Experience" />
         <Tab label="Education" />
