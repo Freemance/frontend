@@ -6,7 +6,7 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
       flexGrow: 1,
       display: 'flex',
       [theme.breakpoints.down('sm')]: {
-        marginTop: '50%',
+        marginTop: '20%',
         textAlign: 'center',
         alignItems: 'center',
         justifyContent: 'center',
