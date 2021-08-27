@@ -5,7 +5,10 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
       marginTop: '10%',
       flexGrow: 1,
       display: 'flex',
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
+        marginTop: '10%',
+      },
+      [theme.breakpoints.down('xs')]: {
         marginTop: '20%',
         textAlign: 'center',
         alignItems: 'center',
