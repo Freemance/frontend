@@ -10,12 +10,16 @@ export const useCardLandStyles = makeStyles((theme: Theme) => ({
       '& .titlecard': {
         color: theme.palette.primary.contrastText,
       },
+      '& .imagen': {
+        boxShadow:
+          'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
+      },
     },
     width: '100%',
     height: 'auto',
     textAlign: 'center',
     marginBottom: '10%',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('lg')]: {
       width: 'auto',
     },
   },
@@ -26,6 +30,6 @@ export const useCardLandStyles = makeStyles((theme: Theme) => ({
     boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
   },
   titlecard: {
-    marginTop: '20px',
+    marginTop: '18%',
   },
 }));

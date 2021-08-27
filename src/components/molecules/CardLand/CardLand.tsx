@@ -9,7 +9,7 @@ const CardLand = ({ image, text }: ICard) => {
   return (
     <Card className={classes.paper}>
       <CardContent>
-        <Avatar className={classes.imagen} src={image} />
+        <Avatar className={clsx(classes.imagen, 'imagen')}>{image}</Avatar>
         <Typography
           variant="h5"
           className={clsx(classes.titlecard, 'titlecard')}

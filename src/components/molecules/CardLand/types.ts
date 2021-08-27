@@ -1,4 +1,4 @@
 export default interface ICardLand {
-  image: string;
+  image: React.ReactNode;
   text: string;
 }
