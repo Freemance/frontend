@@ -31,5 +31,23 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
         marginLeft: '10px',
       },
     },
+    mockup: {
+      alignItems: 'center',
+      alignSelf: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      height: '90vh',
+      marginTop: '-120px',
+      [theme.breakpoints.down('md')]: {
+        width: '100%',
+        marginLeft: 'auto',
+        marginTop: '20px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        width: '100%',
+        marginLeft: 'auto',
+        height: 'auto',
+      },
+    },
   })
 );

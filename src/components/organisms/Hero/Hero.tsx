@@ -44,7 +44,9 @@ const Hero = () => {
           Become Freemancer
         </Button>
       </Grid>
-      <Grid item xs={12} lg={8}></Grid>
+      <Grid item xs={12} lg={8} md={12} xl={8} sm={12}>
+        <img src="/mockup.svg" className={classes.mockup} />
+      </Grid>
     </Grid>
   );
 };

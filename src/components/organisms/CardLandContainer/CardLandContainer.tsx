@@ -27,7 +27,11 @@ const CardLandContainer = () => {
         />
       </Grid>
       <Grid item xs={12} lg={3} sm={6}>
-        <CardLand image={<Portfolio />} text="Work from home" />
+        <CardLand
+          image={<Portfolio />}
+          text="Work from home"
+          backgroundColor="#ea5455"
+        />
       </Grid>
       <Grid item xs={12} lg={3} sm={6}>
         <CardLand
