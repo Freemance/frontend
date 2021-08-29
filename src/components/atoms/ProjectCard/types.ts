@@ -1,1 +1,4 @@
-export default interface IProjectCard {}
+export default interface IProjectCard {
+  title: string;
+  imageUrl: string;
+}
