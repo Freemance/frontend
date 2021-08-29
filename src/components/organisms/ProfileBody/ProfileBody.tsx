@@ -3,6 +3,7 @@ import { Divider, Tab, Tabs } from '@material-ui/core';
 
 import { useProfileBodyStyle } from './ProfileBody.style';
 import ProfileTab from '@components/molecules/ProfileTab';
+import ProjectCard from '@components/atoms/ProjectCard';
 
 const ProfileBody = () => {
   const classes = useProfileBodyStyle();
@@ -24,7 +25,18 @@ const ProfileBody = () => {
       </Tabs>
       <Divider />
       <ProfileTab value={currentTab} index={0}>
-        Projects
+        <ProjectCard
+          title="Project One"
+          imageUrl="/static/images/sample_image_1.jpg"
+        />
+        <ProjectCard
+          title="Project Two"
+          imageUrl="/static/images/sample_image_2.jpg"
+        />
+        <ProjectCard
+          title="Project Three"
+          imageUrl="/static/images/sample_image_3.jpg"
+        />
       </ProfileTab>
       <ProfileTab value={currentTab} index={1}>
         Experience

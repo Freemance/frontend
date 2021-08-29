@@ -15,7 +15,7 @@ const ProjectCard = ({ title, imageUrl }: IProjectCard) => {
   const classes = useProjectCardStyle();
 
   return (
-    <Grid item>
+    <Grid item xs={12} sm={4} md={3}>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia className={classes.media} image={imageUrl} />

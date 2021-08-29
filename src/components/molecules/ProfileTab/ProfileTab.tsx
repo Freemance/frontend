@@ -1,15 +1,18 @@
 import React from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 import IProfileTab from './types';
+import { useProfileTabStyle } from './ProfileTab.style';
 
 const ProfileTab = ({ children, value, index }: IProfileTab) => {
+  const classes = useProfileTabStyle();
+
   return (
     <div role="tabpanel" hidden={value !== index} id={`${index}`}>
       {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
+        <Grid className={classes.container} container spacing={3}>
+          {children}
+        </Grid>
       )}
     </div>
   );
