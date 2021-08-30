@@ -2,8 +2,11 @@ import React from 'react';
 import FMCardItem from '@components/atoms/FMCardItem/index';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+// Style
+import { useSliderFMProfileStyle } from './SliderFMProfiles.style';
 
 const SliderFMProfiles = () => {
+  const classes = useSliderFMProfileStyle();
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -67,6 +70,7 @@ const SliderFMProfiles = () => {
       removeArrowOnDeviceType={['tablet', 'mobile']}
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px"
+      className={classes.carousel}
     >
       {items.map((item, i) => (
         <div key={i}>
