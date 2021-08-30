@@ -76,10 +76,10 @@ const ProfileBody = () => {
         />
       </ProfileTab>
       <ProfileTab value={currentTab} index={1}>
-        <ProfileTimeline icon={<SchoolIcon />} items={sampleJobItems} />
+        <ProfileTimeline icon={<WorkIcon />} items={sampleJobItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={2}>
-        <ProfileTimeline icon={<WorkIcon />} items={sampleEducationItems} />
+        <ProfileTimeline icon={<SchoolIcon />} items={sampleEducationItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={3}>
         Skills
