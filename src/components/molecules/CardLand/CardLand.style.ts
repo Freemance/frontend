@@ -44,7 +44,8 @@ export const useCardLandStyles = makeStyles((theme: Theme) => ({
     margin: 'auto',
     width: '60px',
     height: '60px',
-    boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
+    boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+    background: theme.palette.primary.main,
   },
   titlecard: {
     marginTop: '10px',

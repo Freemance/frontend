@@ -70,7 +70,12 @@ const SliderFMProfiles = () => {
     >
       {items.map((item, i) => (
         <div key={i}>
-          <FMCardItem key={i} name={item.name} skills={item.description} />
+          <FMCardItem
+            key={i}
+            avatar="https://avatars.githubusercontent.com/u/65286318?v=4"
+            name={item.name}
+            skills={item.description}
+          />
         </div>
       ))}
     </Carousel>

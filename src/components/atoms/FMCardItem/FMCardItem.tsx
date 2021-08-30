@@ -10,15 +10,24 @@ import {
 // Types
 import IFMCardItem from './types';
 import { useFMCardItem } from './FMCardItem.style';
-const FMCardItem = ({ name, skills, info, avatar }: IFMCardItem) => {
+const FMCardItem = ({ name, skills, avatar }: IFMCardItem) => {
   const classes = useFMCardItem();
   return (
     <Container maxWidth="lg">
       <Card className={classes.root}>
         <CardContent>
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            {avatar ? avatar : 'F'}
-          </Avatar>
+          {avatar ? (
+            <Avatar
+              aria-label="recipe"
+              src={avatar}
+              className={classes.avatar}
+            />
+          ) : (
+            <Avatar aria-label="recipe" className={classes.avatar}>
+              F
+            </Avatar>
+          )}
+
           <Typography variant="h5" className={classes.titlecard}>
             {name}
           </Typography>
