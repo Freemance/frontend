@@ -4,6 +4,8 @@ import { Divider, Tab, Tabs } from '@material-ui/core';
 import { useProfileBodyStyle } from './ProfileBody.style';
 import ProfileTab from '@components/molecules/ProfileTab';
 import ProjectCard from '@components/atoms/ProjectCard';
+import ProfileTimeline from '@components/molecules/ProfileTimeline';
+import { IProfileTimelineItem } from '@components/molecules/ProfileTimeline/types';
 
 const ProfileBody = () => {
   const classes = useProfileBodyStyle();
@@ -13,6 +15,40 @@ const ProfileBody = () => {
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setCurrentTab(newValue);
   };
+
+  const sampleEducationItems: IProfileTimelineItem[] = [
+    {
+      id: 1,
+      name: 'Massachusetts Institute of Technology',
+      description: 'Software Engineering Degree',
+      startDate: '2008',
+      endDate: '2012',
+    },
+    {
+      id: 2,
+      name: 'Harvard University',
+      description: 'Computer Science',
+      startDate: '2012',
+      endDate: '2014',
+    },
+  ];
+
+  const sampleJobItems: IProfileTimelineItem[] = [
+    {
+      id: 1,
+      name: 'Facebook',
+      description: 'Frontend Developer',
+      startDate: '2014',
+      endDate: '2018',
+    },
+    {
+      id: 2,
+      name: 'Google',
+      description: 'Fullstack Developer',
+      startDate: '2018',
+      endDate: 'Now',
+    },
+  ];
 
   return (
     <div className={classes.contain}>
@@ -39,10 +75,10 @@ const ProfileBody = () => {
         />
       </ProfileTab>
       <ProfileTab value={currentTab} index={1}>
-        Experience
+        <ProfileTimeline items={sampleJobItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={2}>
-        Education
+        <ProfileTimeline items={sampleEducationItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={3}>
         Skills
