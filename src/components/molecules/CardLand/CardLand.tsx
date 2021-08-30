@@ -4,13 +4,13 @@ import { useCardLandStyles } from './CardLand.style';
 import ICard from './types';
 import clsx from 'clsx';
 
-const CardLand = ({ image, text, backgroundColor }: ICard) => {
+const CardLand = ({ image, title, text, backgroundColor }: ICard) => {
   const classes = useCardLandStyles();
   return (
     <Card className={classes.paper}>
       <CardContent>
         <Avatar
-          className={clsx(classes.imagen, 'imagen')}
+          className={clsx(classes.icono, 'icono')}
           style={{ background: `${backgroundColor}` }}
         >
           {image}
@@ -18,6 +18,13 @@ const CardLand = ({ image, text, backgroundColor }: ICard) => {
         <Typography
           variant="h5"
           className={clsx(classes.titlecard, 'titlecard')}
+        >
+          {title}
+        </Typography>
+        <Typography
+          paragraph
+          variant="subtitle2"
+          className={clsx(classes.descriptioncard, 'descriptioncard')}
         >
           {text}
         </Typography>
