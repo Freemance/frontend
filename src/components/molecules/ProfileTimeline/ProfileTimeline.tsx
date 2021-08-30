@@ -22,7 +22,7 @@ const ProfileTimeline = ({ items }: IProfileTimeline) => {
       {items.map((item, index) => (
         <TimelineItem key={index}>
           <TimelineOppositeContent>
-            <Paper className={classes.paper} elevation={3}>
+            <Paper className={classes.paper} elevation={1}>
               <Typography variant="h6" component="h1">
                 {item.name}
               </Typography>
