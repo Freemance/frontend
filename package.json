@@ -20,6 +20,7 @@
     "@apollo/client": "^3.4.8",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
     "graphql": "^15.5.1",
     "next": "11.1.0",
     "notistack": "^1.0.10",
@@ -41,8 +42,8 @@
     "eslint-config-next": "11.1.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
+    "husky": "^7.0.0",
     "prettier": "^2.3.2",
-    "typescript": "^4.3.5",
-    "husky": "^7.0.0"
+    "typescript": "^4.3.5"
   }
 }
