@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Typography } from '@material-ui/core';
+import { Paper, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 import {
   Timeline,
   TimelineConnector,
@@ -16,25 +16,31 @@ import { IProfileTimeline } from './types';
 const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
   const classes = useProfileTimelineStyle();
 
+  const theme = useTheme();
+  const isSm = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <Timeline align="alternate">
+    <Timeline align={isSm ? 'right' : 'alternate'}>
       {items.map((item, index) => (
         <TimelineItem key={index}>
           <TimelineOppositeContent>
             <Paper className={classes.paper} elevation={1}>
-              <Typography variant="h6" component="h1">
-                {item.name}
-              </Typography>
-              <Typography>{item.description}</Typography>
+              <Typography variant="h5">{item.name}</Typography>
+              <Typography variant="subtitle1">{item.description}</Typography>
+              {isSm && (
+                <Typography variant="subtitle2">{`${item.startDate} - ${item.endDate}`}</Typography>
+              )}
             </Paper>
           </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot color="primary">{icon}</TimelineDot>
             {!(index == items.length - 1) && <TimelineConnector />}
           </TimelineSeparator>
-          <TimelineContent>
-            <Typography>{`${item.startDate} - ${item.endDate}`}</Typography>
-          </TimelineContent>
+          {!isSm && (
+            <TimelineContent>
+              <Typography>{`${item.startDate} - ${item.endDate}`}</Typography>
+            </TimelineContent>
+          )}
         </TimelineItem>
       ))}
     </Timeline>
