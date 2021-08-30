@@ -1,4 +1,4 @@
-import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import { Theme, makeStyles } from '@material-ui/core/styles';
 
 export const useDescriptionStyles = makeStyles((theme: Theme) => ({
   descriptionsection: {
