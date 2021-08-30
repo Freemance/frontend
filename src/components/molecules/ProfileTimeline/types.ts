@@ -1,4 +1,7 @@
+import { ReactElement } from 'react';
+
 export interface IProfileTimeline {
+  icon: ReactElement;
   items: IProfileTimelineItem[];
 }
 

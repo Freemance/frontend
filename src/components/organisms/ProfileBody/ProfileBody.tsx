@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Divider, Tab, Tabs } from '@material-ui/core';
+import { School as SchoolIcon, Work as WorkIcon } from '@material-ui/icons';
 
 import { useProfileBodyStyle } from './ProfileBody.style';
 import ProfileTab from '@components/molecules/ProfileTab';
@@ -75,10 +76,10 @@ const ProfileBody = () => {
         />
       </ProfileTab>
       <ProfileTab value={currentTab} index={1}>
-        <ProfileTimeline items={sampleJobItems} />
+        <ProfileTimeline icon={<SchoolIcon />} items={sampleJobItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={2}>
-        <ProfileTimeline items={sampleEducationItems} />
+        <ProfileTimeline icon={<WorkIcon />} items={sampleEducationItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={3}>
         Skills

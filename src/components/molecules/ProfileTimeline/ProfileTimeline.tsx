@@ -9,12 +9,11 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from '@material-ui/lab';
-import { School as SchoolIcon } from '@material-ui/icons';
 
 import { useProfileTimelineStyle } from './ProfileTimeline.style';
 import { IProfileTimeline } from './types';
 
-const ProfileTimeline = ({ items }: IProfileTimeline) => {
+const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
   const classes = useProfileTimelineStyle();
 
   return (
@@ -30,9 +29,7 @@ const ProfileTimeline = ({ items }: IProfileTimeline) => {
             </Paper>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot color="primary">
-              <SchoolIcon />
-            </TimelineDot>
+            <TimelineDot color="primary">{icon}</TimelineDot>
             {!(index == items.length - 1) && <TimelineConnector />}
           </TimelineSeparator>
           <TimelineContent>
