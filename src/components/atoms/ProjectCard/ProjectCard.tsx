@@ -1,9 +1,9 @@
 import React from 'react';
+import Image from 'next/image';
 import {
   Card,
   CardActionArea,
   CardContent,
-  CardMedia,
   Grid,
   Typography,
 } from '@material-ui/core';
@@ -18,7 +18,7 @@ const ProjectCard = ({ title, imageUrl }: IProjectCard) => {
     <Grid item xs={12} sm={4} md={3}>
       <Card className={classes.root}>
         <CardActionArea>
-          <CardMedia className={classes.media} image={imageUrl} />
+          <Image width={200} height={180} layout="responsive" src={imageUrl} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {title}
