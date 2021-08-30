@@ -5,5 +5,11 @@ export const useProfileInfoStyle = makeStyles((theme: Theme) =>
     contain: {
       paddingTop: theme.spacing(3),
     },
+    nameBox: {
+      flexDirection: 'column',
+      [theme.breakpoints.down('sm')]: {
+        alignItems: 'center',
+      },
+    },
   })
 );
