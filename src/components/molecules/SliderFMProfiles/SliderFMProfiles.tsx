@@ -78,6 +78,7 @@ const SliderFMProfiles = () => {
             key={i}
             avatar="https://avatars.githubusercontent.com/u/65286318?v=4"
             name={item.name}
+            job="Frontend Developer"
             skills={item.description}
           />
         </div>

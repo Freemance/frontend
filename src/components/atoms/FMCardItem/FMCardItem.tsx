@@ -10,7 +10,7 @@ import {
 // Types
 import IFMCardItem from './types';
 import { useFMCardItem } from './FMCardItem.style';
-const FMCardItem = ({ name, skills, avatar }: IFMCardItem) => {
+const FMCardItem = ({ name, skills, avatar, job }: IFMCardItem) => {
   const classes = useFMCardItem();
   return (
     <Container maxWidth="lg">
@@ -27,18 +27,28 @@ const FMCardItem = ({ name, skills, avatar }: IFMCardItem) => {
               F
             </Avatar>
           )}
-
           <Typography variant="h5" className={classes.titlecard}>
             {name}
           </Typography>
-          {skills.map((skill) => (
-            <div key={skill} className={classes.tags}>
-              <Chip
-                label={<Typography variant="subtitle2">{skill}</Typography>}
-                className={classes.tag}
-              />
-            </div>
-          ))}
+          {job ? (
+            <Typography variant="subtitle2" className={classes.job}>
+              {job}
+            </Typography>
+          ) : (
+            <Typography variant="subtitle2" className={classes.job}>
+              Dont position defined
+            </Typography>
+          )}
+          <div className={classes.tagcontainer}>
+            {skills.map((skill) => (
+              <div key={skill} className={classes.tags}>
+                <Chip
+                  label={<Typography variant="subtitle2">{skill}</Typography>}
+                  className={classes.tag}
+                />
+              </div>
+            ))}
+          </div>
         </CardContent>
       </Card>
     </Container>
