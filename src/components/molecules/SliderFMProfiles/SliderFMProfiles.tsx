@@ -32,6 +32,7 @@ const SliderFMProfiles = () => {
     {
       name: 'Random Name #2',
       description: ['VUE', 'CSS'],
+      avatar: 'https://avatars.githubusercontent.com/u/65286318?v=4',
     },
     {
       name: 'Random Name #2',
@@ -48,6 +49,7 @@ const SliderFMProfiles = () => {
     {
       name: 'Random Name #2',
       description: ['R', 'CSS'],
+      avtar: 'https://avatars.githubusercontent.com/u/65286318?v=4',
     },
     {
       name: 'Random Name #2',
@@ -76,7 +78,7 @@ const SliderFMProfiles = () => {
         <div key={i}>
           <FMCardItem
             key={i}
-            avatar="https://avatars.githubusercontent.com/u/65286318?v=4"
+            avatar={item.avatar}
             name={item.name}
             job="Frontend Developer"
             skills={item.description}

@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Typography,
   Card,
-  Avatar,
   CardContent,
   Chip,
   Container,
@@ -17,17 +16,11 @@ const FMCardItem = ({ name, skills, avatar, job }: IFMCardItem) => {
       <Card className={classes.root}>
         <CardContent>
           {avatar ? (
-            <Avatar
-              aria-label="recipe"
-              src={avatar}
-              className={classes.avatar}
-            />
+            <img aria-label="recipe" src={avatar} className={classes.avatar} />
           ) : (
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              F
-            </Avatar>
+            <img className={classes.noavatar} src="/usernoexist.svg"></img>
           )}
-          <Typography variant="h5" className={classes.titlecard}>
+          <Typography variant="h4" className={classes.titlecard}>
             {name}
           </Typography>
           {job ? (

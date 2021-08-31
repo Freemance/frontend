@@ -2,6 +2,7 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 export const useFMCardItem = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      border: 'none',
       width: '50vh',
       justifyContent: 'center',
       flexDirection: 'row',
@@ -10,13 +11,24 @@ export const useFMCardItem = makeStyles((theme: Theme) =>
         width: 'auto',
         marginLeft: '0px',
       },
+      background: theme.palette.background.default,
     },
     avatar: {
-      backgroundColor: theme.palette.primary.main,
+      display: 'flex',
+      justifyContent: 'center',
       margin: 'auto',
-      width: '60px',
-      height: '60px',
+      borderRadius: '10px',
+      width: '70%',
+      height: '70%',
       boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
+    },
+    noavatar: {
+      display: 'flex',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      borderRadius: '10px',
+      width: '70%',
+      height: '70%',
     },
     tags: {
       display: 'flex',
@@ -24,7 +36,7 @@ export const useFMCardItem = makeStyles((theme: Theme) =>
     titlecard: {
       display: 'flex',
       justifyContent: 'center',
-      marginTop: '10px',
+      marginTop: '20px',
     },
     job: {
       justifyContent: 'center',
@@ -34,8 +46,12 @@ export const useFMCardItem = makeStyles((theme: Theme) =>
     tag: {
       marginLeft: '4px',
       backgroundColor: 'transparent',
-      border: '1px solid gray',
+      cursor: 'pointer',
       borderRadius: '10px',
+      '& :hover': {
+        background: theme.palette.error.main,
+        borderRadius: '6px',
+      },
     },
     tagcontainer: {
       display: 'flex',
