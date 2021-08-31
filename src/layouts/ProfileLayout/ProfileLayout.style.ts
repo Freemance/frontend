@@ -6,5 +6,10 @@ export const useProfileLayoutStyle = makeStyles((theme: Theme) =>
       paddingLeft: theme.spacing(5),
       paddingRight: theme.spacing(5),
     },
+    containEdit: {
+      paddingTop: theme.spacing(10),
+      paddingLeft: theme.spacing(5),
+      paddingRight: theme.spacing(5),
+    },
   })
 );

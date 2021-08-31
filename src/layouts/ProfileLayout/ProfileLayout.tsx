@@ -5,6 +5,7 @@ import { useProfileLayoutStyle } from './ProfileLayout.style';
 import { ProfileContext } from './ProfileLayout.context';
 import ProfileHeader from '@components/organisms/ProfileHeader';
 import ProfileBody from '@components/organisms/ProfileBody';
+import ProfileEditBar from '@components/molecules/ProfileEditBar';
 
 const ProfileLayout = () => {
   const classes = useProfileLayoutStyle();
@@ -13,7 +14,11 @@ const ProfileLayout = () => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
 
   return (
-    <Container className={classes.contain} maxWidth="md">
+    <Container
+      className={isEdit ? classes.containEdit : classes.contain}
+      maxWidth="md"
+    >
+      {isEdit && <ProfileEditBar />}
       <ProfileContext.Provider value={{ isUser, isEdit, setIsEdit }}>
         <ProfileHeader />
         <ProfileBody />
