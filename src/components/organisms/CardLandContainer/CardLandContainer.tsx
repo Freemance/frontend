@@ -47,7 +47,7 @@ const CardLandContainer = () => {
         <CardLand
           image={<Contact />}
           title="Contact with your clients"
-          backgroundColor="#FFF"
+          backgroundColor="#ffc145"
           text="FOR NOW, the client can contact you through the email you provide when setting up your profile"
         />
       </Grid>

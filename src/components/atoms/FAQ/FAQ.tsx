@@ -13,11 +13,7 @@ export default function FAQ({ question, answer }: IFAQ) {
         marginBottom: '10px',
       }}
     >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <Typography variant="h5">{question} ?</Typography>
       </AccordionSummary>
       <AccordionDetails>
