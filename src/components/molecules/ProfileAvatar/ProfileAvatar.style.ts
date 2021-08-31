@@ -10,5 +10,12 @@ export const useProfileAvatarStyle = makeStyles((theme: Theme) =>
     avatarText: {
       color: theme.palette.primary.contrastText,
     },
+    avatarButton: {
+      backgroundColor: theme.palette.primary.dark,
+      color: theme.palette.primary.contrastText,
+      '&:hover': {
+        backgroundColor: theme.palette.primary.dark,
+      },
+    },
   })
 );
