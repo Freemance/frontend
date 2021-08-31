@@ -10,7 +10,12 @@ const ProfileTab = ({ children, value, index }: IProfileTab) => {
   return (
     <div role="tabpanel" hidden={value !== index} id={`${index}`}>
       {value === index && (
-        <Grid className={classes.container} container spacing={3}>
+        <Grid
+          className={classes.container}
+          alignItems="stretch"
+          container
+          spacing={3}
+        >
           {children}
         </Grid>
       )}
