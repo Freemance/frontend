@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, IconButton } from '@material-ui/core';
+import { Fab, Grid, IconButton } from '@material-ui/core';
 import {
   Call as CallIcon,
   Description as DescriptionIcon,
@@ -23,12 +23,14 @@ const ProfileHeader = () => {
         {!isEdit && (
           <div className={classes.buttonsContainer}>
             {isUser ? (
-              <IconButton
+              <Fab
+                variant="extended"
                 className={classes.headerButton}
                 onClick={() => setIsEdit(true)}
               >
-                <EditIcon />
-              </IconButton>
+                Edit
+                <EditIcon className={classes.editIcon} />
+              </Fab>
             ) : (
               <>
                 <IconButton className={classes.headerButton}>
