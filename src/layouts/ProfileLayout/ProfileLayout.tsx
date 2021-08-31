@@ -18,8 +18,8 @@ const ProfileLayout = () => {
       className={isEdit ? classes.containEdit : classes.contain}
       maxWidth="md"
     >
-      {isEdit && <ProfileEditBar />}
       <ProfileContext.Provider value={{ isUser, isEdit, setIsEdit }}>
+        {isEdit && <ProfileEditBar />}
         <ProfileHeader />
         <ProfileBody />
       </ProfileContext.Provider>
