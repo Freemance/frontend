@@ -7,10 +7,12 @@ const ProfileInfoEditField = ({
   label,
   defaultValue,
   required,
+  multiline,
 }: IProfileInfoEditField) => {
   return (
     <TextField
       required={required}
+      multiline={multiline}
       label={label}
       defaultValue={defaultValue}
       variant="outlined"
