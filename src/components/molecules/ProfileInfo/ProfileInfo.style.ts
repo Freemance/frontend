@@ -6,6 +6,7 @@ export const useProfileInfoStyle = makeStyles((theme: Theme) =>
       paddingTop: theme.spacing(3),
     },
     nameBox: {
+      display: 'flex',
       flexDirection: 'column',
       [theme.breakpoints.down('sm')]: {
         alignItems: 'center',

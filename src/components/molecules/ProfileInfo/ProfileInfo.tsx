@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { useProfileInfoStyle } from './ProfileInfo.style';
 import ProfileInfoField from '@components/atoms/ProfileInfoField';
 
@@ -14,10 +14,10 @@ const ProfileInfo = () => {
       spacing={4}
     >
       <Grid item xs={12}>
-        <Box display="flex" className={classes.nameBox}>
+        <div className={classes.nameBox}>
           <Typography variant="h2">John Doe</Typography>
           <Typography variant="subtitle1">johndoe.slyk.io</Typography>
-        </Box>
+        </div>
       </Grid>
       <Grid item sm={6}>
         <ProfileInfoField title="Job" value="Software developer" />
