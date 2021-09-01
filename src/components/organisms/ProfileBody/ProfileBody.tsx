@@ -36,17 +36,17 @@ const ProfileBody = () => {
   const sampleEducationItems: IProfileTimelineItem[] = [
     {
       id: 1,
-      name: 'Massachusetts Institute of Technology',
-      description: 'Software Engineering Degree',
-      startDate: '2008',
-      endDate: '2012',
-    },
-    {
-      id: 2,
       name: 'Harvard University',
       description: 'Computer Science',
       startDate: '2012',
       endDate: '2014',
+    },
+    {
+      id: 2,
+      name: 'Massachusetts Institute of Technology',
+      description: 'Software Engineering Degree',
+      startDate: '2008',
+      endDate: '2012',
     },
   ];
 
@@ -55,15 +55,15 @@ const ProfileBody = () => {
       id: 1,
       name: 'Facebook',
       description: 'Frontend Developer',
-      startDate: '2014',
-      endDate: '2018',
+      startDate: '2018',
+      endDate: 'Now',
     },
     {
       id: 2,
       name: 'Google',
       description: 'Fullstack Developer',
-      startDate: '2018',
-      endDate: 'Now',
+      startDate: '2016',
+      endDate: '2018',
     },
   ];
 

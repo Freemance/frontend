@@ -1,5 +1,11 @@
 import React from 'react';
-import { Paper, Typography, useMediaQuery, useTheme } from '@material-ui/core';
+import {
+  IconButton,
+  Paper,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
 import {
   Timeline,
   TimelineConnector,
@@ -9,9 +15,11 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
 } from '@material-ui/lab';
+import { Add as AddIcon, Edit as EditIcon } from '@material-ui/icons';
 
 import { useProfileTimelineStyle } from './ProfileTimeline.style';
 import { IProfileTimeline } from './types';
+import { useProfileContext } from '@layouts/ProfileLayout';
 
 const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
   const classes = useProfileTimelineStyle();
@@ -19,8 +27,24 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
   const theme = useTheme();
   const isSm = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const { isEdit } = useProfileContext();
+
   return (
     <Timeline align={isSm ? 'right' : 'alternate'}>
+      {isEdit && (
+        <TimelineItem>
+          <TimelineOppositeContent></TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot style={{ padding: 0 }}>
+              <IconButton size="small">
+                <AddIcon />
+              </IconButton>
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent></TimelineContent>
+        </TimelineItem>
+      )}
       {items.map((item, index) => (
         <TimelineItem key={index}>
           <TimelineOppositeContent>
@@ -33,7 +57,15 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
             </Paper>
           </TimelineOppositeContent>
           <TimelineSeparator>
-            <TimelineDot color="primary">{icon}</TimelineDot>
+            {isEdit ? (
+              <TimelineDot color="primary" style={{ padding: 0 }}>
+                <IconButton size="small" style={{ color: 'white' }}>
+                  <EditIcon />
+                </IconButton>
+              </TimelineDot>
+            ) : (
+              <TimelineDot color="primary">{icon}</TimelineDot>
+            )}
             {!(index == items.length - 1) && <TimelineConnector />}
           </TimelineSeparator>
           {!isSm && (
