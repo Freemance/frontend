@@ -22,6 +22,8 @@ const ProfileSkills = ({ skills }: IProfileSkills) => {
   const [open, setOpen] = useState<boolean>(false);
   const [dialogTitle, setDialogTitle] = useState<String>('');
 
+  const [openDelete, setOpenDelete] = useState<boolean>(false);
+
   useEffect(() => {
     if (dialogTitle != '') {
       setOpen(true);
@@ -31,6 +33,10 @@ const ProfileSkills = ({ skills }: IProfileSkills) => {
   const handleClose = () => {
     setDialogTitle('');
     setOpen(false);
+  };
+
+  const handleDeleteClose = () => {
+    setOpenDelete(false);
   };
 
   return (
@@ -54,7 +60,9 @@ const ProfileSkills = ({ skills }: IProfileSkills) => {
             onClick={() => {
               setDialogTitle('Edit skill');
             }}
-            onDelete={() => {}}
+            onDelete={() => {
+              setOpenDelete(true);
+            }}
           />
         ) : (
           <Chip key={index} className={classes.chip} label={skill.name} />
@@ -69,8 +77,19 @@ const ProfileSkills = ({ skills }: IProfileSkills) => {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="primary" variant="outlined">
             Save
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={openDelete} onClose={handleDeleteClose}>
+        <DialogTitle>Are you sure you want to delete this skill?</DialogTitle>
+        <DialogActions>
+          <Button onClick={handleDeleteClose} color="primary">
+            Cancel
+          </Button>
+          <Button className={classes.deleteButton} onClick={handleDeleteClose}>
+            Delete
           </Button>
         </DialogActions>
       </Dialog>

@@ -14,5 +14,8 @@ export const useProfileSkillsStyle = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.primary.light,
       color: theme.palette.primary.contrastText,
     },
+    deleteButton: {
+      color: theme.palette.error.main,
+    },
   })
 );
