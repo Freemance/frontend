@@ -36,7 +36,7 @@ const FMCardItem = ({ name, skills, avatar, job }: IFMCardItem) => {
             {skills.map((skill) => (
               <div key={skill} className={classes.tags}>
                 <Chip
-                  label={<Typography variant="subtitle2">{skill}</Typography>}
+                  label={<Typography variant="body1">{skill}</Typography>}
                   className={classes.tag}
                 />
               </div>

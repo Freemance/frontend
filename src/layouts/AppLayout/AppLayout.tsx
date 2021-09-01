@@ -7,6 +7,7 @@ import TitleSection from '@components/atoms/TitleSection';
 import DescriptionSection from '@components/atoms/DescriptionSection';
 import FAQContainer from '@components/molecules/FAQContainer/FAQContainer';
 import SliderFMProfiles from '@components/molecules/SliderFMProfiles/SliderFMProfiles';
+import Footer from '@components/organisms/Footer';
 const AppLayout: React.FC = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const AppLayout: React.FC = () => {
         <DescriptionSection text="These are some of the most prominent profiles on the platform currently." />
         <SliderFMProfiles />
       </Container>
+      <Footer />
     </>
   );
 };
