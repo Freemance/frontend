@@ -16,7 +16,7 @@ const ProfileEditBar = () => {
           className={classes.cancelButton}
           onClick={() => setIsEdit(false)}
         >
-          Cancels
+          Cancel
         </Button>
         <Button className={classes.saveButton} onClick={() => setIsEdit(false)}>
           Save
