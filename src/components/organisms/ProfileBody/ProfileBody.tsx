@@ -7,6 +7,8 @@ import ProfileTab from '@components/molecules/ProfileTab';
 import ProjectCard from '@components/atoms/ProjectCard';
 import ProfileTimeline from '@components/molecules/ProfileTimeline';
 import { IProfileTimelineItem } from '@components/molecules/ProfileTimeline/types';
+import ProfileSkills from '@components/molecules/ProfileSkills';
+import { ISkillItem } from '@components/molecules/ProfileSkills/types';
 
 const ProfileBody = () => {
   const classes = useProfileBodyStyle();
@@ -51,6 +53,33 @@ const ProfileBody = () => {
     },
   ];
 
+  const sampleSkills: ISkillItem[] = [
+    {
+      id: 1,
+      name: 'React',
+    },
+    {
+      id: 2,
+      name: 'Vue',
+    },
+    {
+      id: 3,
+      name: 'NodeJS',
+    },
+    {
+      id: 4,
+      name: 'Flutter',
+    },
+    {
+      id: 5,
+      name: 'MySQL',
+    },
+    {
+      id: 6,
+      name: 'Django',
+    },
+  ];
+
   return (
     <div className={classes.contain}>
       <Divider />
@@ -82,7 +111,7 @@ const ProfileBody = () => {
         <ProfileTimeline icon={<SchoolIcon />} items={sampleEducationItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={3}>
-        Skills
+        <ProfileSkills skills={sampleSkills} />
       </ProfileTab>
     </div>
   );
