@@ -1,17 +1,6 @@
 import React, { useState } from 'react';
-import {
-  Card,
-  CardActionArea,
-  Divider,
-  Grid,
-  Tab,
-  Tabs,
-} from '@material-ui/core';
-import {
-  AddCircleOutline as AddIcon,
-  School as SchoolIcon,
-  Work as WorkIcon,
-} from '@material-ui/icons';
+import { Divider, Tab, Tabs } from '@material-ui/core';
+import { School as SchoolIcon, Work as WorkIcon } from '@material-ui/icons';
 
 import { useProfileBodyStyle } from './ProfileBody.style';
 import ProfileTab from '@components/molecules/ProfileTab';
@@ -21,6 +10,7 @@ import { IProfileTimelineItem } from '@components/molecules/ProfileTimeline/type
 import ProfileSkills from '@components/molecules/ProfileSkills';
 import { ISkillItem } from '@components/molecules/ProfileSkills/types';
 import { useProfileContext } from '@layouts/ProfileLayout';
+import AddProjectCard from '@components/atoms/AddProjectCard';
 
 const ProfileBody = () => {
   const classes = useProfileBodyStyle();
@@ -105,17 +95,7 @@ const ProfileBody = () => {
       </Tabs>
       <Divider />
       <ProfileTab value={currentTab} index={0}>
-        {isEdit && (
-          <Grid item xs={12} sm={4} md={3}>
-            <Card className={classes.addProjectCard}>
-              <CardActionArea className={classes.addProjectCardAction}>
-                <div className={classes.addProjectCardContent}>
-                  <AddIcon fontSize="large" />
-                </div>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        )}
+        {isEdit && <AddProjectCard />}
         <ProjectCard
           title="Project One"
           imageUrl="/static/images/sample_image_1.jpg"
