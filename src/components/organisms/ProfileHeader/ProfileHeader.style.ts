@@ -15,5 +15,8 @@ export const useProfileHeaderStyle = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
     },
+    editIcon: {
+      marginLeft: theme.spacing(1),
+    },
   })
 );

@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
-import { Divider, Tab, Tabs } from '@material-ui/core';
-import { School as SchoolIcon, Work as WorkIcon } from '@material-ui/icons';
+import {
+  Card,
+  CardActionArea,
+  Divider,
+  Grid,
+  Tab,
+  Tabs,
+} from '@material-ui/core';
+import {
+  AddCircleOutline as AddIcon,
+  School as SchoolIcon,
+  Work as WorkIcon,
+} from '@material-ui/icons';
 
 import { useProfileBodyStyle } from './ProfileBody.style';
 import ProfileTab from '@components/molecules/ProfileTab';
@@ -9,11 +20,14 @@ import ProfileTimeline from '@components/molecules/ProfileTimeline';
 import { IProfileTimelineItem } from '@components/molecules/ProfileTimeline/types';
 import ProfileSkills from '@components/molecules/ProfileSkills';
 import { ISkillItem } from '@components/molecules/ProfileSkills/types';
+import { useProfileContext } from '@layouts/ProfileLayout';
 
 const ProfileBody = () => {
   const classes = useProfileBodyStyle();
 
   const [currentTab, setCurrentTab] = useState(0);
+
+  const { isEdit } = useProfileContext();
 
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setCurrentTab(newValue);
@@ -22,17 +36,17 @@ const ProfileBody = () => {
   const sampleEducationItems: IProfileTimelineItem[] = [
     {
       id: 1,
-      name: 'Massachusetts Institute of Technology',
-      description: 'Software Engineering Degree',
-      startDate: '2008',
-      endDate: '2012',
-    },
-    {
-      id: 2,
       name: 'Harvard University',
       description: 'Computer Science',
       startDate: '2012',
       endDate: '2014',
+    },
+    {
+      id: 2,
+      name: 'Massachusetts Institute of Technology',
+      description: 'Software Engineering Degree',
+      startDate: '2008',
+      endDate: '2012',
     },
   ];
 
@@ -41,15 +55,15 @@ const ProfileBody = () => {
       id: 1,
       name: 'Facebook',
       description: 'Frontend Developer',
-      startDate: '2014',
-      endDate: '2018',
+      startDate: '2018',
+      endDate: 'Now',
     },
     {
       id: 2,
       name: 'Google',
       description: 'Fullstack Developer',
-      startDate: '2018',
-      endDate: 'Now',
+      startDate: '2016',
+      endDate: '2018',
     },
   ];
 
@@ -91,6 +105,17 @@ const ProfileBody = () => {
       </Tabs>
       <Divider />
       <ProfileTab value={currentTab} index={0}>
+        {isEdit && (
+          <Grid item xs={12} sm={4} md={3}>
+            <Card className={classes.addProjectCard}>
+              <CardActionArea className={classes.addProjectCardAction}>
+                <div className={classes.addProjectCardContent}>
+                  <AddIcon fontSize="large" />
+                </div>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        )}
         <ProjectCard
           title="Project One"
           imageUrl="/static/images/sample_image_1.jpg"

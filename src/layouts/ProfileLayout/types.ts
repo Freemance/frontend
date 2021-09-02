@@ -1,3 +1,1 @@
-export interface IProfileLayout {
-  children?: React.ReactNode;
-}
+export interface IProfileLayout {}

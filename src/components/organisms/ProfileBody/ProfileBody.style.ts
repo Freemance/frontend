@@ -4,5 +4,17 @@ export const useProfileBodyStyle = makeStyles((theme: Theme) =>
     contain: {
       marginTop: theme.spacing(4),
     },
+    addProjectCard: {
+      height: '100%',
+      maxWidth: 260,
+    },
+    addProjectCardAction: {
+      height: '100%',
+    },
+    addProjectCardContent: {
+      display: 'flex',
+      justifyContent: 'center',
+      padding: 20,
+    },
   })
 );
