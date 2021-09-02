@@ -1,0 +1,40 @@
+{
+  "hero": {
+    "ndescription": "hire professional",
+    "ntitle": "Hire Excellent Cuban Freelancers Services For Your Business.",
+    "nsubtitle": "Freemance is an online platform where you can see the profile of professionals from different fields, connected with Slyk this allows hiring",
+    "nsubtitlemobile": "Hire professionals now for your business in the Fremance directory",
+    "buttonofhire": "Hire Freemancer",
+    "buttonofbecome": "Become Freemancer"
+  },
+  "cardcont": {
+    "1title": "Hire and pay with Slyk",
+    "1text": "Get ready to sell your skills to different contractors using Slyk",
+    "2title": "Work from home",
+    "2text": "Work from home, or strict time limitations, totally remote",
+    "3title": "Take more visibility",
+    "3text": "Get more visibility in the job market, have contractors discover your profile",
+    "4title": "Contact with your clients",
+    "4text": "FOR NOW, the client can contact you through the email you provide when setting up your profile"
+  },
+  "applayout": {
+    "titlesection1": "Advantajes",
+    "descsection1": "Find now with professionals from all fields, and hire them for dedicated jobs, pay from Slyk and contact them.",
+    "titlesection2": "FAQ",
+    "descsection2": "These are some of the most frequent questions that you can ask yourself in case you still do not know how the platform works, always keep in mind that this platform is still an MVP and is in Beta phase.",
+    "titlesection3": "Profiles Preview",
+    "descsection3": "These are some of the most prominent profiles on the platform currently."
+  },
+  "navbar": {
+    "buttonlogin": "Login",
+    "buttonaccess": "Get Early Access"
+  },
+  "faq": {
+    "question1": "What is freemance",
+    "answer1": "Freemance is a platform associated with Slyk whose main objective is to give visibility to Cuban freelancers towards the international labor market, all payments are made through the slyk platform as well as the view of the freemancer's catalog, this platform works as a directory that you access if you want to have more visibility or find freelancers more easily.",
+    "question2": "Ejemplo",
+    "answer2": "Hola",
+    "question3": "Hola",
+    "answer3": "Ejemplo"
+  }
+}

@@ -12,8 +12,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import DrawerNav from '@components/molecules/Drawer';
 // Styles
 import { useNavBarStyle } from './NavBar.style';
+import { useTranslation } from 'react-i18next';
 
 const NavBar: React.FC = () => {
+  const [t] = useTranslation('landpage');
   const classes = useNavBarStyle();
   const [open, setOpen] = React.useState(false);
 
@@ -51,12 +53,12 @@ const NavBar: React.FC = () => {
                 color="primary"
                 style={{ marginRight: '8px', marginLeft: 'auto' }}
               >
-                Login
+                {t('navbar.buttonlogin')}
               </Button>
             </Link>
             <Link href="/signup">
               <Button color="primary" variant="contained">
-                Get Early Access
+                {t('navbar.buttonaccess')}
               </Button>
             </Link>
           </Hidden>
