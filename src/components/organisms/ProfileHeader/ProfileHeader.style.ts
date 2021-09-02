@@ -11,5 +11,9 @@ export const useProfileHeaderStyle = makeStyles((theme: Theme) =>
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
     },
+    buttonsContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+    },
   })
 );

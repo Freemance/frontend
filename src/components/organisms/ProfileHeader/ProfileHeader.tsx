@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Grid, IconButton } from '@material-ui/core';
+import { Grid, IconButton } from '@material-ui/core';
 import {
   Call as CallIcon,
   Description as DescriptionIcon,
@@ -16,14 +16,14 @@ const ProfileHeader = () => {
     <Grid container spacing={3} justifyContent="center" alignItems="flex-start">
       <Grid item md={3}>
         <ProfileAvatar />
-        <Box display="flex" justifyContent="center">
+        <div className={classes.buttonsContainer}>
           <IconButton className={classes.headerButton}>
             <CallIcon />
           </IconButton>
           <IconButton className={classes.headerButton}>
             <DescriptionIcon />
           </IconButton>
-        </Box>
+        </div>
       </Grid>
       <Grid item md={9}>
         <ProfileInfo />
