@@ -8,7 +8,7 @@ export const MuiCard: Partial<StyleRules<CardClassKey>> = {
       ${palettes.lightPalette.background.paper}) padding-box,
       linear-gradient(to right top, #979fe3, rgb(255 255 255 / 0%)) border-box`,
     borderRadius: 20,
-    border: '2px solid transparent',
+    border: '1px solid transparent',
     boxShadow: 'none',
   },
 };

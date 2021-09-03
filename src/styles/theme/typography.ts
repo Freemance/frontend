@@ -68,7 +68,7 @@ export const typography: TypographyOptions = {
   },
   body1: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.primary.light,
+    color: 'black',
     fontSize: '14px',
     letterSpacing: '-0.05px',
     lineHeight: '21px',
@@ -87,10 +87,10 @@ export const typography: TypographyOptions = {
   },
   caption: {
     fontFamily: FontFamily,
-    color: palette.lightPalette.text.secondary,
-    fontSize: '11px',
-    letterSpacing: '0.33px',
-    lineHeight: '13px',
+    color: palette.lightPalette.primary.contrastText,
+    fontSize: '13px',
+    letterSpacing: '0.60px',
+    lineHeight: '20px',
   },
   overline: {
     fontFamily: FontFamily,
