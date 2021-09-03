@@ -1,11 +1,18 @@
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
-export const useProjectCardStyle = makeStyles((theme: Theme) =>
+export const useAddProjectCardStyle = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
+    addProjectCard: {
       height: '100%',
-      minHeight: 300,
       maxWidth: 260,
+    },
+    addProjectCardAction: {
+      height: '100%',
+    },
+    addProjectCardContent: {
+      display: 'flex',
+      justifyContent: 'center',
+      padding: 20,
     },
     media: {
       height: 180,

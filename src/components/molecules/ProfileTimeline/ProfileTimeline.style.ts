@@ -5,5 +5,8 @@ export const useProfileTimelineStyle = makeStyles((theme: Theme) =>
     paper: {
       padding: '6px 16px',
     },
+    deleteButton: {
+      color: theme.palette.error.main,
+    },
   })
 );
