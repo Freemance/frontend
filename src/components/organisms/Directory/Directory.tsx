@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react';
 // Style
 import { useDirectoryStyle } from './Directory.style';
-import { Button, TextField, Container, Typography } from '@material-ui/core';
+import {
+  Button,
+  TextField,
+  Container,
+  CircularProgress,
+  Typography,
+} from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 // Components
 import CardDirectory from '@components/atoms/CardDirectory/CardDirectory';
 // Apollo
-import { GetAllFreemancers } from 'src/lib/apollo/query/GetAllFreemancers';
+import { getAllFreemancers } from 'src/lib/apollo/query/getAllFreemancers';
 import { useQuery } from '@apollo/client';
 import NavBar from '../NavBar';
 
 export const Directory = () => {
-  const { data, loading, error } = useQuery(GetAllFreemancers);
+  const [search, setSearch] = useState('');
+  const { data, loading, error } = useQuery(getAllFreemancers(search));
   const classes = useDirectoryStyle();
   const [freelancers, setFreelancers] = useState(undefined);
   useEffect(() => {
@@ -20,7 +27,6 @@ export const Directory = () => {
     }
   }, [data]);
 
-  const [search, setSearch] = useState('');
   return (
     <>
       <Container maxWidth="lg">
@@ -50,7 +56,17 @@ export const Directory = () => {
               </Button>
             </label>
           </form>
-          {freelancers && <CardDirectory freelancers={freelancers} />}
+          {error ? (
+            <Typography variant="h1" className={classes.errordata}>
+              Lost connection...
+            </Typography>
+          ) : loading ? (
+            <div className={classes.loading}>
+              <CircularProgress />
+            </div>
+          ) : (
+            freelancers && <CardDirectory freelancers={freelancers} />
+          )}
         </div>
       </Container>
     </>

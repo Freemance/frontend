@@ -11,6 +11,17 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
   },
+  loading: {
+    marginTop: '20px',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  errordata: {
+    color: theme.palette.error.main,
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '20px',
+  },
   button: {
     '&:hover': {
       backgroundColor: theme.palette.primary.main,

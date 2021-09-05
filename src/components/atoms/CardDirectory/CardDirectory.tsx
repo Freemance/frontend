@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   Typography,
   Card,
@@ -9,12 +9,12 @@ import {
 } from '@material-ui/core';
 import Link from 'next/link';
 import { useCardDirectoryStyle } from './CardDirectory.style';
-const CardDirectory = ({ freelancers }) => {
+const CardDirectory = ({ freelancers }: any) => {
   const classes = useCardDirectoryStyle();
   return (
     <Container maxWidth="lg">
       <Grid container>
-        {freelancers.map((freelancer) => (
+        {freelancers.map((freelancer: any) => (
           <Grid item xs={12} lg={3} sm={6} md={3} key={freelancer.node.id}>
             <Link href={`/profile/${freelancer.node.id}`}>
               <Card className={classes.root}>

@@ -1,8 +1,9 @@
 import { gql } from '@apollo/client';
 
-export const GetAllFreemancers = gql`
+export const getAllFreemancers = (searchfield: String) =>
+  gql`
   query filterUser {
-    ProfileFilter(orderBy: { field: slykUser, direction: asc }, query: "") {
+    ProfileFilter(orderBy: { field: id, direction: asc }, query: "${searchfield}") {
       edges {
         node {
           slykUser
