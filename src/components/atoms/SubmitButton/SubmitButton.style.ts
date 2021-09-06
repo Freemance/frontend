@@ -5,5 +5,9 @@ export const useSubmitButtonStyle = makeStyles((theme: Theme) =>
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
+    spinner: {
+      marginLeft: theme.spacing(2),
+      color: theme.palette.primary.contrastText,
+    },
   })
 );
