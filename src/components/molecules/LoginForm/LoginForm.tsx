@@ -2,10 +2,13 @@ import React from 'react';
 import { Grid, Link, TextField } from '@material-ui/core';
 
 import SubmitButton from '@components/atoms/SubmitButton';
+import { useLoginFormStyle } from './LoginForm.style';
 
 const LoginForm = () => {
+const classes = useLoginFormStyle();
+
   return (
-    <>
+    <form className={classes.form} noValidate>
       <TextField
         color="primary"
         margin="normal"
@@ -43,7 +46,7 @@ const LoginForm = () => {
           </Link>
         </Grid>
       </Grid>
-    </>
+    </form>
   );
 };
 

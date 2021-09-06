@@ -1,10 +1,14 @@
 import React from 'react';
 import { InputAdornment, TextField } from '@material-ui/core';
+
 import SubmitButton from '@components/atoms/SubmitButton';
+import { useSignUpFormStyle } from './SignUpForm.style';
 
 const SignUpForm = () => {
+  const classes = useSignUpFormStyle();
+
   return (
-    <>
+    <form className={classes.form} noValidate>
       <TextField
         color="primary"
         margin="normal"
@@ -42,7 +46,7 @@ const SignUpForm = () => {
         }}
       />
       <SubmitButton label="Join waiting list" />
-    </>
+    </form>
   );
 };
 
