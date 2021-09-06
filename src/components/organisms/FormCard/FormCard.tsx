@@ -20,7 +20,7 @@ const FormCard = ({ title, subtitle, children }: IFormCard) => {
         >
           {subtitle}
         </Typography>
-          {children}
+        {children}
       </CardContent>
     </Card>
   );
