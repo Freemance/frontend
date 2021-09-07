@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { CookiesProvider } from 'react-cookie';
 import { ApolloProvider } from '@apollo/client';
 
 import { theme } from '@styles/theme';
@@ -19,14 +18,12 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={Client}>
-      <CookiesProvider>
-        <GlobalProvider>
-          <ThemeProvider theme={theme.lightTheme}>
-            <CssBaseline />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </GlobalProvider>
-      </CookiesProvider>
+      <GlobalProvider>
+        <ThemeProvider theme={theme.lightTheme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </GlobalProvider>
     </ApolloProvider>
   );
 }

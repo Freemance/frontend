@@ -4,7 +4,6 @@ import { Grid, Link, TextField } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { useCookies } from 'react-cookie';
 
 import SubmitButton from '@components/atoms/SubmitButton';
 import { useLoginFormStyle } from './LoginForm.style';
@@ -12,6 +11,7 @@ import { useMutation } from '@apollo/client';
 import { LOGIN } from 'src/lib/apollo/user';
 import { IAuth, ILoginInput } from 'src/lib/apollo/user/types';
 import { ActionType, GlobalContext } from 'src/context';
+import { saveToken } from 'src/services/token';
 
 const LoginForm = () => {
   const classes = useLoginFormStyle();
@@ -21,8 +21,6 @@ const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { dispatch } = useContext(GlobalContext);
-
-  const [, setCookie] = useCookies(['access-token', 'refresh-token']);
 
   return (
     <Formik
@@ -43,12 +41,8 @@ const LoginForm = () => {
         })
           .then(async (res) => {
             if (res.data) {
-              setCookie('access-token', res.data.login.accessToken, {
-                path: '/',
-              });
-              setCookie('refresh-token', res.data.login.refreshToken, {
-                path: '/',
-              });
+              saveToken('access-token', res.data.login.accessToken);
+              saveToken('refresh-token', res.data.login.refreshToken);
               dispatch({
                 type: ActionType.LoginUser,
                 payload: res.data,
