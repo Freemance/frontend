@@ -18,7 +18,7 @@ const LoginForm = () => {
 
   const [login, { error }] = useMutation<IAuth, ILoginInput>(LOGIN);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { dispatch } = useContext(GlobalContext);
 
@@ -41,7 +41,7 @@ const LoginForm = () => {
             password: values.password,
           },
         })
-          .then((res) => {
+          .then(async (res) => {
             if (res.data) {
               setCookie('access-token', res.data.login.accessToken, {
                 path: '/',
@@ -53,11 +53,10 @@ const LoginForm = () => {
                 type: ActionType.LoginUser,
                 payload: res.data,
               });
-              Router.push('/profile');
+              await Router.push('/profile');
             }
           })
-          .catch((err) => {})
-          .finally(() => {
+          .catch((err) => {
             setIsLoading(false);
           });
       }}
