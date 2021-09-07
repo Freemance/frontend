@@ -6,7 +6,7 @@ import {
 
 const Client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: 'https://freemance-backend.herokuapp.com/graphql',
+  uri: 'https://freemance-backend2.herokuapp.com/graphql',
 });
 
 export default Client;

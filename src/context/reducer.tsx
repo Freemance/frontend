@@ -10,7 +10,7 @@ export const globalReducer = (
       return {
         ...state,
         user: {
-          ...state.user,
+          ...action.payload.login.user,
         },
       };
 

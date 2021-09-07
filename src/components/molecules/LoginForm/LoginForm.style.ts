@@ -6,5 +6,8 @@ export const useLoginFormStyle = makeStyles((theme: Theme) =>
       width: '100%',
       marginTop: theme.spacing(1),
     },
+    alert: {
+      width: '100%',
+    },
   })
 );

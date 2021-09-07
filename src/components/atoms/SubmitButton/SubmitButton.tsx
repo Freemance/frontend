@@ -16,6 +16,7 @@ const SubmitButton = ({ label, isLoading }: ISubmitButton) => {
       size="large"
       variant="contained"
       color="primary"
+      disabled={isLoading}
     >
       {label}
       {isLoading && <CircularProgress className={classes.spinner} size={20} />}
