@@ -2,6 +2,8 @@ import * as React from 'react';
 import Head from 'next/head';
 
 import ProfileLayout from '@layouts/ProfileLayout';
+import { NextPageContext } from 'next';
+import { authenticateTokenSsr } from 'src/services/token';
 
 export default function Profile() {
   return (
@@ -15,3 +17,8 @@ export default function Profile() {
     </React.Fragment>
   );
 }
+
+export const getServerSideProps = async (context: NextPageContext) => {
+  const props = await authenticateTokenSsr(context);
+  return props;
+};
