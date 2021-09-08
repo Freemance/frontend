@@ -47,7 +47,10 @@ const LoginForm = () => {
                 type: ActionType.LoginUser,
                 payload: res.data,
               });
-              await Router.push('/profile');
+              await Router.push({
+                pathname: '/profile',
+                query: { fromLogin: true },
+              });
             }
           })
           .catch((err) => {

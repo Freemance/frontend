@@ -2,7 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 
 import ProfileLayout from '@layouts/ProfileLayout';
-import { NextPageContext } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { verifyTokenSsr } from 'src/services/token';
 
 export default function Profile() {
@@ -18,7 +18,9 @@ export default function Profile() {
   );
 }
 
-export const getServerSideProps = async (context: NextPageContext) => {
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
   const props = await verifyTokenSsr(context);
   return props;
 };
