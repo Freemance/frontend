@@ -1,19 +1,13 @@
 import Cookies from 'universal-cookie';
 import { NextPageContext } from 'next';
-// import Client from 'src/lib/apollo/client';
 
-export const authenticateTokenSsr = async (context: NextPageContext) => {
+export const verifyTokenSsr = async (context: NextPageContext) => {
   const ssr = context.req ? true : false;
 
   const cookies = new Cookies(ssr ? context.req.headers.cookie : null);
-  const refreshToken = cookies.get('refresh-token');
+  const accessToken = cookies.get('access-token');
 
-  // const res = await Client.mutate({
-  //   mutation: REFRESH_TOKEN,
-  //   variables: { refreshToken },
-  // });
-
-  if (!refreshToken) {
+  if (!accessToken) {
     return {
       redirect: {
         permanent: false,

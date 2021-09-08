@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import ProfileLayout from '@layouts/ProfileLayout';
 import { NextPageContext } from 'next';
-import { authenticateTokenSsr } from 'src/services/token';
+import { verifyTokenSsr } from 'src/services/token';
 
 export default function Profile() {
   return (
@@ -19,6 +19,6 @@ export default function Profile() {
 }
 
 export const getServerSideProps = async (context: NextPageContext) => {
-  const props = await authenticateTokenSsr(context);
+  const props = await verifyTokenSsr(context);
   return props;
 };

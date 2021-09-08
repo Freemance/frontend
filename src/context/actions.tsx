@@ -1,4 +1,4 @@
-import { IAuth } from 'src/lib/apollo/user/types';
+import { IAuth } from 'src/lib/apollo/auth/types';
 
 /* eslint-disable no-unused-vars */
 export enum ActionType {

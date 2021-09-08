@@ -8,8 +8,8 @@ import * as Yup from 'yup';
 import SubmitButton from '@components/atoms/SubmitButton';
 import { useLoginFormStyle } from './LoginForm.style';
 import { useMutation } from '@apollo/client';
-import { LOGIN } from 'src/lib/apollo/user';
-import { IAuth, ILoginInput } from 'src/lib/apollo/user/types';
+import { LOGIN } from 'src/lib/apollo/auth';
+import { IAuth, ILoginInput } from 'src/lib/apollo/auth/types';
 import { ActionType, GlobalContext } from 'src/context';
 import { saveToken } from 'src/services/token';
 

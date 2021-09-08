@@ -12,3 +12,14 @@ export interface IAuth {
     user: UserType;
   };
 }
+
+export interface IRefreshInput {
+  token: string;
+}
+
+export interface IRefreshResponse {
+  refreshToken: {
+    accessToken: string;
+    refreshToken: string;
+  };
+}
