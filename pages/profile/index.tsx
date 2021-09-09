@@ -9,7 +9,7 @@ export default function Profile() {
   return (
     <React.Fragment>
       <Head>
-        <title>Freemance - Hire and Contact Profesionals</title>
+        <title>Freemance - Profile</title>
         <meta name="description" content="Freemance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
