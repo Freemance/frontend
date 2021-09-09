@@ -6,11 +6,11 @@ export const globalReducer = (
   action: GlobalActions
 ): GlobalState => {
   switch (action.type) {
-    case ActionType.LoginUser:
+    case ActionType.SetUser:
       return {
         ...state,
         user: {
-          ...action.payload.login.user,
+          ...action.payload,
         },
       };
 

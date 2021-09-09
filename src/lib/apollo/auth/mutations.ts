@@ -7,8 +7,19 @@ export const LOGIN = gql`
       refreshToken
       user {
         id
+        email
         role
         active
+        profile {
+          firstName
+          lastName
+          slykUser
+          jobTitle
+          bio
+          phone
+          city
+          country
+        }
       }
     }
   }

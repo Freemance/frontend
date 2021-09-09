@@ -44,8 +44,8 @@ const LoginForm = () => {
               saveToken('access-token', res.data.login.accessToken);
               saveToken('refresh-token', res.data.login.refreshToken);
               dispatch({
-                type: ActionType.LoginUser,
-                payload: res.data,
+                type: ActionType.SetUser,
+                payload: res.data.login.user,
               });
               await Router.push({
                 pathname: '/profile',

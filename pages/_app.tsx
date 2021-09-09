@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ApolloProvider } from '@apollo/client';
 
 import { theme } from '@styles/theme';
-import Client from 'src/lib/apollo/client';
+import { useApolloClient } from 'src/lib/apollo/client';
 import { GlobalProvider } from 'src/context';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <ApolloProvider client={Client}>
+    <ApolloProvider client={useApolloClient()}>
       <GlobalProvider>
         <ThemeProvider theme={theme.lightTheme}>
           <CssBaseline />

@@ -7,7 +7,11 @@ const ProfileInfoField = ({ title, value }: IProfileInfoField) => {
   return (
     <>
       <Typography variant="subtitle2">{title}</Typography>
-      <Typography variant="h5">{value}</Typography>
+      {value ? (
+        <Typography variant="h5">{value}</Typography>
+      ) : (
+        <Typography variant="h5">-</Typography>
+      )}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import Cookies from 'universal-cookie';
 import { GetServerSidePropsContext } from 'next';
-import Client from 'src/lib/apollo/client';
+import { useApolloClient } from 'src/lib/apollo/client';
 import {
   IRefreshInput,
   IRefreshResponse,
@@ -25,7 +25,10 @@ export const verifyTokenSsr = async (context: GetServerSidePropsContext) => {
 
   if (!context.query.fromLogin) {
     try {
-      const res = await Client.mutate<IRefreshResponse, IRefreshInput>({
+      const res = await useApolloClient().mutate<
+        IRefreshResponse,
+        IRefreshInput
+      >({
         mutation: REFRESH_TOKEN,
         variables: { token: refreshToken },
       });
@@ -36,7 +39,6 @@ export const verifyTokenSsr = async (context: GetServerSidePropsContext) => {
         cookies.set('refresh-token', res.data.refreshToken.refreshToken, {
           path: '/',
         });
-        console.log('REFRESHED');
       } else {
         throw new Error('Failed to refresh token');
       }
@@ -53,7 +55,9 @@ export const verifyTokenSsr = async (context: GetServerSidePropsContext) => {
   }
 
   return {
-    props: {},
+    props: {
+      fromLogin: context.query.fromLogin || false,
+    },
   };
 };
 
