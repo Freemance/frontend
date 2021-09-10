@@ -1,1 +1,3 @@
-export interface IProfileLayout {}
+export interface IProfileLayout {
+  fromLogin?: boolean;
+}

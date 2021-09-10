@@ -1,3 +1,4 @@
 export default interface ISubmitButton {
-  label: String;
+  label: string;
+  isLoading?: boolean;
 }

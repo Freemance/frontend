@@ -20,9 +20,7 @@ const FormCard = ({ title, subtitle, children }: IFormCard) => {
         >
           {subtitle}
         </Typography>
-        <form className={classes.form} noValidate>
-          {children}
-        </form>
+        {children}
       </CardContent>
     </Card>
   );

@@ -4,11 +4,15 @@ import { useProfileInfoStyle } from './ProfileInfo.style';
 import ProfileInfoField from '@components/atoms/ProfileInfoField';
 import { useProfileContext } from '@layouts/ProfileLayout';
 import ProfileInfoEditField from '@components/atoms/ProfileInfoEditField';
+import { useGlobalContext } from 'src/context';
 
 const ProfileInfo = () => {
   const classes = useProfileInfoStyle();
 
   const { isEdit } = useProfileContext();
+  const { state } = useGlobalContext();
+
+  const user = state.user;
 
   return (
     <Grid
@@ -22,7 +26,7 @@ const ProfileInfo = () => {
           <Grid item sm={6}>
             <ProfileInfoEditField
               label="Name"
-              defaultValue="John Doe"
+              defaultValue={`${user.profile.firstName} ${user.profile.lastName}`}
               required
             />
           </Grid>
@@ -30,7 +34,7 @@ const ProfileInfo = () => {
             <TextField
               disabled
               label="Slyk URL"
-              defaultValue="johndoe.slyk.io"
+              defaultValue={user.profile.slykUser}
               variant="outlined"
             />
           </Grid>
@@ -38,7 +42,7 @@ const ProfileInfo = () => {
             <ProfileInfoEditField
               label="Job"
               required
-              defaultValue="Software developer"
+              defaultValue={user.profile.jobTitle}
             />
           </Grid>
           <Grid item sm={6}>
@@ -46,38 +50,35 @@ const ProfileInfo = () => {
               label="Bio"
               required
               multiline
-              defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat."
+              defaultValue={user.profile.bio}
             />
           </Grid>
           <Grid item sm={6}>
             <ProfileInfoEditField
               label="Phone"
               required
-              defaultValue="+1-234-1323-1235"
+              defaultValue={user.profile.phone}
             />
           </Grid>
           <Grid item sm={6}>
             <ProfileInfoEditField
               required
               label="Email"
-              defaultValue="johndoe@mail.com"
+              defaultValue={user.email}
             />
           </Grid>
           <Grid item sm={6}>
             <ProfileInfoEditField
               required
               label="City"
-              defaultValue="Miami, FL"
+              defaultValue={user.profile.city}
             />
           </Grid>
           <Grid item sm={6}>
             <ProfileInfoEditField
               required
               label="Country"
-              defaultValue="United States"
+              defaultValue={user.profile.country}
             />
           </Grid>
         </>
@@ -85,33 +86,31 @@ const ProfileInfo = () => {
         <>
           <Grid item xs={12}>
             <div className={classes.nameBox}>
-              <Typography variant="h2">John Doe</Typography>
-              <Typography variant="subtitle1">johndoe.slyk.io</Typography>
+              <Typography variant="h2">
+                {user.profile.firstName} {user.profile.lastName}
+              </Typography>
+              <Typography variant="subtitle1">
+                {user.profile.slykUser}
+              </Typography>
             </div>
           </Grid>
           <Grid item sm={6}>
-            <ProfileInfoField title="Job" value="Software developer" />
+            <ProfileInfoField title="Job" value={user.profile.jobTitle} />
           </Grid>
           <Grid item sm={6}>
-            <ProfileInfoField
-              title="Bio"
-              value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-              minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat."
-            />
+            <ProfileInfoField title="Bio" value={user.profile.bio} />
           </Grid>
           <Grid item sm={6}>
-            <ProfileInfoField title="Phone" value="+1-234-1323-1235" />
+            <ProfileInfoField title="Phone" value={user.profile.phone} />
           </Grid>
           <Grid item sm={6}>
-            <ProfileInfoField title="Email" value="johndoe@mail.com" />
+            <ProfileInfoField title="Email" value={user.email} />
           </Grid>
           <Grid item xs={6}>
-            <ProfileInfoField title="City" value="Miami, FL" />
+            <ProfileInfoField title="City" value={user.profile.city} />
           </Grid>
           <Grid item xs={6}>
-            <ProfileInfoField title="Country" value="United States" />
+            <ProfileInfoField title="Country" value={user.profile.country} />
           </Grid>
         </>
       )}
