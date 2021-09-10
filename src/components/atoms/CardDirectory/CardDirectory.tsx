@@ -21,18 +21,22 @@ const CardDirectory = ({ freelancers }: any) => {
                 <CardContent>
                   <img
                     aria-label="recipe"
-                    src="https://avatars.githubusercontent.com/u/65286318?v=4"
+                    src={freelancer.node.avatar}
                     className={classes.avatar}
                   />
                   <Typography variant="h4" className={classes.titlecard}>
-                    {freelancer.node.slykUser}
+                    {freelancer.node.firstName} {freelancer.node.lastName}
                   </Typography>
                   <Typography variant="subtitle2" className={classes.titlecard}>
-                    Job
+                    {freelancer.node.jobTitle}
                   </Typography>
                   <div className={classes.tags}>
                     <Chip
-                      label={<Typography variant="body1">Skills</Typography>}
+                      label={
+                        <Typography variant="body1">
+                          {freelancer.node.tag}
+                        </Typography>
+                      }
                       className={classes.tag}
                     />
                   </div>

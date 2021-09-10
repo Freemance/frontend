@@ -12,7 +12,7 @@ import SearchIcon from '@material-ui/icons/Search';
 // Components
 import CardDirectory from '@components/atoms/CardDirectory/CardDirectory';
 // Apollo
-import { getAllFreemancers } from 'src/lib/apollo/query/getAllFreemancers';
+import { getAllFreemancers } from 'src/lib/apollo/query/GetAllFreemancers';
 import { useQuery } from '@apollo/client';
 import NavBar from '../NavBar';
 
@@ -23,7 +23,7 @@ export const Directory = () => {
   const [freelancers, setFreelancers] = useState(undefined);
   useEffect(() => {
     if (data) {
-      setFreelancers(data.ProfileFilter.edges);
+      setFreelancers(data.profileFilter.edges);
     }
   }, [data]);
 
