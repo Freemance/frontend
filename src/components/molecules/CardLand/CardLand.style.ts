@@ -19,21 +19,21 @@ export const useCardLandStyles = makeStyles((theme: Theme) => ({
       },
     },
     width: '100%',
-    maxHeight: '35vh',
+    maxHeight: '210px',
     height: '100%',
     textAlign: 'center',
-    marginBottom: '10%',
+    marginBottom: '5%',
     [theme.breakpoints.down('lg')]: {
       width: 'auto',
-      height: '35vh',
+      height: '100%',
     },
     [theme.breakpoints.down('md')]: {
       width: 'auto',
-      height: '25vh',
+      height: '100%',
     },
     [theme.breakpoints.down('sm')]: {
       width: 'auto',
-      height: '30vh',
+      height: 'auto',
     },
     [theme.breakpoints.down('xs')]: {
       width: 'auto',

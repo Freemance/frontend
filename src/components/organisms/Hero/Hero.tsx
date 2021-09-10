@@ -2,27 +2,25 @@ import * as React from 'react';
 import { Grid, Typography, Button, Hidden } from '@material-ui/core';
 // Style
 import { useHeroStyle } from './Hero.style';
+import { useTranslation } from 'react-i18next';
 const Hero = () => {
+  const [t] = useTranslation('landpage');
   const classes = useHeroStyle();
   return (
     <Grid container spacing={2} className={classes.root}>
       <Grid item xs={12} lg={4}>
         <Typography variant="h6" className={classes.ndescription}>
-          hire professionals now
+          {t('hero.ndescription')}
         </Typography>
         <Typography variant="h3" className={classes.ntitle}>
-          Hire Excellent Cuban Freelancers Services For Your Business.
+          {t('hero.ntitle')}
         </Typography>
         <Hidden xsDown>
-          <Typography variant="subtitle2">
-            Freemance is an online platform where you can see the profile of
-            professionals from different fields, connected with Slyk this allows
-            hiring
-          </Typography>
+          <Typography variant="subtitle2">{t('hero.nsubtitle')}</Typography>
         </Hidden>
         <Hidden smUp>
           <Typography variant="subtitle2">
-            Hire professionals now for your business in the Fremance directory
+            {t('hero.nsubtitlemobile')}
           </Typography>
         </Hidden>
 
@@ -32,7 +30,7 @@ const Hero = () => {
           size="large"
           style={{ marginTop: '20px' }}
         >
-          Hire Freemancer
+          {t('hero.buttonofhire')}
         </Button>
         <Button
           color="primary"
@@ -41,7 +39,7 @@ const Hero = () => {
           className={classes.outline}
           style={{ marginTop: '20px' }}
         >
-          Become Freemancer
+          {t('hero.buttonofbecome')}
         </Button>
       </Grid>
       <Grid item xs={12} lg={8} md={12} xl={8} sm={12}>

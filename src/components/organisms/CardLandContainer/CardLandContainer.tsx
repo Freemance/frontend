@@ -7,8 +7,10 @@ import Pay from '@components/atoms/Icons/Pay';
 import Contact from '@components/atoms/Icons/Contact';
 import Portfolio from '@components/atoms/Icons/Portfolio';
 import Visibility from '@components/atoms/Icons/Visibility';
-
+// i18n
+import { useTranslation } from 'react-i18next';
 const CardLandContainer = () => {
+  const [t] = useTranslation('landpage');
   const classes = useCardLandContainer();
   return (
     <Grid
@@ -22,33 +24,33 @@ const CardLandContainer = () => {
       <Grid item xs={12} lg={3} sm={6}>
         <CardLand
           image={<Pay />}
-          title="Hire and pay with Slyk"
+          title={t('cardcont.1title')}
           backgroundColor="#3e97f0"
-          text="Get ready to sell your skills to different contractors using Slyk"
+          text={t('cardcont.1text')}
         />
       </Grid>
       <Grid item xs={12} lg={3} sm={6}>
         <CardLand
           image={<Portfolio />}
-          title="Work from home"
+          title={t('cardcont.2title')}
           backgroundColor="#ea5455"
-          text="Work from home, or strict time limitations, totally remote"
+          text={t('cardcont.2text')}
         />
       </Grid>
       <Grid item xs={12} lg={3} sm={6}>
         <CardLand
           image={<Visibility />}
-          title="Take more visibility"
+          title={t('cardcont.3title')}
           backgroundColor="#a48bff"
-          text="Get more visibility in the job market, have contractors discover your profile"
+          text={t('cardcont.3text')}
         />
       </Grid>
       <Grid item xs={12} lg={3} sm={6}>
         <CardLand
           image={<Contact />}
-          title="Contact with your clients"
+          title={t('cardcont.4title')}
           backgroundColor="#ffc145"
-          text="FOR NOW, the client can contact you through the email you provide when setting up your profile"
+          text={t('cardcont.4text')}
         />
       </Grid>
     </Grid>
