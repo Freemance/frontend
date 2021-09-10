@@ -5,8 +5,11 @@ import { useDrawerStyles } from './Drawer.style';
 import DrawerList from '@components/atoms/DrawerList';
 import CloseIcon from '@material-ui/icons/Close';
 import IDrawer from './types';
+// Interacionalizacion
+import { useTranslation } from 'react-i18next';
 
 const DrawerNav = ({ variant, open, handleDrawerClose }: IDrawer) => {
+  const [t] = useTranslation('landpage');
   const classes = useDrawerStyles();
   return (
     <Drawer
@@ -21,8 +24,8 @@ const DrawerNav = ({ variant, open, handleDrawerClose }: IDrawer) => {
       >
         <CloseIcon />
       </IconButton>
-      <DrawerList text="Sign In" link="login" />
-      <DrawerList text="Get Early Access" link="signup" />
+      <DrawerList text={t('navbar.buttonlogin')} link="login" />
+      <DrawerList text={t('navbar.buttonaccess')} link="signup" />
     </Drawer>
   );
 };

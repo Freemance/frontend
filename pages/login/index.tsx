@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>Freemance - Hire and Contact Profesionals</title>
+        <title>Freemance - Login</title>
         <meta name="description" content="Freemance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
