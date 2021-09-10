@@ -1,4 +1,4 @@
-import React, { createContext, Dispatch, useReducer } from 'react';
+import React, { createContext, Dispatch, useContext, useReducer } from 'react';
 
 import { GlobalState, initGlobalState } from './state';
 import { GlobalActions, ActionType } from './actions';
@@ -24,3 +24,5 @@ const GlobalProvider = ({ children }: IGlobalProvider) => {
 };
 
 export { GlobalContext, GlobalProvider, ActionType };
+
+export const useGlobalContext = () => useContext(GlobalContext);

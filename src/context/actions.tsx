@@ -1,13 +1,13 @@
-import { IAuth } from 'src/lib/apollo/auth/types';
+import { UserType } from './state';
 
 /* eslint-disable no-unused-vars */
 export enum ActionType {
-  LoginUser,
+  SetUser,
 }
 
 export interface loginUser {
-  type: ActionType.LoginUser;
-  payload: IAuth;
+  type: ActionType.SetUser;
+  payload: UserType;
 }
 
 export type GlobalActions = loginUser;
