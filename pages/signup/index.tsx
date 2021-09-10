@@ -9,7 +9,7 @@ export default function SignUp() {
   return (
     <React.Fragment>
       <Head>
-        <title>Freemance - Hire and Contact Profesionals</title>
+        <title>Freemance - Register</title>
         <meta name="description" content="Freemance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

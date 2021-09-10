@@ -2,8 +2,7 @@ export type RoleType = 'USER' | 'CONTRACTOR' | 'ADMIN';
 
 export type UserType = {
   id: number;
-  firstName: string;
-  lastName: string;
+  active: boolean;
   role: RoleType;
 };
 
