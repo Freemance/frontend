@@ -25,7 +25,7 @@ const ProfileLayout = ({ fromLogin }: IProfileLayout) => {
   const [me, { loading, error, data }] = useLazyQuery<IMe>(ME);
 
   useEffect(() => {
-    if (!fromLogin && isUser) {
+    if ((!fromLogin || state.user === null) && isUser) {
       me();
     }
     if (data) {
