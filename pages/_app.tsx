@@ -22,19 +22,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <ApolloProvider client={Client}>
-      <GlobalProvider>
-        <ThemeProvider theme={theme.lightTheme}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </GlobalProvider>
-    </ApolloProvider>
     <I18nextProvider i18n={i18next}>
-      <ThemeProvider theme={theme.lightTheme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
+      <ApolloProvider client={Client}>
+        <GlobalProvider>
+          <ThemeProvider theme={theme.lightTheme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </GlobalProvider>
+      </ApolloProvider>
     </I18nextProvider>
   );
 }
