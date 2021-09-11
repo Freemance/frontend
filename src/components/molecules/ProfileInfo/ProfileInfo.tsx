@@ -23,29 +23,30 @@ const ProfileInfo = () => {
     >
       {isEdit ? (
         <>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoEditField
               label="Name"
               defaultValue={`${user.profile.firstName} ${user.profile.lastName}`}
               required
             />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <TextField
               disabled
               label="Slyk URL"
               defaultValue={user.profile.slykUser}
               variant="outlined"
+              fullWidth
             />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoEditField
               label="Job"
               required
               defaultValue={user.profile.jobTitle}
             />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoEditField
               label="Bio"
               required
@@ -53,28 +54,28 @@ const ProfileInfo = () => {
               defaultValue={user.profile.bio}
             />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoEditField
               label="Phone"
               required
               defaultValue={user.profile.phone}
             />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoEditField
               required
               label="Email"
               defaultValue={user.email}
             />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoEditField
               required
               label="City"
               defaultValue={user.profile.city}
             />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoEditField
               required
               label="Country"
