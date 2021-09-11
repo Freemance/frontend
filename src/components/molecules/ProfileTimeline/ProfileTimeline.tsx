@@ -64,7 +64,7 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
               </TimelineDot>
               <TimelineConnector />
             </TimelineSeparator>
-            <TimelineContent></TimelineContent>
+            {!isSm && <TimelineContent></TimelineContent>}
           </TimelineItem>
         )}
         {items.map((item, index) => (
