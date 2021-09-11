@@ -94,16 +94,16 @@ const ProfileInfo = () => {
               </Typography>
             </div>
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoField title="Job" value={user.profile.jobTitle} />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoField title="Bio" value={user.profile.bio} />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoField title="Phone" value={user.profile.phone} />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item xs={12} sm={6}>
             <ProfileInfoField title="Email" value={user.email} />
           </Grid>
           <Grid item xs={6}>
