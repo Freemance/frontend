@@ -11,6 +11,7 @@ import { useLazyQuery } from '@apollo/client';
 import { IMe, ME } from 'src/lib/apollo/user';
 import { ActionType, useGlobalContext } from 'src/context';
 import { useRouter } from 'next/router';
+import LoadingIndicatorCentered from '@components/atoms/LoadingIndicatorCentered';
 
 const ProfileLayout = ({ fromLogin }: IProfileLayout) => {
   const classes = useProfileLayoutStyle();
@@ -36,24 +37,24 @@ const ProfileLayout = ({ fromLogin }: IProfileLayout) => {
     }
   }, [data]);
 
-  if (error) {
-    router.replace('/login');
-  }
+  useEffect(() => {
+    if (error) {
+      router.replace('/login');
+    }
+  }, [error]);
+
+  if (loading || state.user === null) return <LoadingIndicatorCentered />;
 
   return (
     <Container
       className={isEdit ? classes.containEdit : classes.contain}
       maxWidth="md"
     >
-      {loading || state.user === null ? (
-        <div>LOADING</div>
-      ) : (
-        <ProfileContext.Provider value={{ isUser, isEdit, setIsEdit }}>
-          {isEdit && <ProfileEditBar />}
-          <ProfileHeader />
-          <ProfileBody />
-        </ProfileContext.Provider>
-      )}
+      <ProfileContext.Provider value={{ isUser, isEdit, setIsEdit }}>
+        {isEdit && <ProfileEditBar />}
+        <ProfileHeader />
+        <ProfileBody />
+      </ProfileContext.Provider>
     </Container>
   );
 };
