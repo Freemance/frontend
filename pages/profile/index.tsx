@@ -25,6 +25,20 @@ export default function Profile({ fromLogin }: IProfile) {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const props = await verifyTokenSsr(context);
-  return props;
+  const verifyToken = await verifyTokenSsr(context);
+
+  if (verifyToken) {
+    return {
+      props: {
+        fromLogin: context.query.fromLogin || false,
+      },
+    };
+  } else {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/login',
+      },
+    };
+  }
 };

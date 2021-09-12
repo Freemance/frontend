@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import { Grid, Link, TextField } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import { Formik } from 'formik';
@@ -15,6 +15,8 @@ import { saveToken } from 'src/services/token';
 
 const LoginForm = () => {
   const classes = useLoginFormStyle();
+
+  const router = useRouter();
 
   const [login, { error }] = useMutation<IAuth, ILoginInput>(LOGIN);
 
@@ -47,7 +49,7 @@ const LoginForm = () => {
                 type: ActionType.SetUser,
                 payload: res.data.login.user,
               });
-              await Router.push({
+              await router.push({
                 pathname: '/profile',
                 query: { fromLogin: true },
               });
