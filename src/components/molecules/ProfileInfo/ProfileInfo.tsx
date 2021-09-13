@@ -62,10 +62,12 @@ const ProfileInfo = () => {
             />
           </Grid>
           <Grid item xs={12} sm={6}>
-            <ProfileInfoEditField
-              required
+            <TextField
+              disabled
               label="Email"
               defaultValue={user.email}
+              variant="outlined"
+              fullWidth
             />
           </Grid>
           <Grid item xs={12} sm={6}>
