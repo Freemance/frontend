@@ -5,7 +5,7 @@ export interface IMe {
 }
 
 export interface IProfileUpdateInfo {
-  avatar: string;
+  file?: string;
   input: IProfileUpdateInfoInput;
 }
 

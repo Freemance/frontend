@@ -1,11 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const PROFILE_UPDATE_INFO = gql`
-  mutation profileUpdateBasicInfo(
-    $avatar: String!
-    $input: UpdateBasicProfileInput!
-  ) {
-    profileUpdateBasicInfo(avatar: $avatar, input: $input) {
+  mutation profileUpdateBasicInfo($input: UpdateBasicProfileInput!) {
+    profileUpdateBasicInfo(input: $input) {
       firstName
       lastName
       jobTitle

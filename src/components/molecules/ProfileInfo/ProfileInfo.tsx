@@ -39,18 +39,17 @@ const ProfileInfo = () => {
         country: user.profile.country,
       }}
       validationSchema={Yup.object().shape({
-        firstName: Yup.string().required('Required'),
-        lastName: Yup.string().required('Required'),
-        jobTitle: Yup.string().required('Required'),
-        bio: Yup.string().required('Required'),
-        phone: Yup.string().required('Required'),
-        city: Yup.string().required('Required'),
-        country: Yup.string().required('Required'),
+        firstName: Yup.string().required('Required').nullable(),
+        lastName: Yup.string().required('Required').nullable(),
+        jobTitle: Yup.string().required('Required').nullable(),
+        bio: Yup.string().required('Required').nullable(),
+        phone: Yup.string().required('Required').nullable(),
+        city: Yup.string().required('Required').nullable(),
+        country: Yup.string().required('Required').nullable(),
       })}
       onSubmit={(values) => {
         updateProfile({
           variables: {
-            avatar: 'https://immersivelrn.org/wp-content/uploads/no_avatar.jpg',
             input: {
               firstName: values.firstName,
               lastName: values.lastName,
