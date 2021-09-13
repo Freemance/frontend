@@ -10,7 +10,6 @@ const SubmitButton = ({ label, isLoading }: ISubmitButton) => {
 
   return (
     <Button
-      className={classes.submit}
       type="submit"
       fullWidth
       size="large"
