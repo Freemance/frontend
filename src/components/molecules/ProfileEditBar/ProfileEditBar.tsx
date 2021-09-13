@@ -31,8 +31,11 @@ const ProfileEditBar = ({ isEdit }: IProfileEditBar) => {
     >
       <Toolbar>
         {isEdit ? (
-          <IconButton className={classes.backButton}>
-            <ArrowBackIcon onClick={() => setIsEdit(false)} />
+          <IconButton
+            className={classes.backButton}
+            onClick={() => setIsEdit(false)}
+          >
+            <ArrowBackIcon />
           </IconButton>
         ) : (
           <>
