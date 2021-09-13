@@ -112,7 +112,9 @@ const LoginForm = () => {
             onBlur={handleBlur}
             helperText={touched.password && errors.password}
           />
-          <SubmitButton label="Sign In" isLoading={isLoading} />
+          <div className={classes.submitButton}>
+            <SubmitButton label="Sign In" isLoading={isLoading} />
+          </div>
           <Grid container spacing={4}>
             <Grid item xs>
               <Link href="#" variant="body2">
