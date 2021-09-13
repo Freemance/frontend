@@ -10,7 +10,7 @@ import { saveToken, getToken, deleteToken } from 'src/services/token';
 import { IRefreshInput, IRefreshResponse, REFRESH_TOKEN } from './auth';
 
 const httpLink = new HttpLink({
-  uri: 'https://freemance-backend2.herokuapp.com/graphql',
+  uri: 'https://freemance-backend.herokuapp.com/graphql',
 });
 
 const authLink = new ApolloLink((operation, forward) => {

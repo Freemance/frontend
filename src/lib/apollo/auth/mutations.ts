@@ -43,14 +43,7 @@ export const REGISTER = gql`
         slykUser: $slykUrl
         username: $username
       }
-    ) {
-      accessToken
-      refreshToken
-      user {
-        createdAt
-        id
-      }
-    }
+    )
   }
 `;
 

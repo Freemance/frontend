@@ -9,9 +9,6 @@ export const getAllFreemancers = (searchfield: String) =>
           slykUser
           avatar
           id
-          tag {
-            name
-          }
           jobTitle
           firstName
           lastName
