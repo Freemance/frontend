@@ -14,6 +14,12 @@ export const globalReducer = (
         },
       };
 
+    case ActionType.RemoveUser:
+      return {
+        ...state,
+        user: null,
+      };
+
     default:
       return state;
   }

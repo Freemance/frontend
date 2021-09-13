@@ -46,12 +46,9 @@ const ProfileLayout = ({ fromLogin }: IProfileLayout) => {
   if (loading || state.user === null) return <LoadingIndicatorCentered />;
 
   return (
-    <Container
-      className={isEdit ? classes.containEdit : classes.contain}
-      maxWidth="md"
-    >
+    <Container className={classes.contain} maxWidth="md">
       <ProfileContext.Provider value={{ isUser, isEdit, setIsEdit }}>
-        {isEdit && <ProfileEditBar />}
+        {isUser && <ProfileEditBar isEdit={isEdit} />}
         <ProfileHeader />
         <ProfileBody />
       </ProfileContext.Provider>
