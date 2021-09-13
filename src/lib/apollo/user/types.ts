@@ -1,4 +1,4 @@
-import { UserType } from 'src/context/state';
+import { ProfileType, UserType } from 'src/context/state';
 
 export interface IMe {
   me: UserType;
@@ -10,13 +10,7 @@ export interface IProfileUpdateInfo {
 }
 
 export interface IProfileUpdateInfoRes {
-  firstName: string;
-  lastName: string;
-  jobTitle: string;
-  bio: string;
-  phone: string;
-  city: string;
-  country: string;
+  profileUpdateBasicInfo: ProfileType;
 }
 
 interface IProfileUpdateInfoInput {

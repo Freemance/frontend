@@ -5,6 +5,7 @@ export const PROFILE_UPDATE_INFO = gql`
     profileUpdateBasicInfo(input: $input) {
       firstName
       lastName
+      slykUser
       jobTitle
       bio
       phone

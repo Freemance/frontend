@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Grid, TextField, Typography } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import { Formik } from 'formik';
@@ -8,7 +8,7 @@ import { useProfileInfoStyle } from './ProfileInfo.style';
 import ProfileInfoField from '@components/atoms/ProfileInfoField';
 import { useProfileContext } from '@layouts/ProfileLayout';
 import ProfileInfoEditField from '@components/atoms/ProfileInfoEditField';
-import { useGlobalContext } from 'src/context';
+import { ActionType, useGlobalContext } from 'src/context';
 import SubmitButton from '@components/atoms/SubmitButton';
 import { useMutation } from '@apollo/client';
 import { PROFILE_UPDATE_INFO } from 'src/lib/apollo/user/mutations';
@@ -18,14 +18,24 @@ const ProfileInfo = () => {
   const classes = useProfileInfoStyle();
 
   const { isEdit } = useProfileContext();
-  const { state } = useGlobalContext();
+  const { dispatch, state } = useGlobalContext();
 
-  const [updateProfile, { error, loading }] = useMutation<
+  const [updateProfile, { error, loading, data }] = useMutation<
     IProfileUpdateInfoRes,
     IProfileUpdateInfo
   >(PROFILE_UPDATE_INFO);
 
   const user = state.user;
+
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+      dispatch({
+        type: ActionType.UpdateProfile,
+        payload: data.profileUpdateBasicInfo,
+      });
+    }
+  }, [data]);
 
   return isEdit ? (
     <Formik

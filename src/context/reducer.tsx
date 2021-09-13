@@ -20,6 +20,14 @@ export const globalReducer = (
         user: null,
       };
 
+    case ActionType.UpdateProfile:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          profile: { ...action.payload },
+        },
+      };
     default:
       return state;
   }
