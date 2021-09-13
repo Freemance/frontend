@@ -12,5 +12,12 @@ export const useProfileInfoStyle = makeStyles((theme: Theme) =>
         alignItems: 'center',
       },
     },
+    saveButton: {
+      backgroundColor: theme.palette.primary.light,
+      color: theme.palette.primary.contrastText,
+      '&:hover': {
+        color: theme.palette.primary.main,
+      },
+    },
   })
 );

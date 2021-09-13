@@ -28,6 +28,9 @@ export const useProfileEditBarStyle = makeStyles((theme: Theme) =>
       },
       color: theme.palette.primary.main,
     },
+    backButton: {
+      color: theme.palette.primary.contrastText,
+    },
     title: {
       flexGrow: 1,
       display: 'block',

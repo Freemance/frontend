@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, TextField, Typography } from '@material-ui/core';
 import { useProfileInfoStyle } from './ProfileInfo.style';
 import ProfileInfoField from '@components/atoms/ProfileInfoField';
 import { useProfileContext } from '@layouts/ProfileLayout';
@@ -83,6 +83,15 @@ const ProfileInfo = () => {
               label="Country"
               defaultValue={user.profile.country}
             />
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              className={classes.saveButton}
+              fullWidth
+              variant="contained"
+            >
+              Save
+            </Button>
           </Grid>
         </>
       ) : (
