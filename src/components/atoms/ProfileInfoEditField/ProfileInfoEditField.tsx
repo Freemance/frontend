@@ -4,19 +4,31 @@ import { TextField } from '@material-ui/core';
 import IProfileInfoEditField from './types';
 
 const ProfileInfoEditField = ({
+  id,
+  name,
   label,
-  defaultValue,
   required,
   multiline,
+  value,
+  onChange,
+  error,
+  onBlur,
+  helperText,
 }: IProfileInfoEditField) => {
   return (
     <TextField
+      id={id}
+      name={name}
       required={required}
       multiline={multiline}
       label={label}
-      defaultValue={defaultValue}
       variant="outlined"
       fullWidth
+      value={value}
+      onChange={onChange}
+      error={error}
+      onBlur={onBlur}
+      helperText={helperText}
     />
   );
 };

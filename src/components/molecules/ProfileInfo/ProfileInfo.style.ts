@@ -5,6 +5,10 @@ export const useProfileInfoStyle = makeStyles((theme: Theme) =>
     contain: {
       paddingTop: theme.spacing(3),
     },
+    form: {
+      width: '100%',
+      marginTop: theme.spacing(1),
+    },
     nameBox: {
       display: 'flex',
       flexDirection: 'column',
@@ -18,6 +22,9 @@ export const useProfileInfoStyle = makeStyles((theme: Theme) =>
       '&:hover': {
         color: theme.palette.primary.main,
       },
+    },
+    alert: {
+      width: '100%',
     },
   })
 );
