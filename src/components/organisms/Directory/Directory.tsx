@@ -35,8 +35,8 @@ export const Directory = () => {
           <form className={classes.form}>
             <TextField
               color="primary"
-              margin="normal"
-              variant="filled"
+              variant="outlined"
+              size="small"
               name="search"
               label="Search"
               type="search"
@@ -45,7 +45,7 @@ export const Directory = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <label htmlFor="search-freelancer">
+            {/* <label htmlFor="search-freelancer">
               <Button
                 disabled={search === ''}
                 type="submit"
@@ -54,7 +54,7 @@ export const Directory = () => {
               >
                 <SearchIcon />
               </Button>
-            </label>
+            </label> */}
           </form>
           {error ? (
             <Typography variant="h1" className={classes.errordata}>
