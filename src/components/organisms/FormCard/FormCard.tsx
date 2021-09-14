@@ -3,6 +3,9 @@ import { Card, CardContent, Typography } from '@material-ui/core';
 
 import { useFormCardStyle } from './FormCard.style';
 import { IFormCard } from './types';
+import ArrowDown from '@components/atoms/Icons/ArrowDown';
+import { IconButton } from '@material-ui/core';
+import Link from 'next/link';
 
 const FormCard = ({ title, subtitle, children }: IFormCard) => {
   const classes = useFormCardStyle();
@@ -11,6 +14,12 @@ const FormCard = ({ title, subtitle, children }: IFormCard) => {
     <Card className={classes.paper}>
       <CardContent>
         <Typography component="h1" variant="h3" className={classes.title}>
+          <Link href="/">
+            <IconButton>
+              <ArrowDown />
+            </IconButton>
+          </Link>
+
           {title}
         </Typography>
         <Typography

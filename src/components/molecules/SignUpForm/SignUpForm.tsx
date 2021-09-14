@@ -48,8 +48,18 @@ export default function SignUpForm() {
       <FormikStep
         label="Personal Data"
         validationSchema={Yup.object().shape({
-          firstName: Yup.string().required('Required'),
-          lastName: Yup.string().required('Required'),
+          firstName: Yup.string()
+            .required('Required')
+            .matches(
+              /^[aA-zZ\s]+$/,
+              'Only alphabets are allowed for this field '
+            ),
+          lastName: Yup.string()
+            .required('Required')
+            .matches(
+              /^[aA-zZ\s]+$/,
+              'Only alphabets are allowed for this field '
+            ),
           email: Yup.string().email('Enter a valid email').required('Required'),
         })}
       >
@@ -88,7 +98,9 @@ export default function SignUpForm() {
       <FormikStep
         label="Slyk"
         validationSchema={Yup.object().shape({
-          slykUrl: Yup.string().required('Required'),
+          slykUrl: Yup.string()
+            .matches(/^\b[a-zA-Z_]+\b$/, 'Dont use numbers or white space')
+            .required('Required'),
         })}
       >
         <Field
@@ -113,6 +125,9 @@ export default function SignUpForm() {
           password: Yup.string()
             .min(8, 'Password must be at least 8 characters')
             .required('Required'),
+          confirmPassword: Yup.string()
+            .oneOf([Yup.ref('password'), null], "Passwords don't match")
+            .required('Confirm Password is required'),
         })}
       >
         {error && <Alert severity="error">{error.message}</Alert>}
@@ -130,6 +145,17 @@ export default function SignUpForm() {
           name="password"
           component={TextField}
           label="Password"
+          type="password"
+        />
+        <Field
+          color="primary"
+          margin="normal"
+          variant="outlined"
+          required
+          fullWidth
+          name="confirmPassword"
+          component={TextField}
+          label="Password Confirm"
           type="password"
         />
       </FormikStep>
