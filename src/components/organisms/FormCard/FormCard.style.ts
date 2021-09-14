@@ -26,6 +26,8 @@ export const useFormCardStyle = makeStyles((theme: Theme) =>
     subTitle: {
       color: theme.palette.text.secondary,
       fontWeight: 600,
+      display: 'flex',
+      justifyContent: 'center',
     },
   })
 );
