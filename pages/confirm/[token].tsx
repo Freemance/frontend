@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { CircularProgress, Container, Typography } from '@material-ui/core';
+import { CircularProgress, Container } from '@material-ui/core';
 import Success from '@components/atoms/Icons/Success';
 import Error from '@components/atoms/Icons/Error';
 import { ConfirmMessage } from '@components/atoms/ConfirmMessage/ConfirmMessage';

@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 import { useConfirmMessageStyle } from './ConfirmMessage.style';
 
 interface ConfirmMessageType {
-  text: String;
+  text?: String;
   icon: React.ReactElement<any>;
 }
 
