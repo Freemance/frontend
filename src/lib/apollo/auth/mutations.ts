@@ -55,3 +55,12 @@ export const REFRESH_TOKEN = gql`
     }
   }
 `;
+
+export const ACTIVATE_USER = gql`
+  mutation activateuser($tokenconf: String!) {
+    verifyEmail(token: $tokenconf) {
+      accessToken
+      refreshToken
+    }
+  }
+`;
