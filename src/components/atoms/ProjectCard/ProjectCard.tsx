@@ -29,20 +29,22 @@ const ProjectCard = ({ title, imageUrl }: IProjectCard) => {
   return (
     <>
       <Grid item xs={12} sm={4} md={3}>
-        <Card className={classes.root}>
-          <CardActionArea onClick={() => setOpen(true)}>
-            <CardMedia className={classes.media} image={imageUrl} />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {title}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+        <Grid container justifyContent="center">
+          <Card className={classes.root}>
+            <CardActionArea onClick={() => setOpen(true)}>
+              <CardMedia className={classes.media} image={imageUrl} />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
       </Grid>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Edit project</DialogTitle>

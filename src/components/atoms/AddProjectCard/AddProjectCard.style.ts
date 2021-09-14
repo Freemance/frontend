@@ -5,6 +5,9 @@ export const useAddProjectCardStyle = makeStyles((theme: Theme) =>
     addProjectCard: {
       height: '100%',
       maxWidth: 260,
+      [theme.breakpoints.down('xs')]: {
+        minWidth: 260,
+      },
     },
     addProjectCardAction: {
       height: '100%',

@@ -16,6 +16,7 @@ const ProfileInfoEditField = ({
       label={label}
       defaultValue={defaultValue}
       variant="outlined"
+      fullWidth
     />
   );
 };
