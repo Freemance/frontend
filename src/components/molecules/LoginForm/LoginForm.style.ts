@@ -9,5 +9,8 @@ export const useLoginFormStyle = makeStyles((theme: Theme) =>
     alert: {
       width: '100%',
     },
+    submitButton: {
+      margin: theme.spacing(3, 0, 2),
+    },
   })
 );

@@ -1,9 +1,10 @@
-import { UserType } from './state';
+import { ProfileType, UserType } from './state';
 
 /* eslint-disable no-unused-vars */
 export enum ActionType {
   SetUser,
   RemoveUser,
+  UpdateProfile,
 }
 
 export interface LoginUser {
@@ -14,5 +15,9 @@ export interface LoginUser {
 export interface RemoveUser {
   type: ActionType.RemoveUser;
 }
+export interface UpdateProfile {
+  type: ActionType.UpdateProfile;
+  payload: ProfileType;
+}
 
-export type GlobalActions = LoginUser | RemoveUser;
+export type GlobalActions = LoginUser | RemoveUser | UpdateProfile;

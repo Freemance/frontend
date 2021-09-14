@@ -1,5 +1,12 @@
 import React from 'react';
-import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
+import {
+  AppBar,
+  Button,
+  IconButton,
+  Toolbar,
+  Typography,
+} from '@material-ui/core';
+import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 
 import { useProfileEditBarStyle } from './ProfileEditBar.style';
 import { useProfileContext } from '@layouts/ProfileLayout';
@@ -24,20 +31,12 @@ const ProfileEditBar = ({ isEdit }: IProfileEditBar) => {
     >
       <Toolbar>
         {isEdit ? (
-          <>
-            <Button
-              className={classes.cancelButton}
-              onClick={() => setIsEdit(false)}
-            >
-              Cancel
-            </Button>
-            <Button
-              className={classes.saveButton}
-              onClick={() => setIsEdit(false)}
-            >
-              Save
-            </Button>
-          </>
+          <IconButton
+            className={classes.backButton}
+            onClick={() => setIsEdit(false)}
+          >
+            <ArrowBackIcon />
+          </IconButton>
         ) : (
           <>
             <Link href="/">
