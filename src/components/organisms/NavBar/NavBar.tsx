@@ -6,6 +6,7 @@ import {
   Typography,
   Button,
   Hidden,
+  Avatar,
 } from '@material-ui/core';
 import Link from 'next/link';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -13,10 +14,17 @@ import DrawerNav from '@components/molecules/Drawer';
 // Styles
 import { useNavBarStyle } from './NavBar.style';
 import { useTranslation } from 'react-i18next';
+import { getToken } from '../../../services/token/index';
+import { Me } from 'src/lib/apollo/query/Me';
+import { useQuery } from '@apollo/client';
 
 const NavBar: React.FC = () => {
   const [t] = useTranslation('landpage');
   const classes = useNavBarStyle();
+  const token = getToken('access-token');
+  const { data } = useQuery(Me, {
+    context: { headers: { autorization: `bearer < ${token} >` } },
+  });
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -47,30 +55,38 @@ const NavBar: React.FC = () => {
               </Typography>
             </Link>
           </div>
-          <Hidden xsDown>
-            <Link href="/login">
-              <Button
-                color="primary"
-                style={{ marginRight: '8px', marginLeft: 'auto' }}
-              >
-                {t('navbar.buttonlogin')}
-              </Button>
-            </Link>
-            <Link href="/signup">
-              <Button color="primary" variant="contained">
-                {t('navbar.buttonaccess')}
-              </Button>
-            </Link>
-          </Hidden>
-          <Hidden smUp>
-            <IconButton
-              onClick={() => handleDrawerOpen()}
-              edge="start"
-              className={classes.menuButton}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Hidden>
+          {token ? (
+            <a href="/profile" style={{ marginLeft: 'auto' }}>
+              <Avatar src={data && data.me.profile.avatar} />
+            </a>
+          ) : (
+            <>
+              <Hidden xsDown>
+                <Link href="/login">
+                  <Button
+                    color="primary"
+                    style={{ marginRight: '8px', marginLeft: 'auto' }}
+                  >
+                    {t('navbar.buttonlogin')}
+                  </Button>
+                </Link>
+                <Link href="/signup">
+                  <Button color="primary" variant="contained">
+                    {t('navbar.buttonaccess')}
+                  </Button>
+                </Link>
+              </Hidden>
+              <Hidden smUp>
+                <IconButton
+                  onClick={() => handleDrawerOpen()}
+                  edge="start"
+                  className={classes.menuButton}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Hidden>
+            </>
+          )}
         </Toolbar>
       </AppBar>
     </div>
