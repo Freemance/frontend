@@ -24,15 +24,13 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
   },
   button: {
     '&:hover': {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.primary.dark,
     },
     marginLeft: '10px',
     display: 'flex',
-    marginTop: '15px',
-    marginBottom: 'auto',
-    width: '70%',
-    height: '70%',
+    width: '50px',
+    height: '100%',
     color: '#fff',
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.main,
   },
 }));

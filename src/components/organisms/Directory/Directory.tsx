@@ -35,8 +35,7 @@ export const Directory = () => {
           <form className={classes.form}>
             <TextField
               color="primary"
-              margin="normal"
-              variant="filled"
+              variant="outlined"
               name="search"
               label="Search"
               type="search"
@@ -49,6 +48,7 @@ export const Directory = () => {
               <Button
                 disabled={search === ''}
                 type="submit"
+                color="secondary"
                 variant="contained"
                 className={classes.button}
               >
