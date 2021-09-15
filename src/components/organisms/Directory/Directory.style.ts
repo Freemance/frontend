@@ -33,4 +33,11 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     height: '100%',
     color: 'gray',
   },
+  tagfilter: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  tagFilter: {
+    textAlign: 'center',
+  },
 }));

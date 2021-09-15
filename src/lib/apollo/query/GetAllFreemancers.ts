@@ -2,8 +2,8 @@ import { gql } from '@apollo/client';
 
 export const getAllFreemancers = (searchfield: String) =>
   gql`
-  query filterUser {
-    profileFilter(orderBy: { field: id, direction: asc }, query: "${searchfield}") {
+  query filterUser($tagid: Int!) {
+    profileFilter(orderBy: { field: id, direction: asc }, query: "${searchfield}", tag: $tagid) {
       edges {
         node {
           slykUser
@@ -15,6 +15,9 @@ export const getAllFreemancers = (searchfield: String) =>
           skills {
             icon
             name
+          }
+          user{
+            username
           }
         }
       }
