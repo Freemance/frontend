@@ -52,11 +52,12 @@ export const Directory = () => {
         <NavBar />
         <div className={classes.root}>
           <form className={classes.form}>
-            <div className={classes.tagfilter}>
+            <Container maxWidth="sm">
               <TextField
                 color="primary"
                 variant="outlined"
                 margin="normal"
+                fullWidth
                 size="small"
                 name="search"
                 label="Search"
@@ -66,25 +67,30 @@ export const Directory = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <Select
-                autoWidth={true}
-                id="tags"
-                defaultValue="SKills"
-                value={selectedtag}
-                onChange={SelectTag}
-                className={classes.tagFilter}
-              >
-                <MenuItem value={0}>All Professions</MenuItem>
-                {tags &&
-                  tags.map((profesion: any) => (
-                    <MenuItem key={profesion.node.id} value={profesion.node.id}>
-                      {profesion.node.name}
-                    </MenuItem>
-                  ))}
-              </Select>
-            </div>
+              <div className={classes.tagfilter}>
+                <Select
+                  autoWidth={true}
+                  id="tags"
+                  fullWidth
+                  defaultValue="SKills"
+                  value={selectedtag}
+                  onChange={SelectTag}
+                  className={classes.menu}
+                >
+                  <MenuItem value={0}>All Professions</MenuItem>
+                  {tags &&
+                    tags.map((profesion: any) => (
+                      <MenuItem
+                        key={profesion.node.id}
+                        value={profesion.node.id}
+                      >
+                        {profesion.node.name}
+                      </MenuItem>
+                    ))}
+                </Select>
+              </div>
 
-            {/* <label htmlFor="search-freelancer">
+              {/* <label htmlFor="search-freelancer">
               <Button
                 disabled={search === ''}
                 type="submit"
@@ -94,6 +100,7 @@ export const Directory = () => {
                 <SearchIcon />
               </Button>
             </label> */}
+            </Container>
           </form>
           {error ? (
             <Typography variant="h1" className={classes.errordata}>
