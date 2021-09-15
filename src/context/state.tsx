@@ -1,5 +1,10 @@
 export type RoleType = 'USER' | 'CONTRACTOR' | 'ADMIN';
 
+export type SkillType = {
+  id: number;
+  name: string;
+};
+
 export type ProfileType = {
   firstName: string;
   lastName: string;
@@ -9,6 +14,7 @@ export type ProfileType = {
   phone?: string;
   city?: string;
   country?: string;
+  skills?: SkillType[];
 };
 
 export type UserType = {

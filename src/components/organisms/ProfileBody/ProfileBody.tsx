@@ -8,9 +8,9 @@ import ProjectCard from '@components/atoms/ProjectCard';
 import ProfileTimeline from '@components/molecules/ProfileTimeline';
 import { IProfileTimelineItem } from '@components/molecules/ProfileTimeline/types';
 import ProfileSkills from '@components/molecules/ProfileSkills';
-import { ISkillItem } from '@components/molecules/ProfileSkills/types';
 import { useProfileContext } from '@layouts/ProfileLayout';
 import AddProjectCard from '@components/atoms/AddProjectCard';
+import { useGlobalContext } from 'src/context';
 
 const ProfileBody = () => {
   const classes = useProfileBodyStyle();
@@ -22,6 +22,9 @@ const ProfileBody = () => {
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setCurrentTab(newValue);
   };
+
+  const { state } = useGlobalContext();
+  const user = state.user;
 
   const sampleEducationItems: IProfileTimelineItem[] = [
     {
@@ -57,33 +60,6 @@ const ProfileBody = () => {
     },
   ];
 
-  const sampleSkills: ISkillItem[] = [
-    {
-      id: 1,
-      name: 'React',
-    },
-    {
-      id: 2,
-      name: 'Vue',
-    },
-    {
-      id: 3,
-      name: 'NodeJS',
-    },
-    {
-      id: 4,
-      name: 'Flutter',
-    },
-    {
-      id: 5,
-      name: 'MySQL',
-    },
-    {
-      id: 6,
-      name: 'Django',
-    },
-  ];
-
   return (
     <div className={classes.contain}>
       <Divider />
@@ -116,7 +92,7 @@ const ProfileBody = () => {
         <ProfileTimeline icon={<SchoolIcon />} items={sampleEducationItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={3}>
-        <ProfileSkills skills={sampleSkills} />
+        <ProfileSkills skills={user.profile.skills} />
       </ProfileTab>
     </div>
   );

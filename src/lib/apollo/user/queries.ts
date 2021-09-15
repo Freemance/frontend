@@ -14,6 +14,10 @@ export const ME = gql`
         phone
         city
         country
+        skills {
+          id
+          name
+        }
       }
       role
     }
