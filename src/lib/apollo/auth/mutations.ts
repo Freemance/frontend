@@ -64,3 +64,8 @@ export const ACTIVATE_USER = gql`
     }
   }
 `;
+export const RESET_PASSWORD = gql`
+  mutation resetpassword($email: String!) {
+    recoveryPassword(email: $email)
+  }
+`;
