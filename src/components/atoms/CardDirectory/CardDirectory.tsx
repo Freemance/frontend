@@ -16,7 +16,7 @@ const CardDirectory = ({ freelancers }: any) => {
       <Grid container>
         {freelancers.map((freelancer: any) => (
           <Grid item xs={12} lg={3} sm={6} md={3} key={freelancer.node.id}>
-            <Link href={`/profile/${freelancer.node.id}`}>
+            <Link href={`/profile/${freelancer.node.user.username}`}>
               <Card className={classes.root}>
                 <CardContent>
                   <img
