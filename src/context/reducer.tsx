@@ -25,7 +25,7 @@ export const globalReducer = (
         ...state,
         user: {
           ...state.user,
-          profile: { ...action.payload },
+          profile: { ...state.user.profile, ...action.payload },
         },
       };
     default:

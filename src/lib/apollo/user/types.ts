@@ -22,3 +22,11 @@ interface IProfileUpdateInfoInput {
   city: string;
   country: string;
 }
+
+export interface IProfileDeleteSkillInput {
+  skillId: number;
+}
+
+export interface IProfileDeleteSkillRes {
+  profileRemoveSkill: ProfileType;
+}

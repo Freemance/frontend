@@ -14,3 +14,14 @@ export const PROFILE_UPDATE_INFO = gql`
     }
   }
 `;
+
+export const PROFILE_REMOVE_SKILL = gql`
+  mutation profileRemoveSkill($skillId: Int!) {
+    profileRemoveSkill(skillId: $skillId) {
+      skills {
+        id
+        name
+      }
+    }
+  }
+`;

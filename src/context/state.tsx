@@ -6,9 +6,9 @@ export type SkillType = {
 };
 
 export type ProfileType = {
-  firstName: string;
-  lastName: string;
-  slykUser: string;
+  firstName?: string;
+  lastName?: string;
+  slykUser?: string;
   jobTitle?: string;
   bio?: string;
   phone?: string;

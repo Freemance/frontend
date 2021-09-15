@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   Button,
   Chip,
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
@@ -13,16 +14,31 @@ import { Add as AddIcon } from '@material-ui/icons';
 import { useProfileSkillsStyle } from './ProfileSkills.style';
 import IProfileSkills from './types';
 import { useProfileContext } from '@layouts/ProfileLayout';
+import { useMutation } from '@apollo/client';
+import { PROFILE_REMOVE_SKILL } from 'src/lib/apollo/user/mutations';
+import {
+  IProfileDeleteSkillInput,
+  IProfileDeleteSkillRes,
+} from 'src/lib/apollo/user/types';
+import { ActionType, useGlobalContext } from 'src/context';
 
 const ProfileSkills = ({ skills }: IProfileSkills) => {
   const classes = useProfileSkillsStyle();
 
+  const { dispatch } = useGlobalContext();
   const { isEdit } = useProfileContext();
 
   const [open, setOpen] = useState<boolean>(false);
   const [dialogTitle, setDialogTitle] = useState<String>('');
 
   const [openDelete, setOpenDelete] = useState<boolean>(false);
+  const [deleteId, setDeleteId] = useState<number>(-1);
+  const [isDeleteLoading, setIsDeleteLoading] = useState<boolean>(false);
+
+  const [deleteSkill] = useMutation<
+    IProfileDeleteSkillRes,
+    IProfileDeleteSkillInput
+  >(PROFILE_REMOVE_SKILL);
 
   useEffect(() => {
     if (dialogTitle != '') {
@@ -35,8 +51,35 @@ const ProfileSkills = ({ skills }: IProfileSkills) => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    if (deleteId != -1) {
+      setOpenDelete(true);
+    }
+  }, [deleteId]);
+
   const handleDeleteClose = () => {
+    setDeleteId(-1);
     setOpenDelete(false);
+  };
+
+  const handleDeleteSkill = () => {
+    setIsDeleteLoading(true);
+    deleteSkill({
+      variables: {
+        skillId: deleteId,
+      },
+    })
+      .then((res) => {
+        dispatch({
+          type: ActionType.UpdateProfile,
+          payload: res.data.profileRemoveSkill,
+        });
+        setIsDeleteLoading(false);
+        handleDeleteClose();
+      })
+      .catch((err) => {
+        setIsDeleteLoading(false);
+      });
   };
 
   return (
@@ -61,7 +104,7 @@ const ProfileSkills = ({ skills }: IProfileSkills) => {
               setDialogTitle('Edit skill');
             }}
             onDelete={() => {
-              setOpenDelete(true);
+              setDeleteId(skill.id);
             }}
           />
         ) : (
@@ -88,8 +131,15 @@ const ProfileSkills = ({ skills }: IProfileSkills) => {
           <Button onClick={handleDeleteClose} color="primary">
             Cancel
           </Button>
-          <Button className={classes.deleteButton} onClick={handleDeleteClose}>
+          <Button
+            className={classes.deleteButton}
+            disabled={isDeleteLoading}
+            onClick={handleDeleteSkill}
+          >
             Delete
+            {isDeleteLoading && (
+              <CircularProgress className={classes.spinner} size={20} />
+            )}
           </Button>
         </DialogActions>
       </Dialog>
