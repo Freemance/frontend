@@ -22,6 +22,12 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     marginTop: '20px',
   },
+  menu: {
+    width: '50%',
+    [theme.breakpoints.down('xs')]: {
+      width: '70%',
+    },
+  },
   button: {
     '&:hover': {
       backgroundColor: theme.palette.primary.main,
@@ -35,7 +41,7 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
   },
   tagfilter: {
     display: 'flex',
-    flexDirection: 'column',
+    justifyContent: 'center',
   },
   tagFilter: {
     textAlign: 'center',
