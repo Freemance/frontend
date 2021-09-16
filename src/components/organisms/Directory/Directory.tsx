@@ -51,8 +51,8 @@ export const Directory = () => {
       <Container maxWidth="lg">
         <NavBar />
         <div className={classes.root}>
-          <form className={classes.form}>
-            <Container maxWidth="sm">
+          <form>
+            <Container maxWidth="sm" className={classes.form}>
               <TextField
                 color="primary"
                 variant="outlined"
@@ -67,39 +67,24 @@ export const Directory = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <div className={classes.tagfilter}>
-                <Select
-                  autoWidth={true}
-                  id="tags"
-                  fullWidth
-                  defaultValue="SKills"
-                  value={selectedtag}
-                  onChange={SelectTag}
-                  className={classes.menu}
-                >
-                  <MenuItem value={0}>All Professions</MenuItem>
-                  {tags &&
-                    tags.map((profesion: any) => (
-                      <MenuItem
-                        key={profesion.node.id}
-                        value={profesion.node.id}
-                      >
-                        {profesion.node.name}
-                      </MenuItem>
-                    ))}
-                </Select>
-              </div>
-
-              {/* <label htmlFor="search-freelancer">
-              <Button
-                disabled={search === ''}
-                type="submit"
-                variant="contained"
-                className={classes.button}
+              <Select
+                autoWidth={true}
+                id="tags"
+                margin="dense"
+                defaultValue="SKills"
+                value={selectedtag}
+                onChange={SelectTag}
+                className={classes.menu}
+                variant="outlined"
               >
-                <SearchIcon />
-              </Button>
-            </label> */}
+                <MenuItem value={0}>All Professions</MenuItem>
+                {tags &&
+                  tags.map((profesion: any) => (
+                    <MenuItem key={profesion.node.id} value={profesion.node.id}>
+                      {profesion.node.name}
+                    </MenuItem>
+                  ))}
+              </Select>
             </Container>
           </form>
           {error ? (

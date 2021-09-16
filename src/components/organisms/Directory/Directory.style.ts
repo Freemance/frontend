@@ -10,6 +10,8 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
   form: {
     display: 'flex',
     justifyContent: 'center',
+    marginBottom: '2%',
+    verticalAlign: 'middle',
   },
   loading: {
     marginTop: '20px',
@@ -23,10 +25,13 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     marginTop: '20px',
   },
   menu: {
-    width: '50%',
+    marginLeft: '15px',
+    marginTop: '16px',
+    width: '100%',
     [theme.breakpoints.down('xs')]: {
-      width: '70%',
+      width: '100%',
     },
+    height: '37px',
   },
   button: {
     '&:hover': {
@@ -38,12 +43,5 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     width: '50px',
     height: '100%',
     color: 'gray',
-  },
-  tagfilter: {
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  tagFilter: {
-    textAlign: 'center',
   },
 }));

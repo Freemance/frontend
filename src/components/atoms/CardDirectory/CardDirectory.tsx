@@ -21,9 +21,10 @@ const CardDirectory = ({ freelancers }: any) => {
                 <CardContent>
                   <img
                     aria-label="recipe"
-                    src={freelancer.node.avatar}
+                    src={`https://freemance-backend.herokuapp.com/uploads/${freelancer.node.avatar}`}
                     className={classes.avatar}
                   />
+
                   <Typography variant="h4" className={classes.titlecard}>
                     {freelancer.node.firstName} {freelancer.node.lastName}
                   </Typography>
