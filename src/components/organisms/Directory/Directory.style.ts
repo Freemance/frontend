@@ -25,13 +25,12 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     marginTop: '20px',
   },
   menu: {
-    marginLeft: '15px',
-    marginTop: '16px',
     width: '100%',
     [theme.breakpoints.down('xs')]: {
       width: '100%',
     },
     height: '37px',
+    marginLeft: '20px',
   },
   button: {
     '&:hover': {
