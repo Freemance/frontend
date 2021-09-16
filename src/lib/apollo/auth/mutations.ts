@@ -19,6 +19,10 @@ export const LOGIN = gql`
           phone
           city
           country
+          skills {
+            id
+            name
+          }
         }
       }
     }
