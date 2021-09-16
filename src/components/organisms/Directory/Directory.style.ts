@@ -11,7 +11,7 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: '2%',
+    marginTop: '2%',
   },
   loading: {
     marginTop: '20px',
@@ -24,15 +24,9 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     marginTop: '20px',
   },
-  containselect: {
-    display: 'flex',
-    verticalAlign: 'middle',
-  },
   menu: {
-    width: '100%',
-    [theme.breakpoints.down('xs')]: {
-      width: '100%',
-    },
+    display: 'flex',
+    width: 'auto',
     marginLeft: '20px',
   },
   // button: {
