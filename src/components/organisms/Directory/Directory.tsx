@@ -54,7 +54,6 @@ export const Directory = () => {
           <TextField
             color="primary"
             variant="outlined"
-            fullWidth
             size="small"
             name="search"
             label="Search"
