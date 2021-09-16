@@ -5,7 +5,6 @@ import Hero from '@components/organisms/Hero';
 import CardLandContainer from '@components/organisms/CardLandContainer';
 import TitleSection from '@components/atoms/TitleSection';
 import DescriptionSection from '@components/atoms/DescriptionSection';
-import FAQContainer from '@components/molecules/FAQContainer/FAQContainer';
 import SliderFMProfiles from '@components/molecules/SliderFMProfiles/SliderFMProfiles';
 import Footer from '@components/organisms/Footer';
 // Internacionalizacion
@@ -20,9 +19,6 @@ const AppLayout: React.FC = () => {
         <TitleSection text={t('applayout.titlesection1')} />
         <DescriptionSection text={t('applayout.descsection1')} />
         <CardLandContainer />
-        <TitleSection text={t('applayout.titlesection2')} />
-        <DescriptionSection text={t('applayout.descsection2')} />
-        <FAQContainer />
         <TitleSection text={t('applayout.titlesection3')} />
         <DescriptionSection text={t('applayout.descsection3')} />
         <SliderFMProfiles />
