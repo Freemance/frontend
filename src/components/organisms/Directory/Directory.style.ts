@@ -25,7 +25,6 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
   },
   menu: {
     display: 'flex',
-    width: 'auto',
     marginLeft: '20px',
   },
   // button: {

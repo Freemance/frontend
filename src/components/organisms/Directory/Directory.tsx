@@ -50,39 +50,41 @@ export const Directory = () => {
     <>
       <Container maxWidth="lg">
         <NavBar />
-        <Container maxWidth="sm" className={classes.form}>
-          <TextField
-            color="primary"
-            variant="outlined"
-            size="small"
-            name="search"
-            label="Search"
-            type="search"
-            id="search-freelancer"
-            placeholder="Find a freemancer"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-          <Select
-            autoWidth={true}
-            id="tags"
-            defaultValue="SKills"
-            margin="dense"
-            value={selectedtag}
-            onChange={SelectTag}
-            className={classes.menu}
-            variant="outlined"
-          >
-            <MenuItem value={0}>All Professions</MenuItem>
-            {tags &&
-              tags.map((profesion: any) => (
-                <MenuItem key={profesion.node.id} value={profesion.node.id}>
-                  {profesion.node.name}
-                </MenuItem>
-              ))}
-          </Select>
-        </Container>
         <div className={classes.root}>
+          <Container maxWidth="sm">
+            <form className={classes.form}>
+              <TextField
+                color="primary"
+                variant="outlined"
+                size="small"
+                name="search"
+                label="Search"
+                type="search"
+                id="search-freelancer"
+                placeholder="Find a freemancer"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+              <Select
+                autoWidth={true}
+                id="tags"
+                defaultValue="SKills"
+                margin="dense"
+                value={selectedtag}
+                onChange={SelectTag}
+                className={classes.menu}
+                variant="outlined"
+              >
+                <MenuItem value={0}>All Professions</MenuItem>
+                {tags &&
+                  tags.map((profesion: any) => (
+                    <MenuItem key={profesion.node.id} value={profesion.node.id}>
+                      {profesion.node.name}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </form>
+          </Container>
           {error ? (
             <Typography variant="h1" className={classes.errordata}>
               Lost connection...
