@@ -3,8 +3,7 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 export const useProfileEditBarStyle = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
-      backgroundColor: 'transparent',
-      boxShadow: 'none',
+      backgroundColor: theme.palette.background.default,
     },
     editAppBar: {
       backgroundColor: theme.palette.primary.light,
