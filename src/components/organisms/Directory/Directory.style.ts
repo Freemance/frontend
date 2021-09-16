@@ -9,9 +9,9 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
   },
   form: {
     display: 'flex',
+    flexDirection: 'row',
     justifyContent: 'center',
     marginBottom: '2%',
-    verticalAlign: 'middle',
   },
   loading: {
     marginTop: '20px',
@@ -29,18 +29,17 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     [theme.breakpoints.down('xs')]: {
       width: '100%',
     },
-    height: '37px',
     marginLeft: '20px',
   },
-  button: {
-    '&:hover': {
-      backgroundColor: theme.palette.primary.main,
-      color: '#fff',
-    },
-    marginLeft: '10px',
-    display: 'flex',
-    width: '50px',
-    height: '100%',
-    color: 'gray',
-  },
+  // button: {
+  //   '&:hover': {
+  //     backgroundColor: theme.palette.primary.main,
+  //     color: '#fff',
+  //   },
+  //   marginLeft: '10px',
+  //   display: 'flex',
+  //   width: '50px',
+  //   height: '100%',
+  //   color: 'gray',
+  // },
 }));
