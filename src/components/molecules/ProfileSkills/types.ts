@@ -1,8 +1,5 @@
-export default interface IProfileSkills {
-  skills: ISkillItem[];
-}
+import { SkillType } from 'src/context/state';
 
-export interface ISkillItem {
-  id: number;
-  name: string;
+export default interface IProfileSkills {
+  skills: SkillType[];
 }

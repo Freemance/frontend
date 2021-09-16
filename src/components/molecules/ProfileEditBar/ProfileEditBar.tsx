@@ -28,6 +28,7 @@ const ProfileEditBar = ({ isEdit }: IProfileEditBar) => {
     <AppBar
       className={isEdit ? classes.editAppBar : classes.appBar}
       position="fixed"
+      elevation={1}
     >
       <Toolbar>
         {isEdit ? (
