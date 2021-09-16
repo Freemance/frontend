@@ -20,7 +20,6 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
   },
   errordata: {
     color: theme.palette.error.main,
-    display: 'flex',
     justifyContent: 'center',
     marginTop: '20px',
   },
