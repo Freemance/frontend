@@ -69,3 +69,12 @@ export const RESET_PASSWORD = gql`
     recoveryPassword(email: $email)
   }
 `;
+
+export const NEW_PASSWORD = gql`
+  mutation newpassword($password: String!, $token: String!) {
+    resetPassword(data: { password: $password, token: $token }) {
+      accessToken
+      refreshToken
+    }
+  }
+`;
