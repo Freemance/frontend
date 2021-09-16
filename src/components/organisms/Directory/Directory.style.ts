@@ -24,6 +24,10 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
     justifyContent: 'center',
     marginTop: '20px',
   },
+  containselect: {
+    display: 'flex',
+    verticalAlign: 'middle',
+  },
   menu: {
     width: '100%',
     [theme.breakpoints.down('xs')]: {
