@@ -1,4 +1,4 @@
-import { ProfileType, UserType } from 'src/context/state';
+import { ProfileType, SkillType, UserType } from 'src/context/state';
 
 export interface IMe {
   me: UserType;
@@ -23,10 +23,29 @@ interface IProfileUpdateInfoInput {
   country: string;
 }
 
+export interface IProfileAddSkillInput {
+  skillId: number;
+}
+
+export interface IProfileAddSkillRes {
+  profileAddSkill: ProfileType;
+}
 export interface IProfileDeleteSkillInput {
   skillId: number;
 }
 
 export interface IProfileDeleteSkillRes {
   profileRemoveSkill: ProfileType;
+}
+
+export interface IAvailableSkillsRes {
+  filterSkills: ISkillConnection;
+}
+
+export interface ISkillConnection {
+  edges: ISkillEdge[];
+}
+
+export interface ISkillEdge {
+  node: SkillType;
 }

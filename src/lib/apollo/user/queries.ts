@@ -23,3 +23,16 @@ export const ME = gql`
     }
   }
 `;
+
+export const AVAILABLE_SKILLS = gql`
+  query {
+    filterSkills(query: "", orderBy: { direction: asc, field: name }) {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+`;

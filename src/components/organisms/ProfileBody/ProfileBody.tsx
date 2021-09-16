@@ -10,7 +10,6 @@ import { IProfileTimelineItem } from '@components/molecules/ProfileTimeline/type
 import ProfileSkills from '@components/molecules/ProfileSkills';
 import { useProfileContext } from '@layouts/ProfileLayout';
 import AddProjectCard from '@components/atoms/AddProjectCard';
-import { useGlobalContext } from 'src/context';
 
 const ProfileBody = () => {
   const classes = useProfileBodyStyle();
@@ -22,9 +21,6 @@ const ProfileBody = () => {
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setCurrentTab(newValue);
   };
-
-  const { state } = useGlobalContext();
-  const user = state.user;
 
   const sampleEducationItems: IProfileTimelineItem[] = [
     {
@@ -92,7 +88,7 @@ const ProfileBody = () => {
         <ProfileTimeline icon={<SchoolIcon />} items={sampleEducationItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={3}>
-        <ProfileSkills skills={user.profile.skills} />
+        <ProfileSkills />
       </ProfileTab>
     </div>
   );
