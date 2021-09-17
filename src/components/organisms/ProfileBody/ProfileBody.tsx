@@ -10,6 +10,7 @@ import { IProfileTimelineItem } from '@components/molecules/ProfileTimeline/type
 import ProfileSkills from '@components/molecules/ProfileSkills';
 import { useProfileContext } from '@layouts/ProfileLayout';
 import AddProjectCard from '@components/atoms/AddProjectCard';
+import { useGlobalContext } from 'src/context';
 
 const ProfileBody = () => {
   const classes = useProfileBodyStyle();
@@ -18,41 +19,36 @@ const ProfileBody = () => {
 
   const { isEdit } = useProfileContext();
 
+  const { state } = useGlobalContext();
+
+  const courses: IProfileTimelineItem[] = state.user.profile.courses
+    .map((course) => ({
+      id: course.id,
+      name: course.course,
+      institution: course.institution,
+      startDate: new Date(course.startDate),
+      endDate: new Date(course.endDate),
+    }))
+    .sort((a, b) => a.startDate.getTime() - b.startDate.getTime());
+
   const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setCurrentTab(newValue);
   };
-
-  const sampleEducationItems: IProfileTimelineItem[] = [
-    {
-      id: 1,
-      name: 'Harvard University',
-      description: 'Computer Science',
-      startDate: '2012',
-      endDate: '2014',
-    },
-    {
-      id: 2,
-      name: 'Massachusetts Institute of Technology',
-      description: 'Software Engineering Degree',
-      startDate: '2008',
-      endDate: '2012',
-    },
-  ];
 
   const sampleJobItems: IProfileTimelineItem[] = [
     {
       id: 1,
       name: 'Facebook',
-      description: 'Frontend Developer',
-      startDate: '2018',
-      endDate: 'Now',
+      institution: 'Frontend Developer',
+      startDate: new Date('2018'),
+      endDate: new Date(),
     },
     {
       id: 2,
       name: 'Google',
-      description: 'Fullstack Developer',
-      startDate: '2016',
-      endDate: '2018',
+      institution: 'Fullstack Developer',
+      startDate: new Date('2016'),
+      endDate: new Date('2018'),
     },
   ];
 
@@ -85,7 +81,7 @@ const ProfileBody = () => {
         <ProfileTimeline icon={<WorkIcon />} items={sampleJobItems} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={2}>
-        <ProfileTimeline icon={<SchoolIcon />} items={sampleEducationItems} />
+        <ProfileTimeline icon={<SchoolIcon />} items={courses} />
       </ProfileTab>
       <ProfileTab value={currentTab} index={3}>
         <ProfileSkills />

@@ -72,9 +72,9 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
             <TimelineOppositeContent>
               <Paper className={classes.paper} elevation={1}>
                 <Typography variant="h5">{item.name}</Typography>
-                <Typography variant="subtitle1">{item.description}</Typography>
+                <Typography variant="subtitle1">{item.institution}</Typography>
                 {isSm && (
-                  <Typography variant="subtitle2">{`${item.startDate} - ${item.endDate}`}</Typography>
+                  <Typography variant="subtitle2">{`${item.startDate.getFullYear()} - ${item.endDate.getFullYear()}`}</Typography>
                 )}
               </Paper>
             </TimelineOppositeContent>
@@ -96,7 +96,7 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
             </TimelineSeparator>
             {!isSm && (
               <TimelineContent>
-                <Typography>{`${item.startDate} - ${item.endDate}`}</Typography>
+                <Typography>{`${item.startDate.getFullYear()} - ${item.endDate.getFullYear()}`}</Typography>
               </TimelineContent>
             )}
           </TimelineItem>

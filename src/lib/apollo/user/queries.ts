@@ -18,6 +18,13 @@ export const ME = gql`
           id
           name
         }
+        courses {
+          id
+          course
+          institution
+          startDate
+          endDate
+        }
       }
       role
     }

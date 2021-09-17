@@ -8,7 +8,7 @@ export interface IProfileTimeline {
 export interface IProfileTimelineItem {
   id: number;
   name: string;
-  description: string;
-  startDate: string;
-  endDate: string;
+  institution: string;
+  startDate: Date;
+  endDate: Date;
 }
