@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { School as SchoolIcon } from '@material-ui/icons';
+import { useMutation } from '@apollo/client';
 
 import ProfileTimeline from '@components/atoms/ProfileTimeline';
-import { useGlobalContext } from 'src/context';
+import { ActionType, useGlobalContext } from 'src/context';
 import { IProfileTimelineItem } from '@components/atoms/ProfileTimeline/types';
+import {
+  IProfileCreateCourseRes,
+  IProfileCreateCourseInput,
+  PROFILE_CREATE_COURSE,
+} from 'src/lib/apollo/courses';
 
 const ProfileEducation = () => {
-  const { state } = useGlobalContext();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [openDialog, setOpenDialog] = useState<boolean>(false);
+
+  const { dispatch, state } = useGlobalContext();
 
   const courses: IProfileTimelineItem[] = state.user.profile.courses
     .map((course) => ({
@@ -18,7 +27,52 @@ const ProfileEducation = () => {
     }))
     .sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
 
-  return <ProfileTimeline icon={<SchoolIcon />} items={courses} />;
+  const [createCourse] = useMutation<
+    IProfileCreateCourseRes,
+    IProfileCreateCourseInput
+  >(PROFILE_CREATE_COURSE);
+
+  const handleCreateCourse = (newCourse: IProfileTimelineItem) => {
+    setIsLoading(true);
+    createCourse({
+      variables: {
+        input: {
+          course: newCourse.name,
+          institution: newCourse.institution,
+          startDate: newCourse.startDate.toISOString(),
+          endDate: newCourse.endDate.toISOString(),
+        },
+      },
+    })
+      .then((res) => {
+        const upCourses = [
+          ...state.user.profile.courses,
+          res.data.profileCreateCourse,
+        ];
+        dispatch({
+          type: ActionType.UpdateProfileCourses,
+          payload: upCourses,
+        });
+        setIsLoading(false);
+        setOpenDialog(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+      });
+  };
+
+  return (
+    <ProfileTimeline
+      nameLabel="Course"
+      institutionLabel="Institution"
+      icon={<SchoolIcon />}
+      items={courses}
+      onCreate={handleCreateCourse}
+      isLoading={isLoading}
+      openDialog={openDialog}
+      setOpenDialog={setOpenDialog}
+    />
+  );
 };
 
 export default ProfileEducation;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Button,
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
@@ -23,12 +24,23 @@ import {
   TimelineSeparator,
 } from '@material-ui/lab';
 import { Add as AddIcon, Edit as EditIcon } from '@material-ui/icons';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 import { useProfileTimelineStyle } from './ProfileTimeline.style';
 import { IProfileTimeline } from './types';
 import { useProfileContext } from '@layouts/ProfileLayout';
 
-const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
+const ProfileTimeline = ({
+  nameLabel,
+  institutionLabel,
+  icon,
+  items,
+  onCreate,
+  isLoading,
+  openDialog,
+  setOpenDialog,
+}: IProfileTimeline) => {
   const classes = useProfileTimelineStyle();
 
   const theme = useTheme();
@@ -36,18 +48,22 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
 
   const { isEdit } = useProfileContext();
 
-  const [open, setOpen] = useState<boolean>(false);
-  const [dialogTitle, setDialogTitle] = useState<String>('');
+  const [dialogUse, setDialogUse] = useState<String>('');
 
   useEffect(() => {
-    if (dialogTitle != '') {
-      setOpen(true);
+    if (dialogUse != '') {
+      setOpenDialog(true);
     }
-  }, [dialogTitle]);
+  }, [dialogUse]);
 
-  const handleClose = () => {
-    setDialogTitle('');
-    setOpen(false);
+  useEffect(() => {
+    if (!openDialog) {
+      setDialogUse('');
+    }
+  }, [openDialog]);
+
+  const handleCancel = () => {
+    setOpenDialog(false);
   };
 
   return (
@@ -58,7 +74,7 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
             <TimelineOppositeContent></TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineDot style={{ padding: 0 }}>
-                <IconButton size="small" onClick={() => setDialogTitle('Add')}>
+                <IconButton size="small" onClick={() => setDialogUse('Add')}>
                   <AddIcon />
                 </IconButton>
               </TimelineDot>
@@ -84,7 +100,7 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
                   <IconButton
                     size="small"
                     style={{ color: 'white' }}
-                    onClick={() => setDialogTitle('Edit')}
+                    // onClick={() => setDialogUse('Edit')}
                   >
                     <EditIcon />
                   </IconButton>
@@ -102,44 +118,144 @@ const ProfileTimeline = ({ icon, items }: IProfileTimeline) => {
           </TimelineItem>
         ))}
       </Timeline>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>{dialogTitle}</DialogTitle>
-        <DialogContent>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField autoFocus margin="dense" label="Name" fullWidth />
-              <TextField
-                margin="dense"
-                label="Description"
-                fullWidth
-                multiline
-              />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField margin="dense" label="Start date" />
-            </Grid>
-            <Grid item xs={6}>
-              <TextField margin="dense" label="End date" />
-            </Grid>
-          </Grid>
-        </DialogContent>
-        <DialogActions>
-          {dialogTitle === 'Edit' && (
-            <Button
-              className={classes.deleteButton}
-              onClick={handleClose}
-              color="primary"
-            >
-              Delete
-            </Button>
+      <Dialog open={openDialog} onClose={handleCancel}>
+        <Formik
+          initialValues={{
+            name: '',
+            institution: '',
+            startDate: '',
+            endDate: '',
+          }}
+          validationSchema={Yup.object().shape({
+            name: Yup.string().required('Required'),
+            institution: Yup.string().required('Required'),
+            startDate: Yup.date().required('Required'),
+            endDate: Yup.date().required('Required'),
+          })}
+          onSubmit={(values) => {
+            if (dialogUse === 'Add') {
+              onCreate({
+                name: values.name,
+                institution: values.institution,
+                startDate: new Date(values.startDate),
+                endDate: new Date(values.endDate),
+              });
+            }
+          }}
+        >
+          {({
+            values,
+            touched,
+            errors,
+            handleChange,
+            handleBlur,
+            submitForm,
+          }) => (
+            <>
+              <DialogTitle>{dialogUse}</DialogTitle>
+              <DialogContent>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <TextField
+                      id="name"
+                      name="name"
+                      autoFocus
+                      margin="dense"
+                      label={nameLabel}
+                      fullWidth
+                      value={values.name}
+                      onChange={(e) => {
+                        handleChange(e);
+                      }}
+                      error={touched.name && Boolean(errors.name)}
+                      onBlur={handleBlur}
+                      helperText={touched.name && errors.name}
+                    />
+                    <TextField
+                      id="institution"
+                      name="institution"
+                      margin="dense"
+                      label={institutionLabel}
+                      fullWidth
+                      multiline
+                      value={values.institution}
+                      onChange={(e) => {
+                        handleChange(e);
+                      }}
+                      error={touched.institution && Boolean(errors.institution)}
+                      onBlur={handleBlur}
+                      helperText={touched.institution && errors.institution}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <TextField
+                      id="startDate"
+                      name="startDate"
+                      margin="dense"
+                      label="Start date"
+                      type="date"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      value={values.startDate}
+                      onChange={(e) => {
+                        handleChange(e);
+                      }}
+                      error={touched.startDate && Boolean(errors.startDate)}
+                      onBlur={handleBlur}
+                      helperText={touched.startDate && errors.startDate}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <TextField
+                      id="endDate"
+                      name="endDate"
+                      margin="dense"
+                      label="End date"
+                      type="date"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      value={values.endDate}
+                      onChange={(e) => {
+                        handleChange(e);
+                      }}
+                      error={touched.endDate && Boolean(errors.endDate)}
+                      onBlur={handleBlur}
+                      helperText={touched.endDate && errors.endDate}
+                    />
+                  </Grid>
+                </Grid>
+              </DialogContent>
+              <DialogActions>
+                {dialogUse === 'Edit' && (
+                  <Button
+                    className={classes.deleteButton}
+                    onClick={handleCancel}
+                    color="primary"
+                    disabled={isLoading}
+                  >
+                    Delete
+                  </Button>
+                )}
+                <Button onClick={handleCancel} color="primary">
+                  Cancel
+                </Button>
+                <Button
+                  onClick={submitForm}
+                  color="primary"
+                  variant="outlined"
+                  disabled={isLoading}
+                >
+                  Save
+                  {isLoading && (
+                    <CircularProgress className={classes.spinner} size={20} />
+                  )}
+                </Button>
+              </DialogActions>
+            </>
           )}
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary" variant="outlined">
-            Save
-          </Button>
-        </DialogActions>
+        </Formik>
       </Dialog>
     </>
   );

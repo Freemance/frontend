@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import { Divider, Tab, Tabs } from '@material-ui/core';
-import { Work as WorkIcon } from '@material-ui/icons';
 
 import { useProfileBodyStyle } from './ProfileBody.style';
 import ProfileTab from '@components/molecules/ProfileTab';
 import ProjectCard from '@components/atoms/ProjectCard';
-import ProfileTimeline from '@components/atoms/ProfileTimeline';
-import { IProfileTimelineItem } from '@components/atoms/ProfileTimeline/types';
 import ProfileSkills from '@components/molecules/ProfileSkills';
 import { useProfileContext } from '@layouts/ProfileLayout';
 import AddProjectCard from '@components/atoms/AddProjectCard';
@@ -23,31 +20,31 @@ const ProfileBody = () => {
     setCurrentTab(newValue);
   };
 
-  const sampleJobItems: IProfileTimelineItem[] = [
-    {
-      id: 1,
-      name: 'Facebook',
-      institution: 'Frontend Developer',
-      startDate: new Date('2018'),
-      endDate: new Date(),
-    },
-    {
-      id: 2,
-      name: 'Google',
-      institution: 'Fullstack Developer',
-      startDate: new Date('2016'),
-      endDate: new Date('2018'),
-    },
-  ];
+  // const sampleJobItems: IProfileTimelineItem[] = [
+  //   {
+  //     id: 1,
+  //     name: 'Facebook',
+  //     institution: 'Frontend Developer',
+  //     startDate: new Date('2018'),
+  //     endDate: new Date(),
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Google',
+  //     institution: 'Fullstack Developer',
+  //     startDate: new Date('2016'),
+  //     endDate: new Date('2018'),
+  //   },
+  // ];
 
   return (
     <div className={classes.contain}>
       <Divider />
       <Tabs value={currentTab} onChange={handleTabChange} variant="scrollable">
         <Tab value={0} label="Projects" />
-        <Tab value={1} label="Experience" />
-        <Tab value={2} label="Education" />
-        <Tab value={3} label="Skills" />
+        {/* <Tab value={1} label="Experience" /> */}
+        <Tab value={1} label="Education" />
+        <Tab value={2} label="Skills" />
       </Tabs>
       <Divider />
       <ProfileTab value={currentTab} index={0}>
@@ -65,13 +62,13 @@ const ProfileBody = () => {
           imageUrl="/static/images/sample_image_3.jpg"
         />
       </ProfileTab>
-      <ProfileTab value={currentTab} index={1}>
+      {/* <ProfileTab value={currentTab} index={1}>
         <ProfileTimeline icon={<WorkIcon />} items={sampleJobItems} />
-      </ProfileTab>
-      <ProfileTab value={currentTab} index={2}>
+      </ProfileTab> */}
+      <ProfileTab value={currentTab} index={1}>
         <ProfileEducation />
       </ProfileTab>
-      <ProfileTab value={currentTab} index={3}>
+      <ProfileTab value={currentTab} index={2}>
         <ProfileSkills />
       </ProfileTab>
     </div>
