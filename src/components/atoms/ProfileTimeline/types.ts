@@ -6,6 +6,7 @@ export interface IProfileTimeline {
   icon: ReactElement;
   items: IProfileTimelineItem[];
   onCreate: (newItem: IProfileTimelineItem) => void;
+  onEdit: (editItem: IProfileTimelineItem, index: number) => void;
   isLoading: boolean;
   openDialog: boolean;
   setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>;

@@ -9,6 +9,9 @@ import {
   IProfileCreateCourseRes,
   IProfileCreateCourseInput,
   PROFILE_CREATE_COURSE,
+  PROFILE_UPDATE_COURSE,
+  IProfileUpdateCourseRes,
+  IProfileUpdateCourseInput,
 } from 'src/lib/apollo/courses';
 
 const ProfileEducation = () => {
@@ -32,6 +35,11 @@ const ProfileEducation = () => {
     IProfileCreateCourseInput
   >(PROFILE_CREATE_COURSE);
 
+  const [updateCourse] = useMutation<
+    IProfileUpdateCourseRes,
+    IProfileUpdateCourseInput
+  >(PROFILE_UPDATE_COURSE);
+
   const handleCreateCourse = (newCourse: IProfileTimelineItem) => {
     setIsLoading(true);
     createCourse({
@@ -48,7 +56,10 @@ const ProfileEducation = () => {
         const upCourses = [
           ...state.user.profile.courses,
           res.data.profileCreateCourse,
-        ];
+        ].sort(
+          (a, b) =>
+            new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+        );
         dispatch({
           type: ActionType.UpdateProfileCourses,
           payload: upCourses,
@@ -61,6 +72,50 @@ const ProfileEducation = () => {
       });
   };
 
+  const handleUpdateCourse = (
+    editCourse: IProfileTimelineItem,
+    editIndex: number
+  ) => {
+    setIsLoading(true);
+    updateCourse({
+      variables: {
+        id: editCourse.id,
+        input: {
+          course: editCourse.name,
+          institution: editCourse.institution,
+          startDate: editCourse.startDate.toISOString(),
+          endDate: editCourse.endDate.toISOString(),
+        },
+      },
+    })
+      .then((res) => {
+        let upCourses = state.user.profile.courses
+          .map((c) => c)
+          .sort(
+            (a, b) =>
+              new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+          );
+        upCourses = [
+          ...upCourses.slice(0, editIndex),
+          res.data.profileUpdateCourse,
+          ...upCourses.slice(editIndex + 1),
+        ].sort(
+          (a, b) =>
+            new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+        );
+        dispatch({
+          type: ActionType.UpdateProfileCourses,
+          payload: upCourses,
+        });
+        setIsLoading(false);
+        setOpenDialog(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoading(false);
+      });
+  };
+
   return (
     <ProfileTimeline
       nameLabel="Course"
@@ -68,6 +123,7 @@ const ProfileEducation = () => {
       icon={<SchoolIcon />}
       items={courses}
       onCreate={handleCreateCourse}
+      onEdit={handleUpdateCourse}
       isLoading={isLoading}
       openDialog={openDialog}
       setOpenDialog={setOpenDialog}

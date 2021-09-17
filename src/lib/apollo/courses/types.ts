@@ -7,3 +7,12 @@ export interface IProfileCreateCourseRes {
 export interface IProfileCreateCourseInput {
   input: CourseType;
 }
+
+export interface IProfileUpdateCourseRes {
+  profileUpdateCourse: CourseType;
+}
+
+export interface IProfileUpdateCourseInput {
+  id: number;
+  input: CourseType;
+}

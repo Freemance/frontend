@@ -37,6 +37,7 @@ const ProfileTimeline = ({
   icon,
   items,
   onCreate,
+  onEdit,
   isLoading,
   openDialog,
   setOpenDialog,
@@ -48,7 +49,8 @@ const ProfileTimeline = ({
 
   const { isEdit } = useProfileContext();
 
-  const [dialogUse, setDialogUse] = useState<String>('');
+  const [dialogUse, setDialogUse] = useState<string>('');
+  const [editIndex, setEditIndex] = useState<number>(-1);
 
   useEffect(() => {
     if (dialogUse != '') {
@@ -59,8 +61,15 @@ const ProfileTimeline = ({
   useEffect(() => {
     if (!openDialog) {
       setDialogUse('');
+      setEditIndex(-1);
     }
   }, [openDialog]);
+
+  useEffect(() => {
+    if (editIndex >= 0) {
+      setDialogUse('Edit');
+    }
+  }, [editIndex]);
 
   const handleCancel = () => {
     setOpenDialog(false);
@@ -100,7 +109,7 @@ const ProfileTimeline = ({
                   <IconButton
                     size="small"
                     style={{ color: 'white' }}
-                    // onClick={() => setDialogUse('Edit')}
+                    onClick={() => setEditIndex(index)}
                   >
                     <EditIcon />
                   </IconButton>
@@ -121,10 +130,16 @@ const ProfileTimeline = ({
       <Dialog open={openDialog} onClose={handleCancel}>
         <Formik
           initialValues={{
-            name: '',
-            institution: '',
-            startDate: '',
-            endDate: '',
+            name: editIndex >= 0 ? items[editIndex].name : '',
+            institution: editIndex >= 0 ? items[editIndex].institution : '',
+            startDate:
+              editIndex >= 0
+                ? items[editIndex].startDate.toISOString().split('T')[0]
+                : '',
+            endDate:
+              editIndex >= 0
+                ? items[editIndex].endDate.toISOString().split('T')[0]
+                : '',
           }}
           validationSchema={Yup.object().shape({
             name: Yup.string().required('Required'),
@@ -140,6 +155,18 @@ const ProfileTimeline = ({
                 startDate: new Date(values.startDate),
                 endDate: new Date(values.endDate),
               });
+            }
+            if (dialogUse === 'Edit') {
+              onEdit(
+                {
+                  id: items[editIndex].id,
+                  name: values.name,
+                  institution: values.institution,
+                  startDate: new Date(values.startDate),
+                  endDate: new Date(values.endDate),
+                },
+                editIndex
+              );
             }
           }}
         >

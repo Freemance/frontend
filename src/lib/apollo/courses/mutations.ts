@@ -11,3 +11,15 @@ export const PROFILE_CREATE_COURSE = gql`
     }
   }
 `;
+
+export const PROFILE_UPDATE_COURSE = gql`
+  mutation profileUpdateCourse($id: Int!, $input: UpdateCourseInput!) {
+    profileUpdateCourse(id: $id, input: $input) {
+      id
+      course
+      institution
+      startDate
+      endDate
+    }
+  }
+`;
