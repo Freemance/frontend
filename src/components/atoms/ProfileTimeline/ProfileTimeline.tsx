@@ -38,6 +38,7 @@ const ProfileTimeline = ({
   items,
   onCreate,
   onEdit,
+  onDelete,
   isLoading,
   openDialog,
   setOpenDialog,
@@ -258,7 +259,9 @@ const ProfileTimeline = ({
                 {dialogUse === 'Edit' && (
                   <Button
                     className={classes.deleteButton}
-                    onClick={handleCancel}
+                    onClick={() => {
+                      onDelete(items[editIndex].id, editIndex);
+                    }}
                     color="primary"
                     disabled={isLoading}
                   >

@@ -23,3 +23,9 @@ export const PROFILE_UPDATE_COURSE = gql`
     }
   }
 `;
+
+export const PROFILE_DELETE_COURSE = gql`
+  mutation profileDeleteCourse($id: Int!) {
+    profileDeleteCourse(id: $id)
+  }
+`;

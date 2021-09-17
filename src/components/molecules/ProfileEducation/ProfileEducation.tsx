@@ -12,6 +12,9 @@ import {
   PROFILE_UPDATE_COURSE,
   IProfileUpdateCourseRes,
   IProfileUpdateCourseInput,
+  PROFILE_DELETE_COURSE,
+  IProfileDeleteCourseRes,
+  IProfileDeleteCourseInput,
 } from 'src/lib/apollo/courses';
 
 const ProfileEducation = () => {
@@ -39,6 +42,11 @@ const ProfileEducation = () => {
     IProfileUpdateCourseRes,
     IProfileUpdateCourseInput
   >(PROFILE_UPDATE_COURSE);
+
+  const [deleteCourse] = useMutation<
+    IProfileDeleteCourseRes,
+    IProfileDeleteCourseInput
+  >(PROFILE_DELETE_COURSE);
 
   const handleCreateCourse = (newCourse: IProfileTimelineItem) => {
     setIsLoading(true);
@@ -103,15 +111,52 @@ const ProfileEducation = () => {
           (a, b) =>
             new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
         );
+        setIsLoading(false);
+        setOpenDialog(false);
         dispatch({
           type: ActionType.UpdateProfileCourses,
           payload: upCourses,
         });
-        setIsLoading(false);
-        setOpenDialog(false);
       })
       .catch((err) => {
-        console.log(err);
+        setIsLoading(false);
+      });
+  };
+
+  const handleDeleteCourse = (deleteId: number, deleteIndex: number) => {
+    setIsLoading(true);
+    deleteCourse({
+      variables: {
+        id: deleteId,
+      },
+    })
+      .then((res) => {
+        if (res.data.profileDeleteCourse) {
+          let upCourses = state.user.profile.courses
+            .map((c) => c)
+            .sort(
+              (a, b) =>
+                new Date(b.startDate).getTime() -
+                new Date(a.startDate).getTime()
+            );
+          upCourses = [
+            ...upCourses.slice(0, deleteIndex),
+            ...upCourses.slice(deleteIndex + 1),
+          ].sort(
+            (a, b) =>
+              new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+          );
+          setIsLoading(false);
+          setOpenDialog(false);
+          dispatch({
+            type: ActionType.UpdateProfileCourses,
+            payload: upCourses,
+          });
+        } else {
+          throw new Error('Failed to delete course');
+        }
+      })
+      .catch((err) => {
         setIsLoading(false);
       });
   };
@@ -124,6 +169,7 @@ const ProfileEducation = () => {
       items={courses}
       onCreate={handleCreateCourse}
       onEdit={handleUpdateCourse}
+      onDelete={handleDeleteCourse}
       isLoading={isLoading}
       openDialog={openDialog}
       setOpenDialog={setOpenDialog}

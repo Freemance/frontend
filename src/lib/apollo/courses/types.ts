@@ -16,3 +16,11 @@ export interface IProfileUpdateCourseInput {
   id: number;
   input: CourseType;
 }
+
+export interface IProfileDeleteCourseRes {
+  profileDeleteCourse: boolean;
+}
+
+export interface IProfileDeleteCourseInput {
+  id: number;
+}
