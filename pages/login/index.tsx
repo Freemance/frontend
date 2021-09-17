@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async (
     return {
       redirect: {
         permanent: false,
-        destination: '/profile?fromLogin=true',
+        destination: '/profile',
       },
     };
   } else {
