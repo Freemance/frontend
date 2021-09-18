@@ -16,3 +16,11 @@ export interface IProfileUpdateJobInput {
   id: number;
   input: JobType;
 }
+
+export interface IProfileDeleteJobRes {
+  profileDeleteJob: boolean;
+}
+
+export interface IProfileDeleteJobInput {
+  id: number;
+}

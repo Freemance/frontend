@@ -23,3 +23,9 @@ export const PROFILE_UPDATE_JOB = gql`
     }
   }
 `;
+
+export const PROFILE_DELETE_JOB = gql`
+  mutation profileDeleteJob($id: Int!) {
+    profileDeleteJob(id: $id)
+  }
+`;

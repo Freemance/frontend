@@ -7,9 +7,12 @@ import { ActionType, useGlobalContext } from 'src/context';
 import {
   IProfileCreateJobInput,
   IProfileCreateJobRes,
+  IProfileDeleteJobInput,
+  IProfileDeleteJobRes,
   IProfileUpdateJobInput,
   IProfileUpdateJobRes,
   PROFILE_CREATE_JOB,
+  PROFILE_DELETE_JOB,
   PROFILE_UPDATE_JOB,
 } from 'src/lib/apollo/jobs';
 import { useMutation } from '@apollo/client';
@@ -36,6 +39,10 @@ const ProfileExperience = () => {
 
   const [updateJob] = useMutation<IProfileUpdateJobRes, IProfileUpdateJobInput>(
     PROFILE_UPDATE_JOB
+  );
+
+  const [deleteJob] = useMutation<IProfileDeleteJobRes, IProfileDeleteJobInput>(
+    PROFILE_DELETE_JOB
   );
 
   const handleCreateJob = (newJob: IProfileTimelineItem) => {
@@ -113,7 +120,43 @@ const ProfileExperience = () => {
       });
   };
 
-  const handleDeleteJob = () => {};
+  const handleDeleteJob = (deleteId: number, deleteIndex: number) => {
+    setIsLoading(true);
+    deleteJob({
+      variables: {
+        id: deleteId,
+      },
+    })
+      .then((res) => {
+        if (res.data.profileDeleteJob) {
+          let upJobs = state.user.profile.employmentHistory
+            .map((j) => j)
+            .sort(
+              (a, b) =>
+                new Date(b.startDate).getTime() -
+                new Date(a.startDate).getTime()
+            );
+          upJobs = [
+            ...upJobs.slice(0, deleteIndex),
+            ...upJobs.slice(deleteIndex + 1),
+          ].sort(
+            (a, b) =>
+              new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+          );
+          setIsLoading(false);
+          setOpenDialog(false);
+          dispatch({
+            type: ActionType.UpdateProfileJobs,
+            payload: upJobs,
+          });
+        } else {
+          throw new Error('Failed to delete course');
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+      });
+  };
 
   return (
     <ProfileTimeline
