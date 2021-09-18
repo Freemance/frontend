@@ -21,10 +21,13 @@ export const useAddProjectCardStyle = makeStyles((theme: Theme) =>
       height: 180,
     },
     dialogImageCard: {
-      maxWidth: 260,
+      width: '100%',
     },
     deleteButton: {
       color: theme.palette.error.main,
+    },
+    spinner: {
+      marginLeft: theme.spacing(2),
     },
   })
 );

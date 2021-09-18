@@ -25,7 +25,8 @@ export type PortfolioItemType = {
   id?: number;
   proyect: string;
   description: string;
-  screenshts: string[];
+  link?: string;
+  screenshts?: string[];
   startDate: string;
   endDate: string;
 };

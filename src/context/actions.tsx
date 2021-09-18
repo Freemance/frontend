@@ -1,10 +1,17 @@
-import { CourseType, JobType, ProfileType, UserType } from './state';
+import {
+  CourseType,
+  JobType,
+  PortfolioItemType,
+  ProfileType,
+  UserType,
+} from './state';
 
 /* eslint-disable no-unused-vars */
 export enum ActionType {
   SetUser,
   RemoveUser,
   UpdateProfile,
+  UpdateProfilePortfolio,
   UpdateProfileCourses,
   UpdateProfileJobs,
 }
@@ -22,6 +29,11 @@ export interface UpdateProfile {
   payload: ProfileType;
 }
 
+export interface UpdateProfilePortfolio {
+  type: ActionType.UpdateProfilePortfolio;
+  payload: PortfolioItemType[];
+}
+
 export interface UpdateProfileCourses {
   type: ActionType.UpdateProfileCourses;
   payload: CourseType[];
@@ -36,5 +48,6 @@ export type GlobalActions =
   | LoginUser
   | RemoveUser
   | UpdateProfile
+  | UpdateProfilePortfolio
   | UpdateProfileCourses
   | UpdateProfileJobs;
