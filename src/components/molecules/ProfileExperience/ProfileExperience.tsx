@@ -7,7 +7,10 @@ import { ActionType, useGlobalContext } from 'src/context';
 import {
   IProfileCreateJobInput,
   IProfileCreateJobRes,
+  IProfileUpdateJobInput,
+  IProfileUpdateJobRes,
   PROFILE_CREATE_JOB,
+  PROFILE_UPDATE_JOB,
 } from 'src/lib/apollo/jobs';
 import { useMutation } from '@apollo/client';
 
@@ -29,6 +32,10 @@ const ProfileExperience = () => {
 
   const [createJob] = useMutation<IProfileCreateJobRes, IProfileCreateJobInput>(
     PROFILE_CREATE_JOB
+  );
+
+  const [updateJob] = useMutation<IProfileUpdateJobRes, IProfileUpdateJobInput>(
+    PROFILE_UPDATE_JOB
   );
 
   const handleCreateJob = (newJob: IProfileTimelineItem) => {
@@ -63,7 +70,48 @@ const ProfileExperience = () => {
       });
   };
 
-  const handleUpdateJob = () => {};
+  const handleUpdateJob = (
+    editJob: IProfileTimelineItem,
+    editIndex: number
+  ) => {
+    setIsLoading(true);
+    updateJob({
+      variables: {
+        id: editJob.id,
+        input: {
+          name: editJob.name,
+          company: editJob.institution,
+          startDate: editJob.startDate.toISOString(),
+          endDate: editJob.endDate.toISOString(),
+        },
+      },
+    })
+      .then((res) => {
+        let upJobs = state.user.profile.employmentHistory
+          .map((j) => j)
+          .sort(
+            (a, b) =>
+              new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+          );
+        upJobs = [
+          ...upJobs.slice(0, editIndex),
+          res.data.profileUpdateJob,
+          ...upJobs.slice(editIndex + 1),
+        ].sort(
+          (a, b) =>
+            new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+        );
+        setIsLoading(false);
+        setOpenDialog(false);
+        dispatch({
+          type: ActionType.UpdateProfileJobs,
+          payload: upJobs,
+        });
+      })
+      .catch((err) => {
+        setIsLoading(false);
+      });
+  };
 
   const handleDeleteJob = () => {};
 

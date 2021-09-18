@@ -7,3 +7,12 @@ export interface IProfileCreateJobRes {
 export interface IProfileCreateJobInput {
   input: JobType;
 }
+
+export interface IProfileUpdateJobRes {
+  profileUpdateJob: JobType;
+}
+
+export interface IProfileUpdateJobInput {
+  id: number;
+  input: JobType;
+}
