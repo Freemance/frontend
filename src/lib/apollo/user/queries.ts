@@ -5,6 +5,7 @@ export const ME = gql`
     me {
       id
       email
+      role
       profile {
         firstName
         lastName
@@ -14,9 +15,12 @@ export const ME = gql`
         phone
         city
         country
-        skills {
+        employmentHistory {
           id
           name
+          company
+          startDate
+          endDate
         }
         courses {
           id
@@ -25,8 +29,11 @@ export const ME = gql`
           startDate
           endDate
         }
+        skills {
+          id
+          name
+        }
       }
-      role
     }
   }
 `;

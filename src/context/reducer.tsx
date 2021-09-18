@@ -41,6 +41,18 @@ export const globalReducer = (
         },
       };
 
+    case ActionType.UpdateProfileJobs:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          profile: {
+            ...state.user.profile,
+            employmentHistory: [...action.payload],
+          },
+        },
+      };
+
     default:
       return state;
   }
