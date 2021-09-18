@@ -19,6 +19,14 @@ export const LOGIN = gql`
           phone
           city
           country
+          portfolioItem {
+            id
+            screenshts
+            proyect
+            description
+            startDate
+            endDate
+          }
           employmentHistory {
             id
             name

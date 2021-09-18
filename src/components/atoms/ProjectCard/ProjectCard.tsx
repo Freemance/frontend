@@ -17,7 +17,7 @@ import {
 import { useProjectCardStyle } from './ProjectCard.style';
 import IProjectCard from './types';
 
-const ProjectCard = ({ title, imageUrl }: IProjectCard) => {
+const ProjectCard = ({ title, description, imageUrl }: IProjectCard) => {
   const classes = useProjectCardStyle();
 
   const [open, setOpen] = useState<boolean>(false);
@@ -38,8 +38,7 @@ const ProjectCard = ({ title, imageUrl }: IProjectCard) => {
                   {title}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  {description}
                 </Typography>
               </CardContent>
             </CardActionArea>
