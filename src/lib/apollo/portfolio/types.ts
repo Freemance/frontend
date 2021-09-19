@@ -16,3 +16,11 @@ export interface IProfileUpdatePortfolioInput {
   id: number;
   input: PortfolioItemType;
 }
+
+export interface IProfileDeletePortfolioRes {
+  profileDeletePortfolio: boolean;
+}
+
+export interface IProfileDeletePortfolioInput {
+  id: number;
+}

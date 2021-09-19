@@ -33,3 +33,9 @@ export const PROFILE_UPDATE_PORTFOLIO = gql`
     }
   }
 `;
+
+export const PROFILE_DELETE_PORTFOLIO = gql`
+  mutation profileDeletePortfolio($id: Int!) {
+    profileDeletePortfolio(id: $id)
+  }
+`;

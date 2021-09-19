@@ -4,7 +4,6 @@ export const useProjectCardStyle = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       height: '100%',
-      minHeight: 300,
       width: 260,
     },
     media: {

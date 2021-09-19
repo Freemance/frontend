@@ -21,8 +21,11 @@ import * as Yup from 'yup';
 import { useProjectCardStyle } from './ProjectCard.style';
 import IProjectCard from './types';
 import {
+  IProfileDeletePortfolioInput,
+  IProfileDeletePortfolioRes,
   IProfileUpdatePortfolioInput,
   IProfileUpdatePortfolioRes,
+  PROFILE_DELETE_PORTFOLIO,
   PROFILE_UPDATE_PORTFOLIO,
 } from 'src/lib/apollo/portfolio';
 import { ActionType, useGlobalContext } from 'src/context';
@@ -44,6 +47,11 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
     IProfileUpdatePortfolioRes,
     IProfileUpdatePortfolioInput
   >(PROFILE_UPDATE_PORTFOLIO);
+
+  const [deleteProject] = useMutation<
+    IProfileDeletePortfolioRes,
+    IProfileDeletePortfolioInput
+  >(PROFILE_DELETE_PORTFOLIO);
 
   const handleUpdateProject = (editProject: PortfolioItemType) => {
     setIsLoading(true);
@@ -74,6 +82,44 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
       setIsLoading(false);
       handleClose();
     });
+  };
+
+  const handleDeleteProject = () => {
+    setIsLoading(true);
+    deleteProject({
+      variables: {
+        id: project.id,
+      },
+    })
+      .then((res) => {
+        if (res.data.profileDeletePortfolio) {
+          let upProjects = state.user.profile.portfolioItem
+            .map((j) => j)
+            .sort(
+              (a, b) =>
+                new Date(b.startDate).getTime() -
+                new Date(a.startDate).getTime()
+            );
+          upProjects = [
+            ...upProjects.slice(0, index),
+            ...upProjects.slice(index + 1),
+          ].sort(
+            (a, b) =>
+              new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+          );
+          setIsLoading(false);
+          handleClose();
+          dispatch({
+            type: ActionType.UpdateProfilePortfolio,
+            payload: upProjects,
+          });
+        } else {
+          throw new Error('Failed to delete course');
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -228,15 +274,21 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
               <DialogActions>
                 <Button
                   className={classes.deleteButton}
-                  onClick={handleClose}
+                  onClick={handleDeleteProject}
                   color="primary"
+                  disabled={isLoading}
                 >
                   Delete
                 </Button>
                 <Button onClick={handleClose} color="primary">
                   Cancel
                 </Button>
-                <Button onClick={submitForm} color="primary" variant="outlined">
+                <Button
+                  onClick={submitForm}
+                  color="primary"
+                  variant="outlined"
+                  disabled={isLoading}
+                >
                   Save
                   {isLoading && (
                     <CircularProgress className={classes.spinner} size={20} />
