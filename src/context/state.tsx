@@ -5,6 +5,14 @@ export type SkillType = {
   name: string;
 };
 
+export type CourseType = {
+  id?: number;
+  course: string;
+  institution: string;
+  startDate: string;
+  endDate: string;
+};
+
 export type ProfileType = {
   firstName?: string;
   lastName?: string;
@@ -15,6 +23,7 @@ export type ProfileType = {
   city?: string;
   country?: string;
   skills?: SkillType[];
+  courses?: CourseType[];
 };
 
 export type UserType = {

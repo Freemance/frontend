@@ -8,5 +8,8 @@ export const useProfileTimelineStyle = makeStyles((theme: Theme) =>
     deleteButton: {
       color: theme.palette.error.main,
     },
+    spinner: {
+      marginLeft: theme.spacing(2),
+    },
   })
 );

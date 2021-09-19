@@ -28,6 +28,19 @@ export const globalReducer = (
           profile: { ...state.user.profile, ...action.payload },
         },
       };
+
+    case ActionType.UpdateProfileCourses:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          profile: {
+            ...state.user.profile,
+            courses: [...action.payload],
+          },
+        },
+      };
+
     default:
       return state;
   }

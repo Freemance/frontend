@@ -23,6 +23,13 @@ export const LOGIN = gql`
             id
             name
           }
+          courses {
+            id
+            course
+            institution
+            startDate
+            endDate
+          }
         }
       }
     }
