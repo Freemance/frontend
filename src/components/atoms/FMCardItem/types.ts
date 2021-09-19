@@ -1,6 +1,7 @@
 export default interface IFMCardItem {
   name: string;
-  skills: Array<string>;
+  skills?: Array<Object>;
   avatar: string;
   job: string;
+  user: Object;
 }

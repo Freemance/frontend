@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import FMCardItem from '@components/atoms/FMCardItem/index';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 // Style
 import { useSliderFMProfileStyle } from './SliderFMProfiles.style';
+// Apollo
+import { useQuery } from '@apollo/client';
+import { getSliderFreemancers } from 'src/lib/apollo/query/GetSliderFreemancers';
 
 const SliderFMProfiles = () => {
+  const { data } = useQuery(getSliderFreemancers());
+  const [freelancers, setFreelancers] = useState(undefined);
+  useEffect(() => {
+    if (data) {
+      setFreelancers(data.profileFilter.edges);
+    }
+  }, [data]);
   const classes = useSliderFMProfileStyle();
   const responsive = {
     desktop: {
@@ -24,68 +34,44 @@ const SliderFMProfiles = () => {
       slidesToSlide: 1, // optional, default to 1.
     },
   };
-  const items = [
-    {
-      name: 'Random Name #1',
-      description: ['REACT', 'VUE'],
-    },
-    {
-      name: 'Random Name #2',
-      description: ['VUE', 'CSS'],
-      avatar: 'https://avatars.githubusercontent.com/u/65286318?v=4',
-    },
-    {
-      name: 'Random Name #2',
-      description: ['HTML', 'CSS'],
-    },
-    {
-      name: 'Random Name #2',
-      description: ['JAVA', 'CSS'],
-    },
-    {
-      name: 'Random Name #2',
-      description: ['HTML', 'JAVSCRIPT'],
-    },
-    {
-      name: 'Random Name #2',
-      description: ['R', 'CSS'],
-      avtar: 'https://avatars.githubusercontent.com/u/65286318?v=4',
-    },
-    {
-      name: 'Random Name #2',
-      description: ['PYTHON', 'CSS'],
-    },
-  ];
+
   return (
-    <Carousel
-      swipeable={true}
-      draggable={false}
-      showDots={false}
-      responsive={responsive}
-      ssr={true} // means to render carousel on server-side.
-      infinite={true}
-      autoPlaySpeed={800}
-      keyBoardControl={true}
-      customTransition="all .5"
-      transitionDuration={200}
-      containerClass="carousel-container"
-      removeArrowOnDeviceType={['tablet', 'mobile']}
-      dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
-      className={classes.carousel}
-    >
-      {items.map((item, i) => (
-        <div key={i}>
-          <FMCardItem
-            key={i}
-            avatar={item.avatar}
-            name={item.name}
-            job="Frontend Developer"
-            skills={item.description}
-          />
-        </div>
-      ))}
-    </Carousel>
+    <>
+      {freelancers && (
+        <Carousel
+          swipeable={true}
+          draggable={false}
+          showDots={false}
+          responsive={responsive}
+          ssr={true} // means to render carousel on server-side.
+          infinite={true}
+          autoPlaySpeed={800}
+          keyBoardControl={true}
+          customTransition="all .5"
+          transitionDuration={200}
+          containerClass="carousel-container"
+          removeArrowOnDeviceType={['tablet', 'mobile']}
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
+          className={classes.carousel}
+        >
+          {freelancers &&
+            freelancers.map((freelancer: any, i: number) => (
+              <div key={i}>
+                <FMCardItem
+                  avatar={freelancer.node.avatar}
+                  name={`${freelancer.node.firstName} ${freelancer.node.lastName}`}
+                  job={freelancer.node.jobTitle}
+                  skills={freelancer.node.skills.map((skill: any) => {
+                    return skill;
+                  })}
+                  user={freelancer.node.user.username}
+                />
+              </div>
+            ))}
+        </Carousel>
+      )}
+    </>
   );
 };
 
