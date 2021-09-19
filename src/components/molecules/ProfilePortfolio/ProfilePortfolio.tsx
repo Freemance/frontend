@@ -18,13 +18,8 @@ const ProfilePortfolio = () => {
   return (
     <>
       {isEdit && <AddProjectCard />}
-      {projects.map((p) => (
-        <ProjectCard
-          key={p.id}
-          title={p.proyect}
-          description={p.description}
-          imageUrl="/static/images/no-image.jpg"
-        />
+      {projects.map((p, i) => (
+        <ProjectCard key={p.id} index={i} project={p} />
       ))}
     </>
   );

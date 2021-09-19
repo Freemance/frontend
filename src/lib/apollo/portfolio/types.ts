@@ -7,3 +7,12 @@ export interface IProfileCreatePortfolioRes {
 export interface IProfileCreatePortfolioInput {
   input: PortfolioItemType;
 }
+
+export interface IProfileUpdatePortfolioRes {
+  profileUpdatePortfolio: PortfolioItemType;
+}
+
+export interface IProfileUpdatePortfolioInput {
+  id: number;
+  input: PortfolioItemType;
+}

@@ -174,7 +174,7 @@ const AddProjectCard = () => {
                           label="Description"
                           fullWidth
                           multiline
-                          id="name"
+                          id="description"
                           name="description"
                           value={values.description}
                           onChange={(e) => {

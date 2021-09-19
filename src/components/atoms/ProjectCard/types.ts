@@ -1,5 +1,6 @@
+import { PortfolioItemType } from 'src/context/state';
+
 export default interface IProjectCard {
-  title: string;
-  description: string;
-  imageUrl: string;
+  index: number;
+  project: PortfolioItemType;
 }

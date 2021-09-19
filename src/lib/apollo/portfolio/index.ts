@@ -1,8 +1,18 @@
-import { PROFILE_CREATE_PORTFOLIO } from './mutations';
+import {
+  PROFILE_CREATE_PORTFOLIO,
+  PROFILE_UPDATE_PORTFOLIO,
+} from './mutations';
 import {
   IProfileCreatePortfolioRes,
   IProfileCreatePortfolioInput,
+  IProfileUpdatePortfolioRes,
+  IProfileUpdatePortfolioInput,
 } from './types';
 
-export type { IProfileCreatePortfolioRes, IProfileCreatePortfolioInput };
-export { PROFILE_CREATE_PORTFOLIO };
+export type {
+  IProfileCreatePortfolioRes,
+  IProfileCreatePortfolioInput,
+  IProfileUpdatePortfolioRes,
+  IProfileUpdatePortfolioInput,
+};
+export { PROFILE_CREATE_PORTFOLIO, PROFILE_UPDATE_PORTFOLIO };

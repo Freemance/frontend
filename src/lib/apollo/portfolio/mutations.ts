@@ -15,3 +15,21 @@ export const PROFILE_CREATE_PORTFOLIO = gql`
     }
   }
 `;
+
+export const PROFILE_UPDATE_PORTFOLIO = gql`
+  mutation profileUpdatePortfolio(
+    $files: [Upload!]
+    $id: Int!
+    $input: UpdatePortfolioInput!
+  ) {
+    profileUpdatePortfolio(files: $files, id: $id, input: $input) {
+      id
+      proyect
+      description
+      link
+      screenshts
+      startDate
+      endDate
+    }
+  }
+`;
