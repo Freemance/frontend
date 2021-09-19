@@ -19,9 +19,12 @@ export const LOGIN = gql`
           phone
           city
           country
-          skills {
+          employmentHistory {
             id
             name
+            company
+            startDate
+            endDate
           }
           courses {
             id
@@ -29,6 +32,10 @@ export const LOGIN = gql`
             institution
             startDate
             endDate
+          }
+          skills {
+            id
+            name
           }
         }
       }

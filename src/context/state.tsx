@@ -13,6 +13,14 @@ export type CourseType = {
   endDate: string;
 };
 
+export type JobType = {
+  id?: number;
+  name: string;
+  company: string;
+  startDate: string;
+  endDate: string;
+};
+
 export type ProfileType = {
   firstName?: string;
   lastName?: string;
@@ -22,8 +30,9 @@ export type ProfileType = {
   phone?: string;
   city?: string;
   country?: string;
-  skills?: SkillType[];
+  employmentHistory?: JobType[];
   courses?: CourseType[];
+  skills?: SkillType[];
 };
 
 export type UserType = {

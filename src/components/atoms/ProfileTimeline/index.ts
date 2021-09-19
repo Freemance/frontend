@@ -1,5 +1,5 @@
 import ProfileTimeline from './ProfileTimeline';
-import * as IProfileTimeline from './types';
+import { IProfileTimeline, IProfileTimelineItem } from './types';
 
-export { IProfileTimeline };
+export type { IProfileTimeline, IProfileTimelineItem };
 export default ProfileTimeline;
