@@ -15,6 +15,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useMutation } from '@apollo/client';
+import Image from 'next/image';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -32,6 +33,8 @@ import { ActionType, useGlobalContext } from 'src/context';
 import { PortfolioItemType } from 'src/context/state';
 
 const ProjectCard = ({ index, project }: IProjectCard) => {
+  const imageEndpoint = 'https://freemance-backend.herokuapp.com/uploads/';
+
   const classes = useProjectCardStyle();
 
   const { dispatch, state } = useGlobalContext();
@@ -130,7 +133,11 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
             <CardActionArea onClick={() => setOpen(true)}>
               <CardMedia
                 className={classes.media}
-                image="/static/images/no-image.jpg"
+                image={
+                  project.screenshts.length > 0
+                    ? `${imageEndpoint}${project.screenshts[0]}`
+                    : '/static/images/no-image.jpg'
+                }
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
@@ -181,12 +188,21 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={5}>
                     <Card className={classes.dialogImageCard}>
-                      <CardActionArea>
+                      {project.screenshts.length > 0 ? (
                         <CardMedia
                           className={classes.media}
-                          image="/static/images/no-image.jpg"
+                          image={`${imageEndpoint}${project.screenshts[0]}`}
                         />
-                      </CardActionArea>
+                      ) : (
+                        <CardMedia className={classes.media}>
+                          <Image
+                            src="/static/images/no-image.jpg"
+                            width={180}
+                            height={180}
+                            objectFit="contain"
+                          />
+                        </CardMedia>
+                      )}
                     </Card>
                   </Grid>
                   <Grid item xs={12} md={7}>
