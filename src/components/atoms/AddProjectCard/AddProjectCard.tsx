@@ -14,7 +14,11 @@ import {
   useMediaQuery,
   useTheme,
 } from '@material-ui/core';
-import { AddCircleOutline as AddIcon } from '@material-ui/icons';
+import {
+  AddCircleOutline as AddIcon,
+  CloudUpload as UploadIcon,
+} from '@material-ui/icons';
+import Image from 'next/image';
 import { useMutation } from '@apollo/client';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -39,6 +43,16 @@ const AddProjectCard = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const [uploadPreview, setUploadPreview] = useState<string>(null);
+  const [uploadFiles, setUploadFiles] = useState<FileList>(null);
+
+  const onUploadPicture = ({ target: { validity, files } }: any) => {
+    if (files && validity.valid) {
+      setUploadPreview(URL.createObjectURL(files[0]));
+      setUploadFiles(files);
+    }
+  };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -50,11 +64,21 @@ const AddProjectCard = () => {
 
   const handleCreateProject = (newProject: PortfolioItemType) => {
     setIsLoading(true);
-    createProject({
-      variables: {
-        input: newProject,
-      },
-    })
+    console.log(uploadFiles);
+    createProject(
+      uploadFiles
+        ? {
+            variables: {
+              files: uploadFiles,
+              input: newProject,
+            },
+          }
+        : {
+            variables: {
+              input: newProject,
+            },
+          }
+    )
       .then((res) => {
         const upProjects = [
           ...state.user.profile.portfolioItem,
@@ -140,14 +164,54 @@ const AddProjectCard = () => {
               <DialogContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={5}>
-                    <Card className={classes.dialogImageCard}>
-                      <CardActionArea>
-                        <CardMedia
-                          className={classes.media}
-                          image="/static/images/no-image.jpg"
+                    <Grid
+                      container
+                      spacing={2}
+                      alignItems="center"
+                      alignContent="center"
+                      justifyContent="center"
+                      direction="column"
+                    >
+                      <Grid item xs={12}>
+                        <Card className={classes.dialogImageCard}>
+                          {uploadPreview ? (
+                            <CardMedia
+                              className={classes.media}
+                              image={uploadPreview}
+                            />
+                          ) : (
+                            <CardMedia className={classes.media}>
+                              <Image
+                                src="/static/images/no-image.jpg"
+                                width={180}
+                                height={180}
+                                objectFit="contain"
+                              />
+                            </CardMedia>
+                          )}
+                        </Card>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <input
+                          accept="image/*"
+                          className={classes.imageInput}
+                          id="upload-image-button"
+                          multiple
+                          type="file"
+                          onChange={onUploadPicture}
                         />
-                      </CardActionArea>
-                    </Card>
+                        <label htmlFor="upload-image-button">
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            component="span"
+                            startIcon={<UploadIcon />}
+                          >
+                            Upload
+                          </Button>
+                        </label>
+                      </Grid>
+                    </Grid>
                   </Grid>
                   <Grid item xs={12} md={7}>
                     <Grid container spacing={1}>

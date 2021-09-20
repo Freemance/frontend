@@ -17,11 +17,15 @@ export const useAddProjectCardStyle = makeStyles((theme: Theme) =>
       justifyContent: 'center',
       padding: 20,
     },
+    imageInput: {
+      display: 'none',
+    },
     media: {
+      width: 180,
       height: 180,
     },
     dialogImageCard: {
-      width: '100%',
+      width: 180,
     },
     deleteButton: {
       color: theme.palette.error.main,

@@ -5,6 +5,7 @@ export interface IProfileCreatePortfolioRes {
 }
 
 export interface IProfileCreatePortfolioInput {
+  files?: FileList;
   input: PortfolioItemType;
 }
 
