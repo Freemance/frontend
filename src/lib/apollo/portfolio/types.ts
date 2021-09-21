@@ -14,6 +14,7 @@ export interface IProfileUpdatePortfolioRes {
 }
 
 export interface IProfileUpdatePortfolioInput {
+  files?: FileList;
   id: number;
   input: PortfolioItemType;
 }

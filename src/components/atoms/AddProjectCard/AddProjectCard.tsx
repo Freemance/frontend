@@ -64,7 +64,6 @@ const AddProjectCard = () => {
 
   const handleCreateProject = (newProject: PortfolioItemType) => {
     setIsLoading(true);
-    console.log(uploadFiles);
     createProject(
       uploadFiles
         ? {

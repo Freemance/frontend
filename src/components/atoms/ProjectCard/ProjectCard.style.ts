@@ -9,6 +9,10 @@ export const useProjectCardStyle = makeStyles((theme: Theme) =>
     media: {
       height: 180,
     },
+    mediaDialog: {
+      width: 180,
+      height: 180,
+    },
     dialogImageCard: {
       maxWidth: 260,
     },
@@ -17,6 +21,9 @@ export const useProjectCardStyle = makeStyles((theme: Theme) =>
     },
     spinner: {
       marginLeft: theme.spacing(2),
+    },
+    imageInput: {
+      display: 'none',
     },
   })
 );

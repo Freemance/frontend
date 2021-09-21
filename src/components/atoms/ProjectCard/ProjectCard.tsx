@@ -14,6 +14,7 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
+import { CloudUpload as UploadIcon } from '@material-ui/icons';
 import { useMutation } from '@apollo/client';
 import Image from 'next/image';
 import { Formik } from 'formik';
@@ -31,6 +32,7 @@ import {
 } from 'src/lib/apollo/portfolio';
 import { ActionType, useGlobalContext } from 'src/context';
 import { PortfolioItemType } from 'src/context/state';
+import { useProfileContext } from '@layouts/ProfileLayout';
 
 const ProjectCard = ({ index, project }: IProjectCard) => {
   const imageEndpoint = 'https://freemance-backend.herokuapp.com/uploads/';
@@ -38,9 +40,13 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
   const classes = useProjectCardStyle();
 
   const { dispatch, state } = useGlobalContext();
+  const { isEdit } = useProfileContext();
 
   const [open, setOpen] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const [uploadPreview, setUploadPreview] = useState<string>(null);
+  const [uploadFiles, setUploadFiles] = useState<FileList>(null);
 
   const handleClose = () => {
     setOpen(false);
@@ -58,33 +64,47 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
 
   const handleUpdateProject = (editProject: PortfolioItemType) => {
     setIsLoading(true);
-    updateProject({
-      variables: {
-        id: project.id,
-        input: editProject,
-      },
-    }).then((res) => {
-      let upProjects = state.user.profile.portfolioItem
-        .map((p) => p)
-        .sort(
+    updateProject(
+      uploadFiles
+        ? {
+            variables: {
+              files: uploadFiles,
+              id: project.id,
+              input: editProject,
+            },
+          }
+        : {
+            variables: {
+              id: project.id,
+              input: editProject,
+            },
+          }
+    )
+      .then((res) => {
+        let upProjects = state.user.profile.portfolioItem
+          .map((p) => p)
+          .sort(
+            (a, b) =>
+              new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
+          );
+        upProjects = [
+          ...upProjects.slice(0, index),
+          res.data.profileUpdatePortfolio,
+          ...upProjects.slice(index + 1),
+        ].sort(
           (a, b) =>
-            new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+            new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
         );
-      upProjects = [
-        ...upProjects.slice(0, index),
-        res.data.profileUpdatePortfolio,
-        ...upProjects.slice(index + 1),
-      ].sort(
-        (a, b) =>
-          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
-      );
-      dispatch({
-        type: ActionType.UpdateProfilePortfolio,
-        payload: upProjects,
+        dispatch({
+          type: ActionType.UpdateProfilePortfolio,
+          payload: upProjects,
+        });
+        setIsLoading(false);
+        handleClose();
+      })
+      .catch((err) => {
+        setIsLoading(false);
       });
-      setIsLoading(false);
-      handleClose();
-    });
   };
 
   const handleDeleteProject = () => {
@@ -100,15 +120,14 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
             .map((j) => j)
             .sort(
               (a, b) =>
-                new Date(b.startDate).getTime() -
-                new Date(a.startDate).getTime()
+                new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
             );
           upProjects = [
             ...upProjects.slice(0, index),
             ...upProjects.slice(index + 1),
           ].sort(
             (a, b) =>
-              new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+              new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
           );
           setIsLoading(false);
           handleClose();
@@ -125,17 +144,26 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
       });
   };
 
+  const onUploadPicture = ({ target: { validity, files } }: any) => {
+    if (files && validity.valid) {
+      setUploadPreview(URL.createObjectURL(files[0]));
+      setUploadFiles(files);
+    }
+  };
+
   return (
     <>
       <Grid item xs={12} sm={4} md={3}>
         <Grid container justifyContent="center">
           <Card className={classes.root}>
-            <CardActionArea onClick={() => setOpen(true)}>
+            <CardActionArea onClick={() => isEdit && setOpen(true)}>
               <CardMedia
                 className={classes.media}
                 image={
                   project.screenshts.length > 0
-                    ? `${imageEndpoint}${project.screenshts[0]}`
+                    ? `${imageEndpoint}${
+                        project.screenshts[project.screenshts.length - 1]
+                      }`
                     : '/static/images/no-image.jpg'
                 }
               />
@@ -187,23 +215,61 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
               <DialogContent>
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={5}>
-                    <Card className={classes.dialogImageCard}>
-                      {project.screenshts.length > 0 ? (
-                        <CardMedia
-                          className={classes.media}
-                          image={`${imageEndpoint}${project.screenshts[0]}`}
+                    <Grid
+                      container
+                      spacing={2}
+                      alignItems="center"
+                      alignContent="center"
+                      justifyContent="center"
+                      direction="column"
+                    >
+                      <Grid item xs={12}>
+                        <Card className={classes.dialogImageCard}>
+                          {uploadPreview || project.screenshts.length > 0 ? (
+                            <CardMedia
+                              className={classes.mediaDialog}
+                              image={
+                                uploadPreview ||
+                                `${imageEndpoint}${
+                                  project.screenshts[
+                                    project.screenshts.length - 1
+                                  ]
+                                }`
+                              }
+                            />
+                          ) : (
+                            <CardMedia className={classes.media}>
+                              <Image
+                                src="/static/images/no-image.jpg"
+                                width={180}
+                                height={180}
+                                objectFit="contain"
+                              />
+                            </CardMedia>
+                          )}
+                        </Card>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <input
+                          accept="image/*"
+                          className={classes.imageInput}
+                          id="upload-image-button"
+                          multiple
+                          type="file"
+                          onChange={onUploadPicture}
                         />
-                      ) : (
-                        <CardMedia className={classes.media}>
-                          <Image
-                            src="/static/images/no-image.jpg"
-                            width={180}
-                            height={180}
-                            objectFit="contain"
-                          />
-                        </CardMedia>
-                      )}
-                    </Card>
+                        <label htmlFor="upload-image-button">
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            component="span"
+                            startIcon={<UploadIcon />}
+                          >
+                            Upload
+                          </Button>
+                        </label>
+                      </Grid>
+                    </Grid>
                   </Grid>
                   <Grid item xs={12} md={7}>
                     <Grid container spacing={1}>
