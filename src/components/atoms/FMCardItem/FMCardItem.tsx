@@ -1,14 +1,11 @@
 import React from 'react';
-import {
-  Typography,
-  Card,
-  CardContent,
-  Chip,
-  Container,
-} from '@material-ui/core';
+import { Typography, Card, CardContent, Container } from '@material-ui/core';
 import Link from 'next/link';
+import TemplateSkill from 'src/components/atoms/Icons/TemplateSkill';
 // Types
 import IFMCardItem from './types';
+import { lightPalette } from 'src/styles/theme/palettes';
+
 import { useFMCardItem } from './FMCardItem.style';
 const FMCardItem = ({ name, skills, avatar, job, user }: IFMCardItem) => {
   const classes = useFMCardItem();
@@ -41,10 +38,10 @@ const FMCardItem = ({ name, skills, avatar, job, user }: IFMCardItem) => {
             <div className={classes.tagcontainer}>
               {skills &&
                 skills.map((skill: any) => (
-                  <Chip
+                  <TemplateSkill
                     key={skill.id}
-                    label={skill.name}
-                    className={classes.tag}
+                    icono={skill.icon}
+                    filled={lightPalette.text.primary}
                   />
                 ))}
             </div>
