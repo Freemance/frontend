@@ -34,10 +34,10 @@ const ProfileSkills = () => {
   const classes = useProfileSkillsStyle();
 
   const { state, dispatch } = useGlobalContext();
-  const { isEdit } = useProfileContext();
+  const { isEdit, isUser, profile } = useProfileContext();
 
-  const skills = [...state.user.profile.skills].sort((a, b) =>
-    a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+  const skills = [...(isUser ? state.user.profile : profile).skills].sort(
+    (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0)
   );
 
   const [openAdd, setOpenAdd] = useState<boolean>(false);

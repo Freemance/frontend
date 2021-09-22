@@ -16,14 +16,18 @@ import {
   IProfileDeleteCourseRes,
   IProfileDeleteCourseInput,
 } from 'src/lib/apollo/courses';
+import { useProfileContext } from '@layouts/ProfileLayout';
 
 const ProfileEducation = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
 
   const { dispatch, state } = useGlobalContext();
+  const { isUser, profile } = useProfileContext();
 
-  const courses: IProfileTimelineItem[] = state.user.profile.courses
+  const courses: IProfileTimelineItem[] = (
+    isUser ? state.user.profile : profile
+  ).courses
     .map((course) => ({
       id: course.id,
       name: course.course,

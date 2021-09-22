@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Work as WorkIcon } from '@material-ui/icons';
+import { useMutation } from '@apollo/client';
 
 import ProfileTimeline from '@components/atoms/ProfileTimeline';
 import { IProfileTimelineItem } from '@components/atoms/ProfileTimeline';
@@ -15,15 +16,18 @@ import {
   PROFILE_DELETE_JOB,
   PROFILE_UPDATE_JOB,
 } from 'src/lib/apollo/jobs';
-import { useMutation } from '@apollo/client';
+import { useProfileContext } from '@layouts/ProfileLayout';
 
 const ProfileExperience = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [openDialog, setOpenDialog] = useState<boolean>(false);
 
   const { dispatch, state } = useGlobalContext();
+  const { isUser, profile } = useProfileContext();
 
-  const jobs: IProfileTimelineItem[] = state.user.profile.employmentHistory
+  const jobs: IProfileTimelineItem[] = (
+    isUser ? state.user.profile : profile
+  ).employmentHistory
     .map((job) => ({
       id: job.id,
       name: job.name,
