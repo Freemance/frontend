@@ -7,20 +7,19 @@ import {
   Typography,
 } from '@material-ui/core';
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
-
-import { useProfileEditBarStyle } from './ProfileEditBar.style';
-import { useProfileContext } from '@layouts/ProfileLayout';
-import IProfileEditBar from './types';
-import { deleteToken } from 'src/services/token';
 import Link from 'next/link';
-import { ActionType, useGlobalContext } from 'src/context';
 import { useRouter } from 'next/router';
 
-const ProfileEditBar = ({ isEdit }: IProfileEditBar) => {
-  const classes = useProfileEditBarStyle();
+import { useProfileContext } from '@layouts/ProfileLayout';
+import { useProfileAppBarStyle } from './ProfileAppBar.style';
+import { deleteToken } from 'src/services/token';
+import { ActionType, useGlobalContext } from 'src/context';
+
+const ProfileAppBar = () => {
+  const classes = useProfileAppBarStyle();
 
   const { dispatch } = useGlobalContext();
-  const { setIsEdit } = useProfileContext();
+  const { setIsEdit, isEdit, isUser } = useProfileContext();
 
   const router = useRouter();
 
@@ -45,20 +44,22 @@ const ProfileEditBar = ({ isEdit }: IProfileEditBar) => {
                 Free<span className={classes.spantitle}>mance</span>
               </Typography>
             </Link>
-            <Button
-              className={classes.logoutButton}
-              variant="outlined"
-              onClick={() => {
-                deleteToken('access-token');
-                deleteToken('refresh-token');
-                router.replace('/');
-                dispatch({
-                  type: ActionType.RemoveUser,
-                });
-              }}
-            >
-              Logout
-            </Button>
+            {isUser && (
+              <Button
+                className={classes.logoutButton}
+                variant="outlined"
+                onClick={() => {
+                  deleteToken('access-token');
+                  deleteToken('refresh-token');
+                  router.replace('/');
+                  dispatch({
+                    type: ActionType.RemoveUser,
+                  });
+                }}
+              >
+                Logout
+              </Button>
+            )}
           </>
         )}
       </Toolbar>
@@ -66,4 +67,4 @@ const ProfileEditBar = ({ isEdit }: IProfileEditBar) => {
   );
 };
 
-export default ProfileEditBar;
+export default ProfileAppBar;
