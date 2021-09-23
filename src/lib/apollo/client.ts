@@ -1,15 +1,15 @@
 import {
   ApolloClient,
   InMemoryCache,
-  HttpLink,
   ApolloLink,
   fromPromise,
 } from '@apollo/client';
+import { createUploadLink } from 'apollo-upload-client';
 import { onError } from '@apollo/client/link/error';
 import { saveToken, getToken, deleteToken } from 'src/services/token';
 import { IRefreshInput, IRefreshResponse, REFRESH_TOKEN } from './auth';
 
-const httpLink = new HttpLink({
+const httpLink = createUploadLink({
   uri: 'https://freemance-backend.herokuapp.com/graphql',
 });
 
@@ -64,7 +64,7 @@ const cache = new InMemoryCache({});
 
 export const useApolloClient = () => {
   return new ApolloClient({
-    link: ApolloLink.from([errorLink, authLink, httpLink]),
+    link: ApolloLink.from([errorLink, authLink, httpLink as any]),
     cache,
   });
 };

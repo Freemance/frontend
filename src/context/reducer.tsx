@@ -53,6 +53,18 @@ export const globalReducer = (
         },
       };
 
+    case ActionType.UpdateProfilePortfolio:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          profile: {
+            ...state.user.profile,
+            portfolioItem: [...action.payload],
+          },
+        },
+      };
+
     default:
       return state;
   }

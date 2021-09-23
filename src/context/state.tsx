@@ -21,6 +21,16 @@ export type JobType = {
   endDate: string;
 };
 
+export type PortfolioItemType = {
+  id?: number;
+  proyect: string;
+  description: string;
+  link?: string;
+  screenshts?: string[];
+  startDate: string;
+  endDate: string;
+};
+
 export type ProfileType = {
   firstName?: string;
   lastName?: string;
@@ -30,6 +40,7 @@ export type ProfileType = {
   phone?: string;
   city?: string;
   country?: string;
+  portfolioItem: PortfolioItemType[];
   employmentHistory?: JobType[];
   courses?: CourseType[];
   skills?: SkillType[];

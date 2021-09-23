@@ -4,10 +4,13 @@ export const useProjectCardStyle = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       height: '100%',
-      minHeight: 300,
-      maxWidth: 260,
+      width: 260,
     },
     media: {
+      height: 180,
+    },
+    mediaDialog: {
+      width: 180,
       height: 180,
     },
     dialogImageCard: {
@@ -15,6 +18,12 @@ export const useProjectCardStyle = makeStyles((theme: Theme) =>
     },
     deleteButton: {
       color: theme.palette.error.main,
+    },
+    spinner: {
+      marginLeft: theme.spacing(2),
+    },
+    imageInput: {
+      display: 'none',
     },
   })
 );
