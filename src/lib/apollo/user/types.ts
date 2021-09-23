@@ -49,3 +49,11 @@ export interface ISkillConnection {
 export interface ISkillEdge {
   node: SkillType;
 }
+
+export interface IProfileByIdRes {
+  profileById: ProfileType;
+}
+
+export interface IProfileByIdInput {
+  id: number;
+}

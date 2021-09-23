@@ -32,6 +32,7 @@ export type PortfolioItemType = {
 };
 
 export type ProfileType = {
+  id?: number;
   firstName?: string;
   lastName?: string;
   slykUser?: string;
@@ -40,7 +41,7 @@ export type ProfileType = {
   phone?: string;
   city?: string;
   country?: string;
-  portfolioItem: PortfolioItemType[];
+  portfolioItem?: PortfolioItemType[];
   employmentHistory?: JobType[];
   courses?: CourseType[];
   skills?: SkillType[];

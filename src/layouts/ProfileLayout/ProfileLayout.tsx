@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from '@material-ui/core';
+import { useLazyQuery } from '@apollo/client';
+import { useRouter } from 'next/router';
 
 import { useProfileLayoutStyle } from './ProfileLayout.style';
 import { ProfileContext } from './ProfileLayout.context';
@@ -7,16 +9,14 @@ import ProfileHeader from '@components/organisms/ProfileHeader';
 import ProfileBody from '@components/organisms/ProfileBody';
 import ProfileEditBar from '@components/molecules/ProfileEditBar';
 import { IProfileLayout } from './types';
-import { useLazyQuery } from '@apollo/client';
 import { IMe, ME } from 'src/lib/apollo/user';
 import { ActionType, useGlobalContext } from 'src/context';
-import { useRouter } from 'next/router';
 import LoadingIndicatorCentered from '@components/atoms/LoadingIndicatorCentered';
 
-const ProfileLayout = ({ fromLogin }: IProfileLayout) => {
+const ProfileLayout = ({ fromLogin, profile }: IProfileLayout) => {
   const classes = useProfileLayoutStyle();
 
-  const isUser: boolean = true;
+  const isUser: boolean = profile ? false : true;
   const [isEdit, setIsEdit] = useState<boolean>(false);
 
   const router = useRouter();
@@ -43,11 +43,12 @@ const ProfileLayout = ({ fromLogin }: IProfileLayout) => {
     }
   }, [error]);
 
-  if (loading || state.user === null) return <LoadingIndicatorCentered />;
+  if ((loading || state.user === null) && isUser)
+    return <LoadingIndicatorCentered />;
 
   return (
     <Container className={classes.contain} maxWidth="md">
-      <ProfileContext.Provider value={{ isUser, isEdit, setIsEdit }}>
+      <ProfileContext.Provider value={{ profile, isUser, isEdit, setIsEdit }}>
         {isUser && <ProfileEditBar isEdit={isEdit} />}
         <ProfileHeader />
         <ProfileBody />

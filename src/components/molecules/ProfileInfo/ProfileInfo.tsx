@@ -17,7 +17,7 @@ import { IProfileUpdateInfo, IProfileUpdateInfoRes } from 'src/lib/apollo/user';
 const ProfileInfo = () => {
   const classes = useProfileInfoStyle();
 
-  const { isEdit } = useProfileContext();
+  const { isEdit, isUser, profile } = useProfileContext();
   const { dispatch, state } = useGlobalContext();
 
   const [updateProfile, { error, loading, data }] = useMutation<
@@ -25,7 +25,7 @@ const ProfileInfo = () => {
     IProfileUpdateInfo
   >(PROFILE_UPDATE_INFO);
 
-  const user = state.user;
+  const currentProfile = isUser ? state.user.profile : profile;
 
   useEffect(() => {
     if (data) {
@@ -40,13 +40,13 @@ const ProfileInfo = () => {
   return isEdit ? (
     <Formik
       initialValues={{
-        firstName: user.profile.firstName,
-        lastName: user.profile.lastName,
-        jobTitle: user.profile.jobTitle,
-        bio: user.profile.bio,
-        phone: user.profile.phone,
-        city: user.profile.city,
-        country: user.profile.country,
+        firstName: currentProfile.firstName,
+        lastName: currentProfile.lastName,
+        jobTitle: currentProfile.jobTitle,
+        bio: currentProfile.bio,
+        phone: currentProfile.phone,
+        city: currentProfile.city,
+        country: currentProfile.country,
       }}
       validationSchema={Yup.object().shape({
         firstName: Yup.string().required('Required').nullable(),
@@ -126,7 +126,7 @@ const ProfileInfo = () => {
               <TextField
                 disabled
                 label="Slyk URL"
-                defaultValue={user.profile.slykUser}
+                defaultValue={currentProfile.slykUser}
                 variant="outlined"
                 fullWidth
               />
@@ -178,13 +178,13 @@ const ProfileInfo = () => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField
+              {/* <TextField
                 disabled
                 label="Email"
                 defaultValue={user.email}
                 variant="outlined"
                 fullWidth
-              />
+              /> */}
             </Grid>
             <Grid item xs={12} sm={6}>
               <ProfileInfoEditField
@@ -240,28 +240,28 @@ const ProfileInfo = () => {
       <Grid item xs={12}>
         <div className={classes.nameBox}>
           <Typography variant="h2">
-            {user.profile.firstName} {user.profile.lastName}
+            {currentProfile.firstName} {currentProfile.lastName}
           </Typography>
-          <Typography variant="subtitle1">{user.profile.slykUser}</Typography>
+          <Typography variant="subtitle1">{currentProfile.slykUser}</Typography>
         </div>
       </Grid>
       <Grid item xs={12} sm={6}>
-        <ProfileInfoField title="Job" value={user.profile.jobTitle} />
+        <ProfileInfoField title="Job" value={currentProfile.jobTitle} />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <ProfileInfoField title="Bio" value={user.profile.bio} />
+        <ProfileInfoField title="Bio" value={currentProfile.bio} />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <ProfileInfoField title="Phone" value={user.profile.phone} />
+        <ProfileInfoField title="Phone" value={currentProfile.phone} />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <ProfileInfoField title="Email" value={user.email} />
+        {/* <ProfileInfoField title="Email" value={user.email} /> */}
       </Grid>
       <Grid item xs={6}>
-        <ProfileInfoField title="City" value={user.profile.city} />
+        <ProfileInfoField title="City" value={currentProfile.city} />
       </Grid>
       <Grid item xs={6}>
-        <ProfileInfoField title="Country" value={user.profile.country} />
+        <ProfileInfoField title="Country" value={currentProfile.country} />
       </Grid>
     </Grid>
   );

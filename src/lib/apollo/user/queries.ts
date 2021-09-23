@@ -58,3 +58,46 @@ export const AVAILABLE_SKILLS = gql`
     }
   }
 `;
+
+export const PROFILE_BY_ID = gql`
+  query profileById($id: Int!) {
+    profileById(id: $id) {
+      id
+      firstName
+      lastName
+      slykUser
+      jobTitle
+      bio
+      phone
+      city
+      country
+      courses {
+        id
+        course
+        institution
+        startDate
+        endDate
+      }
+      employmentHistory {
+        id
+        name
+        company
+        startDate
+        endDate
+      }
+      portfolioItem {
+        id
+        proyect
+        description
+        link
+        screenshts
+        startDate
+        endDate
+      }
+      skills {
+        id
+        name
+      }
+    }
+  }
+`;

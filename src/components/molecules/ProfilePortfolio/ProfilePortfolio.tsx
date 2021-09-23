@@ -7,9 +7,9 @@ import { useGlobalContext } from 'src/context';
 
 const ProfilePortfolio = () => {
   const { state } = useGlobalContext();
-  const { isEdit } = useProfileContext();
+  const { isEdit, isUser, profile } = useProfileContext();
 
-  const projects = state.user.profile.portfolioItem
+  const projects = (isUser ? state.user.profile : profile).portfolioItem
     .map((p) => p)
     .sort(
       (a, b) => new Date(b.endDate).getTime() - new Date(a.endDate).getTime()
