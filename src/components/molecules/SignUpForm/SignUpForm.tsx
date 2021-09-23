@@ -133,7 +133,8 @@ export default function SignUpForm() {
         {error && <Alert severity="error">{error.message}</Alert>}
         {data && (
           <Alert severity="success">
-            User created, please check your email for confirmation
+            USER CREATED, please check your email, also check your spam tray in
+            case the email goes there
           </Alert>
         )}
         <Field
