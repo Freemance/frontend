@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-export const getAllFreemancers = (searchfield: String) =>
+export const getAllFreemancers = (searchfield?: String) =>
   gql`
   query filterUser($tagid: Int!) {
     profileFilter(orderBy: { field: id, direction: asc }, query: "${searchfield}", tag: $tagid) {
