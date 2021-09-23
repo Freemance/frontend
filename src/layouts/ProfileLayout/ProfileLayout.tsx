@@ -7,7 +7,7 @@ import { useProfileLayoutStyle } from './ProfileLayout.style';
 import { ProfileContext } from './ProfileLayout.context';
 import ProfileHeader from '@components/organisms/ProfileHeader';
 import ProfileBody from '@components/organisms/ProfileBody';
-import ProfileEditBar from '@components/molecules/ProfileEditBar';
+import ProfileAppBar from '@components/molecules/ProfileAppBar';
 import { IProfileLayout } from './types';
 import { IMe, ME } from 'src/lib/apollo/user';
 import { ActionType, useGlobalContext } from 'src/context';
@@ -49,7 +49,7 @@ const ProfileLayout = ({ fromLogin, profile }: IProfileLayout) => {
   return (
     <Container className={classes.contain} maxWidth="md">
       <ProfileContext.Provider value={{ profile, isUser, isEdit, setIsEdit }}>
-        {isUser && <ProfileEditBar isEdit={isEdit} />}
+        <ProfileAppBar />
         <ProfileHeader />
         <ProfileBody />
       </ProfileContext.Provider>

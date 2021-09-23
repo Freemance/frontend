@@ -1,6 +1,6 @@
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
-export const useProfileEditBarStyle = makeStyles((theme: Theme) =>
+export const useProfileAppBarStyle = makeStyles((theme: Theme) =>
   createStyles({
     appBar: {
       backgroundColor: theme.palette.background.default,
