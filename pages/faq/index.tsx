@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Container, Typography } from '@material-ui/core';
 import Head from 'next/head';
 import NavBar from '@components/organisms/NavBar';
+import Footer from '@components/organisms/Footer';
 function FAQ() {
   const [t] = useTranslation('landpage');
   return (
@@ -23,6 +24,7 @@ function FAQ() {
         </Typography>
         <FAQContainer />
       </Container>
+      <Footer />
     </div>
   );
 }
