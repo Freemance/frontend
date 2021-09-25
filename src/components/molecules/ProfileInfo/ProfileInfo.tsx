@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Grid, TextField, Typography } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import { Formik } from 'formik';
@@ -8,34 +8,17 @@ import { useProfileInfoStyle } from './ProfileInfo.style';
 import ProfileInfoField from '@components/atoms/ProfileInfoField';
 import { useProfileContext } from '@layouts/ProfileLayout';
 import ProfileInfoEditField from '@components/atoms/ProfileInfoEditField';
-import { ActionType, useGlobalContext } from 'src/context';
+import { useGlobalContext } from 'src/context';
 import SubmitButton from '@components/atoms/SubmitButton';
-import { useMutation } from '@apollo/client';
-import { PROFILE_UPDATE_INFO } from 'src/lib/apollo/user/mutations';
-import { IProfileUpdateInfo, IProfileUpdateInfoRes } from 'src/lib/apollo/user';
+import IProfileInfo from './types';
 
-const ProfileInfo = () => {
+const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
   const classes = useProfileInfoStyle();
 
   const { isEdit, isUser, profile } = useProfileContext();
-  const { dispatch, state } = useGlobalContext();
-
-  const [updateProfile, { error, loading, data }] = useMutation<
-    IProfileUpdateInfoRes,
-    IProfileUpdateInfo
-  >(PROFILE_UPDATE_INFO);
+  const { state } = useGlobalContext();
 
   const currentProfile = isUser ? state.user.profile : profile;
-
-  useEffect(() => {
-    if (data) {
-      console.log(data);
-      dispatch({
-        type: ActionType.UpdateProfile,
-        payload: data.profileUpdateBasicInfo,
-      });
-    }
-  }, [data]);
 
   return isEdit ? (
     <Formik
@@ -58,18 +41,14 @@ const ProfileInfo = () => {
         country: Yup.string().required('Required').nullable(),
       })}
       onSubmit={(values) => {
-        updateProfile({
-          variables: {
-            input: {
-              firstName: values.firstName,
-              lastName: values.lastName,
-              jobTitle: values.jobTitle,
-              bio: values.bio,
-              phone: values.phone,
-              city: values.city,
-              country: values.country,
-            },
-          },
+        handleSaveInfo({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          jobTitle: values.jobTitle,
+          bio: values.bio,
+          phone: values.phone,
+          city: values.city,
+          country: values.country,
         });
       }}
     >
@@ -224,7 +203,7 @@ const ProfileInfo = () => {
               </Grid>
             )}
             <Grid item xs={12}>
-              <SubmitButton label="Save" isLoading={loading} />
+              <SubmitButton label="Save" isLoading={isLoading} />
             </Grid>
           </Grid>
         </form>
