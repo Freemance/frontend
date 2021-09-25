@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Fab, Grid, IconButton } from '@material-ui/core';
 import {
   Call as CallIcon,
@@ -25,6 +25,16 @@ const ProfileHeader = () => {
   const { dispatch } = useGlobalContext();
   const { isUser, isEdit, setIsEdit } = useProfileContext();
 
+  const [avatarPreview, setAvatarPreview] = useState<string>(null);
+  const [avatarFile, setAvatarFile] = useState<File>(null);
+
+  const handleAvatarUpload = ({ target: { validity, files } }: any) => {
+    if (files && validity.valid) {
+      setAvatarPreview(URL.createObjectURL(files[0]));
+      setAvatarFile(files[0]);
+    }
+  };
+
   const [updateProfile, { error, loading, data }] = useMutation<
     IProfileUpdateInfoRes,
     IProfileUpdateInfo
@@ -36,21 +46,35 @@ const ProfileHeader = () => {
         type: ActionType.UpdateProfile,
         payload: data.profileUpdateBasicInfo,
       });
+      setAvatarPreview(null);
+      setAvatarFile(null);
     }
   }, [data]);
 
   const handleUpdateProfileInfo = (updatedInfo: IProfileUpdateInfoInput) => {
-    updateProfile({
-      variables: {
-        input: updatedInfo,
-      },
-    });
+    updateProfile(
+      avatarFile
+        ? {
+            variables: {
+              file: avatarFile,
+              input: updatedInfo,
+            },
+          }
+        : {
+            variables: {
+              input: updatedInfo,
+            },
+          }
+    );
   };
 
   return (
     <Grid container spacing={3} justifyContent="center" alignItems="flex-start">
       <Grid item md={3}>
-        <ProfileAvatar />
+        <ProfileAvatar
+          previewUrl={avatarPreview}
+          onUploadPicture={handleAvatarUpload}
+        />
         {!isEdit && (
           <div className={classes.buttonsContainer}>
             {isUser ? (

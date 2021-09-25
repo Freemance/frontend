@@ -5,7 +5,7 @@ export interface IMe {
 }
 
 export interface IProfileUpdateInfo {
-  file?: string;
+  file?: File;
   input: IProfileUpdateInfoInput;
 }
 
