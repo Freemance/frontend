@@ -59,13 +59,13 @@ const SliderFMProfiles = () => {
             freelancers.map((freelancer: any, i: number) => (
               <div key={i}>
                 <FMCardItem
+                  identifier={freelancer.node.id}
                   avatar={freelancer.node.avatar}
                   name={`${freelancer.node.firstName} ${freelancer.node.lastName}`}
                   job={freelancer.node.jobTitle}
                   skills={freelancer.node.skills.map((skill: any) => {
                     return skill;
                   })}
-                  user={freelancer.node.user.username}
                 />
               </div>
             ))}
