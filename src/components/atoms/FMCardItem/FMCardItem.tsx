@@ -5,13 +5,12 @@ import TemplateSkill from 'src/components/atoms/Icons/TemplateSkill';
 // Types
 import IFMCardItem from './types';
 import { lightPalette } from 'src/styles/theme/palettes';
-
 import { useFMCardItem } from './FMCardItem.style';
-const FMCardItem = ({ name, skills, avatar, job, user }: IFMCardItem) => {
+const FMCardItem = ({ name, skills, avatar, job, identifier }: IFMCardItem) => {
   const classes = useFMCardItem();
   return (
     <Container maxWidth="lg">
-      <Link href={`/profiles/${user}`}>
+      <Link href={`/profile/${identifier}`}>
         <Card className={classes.root}>
           <CardContent>
             {avatar ? (

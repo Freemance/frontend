@@ -3,5 +3,5 @@ export default interface IFMCardItem {
   skills?: Array<Object>;
   avatar: string;
   job: string;
-  user: Object;
+  identifier: Number;
 }

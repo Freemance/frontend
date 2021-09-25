@@ -12,6 +12,7 @@ export const useFMCardItem = makeStyles((theme: Theme) =>
         marginLeft: '0px',
       },
       background: theme.palette.background.default,
+      cursor: 'pointer',
     },
     avatar: {
       display: 'flex',
