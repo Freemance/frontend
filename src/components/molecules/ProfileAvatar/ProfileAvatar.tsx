@@ -24,6 +24,8 @@ import IProfileAvatar from './types';
 import { useGlobalContext } from 'src/context';
 
 const ProfileAvatar = ({ previewUrl, onUploadPicture }: IProfileAvatar) => {
+  const imageEndpoint = 'https://freemance-backend.herokuapp.com/uploads/';
+
   const classes = useProfileAvatarStyle();
 
   const { state } = useGlobalContext();
@@ -37,6 +39,17 @@ const ProfileAvatar = ({ previewUrl, onUploadPicture }: IProfileAvatar) => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const getAvatarImage = (): string => {
+    if (isUser) {
+      if (previewUrl) {
+        return previewUrl;
+      }
+      return `${imageEndpoint}${state.user.profile.avatar}`;
+    } else {
+      return `${imageEndpoint}${profile.avatar}`;
+    }
   };
 
   const getInitials = (isUser: boolean): string => {
@@ -64,7 +77,7 @@ const ProfileAvatar = ({ previewUrl, onUploadPicture }: IProfileAvatar) => {
           )
         }
       >
-        <Avatar className={classes.avatar} src={previewUrl}>
+        <Avatar className={classes.avatar} src={getAvatarImage()}>
           <Typography className={classes.avatarText} variant="h1">
             {getInitials(isUser)}
           </Typography>
