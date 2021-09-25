@@ -35,6 +35,7 @@ export type ProfileType = {
   id?: number;
   firstName?: string;
   lastName?: string;
+  avatar?: string;
   slykUser?: string;
   jobTitle?: string;
   bio?: string;

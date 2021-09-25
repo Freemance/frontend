@@ -11,6 +11,7 @@ export const LOGIN = gql`
         role
         active
         profile {
+          avatar
           firstName
           lastName
           slykUser

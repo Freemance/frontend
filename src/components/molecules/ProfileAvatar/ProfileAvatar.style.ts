@@ -17,5 +17,8 @@ export const useProfileAvatarStyle = makeStyles((theme: Theme) =>
         backgroundColor: theme.palette.primary.dark,
       },
     },
+    imageInput: {
+      display: 'none',
+    },
   })
 );

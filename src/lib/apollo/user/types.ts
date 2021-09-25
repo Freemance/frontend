@@ -5,7 +5,7 @@ export interface IMe {
 }
 
 export interface IProfileUpdateInfo {
-  file?: string;
+  file?: File;
   input: IProfileUpdateInfoInput;
 }
 
@@ -13,7 +13,7 @@ export interface IProfileUpdateInfoRes {
   profileUpdateBasicInfo: ProfileType;
 }
 
-interface IProfileUpdateInfoInput {
+export interface IProfileUpdateInfoInput {
   firstName: string;
   lastName: string;
   jobTitle: string;

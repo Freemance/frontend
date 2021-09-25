@@ -7,6 +7,7 @@ export const ME = gql`
       email
       role
       profile {
+        avatar
         firstName
         lastName
         slykUser
@@ -63,6 +64,7 @@ export const PROFILE_BY_ID = gql`
   query profileById($id: Int!) {
     profileById(id: $id) {
       id
+      avatar
       firstName
       lastName
       slykUser
