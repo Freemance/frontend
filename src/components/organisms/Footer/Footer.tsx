@@ -20,7 +20,7 @@ const Footer = () => {
           sm={4}
           className={classes.grilla1}
         >
-          <Link href="/">
+          <Link href="/directory">
             <Typography variant="caption" className={classes.link}>
               Directory
             </Typography>
@@ -45,9 +45,9 @@ const Footer = () => {
               Contact Us
             </Typography>
           </Link>
-          <Link href="/">
+          <Link href="/faq">
             <Typography variant="caption" className={classes.link}>
-              End-user Terms of Service
+              FAQ
             </Typography>
           </Link>
           <Link href="/">
@@ -57,10 +57,16 @@ const Footer = () => {
           </Link>
         </Grid>
         <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
-          <IconButton className={classes.button}>
+          <IconButton
+            className={classes.button}
+            href="https://twitter.com/slyk_cu"
+          >
             <Twitter />
           </IconButton>
-          <IconButton className={classes.button}>
+          <IconButton
+            className={classes.button}
+            href="https://facebook.com/slyk_cu"
+          >
             <Facebook />
           </IconButton>
         </Grid>

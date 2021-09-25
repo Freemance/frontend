@@ -6,11 +6,18 @@ const FAQContainer = () => {
   const [t] = useTranslation('landpage');
   const classes = useFAQContainerStyles();
   return (
-    <div className={classes.container}>
-      <FAQ question={t('faq.question1')} answer={t('faq.answer1')} />
-      <FAQ question={t('faq.question2')} answer={t('faq.answer2')} />
-      <FAQ question={t('faq.question3')} answer={t('faq.answer3')} />
-    </div>
+    <>
+      <div className={classes.container}>
+        <FAQ question={t('faq.question1')} answer={t('faq.answer1')} />
+        <FAQ question={t('faq.question2')} answer={t('faq.answer2')} />
+        <FAQ question={t('faq.question3')} answer={t('faq.answer3')} />
+        <FAQ question={t('faq.question4')} answer={t('faq.answer4')} />
+        <FAQ question={t('faq.question5')} answer={t('faq.answer5')} />
+        <FAQ question={t('faq.question6')} answer={t('faq.answer6')} />
+        <FAQ question={t('faq.question7')} answer={t('faq.answer7')} />
+        <FAQ question={t('faq.question8')} answer={t('faq.answer8')} />
+      </div>
+    </>
   );
 };
 

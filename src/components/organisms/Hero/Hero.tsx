@@ -44,6 +44,7 @@ const Hero = () => {
             size="large"
             className={classes.outline}
             style={{ marginTop: '20px' }}
+            href="/signup"
           >
             {t('hero.buttonofbecome')}
           </Button>

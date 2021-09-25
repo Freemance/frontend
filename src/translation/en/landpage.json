@@ -29,11 +29,21 @@
     "buttonaccess": "Get Early Access"
   },
   "faq": {
-    "question1": "What is freemance",
-    "answer1": "Freemance is a platform associated with Slyk whose main objective is to give visibility to Cuban freelancers towards the international labor market, all payments are made through the slyk platform as well as the view of the freemancer's catalog, this platform works as a directory that you access if you want to have more visibility or find freelancers more easily.",
-    "question2": "Ejemplo",
-    "answer2": "Hola",
-    "question3": "Hola",
-    "answer3": "Ejemplo"
+    "question1": "What is Freemance",
+    "answer1": "Freemance is a directory of Cuban professionals with presence on Slyk. With the use of Freemance you can access to their portfolios and hire their services through their virtual stores on Slyk.",
+    "question2": "Does Freemance charges for hiring",
+    "answer2": "No, Freemance only acts as a directory, listing and organizing by categories the freelancers’ profiles. Freemance does not charge commissions to the contractor nor the freelancer. Payments are done through Slyk.",
+    "question3": "Does Freemance affects the price of the services?",
+    "answer3": "No, the price of the services of the professionals listed on Freemance is an exclusive decision of them, which may vary depending on the agreement made with the contractor.",
+    "question4": "Does Freemance retain payments",
+    "answer4": "No, the payment is made exclusively on the freelancers’ virtual store and Freemance does not have access to that data.",
+    "question5": "Can I pay with my credit card",
+    "answer5": "Payment method is an exclusive decision of the freelancer and it is shown in its virtual store.",
+    "question6": "Can I pay with cryptocurrency",
+    "answer6": "Payment method is an exclusive decision of the freelancer and it is shown in its virtual store.",
+    "question7": "Are the professionals’ profiles checked",
+    "answer7": "Yes, Freemance has checked and approved every profile on the directory list",
+    "question8": "How many professionals can I hire",
+    "answer8": "You can hire as many professionals as you estimate for your project."
   }
 }
