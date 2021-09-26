@@ -51,7 +51,7 @@ const Hero = () => {
         )}
       </Grid>
       <Grid item xs={12} lg={8} md={12} xl={8} sm={12}>
-        <img src="/mockup.svg" className={classes.mockup} />
+        <img src="/mockup.png" className={classes.mockup} />
       </Grid>
     </Grid>
   );
