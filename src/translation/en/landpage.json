@@ -23,7 +23,9 @@
     "titlesection2": "FAQ",
     "titlesection3": "Profiles Preview",
     "descsection3": "These are some of the most prominent profiles on the platform currently.",
-    "titlesection4": "Privacy Policy"
+    "titlesection4": "Privacy Policy",
+    "titlesection5": "Sponsors",
+    "descsection5": "These are some of the third-party platforms that we use or that sponsor us"
   },
   "navbar": {
     "buttonlogin": "Login",
