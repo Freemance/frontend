@@ -50,7 +50,7 @@ const Footer = () => {
               FAQ
             </Typography>
           </Link>
-          <Link href="/">
+          <Link href="/privacy_policy">
             <Typography variant="caption" className={classes.link}>
               Privacy Policy
             </Typography>
