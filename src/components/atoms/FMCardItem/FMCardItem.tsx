@@ -16,7 +16,7 @@ const FMCardItem = ({ name, skills, avatar, job, identifier }: IFMCardItem) => {
             {avatar ? (
               <img
                 aria-label="recipe"
-                src={avatar}
+                src={`${process.env.IMAGE_LINK}${avatar}`}
                 className={classes.avatar}
               />
             ) : (

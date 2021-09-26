@@ -3,12 +3,13 @@ import {
   Typography,
   Card,
   CardContent,
-  Chip,
   Container,
   Grid,
 } from '@material-ui/core';
 import Link from 'next/link';
 import { useCardDirectoryStyle } from './CardDirectory.style';
+import TemplateSkill from '../Icons/TemplateSkill';
+import { lightPalette } from 'src/styles/theme/palettes';
 const CardDirectory = ({ freelancers }: any) => {
   const classes = useCardDirectoryStyle();
   return (
@@ -21,7 +22,7 @@ const CardDirectory = ({ freelancers }: any) => {
                 <CardContent>
                   <img
                     aria-label="recipe"
-                    src={`https://freemance-backend.herokuapp.com/uploads/${freelancer.node.avatar}`}
+                    src={`${process.env.IMAGE_LINK}${freelancer.node.avatar}`}
                     className={classes.avatar}
                   />
 
@@ -32,14 +33,13 @@ const CardDirectory = ({ freelancers }: any) => {
                     {freelancer.node.jobTitle}
                   </Typography>
                   <div className={classes.tags}>
-                    <Chip
-                      label={
-                        <Typography variant="body1">
-                          {freelancer.node.tag}
-                        </Typography>
-                      }
-                      className={classes.tag}
-                    />
+                    {freelancer.node.skills.map((skill: any) => (
+                      <TemplateSkill
+                        key={skill.id}
+                        icono={skill.icon}
+                        filled={lightPalette.text.primary}
+                      />
+                    ))}
                   </div>
                 </CardContent>
               </Card>

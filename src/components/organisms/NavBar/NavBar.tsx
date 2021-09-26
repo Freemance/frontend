@@ -57,7 +57,11 @@ const NavBar: React.FC = () => {
           </div>
           {token ? (
             <a href="/profile" style={{ marginLeft: 'auto' }}>
-              <Avatar src={data && data.me.profile.avatar} />
+              <Avatar
+                src={
+                  data && `${process.env.IMAGE_LINK}${data.me.profile.avatar}`
+                }
+              />
             </a>
           ) : (
             <>
