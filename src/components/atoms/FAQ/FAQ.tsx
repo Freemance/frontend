@@ -5,14 +5,14 @@ export default function FAQ({ question, answer }: IFAQ) {
   return (
     <>
       <Typography variant="h3" style={{ marginBottom: '2%' }}>
-        {question} ?
+        {question}?
       </Typography>
 
       <Typography
         variant="body1"
         style={{ marginLeft: '4%', marginBottom: '2%' }}
       >
-        • {answer}
+        •{answer}
       </Typography>
     </>
   );
