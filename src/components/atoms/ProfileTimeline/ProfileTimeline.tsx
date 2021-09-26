@@ -215,8 +215,9 @@ const ProfileTimeline = ({
                       helperText={touched.institution && errors.institution}
                     />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <TextField
+                      fullWidth
                       id="startDate"
                       name="startDate"
                       margin="dense"
@@ -234,8 +235,9 @@ const ProfileTimeline = ({
                       helperText={touched.startDate && errors.startDate}
                     />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                     <TextField
+                      fullWidth
                       id="endDate"
                       name="endDate"
                       margin="dense"
