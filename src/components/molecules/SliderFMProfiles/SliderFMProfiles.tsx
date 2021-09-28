@@ -12,7 +12,6 @@ const SliderFMProfiles = () => {
   const [freelancers, setFreelancers] = useState(undefined);
   const {} = useQuery(getSliderFreemancers, {
     onCompleted: (data) => {
-      console.log(data);
       setFreelancers(data.profileFilter.edges);
     },
   });

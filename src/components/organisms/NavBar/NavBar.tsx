@@ -22,9 +22,17 @@ const NavBar: React.FC = () => {
   const [t] = useTranslation('landpage');
   const classes = useNavBarStyle();
   const token = getToken('access-token');
-  const { data } = useQuery(Me, {
-    context: { headers: { autorization: `bearer < ${token} >` } },
+  const [avatar, setAvatar] = React.useState(undefined);
+  const {} = useQuery(Me, {
+    context: {
+      headers: { autorization: `bearer < ${token} >` },
+    },
+    fetchPolicy: 'no-cache',
+    onCompleted: (data) => {
+      setAvatar(data.me.profile.avatar);
+    },
   });
+
   const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
@@ -57,11 +65,7 @@ const NavBar: React.FC = () => {
           </div>
           {token ? (
             <a href="/profile" style={{ marginLeft: 'auto' }}>
-              <Avatar
-                src={
-                  data && `${process.env.IMAGE_LINK}${data.me.profile.avatar}`
-                }
-              />
+              {avatar && <Avatar src={`${process.env.IMAGE_LINK}${avatar}`} />}
             </a>
           ) : (
             <>
