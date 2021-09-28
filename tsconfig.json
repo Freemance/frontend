@@ -33,7 +33,8 @@
     "**/*.tsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/components/organisms/NavBar/NavBar.storybook.ts.salva"
+    "src/components/organisms/NavBar/NavBar.storybook.ts.salva",
+    "pages/next-seo.config.js"
   ],
   "exclude": ["node_modules"]
 }
