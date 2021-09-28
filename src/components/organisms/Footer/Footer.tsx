@@ -59,7 +59,7 @@ const Footer = () => {
         <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
           <IconButton
             className={classes.button}
-            href="https://twitter.com/slyk_cu"
+            href="https://twitter.com/freemanceslyk"
           >
             <Twitter />
           </IconButton>
