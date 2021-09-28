@@ -24,8 +24,6 @@ import IProfileAvatar from './types';
 import { useGlobalContext } from 'src/context';
 
 const ProfileAvatar = ({ previewUrl, onUploadPicture }: IProfileAvatar) => {
-  const imageEndpoint = 'https://freemance-backend.herokuapp.com/uploads/';
-
   const classes = useProfileAvatarStyle();
 
   const { state } = useGlobalContext();
@@ -46,9 +44,9 @@ const ProfileAvatar = ({ previewUrl, onUploadPicture }: IProfileAvatar) => {
       if (previewUrl) {
         return previewUrl;
       }
-      return `${imageEndpoint}${state.user.profile.avatar}`;
+      return `${process.env.IMAGE_LINK}${state.user.profile.avatar}`;
     } else {
-      return `${imageEndpoint}${profile.avatar}`;
+      return `${process.env.IMAGE_LINK}${profile.avatar}`;
     }
   };
 

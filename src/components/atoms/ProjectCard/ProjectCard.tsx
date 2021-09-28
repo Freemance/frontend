@@ -35,8 +35,6 @@ import { PortfolioItemType } from 'src/context/state';
 import { useProfileContext } from '@layouts/ProfileLayout';
 
 const ProjectCard = ({ index, project }: IProjectCard) => {
-  const imageEndpoint = 'https://freemance-backend.herokuapp.com/uploads/';
-
   const classes = useProjectCardStyle();
 
   const { dispatch, state } = useGlobalContext();
@@ -161,7 +159,7 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
                 className={classes.media}
                 image={
                   project.screenshts.length > 0
-                    ? `${imageEndpoint}${
+                    ? `${process.env.IMAGE_LINK}${
                         project.screenshts[project.screenshts.length - 1]
                       }`
                     : '/static/images/no-image.jpg'
@@ -230,7 +228,7 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
                               className={classes.mediaDialog}
                               image={
                                 uploadPreview ||
-                                `${imageEndpoint}${
+                                `${process.env.IMAGE_LINK}${
                                   project.screenshts[
                                     project.screenshts.length - 1
                                   ]
