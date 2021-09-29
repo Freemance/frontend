@@ -1,11 +1,11 @@
 module.exports = {
   reactStrictMode: true,
   env: {
-    IMAGE_LINK: 'https://freemance-backend.herokuapp.com/uploads/',
-    API_LINK: 'https://freemance-backend.herokuapp.com/graphql',
-    NEXT_PUBLIC_GA_ID: '',
+    IMAGE_LINK: 'https://api.freemance.com/uploads/',
+    API_LINK: 'https://api.freemance.com/graphql',
+    NEXT_PUBLIC_GA_ID: 'G-VDTLW28DWP',
   },
   images: {
-    domains: ['freemance-backend.herokuapp.com'],
+    domains: ['api.freemance.com'],
   },
 };
