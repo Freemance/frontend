@@ -22,15 +22,17 @@ export default function SignUpForm() {
   const [register, { data, error }] = useMutation(REGISTER);
   return (
     <FormikStepper
+      enableReinitialize={true}
       initialValues={{
         firstName: '',
         lastName: '',
         email: '',
         slykUrl: '',
         password: '',
+        confirmPassword: '',
       }}
-      onSubmit={async (values) => {
-        await sleep(800);
+      onSubmit={async (values, { resetForm }) => {
+        await sleep(300);
         register({
           variables: {
             email: values.email,
@@ -41,7 +43,9 @@ export default function SignUpForm() {
             lastName: values.lastName,
           },
         })
-          .then(async (res) => {})
+          .then(async (res) => {
+            resetForm();
+          })
           .catch((err) => {});
       }}
     >
