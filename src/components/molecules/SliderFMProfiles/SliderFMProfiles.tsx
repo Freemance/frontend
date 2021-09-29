@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FMCardItem from '@components/atoms/FMCardItem/index';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -9,13 +9,12 @@ import { useQuery } from '@apollo/client';
 import { getSliderFreemancers } from 'src/lib/apollo/query/GetSliderFreemancers';
 
 const SliderFMProfiles = () => {
-  const { data } = useQuery(getSliderFreemancers());
   const [freelancers, setFreelancers] = useState(undefined);
-  useEffect(() => {
-    if (data) {
+  const {} = useQuery(getSliderFreemancers, {
+    onCompleted: (data) => {
       setFreelancers(data.profileFilter.edges);
-    }
-  }, [data]);
+    },
+  });
   const classes = useSliderFMProfileStyle();
   const responsive = {
     desktop: {
@@ -63,7 +62,7 @@ const SliderFMProfiles = () => {
                   avatar={freelancer.node.avatar}
                   name={`${freelancer.node.firstName} ${freelancer.node.lastName}`}
                   job={freelancer.node.jobTitle}
-                  skills={freelancer.node.skills.map((skill: any) => {
+                  skills={freelancer.node.skills.map((skill: Object) => {
                     return skill;
                   })}
                 />

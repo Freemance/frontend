@@ -28,10 +28,12 @@ export const useFooterStyle = makeStyles((theme: Theme) =>
     },
     button: {
       marginTop: '3%',
+
       border: '1px solid #fff',
       height: 'auto',
-      width: '8vh',
+      width: 'auto',
       marginLeft: '4%',
+      alignItems: 'center',
       borderRadius: '20px',
       '&:hover': {
         borderColor: theme.palette.primary.light,

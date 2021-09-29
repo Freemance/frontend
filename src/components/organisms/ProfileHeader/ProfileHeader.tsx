@@ -23,7 +23,7 @@ const ProfileHeader = () => {
   const classes = useProfileHeaderStyle();
 
   const { dispatch } = useGlobalContext();
-  const { isUser, isEdit, setIsEdit } = useProfileContext();
+  const { isUser, isEdit, setIsEdit, profile } = useProfileContext();
 
   const [avatarPreview, setAvatarPreview] = useState<string>(null);
   const [avatarFile, setAvatarFile] = useState<File>(null);
@@ -88,10 +88,16 @@ const ProfileHeader = () => {
               </Fab>
             ) : (
               <>
-                <IconButton className={classes.headerButton}>
+                <IconButton
+                  className={classes.headerButton}
+                  href={`tel:${profile.phone}`}
+                >
                   <CallIcon />
                 </IconButton>
-                <IconButton className={classes.headerButton}>
+                <IconButton
+                  className={classes.headerButton}
+                  href={`https://${profile.slykUser}`}
+                >
                   <DescriptionIcon />
                 </IconButton>
               </>

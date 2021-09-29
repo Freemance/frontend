@@ -26,8 +26,8 @@ const ProfileAppBar = () => {
   return (
     <AppBar
       className={isEdit ? classes.editAppBar : classes.appBar}
-      position="fixed"
-      elevation={1}
+      position="absolute"
+      elevation={0}
     >
       <Toolbar>
         {isEdit ? (

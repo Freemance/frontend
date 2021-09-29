@@ -11,17 +11,16 @@ const Hero = () => {
   return (
     <Grid container spacing={2} className={classes.root}>
       <Grid item xs={12} lg={4}>
-        <Typography variant="h6" className={classes.ndescription}>
-          {t('hero.ndescription')}
-        </Typography>
         <Typography variant="h3" className={classes.ntitle}>
           {t('hero.ntitle')}
         </Typography>
         <Hidden xsDown>
-          <Typography variant="subtitle2">{t('hero.nsubtitle')}</Typography>
+          <Typography variant="h6" className={classes.ndescription}>
+            {t('hero.nsubtitle')}
+          </Typography>
         </Hidden>
         <Hidden smUp>
-          <Typography variant="subtitle2">
+          <Typography variant="subtitle2" className={classes.ndescription}>
             {t('hero.nsubtitlemobile')}
           </Typography>
         </Hidden>
