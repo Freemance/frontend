@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: 'summary_large_image',
         }}
       />
-      ;
+      
       <I18nextProvider i18n={i18next}>
         <ApolloProvider client={useApolloClient()}>
           <GlobalProvider>
