@@ -4,6 +4,7 @@ import { Grid, Typography } from '@material-ui/core';
 import Twitter from '@components/atoms/Icons/Twitter';
 import Facebook from '@components/atoms/Icons/Facebook';
 import Link from 'next/link';
+import { Link as ExtLink } from '@material-ui/core';
 import { IconButton } from '@material-ui/core';
 
 const Footer = () => {
@@ -59,12 +60,16 @@ const Footer = () => {
         <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
           <IconButton
             className={classes.button}
+            component={ExtLink}
+            target="__black"
             href="https://twitter.com/freemanceslyk"
           >
             <Twitter />
           </IconButton>
           <IconButton
             className={classes.button}
+            component={ExtLink}
+            target="__black"
             href="https://facebook.com/slyk_cu"
           >
             <Facebook />

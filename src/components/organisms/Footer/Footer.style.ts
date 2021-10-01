@@ -28,15 +28,13 @@ export const useFooterStyle = makeStyles((theme: Theme) =>
     },
     button: {
       marginTop: '3%',
-
-      border: '1px solid #fff',
-      height: 'auto',
-      width: 'auto',
       marginLeft: '4%',
       alignItems: 'center',
-      borderRadius: '20px',
       '&:hover': {
-        borderColor: theme.palette.primary.light,
+        '& svg': {
+          color: theme.palette.info.light,
+          transform: 'scale(1.01)',
+        },
       },
       [theme.breakpoints.down('xs')]: {
         marginTop: '0px',

@@ -4,12 +4,13 @@ export const useTitleSectionStyles = makeStyles((theme: Theme) =>
   createStyles({
     patitle: {
       marginTop: '10%',
-      borderLeft: `thick solid ${theme.palette.primary.main}`,
-      spacing: 8,
+      textAlign: 'center',
     },
     title: {
       fontWeight: 900,
       marginLeft: '2%',
+      marginBottom: 35,
+      fontSize: 43,
     },
   })
 );

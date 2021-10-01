@@ -4,6 +4,16 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
     },
+    margin: {
+      margin: theme.spacing(1.5),
+    },
+    header: {
+      background: 'transparent',
+      padding: '0 30px',
+    },
+    stickyInner: {
+      transition: '1s ease background-color',
+    },
     menuButton: {
       marginRight: '0px',
       marginLeft: 'auto',

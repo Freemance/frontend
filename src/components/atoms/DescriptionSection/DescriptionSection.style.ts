@@ -2,9 +2,9 @@ import { Theme, makeStyles } from '@material-ui/core/styles';
 
 export const useDescriptionStyles = makeStyles((theme: Theme) => ({
   descriptionsection: {
-    display: 'flex',
-    justifyContent: 'center',
+    textAlign: 'center',
     marginTop: '3%',
-    marginBottom: '3%',
+    marginBottom: '93px',
+    fontSize: '21px',
   },
 }));

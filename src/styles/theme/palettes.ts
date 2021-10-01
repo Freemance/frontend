@@ -11,12 +11,12 @@ export const lightPalette = {
   white,
   primary: {
     contrastText: white,
-    dark: '#0c0540',
+    dark: '#000a6c',
     main: '#000c83',
-    light: '#4674FF',
+    light: '#202b93',
     lightBg: 'rgba(51,102,255,.12)!important',
-    gradient: 'linear-gradient(47deg,#3366ff,#4674FF)',
-    boxShadow: '0 0 3px 1px rgb(51 102 255 / 70%)',
+    gradient: 'linear-gradient(47deg,#000c83,#202b93)',
+    boxShadow: '0 0 3px 1px rgb(0 12 131 / 70%)',
   },
   secondary: {
     contrastText: white,
