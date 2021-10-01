@@ -13,9 +13,12 @@ import { useApolloClient } from 'src/lib/apollo/client';
 import { GlobalProvider } from 'src/context';
 import { useRouter } from 'next/router';
 import * as gtag from 'src/lib/gtag';
+// SEO
+import { DefaultSeo } from 'next-seo';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
   i18ne();
   useEffect(() => {
     const handleRouteChange = (url: URL) => {
@@ -34,16 +37,32 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <I18nextProvider i18n={i18next}>
-      <ApolloProvider client={useApolloClient()}>
-        <GlobalProvider>
-          <ThemeProvider theme={theme.lightTheme}>
-            <CssBaseline />
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </GlobalProvider>
-      </ApolloProvider>
-    </I18nextProvider>
+    <>
+      <DefaultSeo
+        openGraph={{
+          type: 'website',
+          locale: 'en_IE',
+          url: 'https://www.freemance.com',
+          site_name: 'Freemance',
+        }}
+        twitter={{
+          handle: '@FreemanceSlyk',
+          site: '@site',
+          cardType: 'summary_large_image',
+        }}
+      />
+      ;
+      <I18nextProvider i18n={i18next}>
+        <ApolloProvider client={useApolloClient()}>
+          <GlobalProvider>
+            <ThemeProvider theme={theme.lightTheme}>
+              <CssBaseline />
+              <Component {...pageProps} />
+            </ThemeProvider>
+          </GlobalProvider>
+        </ApolloProvider>
+      </I18nextProvider>
+    </>
   );
 }
 
