@@ -6,7 +6,7 @@ export const useFormCardStyle = makeStyles((theme: Theme) =>
       padding: 32,
       display: 'flex',
       [theme.breakpoints.up('xs')]: {
-        height: 'auto',
+        height: '560px',
         justifyContent: 'center',
         alignItems: 'center',
       },

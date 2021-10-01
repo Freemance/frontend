@@ -48,8 +48,8 @@ export const Directory = () => {
   }
   return (
     <>
+      <NavBar />
       <Container maxWidth="lg">
-        <NavBar />
         <div className={classes.root}>
           <Container maxWidth="sm">
             <form className={classes.form}>
