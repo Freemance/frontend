@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <section className={classes.hero}>
       <Grid container spacing={2} className={classes.root}>
-        <Grid item xs={12} lg={5}>
+        <Grid item xs={12} lg={5} xl={4}>
           <Typography variant="h3" component="h1" className={classes.ntitle}>
             {t('hero.ntitle')}
           </Typography>
