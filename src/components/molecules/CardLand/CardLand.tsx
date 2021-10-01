@@ -9,15 +9,13 @@ const CardLand = ({ image, title, text, backgroundColor }: ICard) => {
   return (
     <Card className={classes.paper}>
       <CardContent>
-        <Avatar
-          className={clsx(classes.icono, 'icono')}
-          style={{ background: `${backgroundColor}` }}
-        >
+        <Avatar variant="square" className={clsx(classes.icono, 'icono')}>
           {image}
         </Avatar>
         <Typography
           variant="h5"
           className={clsx(classes.titlecard, 'titlecard')}
+          component="h3"
         >
           {title}
         </Typography>

@@ -2,54 +2,37 @@ import { makeStyles, Theme } from '@material-ui/core';
 
 export const useCardLandStyles = makeStyles((theme: Theme) => ({
   paper: {
+    transition: 'all 850ms cubic-bezier(0.19, 1, 0.22, 1)',
     '&:hover': {
-      background: theme.palette.primary.main,
+      // transform: 'scale(1.01)',
       cursor: 'pointer',
       boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 20px',
-      // border: '1px solid transparent',
-      '& .titlecard': {
-        color: theme.palette.primary.contrastText,
-      },
-      '& .icono': {
-        boxShadow:
-          'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
-      },
-      '& .descriptioncard': {
-        color: '#c7bda7',
-      },
     },
     width: '100%',
-    maxHeight: '210px',
     height: '100%',
-    textAlign: 'center',
-    marginBottom: '5%',
-    [theme.breakpoints.down('lg')]: {
-      width: 'auto',
-      height: '100%',
-    },
-    [theme.breakpoints.down('md')]: {
-      width: 'auto',
-      height: '100%',
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: 'auto',
-      height: 'auto',
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: 'auto',
-      height: 'auto',
-    },
+    textAlign: 'left',
+    padding: theme.spacing(2),
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(3),
   },
   icono: {
-    margin: 'auto',
     width: '60px',
     height: '60px',
-    boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+    fontSize: '3rem',
+    backgroundColor: 'transparent',
+    color: theme.palette.error.dark,
+    '& svg': {
+      width: '3rem',
+      height: '3rem',
+      strokeWidth: 1,
+    },
   },
   titlecard: {
     marginTop: '10px',
+    fontWeight: 600,
   },
   descriptioncard: {
     marginTop: '20px',
+    fontSize: 17,
   },
 }));

@@ -7,8 +7,12 @@ const DescriptionSection = ({ text }: IDescriptionSection) => {
   const classes = useDescriptionStyles();
   return (
     <>
-      <Container maxWidth="md">
-        <Typography variant="subtitle1" className={classes.descriptionsection}>
+      <Container maxWidth="sm">
+        <Typography
+          variant="subtitle1"
+          component="h3"
+          className={classes.descriptionsection}
+        >
           {text}
         </Typography>
       </Container>

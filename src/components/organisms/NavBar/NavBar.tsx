@@ -1,4 +1,5 @@
 import * as React from 'react';
+import clsx from 'clsx';
 import {
   AppBar,
   Toolbar,
@@ -43,7 +44,7 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <>
       <Hidden smUp>
         <DrawerNav
           variant="persistent"
@@ -54,6 +55,7 @@ const NavBar: React.FC = () => {
       <AppBar
         style={{ background: 'transparent', boxShadow: 'none' }}
         position="relative"
+        className={clsx('sticky-inner', classes.stickyInner, classes.header)}
       >
         <Toolbar disableGutters={true}>
           <div className="hello">
@@ -97,7 +99,7 @@ const NavBar: React.FC = () => {
           )}
         </Toolbar>
       </AppBar>
-    </div>
+    </>
   );
 };
 
