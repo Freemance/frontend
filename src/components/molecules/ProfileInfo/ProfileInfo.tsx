@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, TextField, Typography } from '@material-ui/core';
-import { Alert } from '@material-ui/lab';
+import { Alert, Autocomplete } from '@material-ui/lab';
+import { useQuery } from '@apollo/client';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -11,6 +12,8 @@ import ProfileInfoEditField from '@components/atoms/ProfileInfoEditField';
 import { useGlobalContext } from 'src/context';
 import SubmitButton from '@components/atoms/SubmitButton';
 import IProfileInfo from './types';
+import { TagType } from 'src/context/state';
+import { AVAILABLE_TAGS, IAvailableTagsRes } from 'src/lib/apollo/tags';
 
 const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
   const classes = useProfileInfoStyle();
@@ -20,11 +23,26 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
 
   const currentProfile = isUser ? state.user.profile : profile;
 
+  const [availableTags, setAvailableTags] = useState<TagType[]>([]);
+
+  const { data: availableTagsData } =
+    useQuery<IAvailableTagsRes>(AVAILABLE_TAGS);
+
+  useEffect(() => {
+    if (availableTagsData) {
+      const tempTags = availableTagsData.filterTags.edges.map(
+        (edge) => edge.node
+      );
+      setAvailableTags(tempTags);
+    }
+  }, [availableTagsData]);
+
   return isEdit ? (
     <Formik
       initialValues={{
         firstName: currentProfile.firstName,
         lastName: currentProfile.lastName,
+        professionId: currentProfile.tag ? currentProfile.tag.id : '',
         jobTitle: currentProfile.jobTitle,
         bio: currentProfile.bio,
         phone: currentProfile.phone,
@@ -34,6 +52,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
       validationSchema={Yup.object().shape({
         firstName: Yup.string().required('Required').nullable(),
         lastName: Yup.string().required('Required').nullable(),
+        professionId: Yup.number().required('Required'),
         jobTitle: Yup.string().required('Required').nullable(),
         bio: Yup.string().required('Required').nullable(),
         phone: Yup.string().required('Required').nullable(),
@@ -44,6 +63,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
         handleSaveInfo({
           firstName: values.firstName,
           lastName: values.lastName,
+          tagId: values.professionId,
           jobTitle: values.jobTitle,
           bio: values.bio,
           phone: values.phone,
@@ -59,6 +79,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
         handleChange,
         handleBlur,
         handleSubmit,
+        setFieldValue,
       }) => (
         <form className={classes.form} onSubmit={handleSubmit} noValidate>
           <Grid
@@ -111,18 +132,26 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <ProfileInfoEditField
-                id="jobTitle"
-                name="jobTitle"
-                label="Job"
-                required
-                value={values.jobTitle}
-                error={touched.jobTitle && Boolean(errors.jobTitle)}
-                helperText={touched.jobTitle && errors.jobTitle}
-                onChange={(e) => {
-                  handleChange(e);
+              <Autocomplete
+                id="profession"
+                options={availableTags}
+                getOptionLabel={(option) => option.name}
+                onChange={(e, newValue: TagType | null) => {
+                  setFieldValue('professionId', newValue?.id || '');
                 }}
-                onBlur={handleBlur}
+                onOpen={handleBlur}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    name="profession"
+                    label="Profession"
+                    variant="outlined"
+                    error={touched.professionId && Boolean(errors.professionId)}
+                    helperText={touched.professionId && errors.professionId}
+                    required
+                    fullWidth
+                  />
+                )}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -143,6 +172,21 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <ProfileInfoEditField
+                id="jobTitle"
+                name="jobTitle"
+                label="Job"
+                required
+                value={values.jobTitle}
+                error={touched.jobTitle && Boolean(errors.jobTitle)}
+                helperText={touched.jobTitle && errors.jobTitle}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
+                onBlur={handleBlur}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <ProfileInfoEditField
                 id="phone"
                 name="phone"
                 label="Phone"
@@ -155,15 +199,6 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
                 }}
                 onBlur={handleBlur}
               />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              {/* <TextField
-                disabled
-                label="Email"
-                defaultValue={user.email}
-                variant="outlined"
-                fullWidth
-              /> */}
             </Grid>
             <Grid item xs={12} sm={6}>
               <ProfileInfoEditField
@@ -225,16 +260,19 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
         </div>
       </Grid>
       <Grid item xs={12} sm={6}>
-        <ProfileInfoField title="Job" value={currentProfile.jobTitle} />
+        <ProfileInfoField
+          title="Profession"
+          value={currentProfile.tag ? currentProfile.tag.name : ''}
+        />
       </Grid>
       <Grid item xs={12} sm={6}>
         <ProfileInfoField title="Bio" value={currentProfile.bio} />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <ProfileInfoField title="Phone" value={currentProfile.phone} />
+        <ProfileInfoField title="Job" value={currentProfile.jobTitle} />
       </Grid>
       <Grid item xs={12} sm={6}>
-        {/* <ProfileInfoField title="Email" value={user.email} /> */}
+        <ProfileInfoField title="Phone" value={currentProfile.phone} />
       </Grid>
       <Grid item xs={6}>
         <ProfileInfoField title="City" value={currentProfile.city} />

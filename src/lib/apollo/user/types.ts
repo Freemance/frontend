@@ -16,6 +16,7 @@ export interface IProfileUpdateInfoRes {
 export interface IProfileUpdateInfoInput {
   firstName: string;
   lastName: string;
+  tagId: number | string;
   jobTitle: string;
   bio: string;
   phone: string;

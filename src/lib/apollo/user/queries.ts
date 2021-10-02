@@ -11,6 +11,10 @@ export const ME = gql`
         firstName
         lastName
         slykUser
+        tag {
+          id
+          name
+        }
         jobTitle
         bio
         phone
@@ -68,6 +72,10 @@ export const PROFILE_BY_ID = gql`
       firstName
       lastName
       slykUser
+      tag {
+        id
+        name
+      }
       jobTitle
       bio
       phone
