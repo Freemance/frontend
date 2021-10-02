@@ -51,10 +51,10 @@ export interface ISkillEdge {
   node: SkillType;
 }
 
-export interface IProfileByIdRes {
-  profileById: ProfileType;
+export interface IProfileByUsernameRes {
+  profileByUsername: ProfileType;
 }
 
-export interface IProfileByIdInput {
-  id: number;
+export interface IProfileByUsernameInput {
+  username: string;
 }
