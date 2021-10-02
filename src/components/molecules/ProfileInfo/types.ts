@@ -4,5 +4,8 @@ import { IProfileUpdateInfoInput } from 'src/lib/apollo/user';
 export default interface IProfileInfo {
   isLoading: boolean;
   error: ApolloError;
-  handleSaveInfo: (updatedInfo: IProfileUpdateInfoInput) => void;
+  handleSaveInfo: (
+    updatedInfo: IProfileUpdateInfoInput,
+    tagId: string | number
+  ) => void;
 }

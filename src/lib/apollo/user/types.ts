@@ -7,6 +7,7 @@ export interface IMe {
 export interface IProfileUpdateInfo {
   file?: File;
   input: IProfileUpdateInfoInput;
+  tagId?: number | string;
 }
 
 export interface IProfileUpdateInfoRes {
