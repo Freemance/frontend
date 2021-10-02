@@ -20,6 +20,7 @@ import { REGISTER } from 'src/lib/apollo/auth';
 const sleep = (time: number) => new Promise((acc) => setTimeout(acc, time));
 export default function SignUpForm() {
   const [register, { data, error }] = useMutation(REGISTER);
+
   return (
     <FormikStepper
       enableReinitialize={true}
@@ -103,7 +104,7 @@ export default function SignUpForm() {
         label="Slyk"
         validationSchema={Yup.object().shape({
           slykUrl: Yup.string()
-            .matches(/^\b[a-zA-Z_]+\b$/, 'Dont use numbers or white space')
+            .matches(/^\b[a-zA-Z_0-9]+\b$/, 'white space')
             .required('Required'),
         })}
       >
@@ -115,7 +116,7 @@ export default function SignUpForm() {
           fullWidth
           name="slykUrl"
           component={TextField}
-          label="Slyk Url"
+          label="slyk url"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">.slyk.io</InputAdornment>
@@ -231,6 +232,7 @@ export function FormikStepper({
                   variant="contained"
                   color="primary"
                   onClick={() => setStep((s) => s - 1)}
+                  style={{ marginTop: '20px' }}
                 >
                   Back
                 </Button>
@@ -247,6 +249,7 @@ export function FormikStepper({
                 size="large"
                 variant="contained"
                 color="primary"
+                style={{ marginTop: '20px' }}
               >
                 {isSubmitting
                   ? 'Joining'
