@@ -116,7 +116,7 @@ export default function SignUpForm() {
           fullWidth
           name="slykUrl"
           component={TextField}
-          label="slyk url"
+          label="Slyk Url"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">.slyk.io</InputAdornment>
