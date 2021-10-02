@@ -12,15 +12,7 @@ const Footer = () => {
   return (
     <div className={classes.box}>
       <Grid container spacing={3} className={classes.container}>
-        <Grid
-          item
-          xs={12}
-          lg={4}
-          md={4}
-          xl={4}
-          sm={4}
-          className={classes.grilla1}
-        >
+        <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
           <Link href="/directory">
             <Typography variant="caption" className={classes.link}>
               Directory
@@ -32,15 +24,7 @@ const Footer = () => {
             </Typography>
           </Link>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          lg={4}
-          md={4}
-          xl={4}
-          sm={4}
-          className={classes.grilla2}
-        >
+        <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
           <Link href="/">
             <Typography variant="caption" className={classes.link}>
               Contact Us
