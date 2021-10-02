@@ -5,7 +5,7 @@ export const useFooterStyle = makeStyles((theme: Theme) =>
       background: theme.palette.primary.dark,
       height: '230px',
       [theme.breakpoints.down('md')]: {
-        height: '230px',
+        height: 'auto',
       },
     },
     container: {
