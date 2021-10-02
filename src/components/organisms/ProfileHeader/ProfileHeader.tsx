@@ -51,18 +51,23 @@ const ProfileHeader = () => {
     }
   }, [data]);
 
-  const handleUpdateProfileInfo = (updatedInfo: IProfileUpdateInfoInput) => {
+  const handleUpdateProfileInfo = (
+    updatedInfo: IProfileUpdateInfoInput,
+    tagId: number | string
+  ) => {
     updateProfile(
       avatarFile
         ? {
             variables: {
               file: avatarFile,
               input: updatedInfo,
+              tagId,
             },
           }
         : {
             variables: {
               input: updatedInfo,
+              tagId,
             },
           }
     );

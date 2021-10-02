@@ -60,16 +60,18 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
         country: Yup.string().required('Required').nullable(),
       })}
       onSubmit={(values) => {
-        handleSaveInfo({
-          firstName: values.firstName,
-          lastName: values.lastName,
-          tagId: values.professionId,
-          jobTitle: values.jobTitle,
-          bio: values.bio,
-          phone: values.phone,
-          city: values.city,
-          country: values.country,
-        });
+        handleSaveInfo(
+          {
+            firstName: values.firstName,
+            lastName: values.lastName,
+            jobTitle: values.jobTitle,
+            bio: values.bio,
+            phone: values.phone,
+            city: values.city,
+            country: values.country,
+          },
+          values.professionId
+        );
       }}
     >
       {({
@@ -135,6 +137,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
               <Autocomplete
                 id="profession"
                 options={availableTags}
+                defaultValue={currentProfile.tag}
                 getOptionLabel={(option) => option.name}
                 onChange={(e, newValue: TagType | null) => {
                   setFieldValue('professionId', newValue?.id || '');

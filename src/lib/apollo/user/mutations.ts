@@ -4,12 +4,17 @@ export const PROFILE_UPDATE_INFO = gql`
   mutation profileUpdateBasicInfo(
     $file: Upload
     $input: UpdateBasicProfileInput!
+    $tagId: Int
   ) {
-    profileUpdateBasicInfo(file: $file, input: $input) {
+    profileUpdateBasicInfo(file: $file, input: $input, tagId: $tagId) {
       avatar
       firstName
       lastName
       slykUser
+      tag {
+        id
+        name
+      }
       jobTitle
       bio
       phone
