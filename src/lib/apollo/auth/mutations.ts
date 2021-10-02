@@ -15,6 +15,10 @@ export const LOGIN = gql`
           firstName
           lastName
           slykUser
+          tag {
+            id
+            name
+          }
           jobTitle
           bio
           phone
