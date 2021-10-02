@@ -144,7 +144,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
                   <TextField
                     {...params}
                     name="profession"
-                    label="Profession"
+                    label="Area"
                     variant="outlined"
                     error={touched.professionId && Boolean(errors.professionId)}
                     helperText={touched.professionId && errors.professionId}
@@ -261,7 +261,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
       </Grid>
       <Grid item xs={12} sm={6}>
         <ProfileInfoField
-          title="Profession"
+          title="Area"
           value={currentProfile.tag ? currentProfile.tag.name : ''}
         />
       </Grid>
