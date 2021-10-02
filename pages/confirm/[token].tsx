@@ -23,7 +23,11 @@ function Token() {
         })
       : console.log('No hay token');
   }, [token]);
-  error && console.log(error);
+  data &&
+    setTimeout(function () {
+      router.push('/');
+    }, 1500);
+
   return (
     <Container maxWidth="sm">
       {error ? (

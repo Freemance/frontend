@@ -14,13 +14,14 @@ import { TextField } from 'formik-material-ui';
 import React, { useState } from 'react';
 import { Alert } from '@material-ui/lab';
 import * as Yup from 'yup';
+import { useRouter } from 'next/router';
 // Apollo
 import { useMutation } from '@apollo/client';
 import { REGISTER } from 'src/lib/apollo/auth';
 const sleep = (time: number) => new Promise((acc) => setTimeout(acc, time));
 export default function SignUpForm() {
   const [register, { data, error }] = useMutation(REGISTER);
-
+  const router = useRouter();
   return (
     <FormikStepper
       enableReinitialize={true}
@@ -46,6 +47,9 @@ export default function SignUpForm() {
         })
           .then(async (res) => {
             resetForm();
+            setTimeout(function () {
+              router.push('/');
+            }, 2400);
           })
           .catch((err) => {});
       }}
