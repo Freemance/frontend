@@ -102,6 +102,7 @@ const ProfileHeader = () => {
                 <IconButton
                   className={classes.headerButton}
                   href={`https://${profile.slykUser}`}
+                  target="_blank"
                 >
                   <DescriptionIcon />
                 </IconButton>
