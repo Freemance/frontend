@@ -146,7 +146,14 @@ const ProfileTimeline = ({
             name: Yup.string().required('Required'),
             institution: Yup.string().required('Required'),
             startDate: Yup.date().required('Required'),
-            endDate: Yup.date().required('Required'),
+            endDate: Yup.date()
+              .when(
+                'startDate',
+                (startDate, yup) =>
+                  startDate &&
+                  yup.min(startDate, 'End date cannot be before start date')
+              )
+              .required('Required'),
           })}
           onSubmit={(values) => {
             if (dialogUse === 'Add') {
@@ -188,6 +195,7 @@ const ProfileTimeline = ({
                       id="name"
                       name="name"
                       autoFocus
+                      variant="outlined"
                       margin="dense"
                       label={nameLabel}
                       fullWidth
@@ -202,6 +210,7 @@ const ProfileTimeline = ({
                     <TextField
                       id="institution"
                       name="institution"
+                      variant="outlined"
                       margin="dense"
                       label={institutionLabel}
                       fullWidth
@@ -220,6 +229,7 @@ const ProfileTimeline = ({
                       fullWidth
                       id="startDate"
                       name="startDate"
+                      variant="outlined"
                       margin="dense"
                       label="Start date"
                       type="date"
@@ -240,6 +250,7 @@ const ProfileTimeline = ({
                       fullWidth
                       id="endDate"
                       name="endDate"
+                      variant="outlined"
                       margin="dense"
                       label="End date"
                       type="date"
