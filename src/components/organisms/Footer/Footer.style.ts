@@ -3,12 +3,13 @@ export const useFooterStyle = makeStyles((theme: Theme) =>
   createStyles({
     box: {
       background: theme.palette.primary.dark,
-      height: 'auto',
+      height: '230px',
       [theme.breakpoints.down('md')]: {
-        height: '100%',
+        height: 'auto',
       },
     },
     container: {
+      paddingTop: '60px',
       width: '100%',
       height: '100%',
       display: 'flex',
@@ -16,16 +17,13 @@ export const useFooterStyle = makeStyles((theme: Theme) =>
       textAlign: 'center',
     },
     link: {
+      fontSize: '21px',
+      marginBottom: '10px',
       cursor: 'pointer',
       display: 'block',
       justifyContent: 'center',
     },
-    grilla1: {
-      marginTop: '1.5%',
-    },
-    grilla2: {
-      marginTop: '1%',
-    },
+
     button: {
       marginTop: '3%',
       marginLeft: '4%',

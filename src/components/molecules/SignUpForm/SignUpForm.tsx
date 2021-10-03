@@ -14,12 +14,14 @@ import { TextField } from 'formik-material-ui';
 import React, { useState } from 'react';
 import { Alert } from '@material-ui/lab';
 import * as Yup from 'yup';
+import { useRouter } from 'next/router';
 // Apollo
 import { useMutation } from '@apollo/client';
 import { REGISTER } from 'src/lib/apollo/auth';
 const sleep = (time: number) => new Promise((acc) => setTimeout(acc, time));
 export default function SignUpForm() {
   const [register, { data, error }] = useMutation(REGISTER);
+  const router = useRouter();
   return (
     <FormikStepper
       enableReinitialize={true}
@@ -45,6 +47,9 @@ export default function SignUpForm() {
         })
           .then(async (res) => {
             resetForm();
+            setTimeout(function () {
+              router.push('/');
+            }, 2400);
           })
           .catch((err) => {});
       }}
@@ -103,7 +108,7 @@ export default function SignUpForm() {
         label="Slyk"
         validationSchema={Yup.object().shape({
           slykUrl: Yup.string()
-            .matches(/^\b[a-zA-Z_]+\b$/, 'Dont use numbers or white space')
+            .matches(/^\b[a-zA-Z_0-9]+\b$/, 'white space')
             .required('Required'),
         })}
       >
@@ -231,6 +236,7 @@ export function FormikStepper({
                   variant="contained"
                   color="primary"
                   onClick={() => setStep((s) => s - 1)}
+                  style={{ marginTop: '20px' }}
                 >
                   Back
                 </Button>
@@ -247,6 +253,7 @@ export function FormikStepper({
                 size="large"
                 variant="contained"
                 color="primary"
+                style={{ marginTop: '20px' }}
               >
                 {isSubmitting
                   ? 'Joining'

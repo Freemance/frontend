@@ -14,8 +14,8 @@ function FAQ() {
         <meta name="description" content="Freemance" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NavBar />
       <Container maxWidth="lg">
-        <NavBar />
         <Typography
           variant="h1"
           style={{ display: 'flex', marginTop: '5%', justifyContent: 'center' }}

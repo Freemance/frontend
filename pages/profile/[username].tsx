@@ -3,16 +3,19 @@ import Head from 'next/head';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 import ProfileLayout from '@layouts/ProfileLayout';
-import { IProfileByIdInput, IProfileByIdRes } from 'src/lib/apollo/user/types';
-import { PROFILE_BY_ID } from 'src/lib/apollo/user/queries';
+import {
+  IProfileByUsernameInput,
+  IProfileByUsernameRes,
+} from 'src/lib/apollo/user/types';
+import { PROFILE_BY_USERNAME } from 'src/lib/apollo/user/queries';
 import { useApolloClient } from 'src/lib/apollo/client';
 import { ProfileType } from 'src/context/state';
 
-interface IProfileById {
+interface IProfileByUsername {
   profile: ProfileType;
 }
 
-export default function Profile({ profile }: IProfileById) {
+export default function Profile({ profile }: IProfileByUsername) {
   return (
     <React.Fragment>
       <Head>
@@ -28,16 +31,16 @@ export default function Profile({ profile }: IProfileById) {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const id = parseInt(context.query.id.toString());
+  const username = context.query.username.toString();
 
   try {
     const { data } = await useApolloClient().query<
-      IProfileByIdRes,
-      IProfileByIdInput
+      IProfileByUsernameRes,
+      IProfileByUsernameInput
     >({
-      query: PROFILE_BY_ID,
+      query: PROFILE_BY_USERNAME,
       variables: {
-        id,
+        username,
       },
     });
 
@@ -49,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async (
 
     return {
       props: {
-        profile: data.profileById,
+        profile: data.profileByUsername,
       },
     };
   } catch (error) {
