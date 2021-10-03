@@ -39,6 +39,7 @@ export const getServerSideProps: GetServerSideProps = async (
       IProfileByUsernameInput
     >({
       query: PROFILE_BY_USERNAME,
+      fetchPolicy: 'no-cache',
       variables: {
         username,
       },

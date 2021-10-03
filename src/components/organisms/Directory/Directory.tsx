@@ -25,6 +25,7 @@ export const Directory = () => {
   const [tags, setTags] = useState(null);
   const { data, loading, error } = useQuery(getAllFreemancers(search), {
     variables: { tagid: selectedtag },
+    fetchPolicy: 'no-cache',
   });
 
   const classes = useDirectoryStyle();
