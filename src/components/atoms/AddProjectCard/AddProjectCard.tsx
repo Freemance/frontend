@@ -138,7 +138,14 @@ const AddProjectCard = () => {
             name: Yup.string().required('Required'),
             description: Yup.string().required('Required'),
             startDate: Yup.date().required('Required'),
-            endDate: Yup.date().required('Required'),
+            endDate: Yup.date()
+              .when(
+                'startDate',
+                (startDate, yup) =>
+                  startDate &&
+                  yup.min(startDate, 'End date cannot be before start date')
+              )
+              .required('Required'),
           })}
           onSubmit={(values) => {
             handleCreateProject({
