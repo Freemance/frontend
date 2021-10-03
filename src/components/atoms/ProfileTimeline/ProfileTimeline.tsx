@@ -195,6 +195,7 @@ const ProfileTimeline = ({
                       id="name"
                       name="name"
                       autoFocus
+                      variant="outlined"
                       margin="dense"
                       label={nameLabel}
                       fullWidth
@@ -209,6 +210,7 @@ const ProfileTimeline = ({
                     <TextField
                       id="institution"
                       name="institution"
+                      variant="outlined"
                       margin="dense"
                       label={institutionLabel}
                       fullWidth
@@ -227,6 +229,7 @@ const ProfileTimeline = ({
                       fullWidth
                       id="startDate"
                       name="startDate"
+                      variant="outlined"
                       margin="dense"
                       label="Start date"
                       type="date"
@@ -247,6 +250,7 @@ const ProfileTimeline = ({
                       fullWidth
                       id="endDate"
                       name="endDate"
+                      variant="outlined"
                       margin="dense"
                       label="End date"
                       type="date"

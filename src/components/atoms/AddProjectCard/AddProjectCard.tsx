@@ -224,6 +224,7 @@ const AddProjectCard = () => {
                       <Grid item xs={12}>
                         <TextField
                           autoFocus
+                          variant="outlined"
                           margin="dense"
                           label="Name"
                           fullWidth
@@ -240,6 +241,7 @@ const AddProjectCard = () => {
                       </Grid>
                       <Grid item xs={12}>
                         <TextField
+                          variant="outlined"
                           margin="dense"
                           label="Description"
                           fullWidth
@@ -257,10 +259,11 @@ const AddProjectCard = () => {
                           helperText={touched.description && errors.description}
                         />
                       </Grid>
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12}>
                         <TextField
                           id="startDate"
                           name="startDate"
+                          variant="outlined"
                           margin="dense"
                           label="Start date"
                           type="date"
@@ -277,10 +280,11 @@ const AddProjectCard = () => {
                           helperText={touched.startDate && errors.startDate}
                         />
                       </Grid>
-                      <Grid item xs={12} md={6}>
+                      <Grid item xs={12}>
                         <TextField
                           id="endDate"
                           name="endDate"
+                          variant="outlined"
                           margin="dense"
                           label="End date"
                           type="date"
