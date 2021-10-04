@@ -12,7 +12,12 @@ export const ConfirmMessage = ({ text, icon }: ConfirmMessageType) => {
   return (
     <div className={classes.info}>
       {icon}
-      {text && <Typography variant="h3">{text}</Typography>}
+
+      {text && (
+        <Typography variant="h3" style={{ marginLeft: '20px' }}>
+          {text}
+        </Typography>
+      )}
     </div>
   );
 };

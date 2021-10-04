@@ -23,10 +23,12 @@ const ProfileLayout = ({ fromLogin, profile }: IProfileLayout) => {
 
   const { state, dispatch } = useGlobalContext();
 
-  const [me, { loading, error, data }] = useLazyQuery<IMe>(ME);
+  const [me, { loading, error, data }] = useLazyQuery<IMe>(ME, {
+    fetchPolicy: 'network-only',
+  });
 
   useEffect(() => {
-    if ((!fromLogin || state.user === null) && isUser) {
+    if (state.user === null && isUser) {
       me();
     }
     if (data) {
