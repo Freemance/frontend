@@ -25,7 +25,6 @@ const CardDirectory = ({ freelancers }: any) => {
                     src={`${process.env.IMAGE_LINK}${freelancer.node.avatar}`}
                     className={classes.avatar}
                   />
-
                   <Typography variant="h4" className={classes.titlecard}>
                     {freelancer.node.firstName} {freelancer.node.lastName}
                   </Typography>
