@@ -6,6 +6,6 @@ module.exports = {
     NEXT_PUBLIC_GA_ID: 'G-VDTLW28DWP',
   },
   images: {
-    domains: ['api.freemance.com', 'freemance-backend.herokuapp.com'],
+    domains: ['api.freemance.com'],
   },
 };
