@@ -11,6 +11,10 @@ export const ME = gql`
         firstName
         lastName
         slykUser
+        tag {
+          id
+          name
+        }
         jobTitle
         bio
         phone
@@ -60,14 +64,18 @@ export const AVAILABLE_SKILLS = gql`
   }
 `;
 
-export const PROFILE_BY_ID = gql`
-  query profileById($id: Int!) {
-    profileById(id: $id) {
+export const PROFILE_BY_USERNAME = gql`
+  query profileByUsername($username: String!) {
+    profileByUsername(username: $username) {
       id
       avatar
       firstName
       lastName
       slykUser
+      tag {
+        id
+        name
+      }
       jobTitle
       bio
       phone

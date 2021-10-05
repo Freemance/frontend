@@ -1,6 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import { Grid, Typography, Button, Hidden } from '@material-ui/core';
+import Link from 'next/link';
 // Style
 import { useHeroStyle } from './Hero.style';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +13,7 @@ const Hero = () => {
   return (
     <section className={classes.hero}>
       <Grid container spacing={2} className={classes.root}>
-        <Grid item xs={12} lg={5}>
+        <Grid item xs={12} lg={5} xl={4}>
           <Typography variant="h3" component="h1" className={classes.ntitle}>
             {t('hero.ntitle')}
           </Typography>
@@ -36,27 +37,30 @@ const Hero = () => {
           </Hidden>
 
           <div className={classes.heroCallToAction}>
-            <Button
-              color="primary"
-              variant="contained"
-              size="large"
-              href="/directory"
-              className={clsx(classes.btn, classes.solid)}
-            >
-              {t('hero.buttonofhire')}
-            </Button>
+            <Link href="/directory">
+              <Button
+                color="primary"
+                variant="contained"
+                size="large"
+                className={clsx(classes.btn, classes.solid)}
+              >
+                {t('hero.buttonofhire')}
+              </Button>
+            </Link>
+
             {token ? (
               <div></div>
             ) : (
-              <Button
-                color="primary"
-                variant="outlined"
-                size="large"
-                className={clsx(classes.outline, classes.btn)}
-                href="/signup"
-              >
-                {t('hero.buttonofbecome')}
-              </Button>
+              <Link href="/signup">
+                <Button
+                  color="primary"
+                  variant="outlined"
+                  size="large"
+                  className={clsx(classes.outline, classes.btn)}
+                >
+                  {t('hero.buttonofbecome')}
+                </Button>
+              </Link>
             )}
           </div>
         </Grid>

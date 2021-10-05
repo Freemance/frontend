@@ -1,9 +1,8 @@
-import { ME } from './queries';
-
 export type {
   IMe,
   IProfileUpdateInfo,
   IProfileUpdateInfoRes,
   IProfileUpdateInfoInput,
 } from './types';
-export { ME };
+export { ME } from './queries';
+export { PROFILE_UPDATE_INFO } from './mutations';

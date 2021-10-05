@@ -66,9 +66,12 @@ const NavBar: React.FC = () => {
             </Link>
           </div>
           {token ? (
-            <a href="/profile" style={{ marginLeft: 'auto' }}>
-              {avatar && <Avatar src={`${process.env.IMAGE_LINK}${avatar}`} />}
-            </a>
+            <Link href="/profile">
+              <Avatar
+                src={`${process.env.IMAGE_LINK}${avatar}`}
+                style={{ marginLeft: 'auto', cursor: 'pointer' }}
+              />
+            </Link>
           ) : (
             <>
               <Hidden xsDown>

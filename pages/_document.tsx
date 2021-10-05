@@ -30,19 +30,19 @@ export default class MyDocument extends Document {
             content={theme.lightTheme.palette.primary.main}
           />
 
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preload" href="https://fonts.googleapis.com" />
           <link
-            rel="preconnect"
+            rel="preload"
             href="https://fonts.gstatic.com"
             crossOrigin="true"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Saira:wght@700&display=swap"
-            rel="stylesheet"
+            rel="preload"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Saira:ital@0;1&display=swap"
-            rel="stylesheet"
+            rel="preload"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,400;0,500;1,400&display=swap"

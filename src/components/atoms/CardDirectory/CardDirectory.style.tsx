@@ -4,9 +4,9 @@ export const useCardDirectoryStyle = makeStyles((theme: Theme) =>
     root: {
       border: 'none',
       width: 'auto',
+      minHeight: '320px',
       justifyContent: 'center',
       flexDirection: 'row',
-      marginLeft: '5vh',
       cursor: 'pointer',
       [theme.breakpoints.down('lg')]: {
         width: 'auto',

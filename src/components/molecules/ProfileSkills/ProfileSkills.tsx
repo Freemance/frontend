@@ -178,7 +178,13 @@ const ProfileSkills = () => {
               setToAddSkill(newValue);
             }}
             renderInput={(params) => (
-              <TextField {...params} margin="dense" label="Skill" fullWidth />
+              <TextField
+                {...params}
+                variant="outlined"
+                margin="dense"
+                label="Skill"
+                fullWidth
+              />
             )}
           />
         </DialogContent>

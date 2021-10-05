@@ -31,12 +31,18 @@ export type PortfolioItemType = {
   endDate: string;
 };
 
+export type TagType = {
+  id: number;
+  name: string;
+};
+
 export type ProfileType = {
   id?: number;
   firstName?: string;
   lastName?: string;
   avatar?: string;
   slykUser?: string;
+  tag?: TagType;
   jobTitle?: string;
   bio?: string;
   phone?: string;
