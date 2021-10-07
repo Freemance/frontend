@@ -71,6 +71,8 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
     outline: {
       overflow: 'hidden',
       position: 'relative',
+      border: '1px solid',
+      borderColor: theme.palette.error.main,
       '&:hover': {
         border: '1px solid',
         borderColor: theme.palette.error.main,
