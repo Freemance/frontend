@@ -72,6 +72,7 @@ const Hero = () => {
             width={877}
             height={585}
             layout="responsive"
+            quality={100}
             priority
           />
         </Grid>
