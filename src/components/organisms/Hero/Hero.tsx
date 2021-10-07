@@ -66,7 +66,6 @@ const Hero = () => {
           </div>
         </Grid>
         <Grid item xs={12} lg={7} md={12} xl={8} sm={12}>
-          <img src="/mockup.webp" className={classes.mockup} />
           <Image
             src="/mockup.webp"
             alt="Hero poster"
