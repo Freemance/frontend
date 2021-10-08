@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
-
+import { NextSeo } from 'next-seo';
 import ProfileLayout from '@layouts/ProfileLayout';
 import {
   IProfileByUsernameInput,
@@ -16,13 +17,40 @@ interface IProfileByUsername {
 }
 
 export default function Profile({ profile }: IProfileByUsername) {
+  const router = useRouter();
+  const { username } = router.query;
   return (
     <React.Fragment>
       <Head>
-        <title>Freemance - Profile</title>
-        <meta name="description" content="Freemance" />
+        <title>{`Freemance | ${profile.firstName} ${profile.lastName} - ${profile.jobTitle}`}</title>
+        <meta
+          name="description"
+          content={profile.bio || 'Freemancer Profile'}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        openGraph={{
+          title: `${profile.firstName} ${profile.lastName} | ${profile.jobTitle}`,
+          description: profile.bio,
+          url: `${process.env.SITE_URL}/${username}`,
+          type: 'profile',
+          profile: {
+            firstName: profile.firstName,
+            lastName: profile.lastName,
+            username: username as string,
+            gender: '',
+          },
+          images: [
+            {
+              url: `${process.env.IMAGE_LINK}600X600/${profile.avatar}`,
+              width: 600,
+              height: 600,
+              alt: `${profile.firstName} ${profile.lastName}`,
+            },
+          ],
+        }}
+      />
       <ProfileLayout profile={profile} />
     </React.Fragment>
   );

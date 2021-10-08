@@ -5,3 +5,9 @@ export default interface IFMCardItem {
   job: string;
   identifier: Number;
 }
+
+export interface ILoader {
+  src: string;
+  width: number;
+  quality: number;
+}
