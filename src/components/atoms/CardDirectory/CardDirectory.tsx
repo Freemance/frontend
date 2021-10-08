@@ -32,7 +32,7 @@ const CardDirectory = ({ freelancers }: any) => {
                     {freelancer.node.jobTitle}
                   </Typography>
                   <div className={classes.tags}>
-                    {freelancer.node.skills.map((skill: any) => (
+                    {freelancer.node.skills.slice(0, 5).map((skill: any) => (
                       <TemplateSkill
                         key={skill.id}
                         icono={skill.icon}
