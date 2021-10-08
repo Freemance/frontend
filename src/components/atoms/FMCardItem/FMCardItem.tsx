@@ -36,13 +36,15 @@ const FMCardItem = ({ name, skills, avatar, job, identifier }: IFMCardItem) => {
             )}
             <div className={classes.tagcontainer}>
               {skills &&
-                skills.map((skill: any) => (
-                  <TemplateSkill
-                    key={skill.id}
-                    icono={skill.icon}
-                    filled={lightPalette.text.primary}
-                  />
-                ))}
+                skills
+                  .slice(0, 5)
+                  .map((skill: any) => (
+                    <TemplateSkill
+                      key={skill.id}
+                      icono={skill.icon}
+                      filled={lightPalette.text.primary}
+                    />
+                  ))}
             </div>
           </CardContent>
         </Card>
