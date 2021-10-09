@@ -11,6 +11,7 @@ import {
   ListItemAvatar,
   ListItemText,
   IconButton,
+  Typography,
 } from '@material-ui/core';
 import {
   CameraAlt as CameraIcon,
@@ -39,26 +40,32 @@ const ProfileAvatar = ({ previewUrl, onUploadPicture }: IProfileAvatar) => {
     setOpen(false);
   };
 
-  const getAvatarImage = ({ src, width, quality }: ILoader): string => {
+  const myLoader = ({ src, width, quality }: ILoader): string => {
+    return src === '/no-avatar.svg'
+      ? '/no-avatar.svg'
+      : `${process.env.IMAGE_LINK}600X600/${src}?w=${width}&q=${quality || 75}`;
+  };
+
+  const getAvatarImage = (): string => {
     if (isUser) {
       if (previewUrl) {
         return previewUrl;
       }
-      return `${process.env.IMAGE_LINK}600X600/${src}?w=${width}&q=${
-        quality || 75
-      }`;
+      return !!state.user.profile.avatar
+        ? `${process.env.IMAGE_LINK}${state.user.profile.avatar}`
+        : '';
     } else {
-      return `${process.env.IMAGE_LINK}600X600/${src}?w=${width}&q=${
-        quality || 75
-      }`;
+      return !!profile.avatar
+        ? `${process.env.IMAGE_LINK}${profile.avatar}`
+        : '';
     }
   };
 
-  /* const getInitials = (isUser: boolean): string => {
+  const getInitials = (isUser: boolean): string => {
     return isUser
       ? `${state.user.profile.firstName[0].toUpperCase()}${state.user.profile.lastName[0].toUpperCase()}`
       : `${profile.firstName[0].toUpperCase()}${profile.lastName[0].toUpperCase()}`;
-  }; */
+  };
 
   return (
     <Container>
@@ -83,24 +90,38 @@ const ProfileAvatar = ({ previewUrl, onUploadPicture }: IProfileAvatar) => {
         }
       >
         <div className={classes.avatarWrapp}>
-          <Image
-            aria-label="recipe"
-            className={classes.avatar}
-            loader={getAvatarImage}
-            src={isUser ? state.user.profile.avatar : profile && profile.avatar}
-            alt={
-              isUser
-                ? `${state.user.profile.firstName} ${state.user.profile.lastName}`
-                : `${profile && profile.firstName} ${
-                    profile && profile.lastName
-                  }`
-            }
-            width={232}
-            height={232}
-            layout="responsive"
-            quality={100}
-            priority
-          />
+          {previewUrl ? (
+            <Avatar className={classes.avatar} src={getAvatarImage()}>
+              <Typography className={classes.avatarText} variant="h1">
+                {getInitials(isUser)}
+              </Typography>
+            </Avatar>
+          ) : (
+            <Avatar className={classes.avatar} src={getAvatarImage()}>
+              <Image
+                aria-label="recipe"
+                className={classes.avatar}
+                loader={myLoader}
+                src={
+                  isUser
+                    ? state.user.profile.avatar || '/no-avatar.svg'
+                    : (profile && profile.avatar) || '/no-avatar.svg'
+                }
+                alt={
+                  isUser
+                    ? `${state.user.profile.firstName} ${state.user.profile.lastName}`
+                    : `${profile && profile.firstName} ${
+                        profile && profile.lastName
+                      }`
+                }
+                width={232}
+                height={232}
+                layout="fill"
+                quality={100}
+                priority
+              />
+            </Avatar>
+          )}
         </div>
       </Badge>
       <Dialog onClose={handleClose} open={open}>
