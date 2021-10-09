@@ -22,31 +22,40 @@ export default function Profile({ profile }: IProfileByUsername) {
   return (
     <React.Fragment>
       <Head>
-        <title>{`Freemance | ${profile.firstName} ${profile.lastName} - ${profile.jobTitle}`}</title>
+        <title>{`Freemance | ${profile && profile.firstName} ${
+          profile && profile.lastName
+        } - ${profile && profile.jobTitle}`}</title>
         <meta
           name="description"
-          content={profile.bio || 'Freemancer Profile'}
+          content={(profile && profile.bio) || 'Freemancer Profile'}
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NextSeo
         openGraph={{
-          title: `${profile.firstName} ${profile.lastName} | ${profile.jobTitle}`,
-          description: profile.bio,
-          url: `${process.env.SITE_URL}/${username}`,
+          title: `${profile && profile.firstName} ${
+            profile && profile.lastName
+          } | ${profile && profile.jobTitle}`,
+          description: profile && profile.bio,
+          url: `${process.env.SITE_URL}/${username || ''}`,
           type: 'profile',
           profile: {
-            firstName: profile.firstName,
-            lastName: profile.lastName,
+            firstName: profile && profile.firstName,
+            lastName: profile && profile.lastName,
             username: username as string,
             gender: '',
           },
           images: [
             {
-              url: `${process.env.IMAGE_LINK}600X600/${profile.avatar}`,
+              url:
+                profile && profile.avatar
+                  ? `${process.env.IMAGE_LINK}600X600/${profile.avatar}`
+                  : `${process.env.SITE_URL}/mockup.webp`,
               width: 600,
               height: 600,
-              alt: `${profile.firstName} ${profile.lastName}`,
+              alt: `${profile && profile.firstName} ${
+                profile && profile.lastName
+              }`,
             },
           ],
         }}
