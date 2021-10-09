@@ -87,11 +87,13 @@ const ProfileAvatar = ({ previewUrl, onUploadPicture }: IProfileAvatar) => {
             aria-label="recipe"
             className={classes.avatar}
             loader={getAvatarImage}
-            src={isUser ? state.user.profile.avatar : profile.avatar}
+            src={isUser ? state.user.profile.avatar : profile && profile.avatar}
             alt={
               isUser
                 ? `${state.user.profile.firstName} ${state.user.profile.lastName}`
-                : `${profile.firstName} ${profile.lastName}`
+                : `${profile && profile.firstName} ${
+                    profile && profile.lastName
+                  }`
             }
             width={232}
             height={232}

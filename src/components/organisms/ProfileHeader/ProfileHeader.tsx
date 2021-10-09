@@ -75,7 +75,7 @@ const ProfileHeader = () => {
 
   return (
     <Grid container spacing={3} justifyContent="center" alignItems="flex-start">
-      <Grid item md={3}>
+      <Grid item xs={7} sm={5} md={3}>
         <ProfileAvatar
           previewUrl={avatarPreview}
           onUploadPicture={handleAvatarUpload}
@@ -111,7 +111,7 @@ const ProfileHeader = () => {
           </div>
         )}
       </Grid>
-      <Grid item md={9}>
+      <Grid item xs={12} md={9}>
         <ProfileInfo
           isLoading={loading}
           error={error}
