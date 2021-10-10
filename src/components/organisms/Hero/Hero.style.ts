@@ -49,7 +49,7 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
       fontWeight: 500,
       color: theme.palette.error.main,
       marginBottom: '5%',
-      fontSize: '1.2rem',
+      fontSize: '1.4rem',
     },
     ntitle: {
       fontWeight: 900,
