@@ -76,7 +76,7 @@ export const Directory = () => {
                 className={classes.menu}
                 variant="outlined"
               >
-                <MenuItem value={0}>All Professions</MenuItem>
+                <MenuItem value={0}>All Categories</MenuItem>
                 {tags &&
                   tags.map((profesion: any) => (
                     <MenuItem key={profesion.node.id} value={profesion.node.id}>

@@ -55,7 +55,7 @@ export default function SignUpForm() {
       }}
     >
       <FormikStep
-        label="Personal Data"
+        label="Your Name"
         validationSchema={Yup.object().shape({
           firstName: Yup.string()
             .required('Required')
@@ -108,7 +108,10 @@ export default function SignUpForm() {
         label="Slyk"
         validationSchema={Yup.object().shape({
           slykUrl: Yup.string()
-            .matches(/^\b[a-zA-Z_0-9]+\b$/, 'white space')
+            .matches(
+              /^\b[a-zA-Z_0-9]+\b$/,
+              'Wrong link format (just write your slyk username)'
+            )
             .required('Required'),
         })}
       >
@@ -120,7 +123,7 @@ export default function SignUpForm() {
           fullWidth
           name="slykUrl"
           component={TextField}
-          label="Slyk Url"
+          label="Slyk Username"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">.slyk.io</InputAdornment>
