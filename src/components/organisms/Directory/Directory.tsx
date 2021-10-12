@@ -47,6 +47,8 @@ export const Directory = () => {
     const valor: any = e.target.value;
     setSelectedTag(valor);
   }
+
+  console.log(freelancers);
   return (
     <>
       <NavBar />
@@ -88,14 +90,18 @@ export const Directory = () => {
           </Container>
           {error ? (
             <Typography variant="h1" className={classes.errordata}>
-              Lost connection...
+              Error
             </Typography>
           ) : loading ? (
             <div className={classes.loading}>
               <CircularProgress />
             </div>
+          ) : freelancers && freelancers.length !== 0 ? (
+            <CardDirectory freelancers={freelancers} />
           ) : (
-            freelancers && <CardDirectory freelancers={freelancers} />
+            <Typography variant="h1" className={classes.errordata}>
+              0 Freemancers Found
+            </Typography>
           )}
         </div>
       </Container>

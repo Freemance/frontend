@@ -11,6 +11,9 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
       background: 'transparent',
       padding: '0 30px',
     },
+    logo: {
+      display: 'flex',
+    },
     stickyInner: {
       transition: '1s ease background-color',
     },
@@ -21,12 +24,15 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
     },
     title: {
       flexGrow: 1,
-      display: 'block',
+      display: 'flex',
       color: theme.palette.primary.main,
       cursor: 'pointer',
+      alignContent: 'center',
+      marginLeft: '-14px',
+      flexWrap: 'wrap',
       fontWeight: 'bold',
       [theme.breakpoints.up('sm')]: {
-        display: 'block',
+        display: 'flex',
       },
     },
     spantitle: {
