@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Grid, TextField, Typography } from '@material-ui/core';
+import { Grid, Link, TextField, Typography } from '@material-ui/core';
 import { Alert, Autocomplete } from '@material-ui/lab';
 import { ClassNameMap } from '@material-ui/styles';
 import { useQuery } from '@apollo/client';
@@ -259,7 +259,15 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
           <Typography variant="h2">
             {currentProfile.firstName} {currentProfile.lastName}
           </Typography>
-          <Typography variant="subtitle1">{currentProfile.slykUser}</Typography>
+          <Typography variant="subtitle1">
+            <Link
+              href={`https://${currentProfile.slykUser}`}
+              target="_blank"
+              color="inherit"
+            >
+              {currentProfile.slykUser}
+            </Link>
+          </Typography>
         </div>
       </Grid>
       <Grid item xs={12}>
