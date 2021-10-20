@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, TextField, Typography } from '@material-ui/core';
 import { Alert, Autocomplete } from '@material-ui/lab';
+import { ClassNameMap } from '@material-ui/styles';
 import { useQuery } from '@apollo/client';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -16,7 +17,7 @@ import { TagType } from 'src/context/state';
 import { AVAILABLE_TAGS, IAvailableTagsRes } from 'src/lib/apollo/tags';
 
 const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
-  const classes = useProfileInfoStyle();
+  const classes: ClassNameMap<any> = useProfileInfoStyle();
 
   const { isEdit, isUser, profile } = useProfileContext();
   const { state } = useGlobalContext();
@@ -55,7 +56,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
         professionId: Yup.number().required('Required'),
         jobTitle: Yup.string().required('Required').nullable(),
         bio: Yup.string().required('Required').nullable(),
-        phone: Yup.string().required('Required').nullable(),
+        phone: Yup.string().nullable(),
         city: Yup.string().required('Required').nullable(),
         country: Yup.string().required('Required').nullable(),
       })}
@@ -193,7 +194,6 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
                 id="phone"
                 name="phone"
                 label="Phone"
-                required
                 value={values.phone}
                 error={touched.phone && Boolean(errors.phone)}
                 helperText={touched.phone && errors.phone}
@@ -262,6 +262,9 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
           <Typography variant="subtitle1">{currentProfile.slykUser}</Typography>
         </div>
       </Grid>
+      <Grid item xs={12}>
+        <ProfileInfoField title="Bio" value={currentProfile.bio} />
+      </Grid>
       <Grid item xs={12} sm={6}>
         <ProfileInfoField
           title="Area"
@@ -269,10 +272,10 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
         />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <ProfileInfoField title="Bio" value={currentProfile.bio} />
+        <ProfileInfoField title="Job" value={currentProfile.jobTitle} />
       </Grid>
       <Grid item xs={12} sm={6}>
-        <ProfileInfoField title="Job" value={currentProfile.jobTitle} />
+        <ProfileInfoField title="Email" value="-" />
       </Grid>
       <Grid item xs={12} sm={6}>
         <ProfileInfoField title="Phone" value={currentProfile.phone} />

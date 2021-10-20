@@ -5,6 +5,7 @@ import {
   Description as DescriptionIcon,
   Edit as EditIcon,
 } from '@material-ui/icons';
+import { ClassNameMap } from '@material-ui/styles';
 
 import ProfileAvatar from '@components/molecules/ProfileAvatar';
 import ProfileInfo from '@components/molecules/ProfileInfo';
@@ -20,7 +21,7 @@ import {
 import { ActionType, useGlobalContext } from 'src/context';
 
 const ProfileHeader = () => {
-  const classes = useProfileHeaderStyle();
+  const classes: ClassNameMap<any> = useProfileHeaderStyle();
 
   const { dispatch } = useGlobalContext();
   const { isUser, isEdit, setIsEdit, profile } = useProfileContext();
