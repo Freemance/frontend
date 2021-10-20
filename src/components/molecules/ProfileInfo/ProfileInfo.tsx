@@ -274,12 +274,12 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
       <Grid item xs={12} sm={6}>
         <ProfileInfoField title="Job" value={currentProfile.jobTitle} />
       </Grid>
-      <Grid item xs={12} sm={6}>
+      {/* <Grid item xs={12} sm={6}>
         <ProfileInfoField title="Email" value="-" />
       </Grid>
       <Grid item xs={12} sm={6}>
         <ProfileInfoField title="Phone" value={currentProfile.phone} />
-      </Grid>
+      </Grid> */}
       <Grid item xs={6}>
         <ProfileInfoField title="City" value={currentProfile.city} />
       </Grid>
