@@ -1,6 +1,6 @@
 {
   "hero": {
-    "ntitle": "Join to become a Freemancer in minutes.",
+    "ntitle": "Hire freelancers who feel like co-founders",
     "nsubtitle": "Discover Cuban Freelancers",
     "nsubtitlemobile": "Discover Cuban Freelancers",
     "buttonofhire": "Hire Freemancer",
@@ -31,6 +31,10 @@
     "buttonaccess": "Get Early Access"
   },
   "faq": {
+    "ancla2": "Freemancers",
+    "question1-ancla2": "What is a Minimum Viable Slyk?",
+    "answer1-ancla2": "A Minimum Viable Slyk (MVS) is a Slyk with these characteristics: \n 30-second introduction video (Tell the world who you are, what you are selling, why it is awesome, and what you are offering in Referral and Marketing Rewards).\nCatalog with at least one item that you are selling (can be any service, physical item, or digital download).\n Share to get at least 30 users to join your Slyk",
+    "ancla1": "Clients",
     "question1": "What is Freemance",
     "answer1": "Freemance is a directory of Cuban professionals with presence on Slyk. With the use of Freemance you can access to their portfolios and hire their services through their virtual stores on Slyk.",
     "question2": "Does Freemance charges for hiring",

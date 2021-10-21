@@ -45,6 +45,8 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
       },
     },
     ndescription: {
+      display: 'flex',
+      [theme.breakpoints.down('md')]: { justifyContent: 'center' },
       fontStyle: 'oblique',
       fontWeight: 500,
       color: theme.palette.error.main,
@@ -63,7 +65,12 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
     },
     heroCallToAction: {
       position: 'relative',
+      [theme.breakpoints.down('md')]: {
+        display: 'flex',
+        justifyContent: 'center',
+      },
       [theme.breakpoints.down('xs')]: {
+        display: 'block',
         width: '80%',
         margin: 'auto',
       },

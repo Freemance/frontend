@@ -19,8 +19,9 @@ export const useCardDirectoryStyle = makeStyles((theme: Theme) =>
       justifyContent: 'center',
       margin: 'auto',
       borderRadius: '10px',
-      width: '70%',
-      height: '70%',
+      width: '184.8px',
+      minHeight: '184.8px',
+      maxHeight: '184.8px',
       boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
     },
     titlecard: {

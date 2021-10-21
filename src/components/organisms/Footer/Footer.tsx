@@ -20,16 +20,11 @@ const Footer = () => {
           </Link>
           <Link href="/">
             <Typography variant="caption" className={classes.link}>
-              Team
+              Contact Us
             </Typography>
           </Link>
         </Grid>
         <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
-          <Link href="/">
-            <Typography variant="caption" className={classes.link}>
-              Contact Us
-            </Typography>
-          </Link>
           <Link href="/faq">
             <Typography variant="caption" className={classes.link}>
               FAQ

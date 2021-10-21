@@ -18,7 +18,14 @@ function FAQ() {
       <Container maxWidth="lg">
         <Typography
           variant="h1"
-          style={{ display: 'flex', marginTop: '5%', justifyContent: 'center' }}
+          style={{
+            display: 'flex',
+            fontWeight: 900,
+            marginLeft: '2%',
+            marginBottom: 35,
+            fontSize: 43,
+            justifyContent: 'center',
+          }}
         >
           {t('applayout.titlesection2')}
         </Typography>
