@@ -13,7 +13,10 @@ const SliderFMProfiles = () => {
   const {} = useQuery(getSliderFreemancers, {
     fetchPolicy: 'cache-and-network',
     onCompleted: (data) => {
-      setFreelancers(data.profileFilter.edges);
+      const result = [...data.profileFilter.edges]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 5);
+      setFreelancers(result);
     },
   });
   const classes = useSliderFMProfileStyle();
