@@ -1,6 +1,5 @@
 export default interface ICardLand {
-  image: React.ReactNode;
+  image: string;
   title: string;
-  backgroundColor: string;
   text: string;
 }

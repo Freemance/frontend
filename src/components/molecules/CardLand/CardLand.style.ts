@@ -17,6 +17,7 @@ export const useCardLandStyles = makeStyles((theme: Theme) => ({
   },
   icono: {
     width: '60px',
+    fill: '#ef5258',
     height: '60px',
     fontSize: '3rem',
     backgroundColor: 'transparent',

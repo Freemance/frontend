@@ -149,7 +149,7 @@ const NavBar: React.FC = () => {
                 aria-expanded={open ? 'true' : undefined}
                 aria-haspopup="true"
                 onClick={handleToggle}
-                style={{ marginLeft: 'auto', cursor: 'pointer' }}
+                className={classes.buttonlogo}
               >
                 <Avatar
                   src={`${process.env.IMAGE_LINK}${avatar}`}
