@@ -23,8 +23,10 @@
     "titlesection3": "Top Freemancers",
     "descsection3": "These are some of the most prominent profiles on the platform currently.",
     "titlesection4": "Privacy Policy",
-    "titlesection5": "Sponsors",
-    "descsection5": "These are some of the third-party platforms that we use or that sponsor us"
+    "titlesection5": "Companies that employs Freemancers",
+    "descsection5": "These are some companies that uses services of our Freelancers.",
+    "titlesection6": "Powered by",
+    "descsection6": "Freemance is a project operated by Papi DAO."
   },
   "navbar": {
     "buttonlogin": "Login",
