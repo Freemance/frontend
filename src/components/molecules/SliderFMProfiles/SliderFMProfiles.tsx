@@ -11,7 +11,7 @@ import { getSliderFreemancers } from 'src/lib/apollo/query/GetSliderFreemancers'
 const SliderFMProfiles = () => {
   const [freelancers, setFreelancers] = useState(undefined);
   const {} = useQuery(getSliderFreemancers, {
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'cache-and-network',
     onCompleted: (data) => {
       setFreelancers(data.profileFilter.edges);
     },
