@@ -25,10 +25,12 @@ const FAQContainer = () => {
           <span className={classes.fizzer}>|</span>
           {t('faq.ancla2')}
         </Typography>
-        <FAQ
-          question={t('faq.question1-ancla2')}
-          answer={t('faq.answer1-ancla2')}
-        />
+        <div id="mvs">
+          <FAQ
+            question={t('faq.question1-ancla2')}
+            answer={t('faq.answer1-ancla2')}
+          />
+        </div>
       </div>
     </>
   );
