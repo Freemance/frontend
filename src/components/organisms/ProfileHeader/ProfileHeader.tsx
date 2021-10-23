@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Fab, Grid, IconButton } from '@material-ui/core';
-import {
-  Call as CallIcon,
-  Description as DescriptionIcon,
-  Edit as EditIcon,
-} from '@material-ui/icons';
+import { Fab, Grid } from '@material-ui/core';
+import { Edit as EditIcon, WorkOutline as WorkIcon } from '@material-ui/icons';
+import { ClassNameMap } from '@material-ui/styles';
 
 import ProfileAvatar from '@components/molecules/ProfileAvatar';
 import ProfileInfo from '@components/molecules/ProfileInfo';
@@ -20,7 +17,7 @@ import {
 import { ActionType, useGlobalContext } from 'src/context';
 
 const ProfileHeader = () => {
-  const classes = useProfileHeaderStyle();
+  const classes: ClassNameMap<any> = useProfileHeaderStyle();
 
   const { dispatch } = useGlobalContext();
   const { isUser, isEdit, setIsEdit, profile } = useProfileContext();
@@ -92,21 +89,30 @@ const ProfileHeader = () => {
                 <EditIcon className={classes.editIcon} />
               </Fab>
             ) : (
-              <>
-                <IconButton
-                  className={classes.headerButton}
-                  href={`tel:${profile.phone}`}
-                >
-                  <CallIcon />
-                </IconButton>
-                <IconButton
-                  className={classes.headerButton}
-                  href={`https://${profile.slykUser}`}
-                  target="_blank"
-                >
-                  <DescriptionIcon />
-                </IconButton>
-              </>
+              <Fab
+                variant="extended"
+                className={classes.headerButton}
+                href={`https://${profile.slykUser}`}
+                target="_blank"
+              >
+                Hire
+                <WorkIcon className={classes.editIcon} />
+              </Fab>
+              // <>
+              //   <IconButton
+              //     className={classes.headerButton}
+              //     href={`tel:${profile.phone}`}
+              //   >
+              //     <CallIcon />
+              //   </IconButton>
+              //   <IconButton
+              //     className={classes.headerButton}
+              //     href={`https://${profile.slykUser}`}
+              //     target="_blank"
+              //   >
+              //     <DescriptionIcon />
+              //   </IconButton>
+              // </>
             )}
           </div>
         )}
