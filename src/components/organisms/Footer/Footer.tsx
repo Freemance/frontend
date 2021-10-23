@@ -18,11 +18,15 @@ const Footer = () => {
               Directory
             </Typography>
           </Link>
-          <Link href="/">
+          <ExtLink
+            href="mailto:support@freemance.com"
+            target="_blank"
+            variant="body2"
+          >
             <Typography variant="caption" className={classes.link}>
               Contact Us
             </Typography>
-          </Link>
+          </ExtLink>
         </Grid>
         <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
           <Link href="/faq">
