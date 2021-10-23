@@ -21,7 +21,8 @@ const Footer = () => {
           <ExtLink
             href="mailto:support@freemance.com"
             target="_blank"
-            variant="body2"
+            variant="caption"
+            style={{ textDecoration: 'none' }}
           >
             <Typography variant="caption" className={classes.link}>
               Contact Us
@@ -59,6 +60,16 @@ const Footer = () => {
           </IconButton>
         </Grid>
       </Grid>
+      <Typography
+        variant="caption"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '-20px',
+        }}
+      >
+        Copyright © PapiDAO 2021
+      </Typography>
     </div>
   );
 };

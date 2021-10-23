@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         openGraph={{
           type: 'website',
           locale: 'en_IE',
-          url: 'https://www.freemance.com',
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
           site_name: 'Freemance',
         }}
         twitter={{

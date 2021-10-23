@@ -49,7 +49,7 @@ const CardLandContainer = () => {
         </Grid>
         <Grid item xs={12} lg={3} sm={6}>
           <CardLand
-            image="/static/images/payment.min.svg"
+            image="/static/images/gift.svg"
             title={t('cardcont.4title')}
             text={t('cardcont.4text')}
           />

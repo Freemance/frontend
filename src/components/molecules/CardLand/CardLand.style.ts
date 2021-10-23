@@ -3,7 +3,6 @@ import { makeStyles, Theme } from '@material-ui/core';
 export const useCardLandStyles = makeStyles((theme: Theme) => ({
   paper: {
     transition: 'all 850ms cubic-bezier(0.19, 1, 0.22, 1)',
-
     width: '100%',
     height: '100%',
     textAlign: 'left',
