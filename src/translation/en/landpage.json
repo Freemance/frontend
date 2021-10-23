@@ -1,36 +1,42 @@
 {
   "hero": {
-    "ntitle": "Join to become a Freemancer in minutes.",
+    "ntitle": "Hire freelancers who feel like co-founders",
     "nsubtitle": "Discover Cuban Freelancers",
     "nsubtitlemobile": "Discover Cuban Freelancers",
     "buttonofhire": "Hire Freemancer",
     "buttonofbecome": "Become Freemancer"
   },
   "cardcont": {
-    "1title": "Hire and pay with Slyk",
-    "1text": "Get ready to sell your skills to different contractors using Slyk",
-    "2title": "Work from home",
-    "2text": "Work from home, without strict time limitations, totally remote",
-    "3title": "Take more visibility",
-    "3text": "Get more visibility in the job market, have contractors discover your profile",
-    "4title": "Contact with your clients",
-    "4text": "FOR NOW, the client can contact you through the email you provide when setting up your profile"
+    "1title": "Easy Hiring with Slyk",
+    "1text": "Hire few-cost and reliable Cuba-based developers with Slyk.",
+    "2title": "Easy payments with QvaPay",
+    "2text": "QvaPay makes it easy to pay Cuba-based freelancers. No registration needed just pay with your favourite crypto or AirTM account.",
+    "3title": "Reach a Global Market",
+    "3text": "Freemance is the #1 platform for clients looking for reliable Cuba-based freelancers.",
+    "4title": "Share and be Rewarded",
+    "4text": "Share freelancer’s Slyk with your friends and earn discount points in future purchases."
   },
   "applayout": {
     "titlesection1": "Advantages",
     "descsection1": "Find now with professionals from all fields and hire them for dedicated jobs, pay from Slyk and contact them.",
     "titlesection2": "FAQ",
-    "titlesection3": "Top Freemancers",
+    "titlesection3": "Recomended Profiles",
     "descsection3": "These are some of the most prominent profiles on the platform currently.",
     "titlesection4": "Privacy Policy",
-    "titlesection5": "Sponsors",
-    "descsection5": "These are some of the third-party platforms that we use or that sponsor us"
+    "titlesection5": "Companies that employs Freemancers",
+    "descsection5": "These are some companies that uses services of our Freelancers.",
+    "titlesection6": "Powered by",
+    "descsection6": "Freemance is a project operated by Papi DAO."
   },
   "navbar": {
     "buttonlogin": "Login",
     "buttonaccess": "Get Early Access"
   },
   "faq": {
+    "ancla2": "Freemancers",
+    "question1-ancla2": "What is a Minimum Viable Slyk",
+    "answer1-ancla2": "A Minimum Viable Slyk (MVS) is a Slyk with: 30-second introduction video, a catalog with at least one item that you are selling, and at least 30 users registered in your Slyk",
+    "ancla1": "Clients",
     "question1": "What is Freemance",
     "answer1": "Freemance is a directory of Cuban professionals with presence on Slyk. With the use of Freemance you can access to their portfolios and hire their services through their virtual stores on Slyk.",
     "question2": "Does Freemance charges for hiring",

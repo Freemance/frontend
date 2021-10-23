@@ -4,14 +4,16 @@ import { useCardLandStyles } from './CardLand.style';
 import ICard from './types';
 import clsx from 'clsx';
 
-const CardLand = ({ image, title, text, backgroundColor }: ICard) => {
+const CardLand = ({ image, title, text }: ICard) => {
   const classes = useCardLandStyles();
   return (
     <Card className={classes.paper}>
       <CardContent>
-        <Avatar variant="square" className={clsx(classes.icono, 'icono')}>
-          {image}
-        </Avatar>
+        <Avatar
+          variant="square"
+          className={clsx(classes.icono, 'icono')}
+          src={image}
+        />
         <Typography
           variant="h5"
           className={clsx(classes.titlecard, 'titlecard')}

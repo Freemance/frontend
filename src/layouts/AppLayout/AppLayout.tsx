@@ -14,6 +14,7 @@ import Sponsors from '@components/organisms/Sponsors/Sponsors';
 
 // Internacionalizacion
 import { useTranslation } from 'react-i18next';
+import { PoweredBy } from '@components/organisms/PoweredBy/PoweredBy';
 
 const AppLayout: React.FC = () => {
   const { t } = useTranslation('landpage', { useSuspense: false });
@@ -50,6 +51,9 @@ const AppLayout: React.FC = () => {
         <TitleSection text={t('applayout.titlesection5')} />
         <DescriptionSection text={t('applayout.descsection5')} />
         <Sponsors />
+        <TitleSection text={t('applayout.titlesection6')} />
+        <DescriptionSection text={t('applayout.descsection6')} />
+        <PoweredBy />
         <TitleSection text={t('applayout.titlesection3')} />
         <DescriptionSection text={t('applayout.descsection3')} />
         <SliderFMProfiles />

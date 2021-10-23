@@ -18,18 +18,18 @@ const Footer = () => {
               Directory
             </Typography>
           </Link>
-          <Link href="/">
-            <Typography variant="caption" className={classes.link}>
-              Team
-            </Typography>
-          </Link>
-        </Grid>
-        <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
-          <Link href="/">
+          <ExtLink
+            href="mailto:support@freemance.com"
+            target="_blank"
+            variant="caption"
+            style={{ textDecoration: 'none' }}
+          >
             <Typography variant="caption" className={classes.link}>
               Contact Us
             </Typography>
-          </Link>
+          </ExtLink>
+        </Grid>
+        <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
           <Link href="/faq">
             <Typography variant="caption" className={classes.link}>
               FAQ
@@ -60,6 +60,16 @@ const Footer = () => {
           </IconButton>
         </Grid>
       </Grid>
+      <Typography
+        variant="caption"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '-20px',
+        }}
+      >
+        Copyright © PapiDAO 2021
+      </Typography>
     </div>
   );
 };

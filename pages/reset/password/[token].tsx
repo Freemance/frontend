@@ -67,7 +67,11 @@ function Token() {
                   token: `${token}`,
                 },
               })
-                .then(async (res) => {})
+                .then(async (res) => {
+                  setTimeout(function () {
+                    router.push('/');
+                  }, 2400);
+                })
                 .catch((err) => {});
             }}
           >
