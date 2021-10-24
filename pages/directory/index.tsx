@@ -22,7 +22,7 @@ export default function Index() {
           type: 'website',
           images: [
             {
-              url: `${process.env.NEXT_PUBLIC_SITE_URL}/images/cover.png`,
+              url: `${process.env.NEXT_PUBLIC_SITE_URL}images/cover.png`,
               width: 1200,
               height: 1200,
             },
