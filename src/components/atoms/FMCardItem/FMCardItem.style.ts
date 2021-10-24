@@ -40,11 +40,13 @@ export const useFMCardItem = makeStyles((theme: Theme) =>
       display: 'flex',
     },
     titlecard: {
+      textAlign: 'center',
       display: 'flex',
       justifyContent: 'center',
       marginTop: '20px',
     },
     job: {
+      textAlign: 'center',
       justifyContent: 'center',
       display: 'flex',
       marginBottom: '20px',

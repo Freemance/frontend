@@ -28,8 +28,8 @@ export default function Home() {
           images: [
             {
               url: `${process.env.NEXT_PUBLIC_SITE_URL}images/cover.png`,
-              width: 1200,
-              height: 1200,
+              width: 600,
+              height: 600,
             },
           ],
         }}
