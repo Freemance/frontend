@@ -11,7 +11,7 @@ const Footer = () => {
   const classes = useFooterStyle();
   return (
     <div className={classes.box}>
-      <Grid container spacing={3} className={classes.container}>
+      <Grid container spacing={4} className={classes.container}>
         <Grid item xs={12} lg={4} md={4} xl={4} sm={4}>
           <Link href="/directory">
             <Typography variant="caption" className={classes.link}>
@@ -59,17 +59,19 @@ const Footer = () => {
             <Facebook />
           </IconButton>
         </Grid>
+        <Grid item xs={12} lg={12} md={12} xl={12} sm={12}>
+          <Typography
+            variant="caption"
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '-20px',
+            }}
+          >
+            Copyright © PapiDAO 2021
+          </Typography>
+        </Grid>
       </Grid>
-      <Typography
-        variant="caption"
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginTop: '-20px',
-        }}
-      >
-        Copyright © PapiDAO 2021
-      </Typography>
     </div>
   );
 };
