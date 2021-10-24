@@ -8,6 +8,7 @@ import {
   InputAdornment,
   Typography,
   Link,
+  IconButton,
 } from '@material-ui/core';
 
 import { Field, Form, Formik, FormikConfig, FormikValues } from 'formik';
@@ -17,13 +18,24 @@ import React, { useState } from 'react';
 import { Alert } from '@material-ui/lab';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 // Apollo
 import { useMutation } from '@apollo/client';
 import { REGISTER } from 'src/lib/apollo/auth';
 const sleep = (time: number) => new Promise((acc) => setTimeout(acc, time));
 export default function SignUpForm() {
   const [register, { data, error }] = useMutation(REGISTER);
+  const [passwordShow, setPasswordShow] = useState(false);
   const router = useRouter();
+  const handleClickShowPassword = () => {
+    setPasswordShow(!passwordShow);
+  };
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
   return (
     <FormikStepper
       enableReinitialize={true}
@@ -169,7 +181,21 @@ export default function SignUpForm() {
           name="password"
           component={TextField}
           label="Password"
-          type="password"
+          type={passwordShow ? 'text' : 'password'}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {passwordShow ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Field
           color="primary"
@@ -180,7 +206,7 @@ export default function SignUpForm() {
           name="confirmPassword"
           component={TextField}
           label="Password Confirm"
-          type="password"
+          type={passwordShow ? 'text' : 'password'}
         />
       </FormikStep>
     </FormikStepper>

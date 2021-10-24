@@ -40,9 +40,17 @@ const ProfileAppBar = () => {
         ) : (
           <>
             <Link href="/">
-              <Typography className={classes.title} variant="h2">
-                Free<span className={classes.spantitle}>mance</span>
-              </Typography>
+              <div className={classes.logo}>
+                <img
+                  src="/logo.svg"
+                  width={80}
+                  height={80}
+                  style={{ marginTop: '0px' }}
+                />
+                <Typography className={classes.title} variant="h2">
+                  Free<span className={classes.spantitle}>mance</span>
+                </Typography>
+              </div>
             </Link>
             {isUser && (
               <Button

@@ -13,6 +13,14 @@ export const useNavBarStyle = makeStyles((theme: Theme) =>
     },
     logo: {
       display: 'flex',
+      [theme.breakpoints.down('xs')]: { marginLeft: '-30px' },
+    },
+    buttonlogo: {
+      marginLeft: 'auto',
+      cursor: 'pointer',
+      [theme.breakpoints.down('xs')]: {
+        marginRight: '-20px',
+      },
     },
     stickyInner: {
       transition: '1s ease background-color',
