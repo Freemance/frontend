@@ -28,9 +28,9 @@ const CardLandContainer = () => {
         </Grid>
         <Grid item xs={12} lg={3} sm={6}>
           <CardLand
-            image="/static/images/qvapay.svg"
-            title={t('cardcont.2title')}
-            text={t('cardcont.2text')}
+            image="/static/images/profile-search.min.svg"
+            title={t('cardcont.3title')}
+            text={t('cardcont.3text')}
           />
         </Grid>
         <Grid item xs={12} lg={3} sm={6}>
@@ -42,9 +42,9 @@ const CardLandContainer = () => {
         </Grid>
         <Grid item xs={12} lg={3} sm={6}>
           <CardLand
-            image="/static/images/profile-search.min.svg"
-            title={t('cardcont.3title')}
-            text={t('cardcont.3text')}
+            image="/static/images/qvapay.svg"
+            title={t('cardcont.2title')}
+            text={t('cardcont.2text')}
           />
         </Grid>
         <Grid item xs={12} lg={3} sm={6}>
