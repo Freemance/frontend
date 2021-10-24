@@ -6,6 +6,8 @@ import {
   StepLabel,
   Stepper,
   InputAdornment,
+  Typography,
+  Link,
   IconButton,
 } from '@material-ui/core';
 
@@ -127,21 +129,30 @@ export default function SignUpForm() {
             .required('Required'),
         })}
       >
-        <Field
-          color="primary"
-          margin="normal"
-          variant="outlined"
-          required
-          fullWidth
-          name="slykUrl"
-          component={TextField}
-          label="Slyk Username"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">.slyk.io</InputAdornment>
-            ),
-          }}
-        />
+        <>
+          <Typography variant="subtitle2" color="textPrimary">
+            *You must have a{' '}
+            <Link href="/faq#mvs" target="_blank">
+              minimum viable Slyk
+            </Link>{' '}
+            to qualify
+          </Typography>
+          <Field
+            color="primary"
+            margin="normal"
+            variant="outlined"
+            required
+            fullWidth
+            name="slykUrl"
+            component={TextField}
+            label="Slyk Username"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">.slyk.io</InputAdornment>
+              ),
+            }}
+          />
+        </>
       </FormikStep>
       <FormikStep
         label="Security"
