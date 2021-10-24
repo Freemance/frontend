@@ -167,7 +167,7 @@ const ProfileEducation = () => {
 
   return (
     <ProfileTimeline
-      nameLabel="Course"
+      nameLabel="Degree"
       institutionLabel="Institution"
       icon={<SchoolIcon />}
       items={courses}

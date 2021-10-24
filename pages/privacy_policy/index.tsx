@@ -136,7 +136,6 @@ function FAQ() {
               <br />
               <hr />•{t('privacy_policy.answer3-1')}
               <br />•{t('privacy_policy.answer3-2')}
-              <br />•{t('privacy_policy.answer3-3')}
               <br />•{t('privacy_policy.answer3-4')}
               <br />•{t('privacy_policy.answer3-5')}
               <br />
