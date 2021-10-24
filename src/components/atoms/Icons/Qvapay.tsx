@@ -7,7 +7,7 @@ function Qvapay(props: React.SVGProps<SVGSVGElement>) {
       xmlns="http://www.w3.org/2000/svg"
       width={200}
       height={200}
-      viewBox="0 0 800 180"
+      viewBox="0 100 800 1"
       xmlSpace="preserve"
       {...props}
     >

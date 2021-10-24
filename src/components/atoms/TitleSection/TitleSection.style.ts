@@ -11,7 +11,7 @@ export const useTitleSectionStyles = makeStyles((theme: Theme) =>
       marginLeft: '2%',
       marginBottom: 35,
       fontSize: 43,
-      [theme.breakpoints.down('xs')]: {
+      [theme.breakpoints.down('sm')]: {
         lineHeight: '40px',
       },
     },
