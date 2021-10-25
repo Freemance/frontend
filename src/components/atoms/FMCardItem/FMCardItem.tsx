@@ -1,5 +1,11 @@
 import React from 'react';
-import { Typography, Card, CardContent, Container } from '@material-ui/core';
+import {
+  Typography,
+  Card,
+  CardContent,
+  Container,
+  Tooltip,
+} from '@material-ui/core';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -64,15 +70,14 @@ const FMCardItem = ({ name, skills, avatar, job, identifier }: IFMCardItem) => {
             )}
             <div className={classes.tagcontainer}>
               {skills &&
-                skills
-                  .slice(0, 5)
-                  .map((skill: any) => (
+                skills.slice(0, 5).map((skill: any) => (
+                  <Tooltip title={skill.name} placement="bottom" key={skill.id}>
                     <TemplateSkill
-                      key={skill.id}
                       icono={skill.icon}
                       filled={lightPalette.text.primary}
                     />
-                  ))}
+                  </Tooltip>
+                ))}
             </div>
           </CardContent>
         </Card>

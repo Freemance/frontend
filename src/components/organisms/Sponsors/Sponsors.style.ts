@@ -6,34 +6,29 @@ export const useSponsorsStyle = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       [theme.breakpoints.down('xs')]: {
-        marginTop: '-20%',
-        marginBottom: '10%',
+        marginTop: theme.spacing(1),
       },
     },
     bitremesas: {
       display: 'flex',
       justifyContent: 'center',
       [theme.breakpoints.down('xs')]: {
-        marginTop: '-28.8%',
-        marginBottom: '10%',
+        marginTop: theme.spacing(2),
       },
     },
     slyk: {
       display: 'flex',
       justifyContent: 'center',
-      marginTop: '6.8%',
-      marginBottom: '10%',
       [theme.breakpoints.down('xs')]: {
-        marginTop: '-4.8%',
+        marginTop: theme.spacing(2),
       },
     },
     kwelta: {
       display: 'flex',
       justifyContent: 'center',
-      marginBottom: '4%',
+
       [theme.breakpoints.down('xs')]: {
-        marginTop: '6.8%',
-        marginBottom: '20%',
+        marginTop: theme.spacing(2),
       },
     },
   })
