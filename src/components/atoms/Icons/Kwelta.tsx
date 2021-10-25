@@ -4,7 +4,7 @@ function Kwelta(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="200px"
+      height="100px"
       width="200px"
       viewBox="0 0 1050 301.51"
       {...props}

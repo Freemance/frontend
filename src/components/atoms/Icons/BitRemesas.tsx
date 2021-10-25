@@ -5,7 +5,7 @@ function BitRemesas(props: React.SVGProps<SVGSVGElement>) {
     <svg
       id="prefix__Capa_1"
       width={200}
-      height={200}
+      height={100}
       viewBox="0 0 1920 450"
       xmlSpace="preserve"
       {...props}

@@ -48,9 +48,9 @@ const SliderFMProfiles = () => {
           ssr={true} // means to render carousel on server-side.
           infinite={true}
           autoPlay={true}
-          autoPlaySpeed={5000}
+          autoPlaySpeed={10000}
           keyBoardControl={true}
-          transitionDuration={500}
+          transitionDuration={600}
           containerClass="carousel-container"
           removeArrowOnDeviceType={['tablet', 'mobile']}
           dotListClass="custom-dot-list-style"
