@@ -1,27 +1,61 @@
 import React from 'react';
-import { Typography, Card, CardContent, Container } from '@material-ui/core';
+import {
+  Typography,
+  Card,
+  CardContent,
+  Container,
+  Tooltip,
+} from '@material-ui/core';
 import Link from 'next/link';
+import Image from 'next/image';
+
 import TemplateSkill from 'src/components/atoms/Icons/TemplateSkill';
 // Types
-import IFMCardItem from './types';
+import IFMCardItem, { ILoader } from './types';
 import { lightPalette } from 'src/styles/theme/palettes';
 import { useFMCardItem } from './FMCardItem.style';
 const FMCardItem = ({ name, skills, avatar, job, identifier }: IFMCardItem) => {
   const classes = useFMCardItem();
+
+  const myLoader = ({ src, width, quality }: ILoader) => {
+    return `${process.env.IMAGE_LINK}600X600/${src}?w=${width}&q=${
+      quality || 75
+    }`;
+  };
+
   return (
     <Container maxWidth="lg">
       <Link href={`/profile/${identifier}`}>
         <Card className={classes.root}>
           <CardContent>
-            {avatar ? (
-              <img
-                aria-label="recipe"
-                src={`${process.env.IMAGE_LINK}${avatar}`}
-                className={classes.avatar}
-              />
-            ) : (
-              <img className={classes.noavatar} src="/usernoexist.svg"></img>
-            )}
+            <div className={classes.avatarWrapp}>
+              {avatar ? (
+                <Image
+                  aria-label="recipe"
+                  className={classes.avatar}
+                  loader={myLoader}
+                  src={avatar}
+                  alt={name || 'user avatar'}
+                  width={232}
+                  height={232}
+                  layout="responsive"
+                  quality={100}
+                  priority
+                />
+              ) : (
+                <Image
+                  aria-label="recipe"
+                  className={classes.avatar}
+                  src="/usernoexist.svg"
+                  alt="No user"
+                  width={232}
+                  height={232}
+                  layout="responsive"
+                  quality={100}
+                  priority
+                />
+              )}
+            </div>
             <Typography variant="h4" className={classes.titlecard}>
               {name}
             </Typography>
@@ -36,12 +70,13 @@ const FMCardItem = ({ name, skills, avatar, job, identifier }: IFMCardItem) => {
             )}
             <div className={classes.tagcontainer}>
               {skills &&
-                skills.map((skill: any) => (
-                  <TemplateSkill
-                    key={skill.id}
-                    icono={skill.icon}
-                    filled={lightPalette.text.primary}
-                  />
+                skills.slice(0, 5).map((skill: any) => (
+                  <Tooltip title={skill.name} placement="bottom" key={skill.id}>
+                    <TemplateSkill
+                      icono={skill.icon}
+                      filled={lightPalette.text.primary}
+                    />
+                  </Tooltip>
                 ))}
             </div>
           </CardContent>

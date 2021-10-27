@@ -4,15 +4,34 @@ import { Container, Typography } from '@material-ui/core';
 import Head from 'next/head';
 import NavBar from '@components/organisms/NavBar';
 import Footer from '@components/organisms/Footer';
+import { NextSeo } from 'next-seo';
 function FAQ() {
   const [t] = useTranslation('landpage');
   return (
     <div>
       <Head>
         <title>Freemance - Privacy Policy</title>
-        <meta name="description" content="Freemance" />
+        <meta
+          name="description"
+          content="Do you want to know how freemance handles the data?"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        openGraph={{
+          title: 'Freemance - Privacy Policy',
+          description: 'Do you want to know how freemance handles the data?',
+          url: 'Privacy Policy of Freemance',
+          type: 'website',
+          images: [
+            {
+              url: `${process.env.NEXT_PUBLIC_SITE_URL}images/cover.png`,
+              width: 600,
+              height: 600,
+            },
+          ],
+        }}
+      />
       <NavBar />
       <Container maxWidth="lg">
         <Typography
@@ -117,7 +136,6 @@ function FAQ() {
               <br />
               <hr />•{t('privacy_policy.answer3-1')}
               <br />•{t('privacy_policy.answer3-2')}
-              <br />•{t('privacy_policy.answer3-3')}
               <br />•{t('privacy_policy.answer3-4')}
               <br />•{t('privacy_policy.answer3-5')}
               <br />

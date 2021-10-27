@@ -6,6 +6,9 @@ import {
   StepLabel,
   Stepper,
   InputAdornment,
+  Typography,
+  Link,
+  IconButton,
 } from '@material-ui/core';
 
 import { Field, Form, Formik, FormikConfig, FormikValues } from 'formik';
@@ -15,13 +18,24 @@ import React, { useState } from 'react';
 import { Alert } from '@material-ui/lab';
 import * as Yup from 'yup';
 import { useRouter } from 'next/router';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 // Apollo
 import { useMutation } from '@apollo/client';
 import { REGISTER } from 'src/lib/apollo/auth';
 const sleep = (time: number) => new Promise((acc) => setTimeout(acc, time));
 export default function SignUpForm() {
   const [register, { data, error }] = useMutation(REGISTER);
+  const [passwordShow, setPasswordShow] = useState(false);
   const router = useRouter();
+  const handleClickShowPassword = () => {
+    setPasswordShow(!passwordShow);
+  };
+  const handleMouseDownPassword = (
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.preventDefault();
+  };
   return (
     <FormikStepper
       enableReinitialize={true}
@@ -55,7 +69,7 @@ export default function SignUpForm() {
       }}
     >
       <FormikStep
-        label="Personal Data"
+        label="Your Name"
         validationSchema={Yup.object().shape({
           firstName: Yup.string()
             .required('Required')
@@ -108,25 +122,37 @@ export default function SignUpForm() {
         label="Slyk"
         validationSchema={Yup.object().shape({
           slykUrl: Yup.string()
-            .matches(/^\b[a-zA-Z_0-9]+\b$/, 'white space')
+            .matches(
+              /^\b[a-zA-Z_0-9]+\b$/,
+              'Wrong link format (just write your slyk username)'
+            )
             .required('Required'),
         })}
       >
-        <Field
-          color="primary"
-          margin="normal"
-          variant="outlined"
-          required
-          fullWidth
-          name="slykUrl"
-          component={TextField}
-          label="Slyk Url"
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">.slyk.io</InputAdornment>
-            ),
-          }}
-        />
+        <>
+          <Typography variant="subtitle2" color="textPrimary">
+            *You must have a{' '}
+            <Link href="/faq#mvs" target="_blank">
+              minimum viable Slyk
+            </Link>{' '}
+            to qualify
+          </Typography>
+          <Field
+            color="primary"
+            margin="normal"
+            variant="outlined"
+            required
+            fullWidth
+            name="slykUrl"
+            component={TextField}
+            label="Slyk Username"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">.slyk.io</InputAdornment>
+              ),
+            }}
+          />
+        </>
       </FormikStep>
       <FormikStep
         label="Security"
@@ -155,7 +181,21 @@ export default function SignUpForm() {
           name="password"
           component={TextField}
           label="Password"
-          type="password"
+          type={passwordShow ? 'text' : 'password'}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {passwordShow ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
         />
         <Field
           color="primary"
@@ -166,7 +206,7 @@ export default function SignUpForm() {
           name="confirmPassword"
           component={TextField}
           label="Password Confirm"
-          type="password"
+          type={passwordShow ? 'text' : 'password'}
         />
       </FormikStep>
     </FormikStepper>

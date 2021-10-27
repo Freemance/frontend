@@ -45,11 +45,13 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
       },
     },
     ndescription: {
+      display: 'flex',
+      [theme.breakpoints.down('md')]: { justifyContent: 'center' },
       fontStyle: 'oblique',
       fontWeight: 500,
       color: theme.palette.error.main,
       marginBottom: '5%',
-      fontSize: '1.2rem',
+      fontSize: '1.4rem',
     },
     ntitle: {
       fontWeight: 900,
@@ -63,7 +65,12 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
     },
     heroCallToAction: {
       position: 'relative',
+      [theme.breakpoints.down('md')]: {
+        display: 'flex',
+        justifyContent: 'center',
+      },
       [theme.breakpoints.down('xs')]: {
+        display: 'block',
         width: '80%',
         margin: 'auto',
       },
@@ -71,6 +78,8 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
     outline: {
       overflow: 'hidden',
       position: 'relative',
+      border: '1px solid !important',
+      borderColor: theme.palette.error.main,
       '&:hover': {
         border: '1px solid',
         borderColor: theme.palette.error.main,

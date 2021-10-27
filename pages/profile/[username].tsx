@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
-
+import { NextSeo } from 'next-seo';
 import ProfileLayout from '@layouts/ProfileLayout';
 import {
   IProfileByUsernameInput,
@@ -16,13 +17,49 @@ interface IProfileByUsername {
 }
 
 export default function Profile({ profile }: IProfileByUsername) {
+  const router = useRouter();
+  const { username } = router.query;
   return (
     <React.Fragment>
       <Head>
-        <title>Freemance - Profile</title>
-        <meta name="description" content="Freemance" />
+        <title>{`Freemance | ${profile && profile.firstName} ${
+          profile && profile.lastName
+        } - ${profile && profile.jobTitle}`}</title>
+        <meta
+          name="description"
+          content={(profile && profile.bio) || 'Freemancer Profile'}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NextSeo
+        openGraph={{
+          title: `${profile && profile.firstName} ${
+            profile && profile.lastName
+          } | ${profile && profile.jobTitle}`,
+          description: profile && profile.bio,
+          url: `${process.env.SITE_URL}/${username || ''}`,
+          type: 'profile',
+          profile: {
+            firstName: profile && profile.firstName,
+            lastName: profile && profile.lastName,
+            username: username as string,
+            gender: '',
+          },
+          images: [
+            {
+              url:
+                profile && profile.avatar
+                  ? `${process.env.IMAGE_LINK}600X600/${profile.avatar}`
+                  : `${process.env.SITE_URL}/mockup.webp`,
+              width: 600,
+              height: 600,
+              alt: `${profile && profile.firstName} ${
+                profile && profile.lastName
+              }`,
+            },
+          ],
+        }}
+      />
       <ProfileLayout profile={profile} />
     </React.Fragment>
   );

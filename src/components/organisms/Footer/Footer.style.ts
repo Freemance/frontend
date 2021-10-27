@@ -18,7 +18,7 @@ export const useFooterStyle = makeStyles((theme: Theme) =>
     },
     link: {
       fontSize: '21px',
-      marginBottom: '10px',
+      marginBottom: '25px',
       cursor: 'pointer',
       display: 'block',
       justifyContent: 'center',

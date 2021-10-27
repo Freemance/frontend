@@ -7,6 +7,14 @@ export const useProfileAvatarStyle = makeStyles((theme: Theme) =>
       width: theme.spacing(20),
       height: theme.spacing(20),
     },
+    avatarWrapp: {
+      display: 'block',
+      '& div:nth-child(1)': {
+        borderRadius: '50%',
+        margin: '0 auto !important',
+      },
+    },
+
     avatarText: {
       color: theme.palette.primary.contrastText,
     },

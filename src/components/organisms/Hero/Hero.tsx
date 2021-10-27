@@ -2,6 +2,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import { Grid, Typography, Button, Hidden } from '@material-ui/core';
 import Link from 'next/link';
+import Image from 'next/image';
 // Style
 import { useHeroStyle } from './Hero.style';
 import { useTranslation } from 'react-i18next';
@@ -65,7 +66,15 @@ const Hero = () => {
           </div>
         </Grid>
         <Grid item xs={12} lg={7} md={12} xl={8} sm={12}>
-          <img src="/mockup.svg" className={classes.mockup} />
+          <Image
+            src="/mockup.webp"
+            alt="Hero poster"
+            width={877}
+            height={585}
+            layout="responsive"
+            quality={100}
+            priority
+          />
         </Grid>
       </Grid>
     </section>

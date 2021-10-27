@@ -11,9 +11,12 @@ import { getSliderFreemancers } from 'src/lib/apollo/query/GetSliderFreemancers'
 const SliderFMProfiles = () => {
   const [freelancers, setFreelancers] = useState(undefined);
   const {} = useQuery(getSliderFreemancers, {
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'cache-and-network',
     onCompleted: (data) => {
-      setFreelancers(data.profileFilter.edges);
+      const result = [...data.profileFilter.edges]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 5);
+      setFreelancers(result);
     },
   });
   const classes = useSliderFMProfileStyle();
@@ -39,16 +42,15 @@ const SliderFMProfiles = () => {
     <>
       {freelancers && (
         <Carousel
-          swipeable={true}
           draggable={false}
           showDots={false}
           responsive={responsive}
           ssr={true} // means to render carousel on server-side.
           infinite={true}
-          autoPlaySpeed={800}
+          autoPlay={true}
+          autoPlaySpeed={10000}
           keyBoardControl={true}
-          customTransition="all .5"
-          transitionDuration={200}
+          transitionDuration={600}
           containerClass="carousel-container"
           removeArrowOnDeviceType={['tablet', 'mobile']}
           dotListClass="custom-dot-list-style"

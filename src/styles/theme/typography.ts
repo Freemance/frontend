@@ -24,7 +24,7 @@ export const typography: TypographyOptions = {
     color: palette.lightPalette.primary.main,
     fontWeight: 500,
     fontSize: '24px',
-    letterSpacing: '-0.06px',
+    letterSpacing: '-0.6px',
     lineHeight: '28px',
   },
   h4: {

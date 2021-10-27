@@ -25,7 +25,7 @@ export const Directory = () => {
   const [tags, setTags] = useState(null);
   const { data, loading, error } = useQuery(getAllFreemancers(search), {
     variables: { tagid: selectedtag },
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'cache-and-network',
   });
 
   const classes = useDirectoryStyle();
@@ -47,6 +47,8 @@ export const Directory = () => {
     const valor: any = e.target.value;
     setSelectedTag(valor);
   }
+
+  console.log(freelancers);
   return (
     <>
       <NavBar />
@@ -76,7 +78,7 @@ export const Directory = () => {
                 className={classes.menu}
                 variant="outlined"
               >
-                <MenuItem value={0}>All Professions</MenuItem>
+                <MenuItem value={0}>All Categories</MenuItem>
                 {tags &&
                   tags.map((profesion: any) => (
                     <MenuItem key={profesion.node.id} value={profesion.node.id}>
@@ -88,14 +90,18 @@ export const Directory = () => {
           </Container>
           {error ? (
             <Typography variant="h1" className={classes.errordata}>
-              Lost connection...
+              Error
             </Typography>
           ) : loading ? (
             <div className={classes.loading}>
               <CircularProgress />
             </div>
+          ) : freelancers && freelancers.length !== 0 ? (
+            <CardDirectory freelancers={freelancers} />
           ) : (
-            freelancers && <CardDirectory freelancers={freelancers} />
+            <Typography variant="h1" className={classes.errordata}>
+              0 Freemancers Found
+            </Typography>
           )}
         </div>
       </Container>

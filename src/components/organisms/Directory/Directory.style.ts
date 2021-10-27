@@ -20,8 +20,12 @@ export const useDirectoryStyle = makeStyles((theme: Theme) => ({
   },
   errordata: {
     color: theme.palette.error.main,
+    display: 'flex',
+    marginTop: '10%',
     justifyContent: 'center',
-    marginTop: '20px',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '20px',
+    },
   },
   menu: {
     display: 'flex',
