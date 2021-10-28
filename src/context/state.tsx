@@ -3,6 +3,7 @@ export type RoleType = 'USER' | 'CONTRACTOR' | 'ADMIN';
 export type SkillType = {
   id: number;
   name: string;
+  icon: string[];
 };
 
 export type CourseType = {

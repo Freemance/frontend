@@ -71,7 +71,11 @@ const FMCardItem = ({ name, skills, avatar, job, identifier }: IFMCardItem) => {
             <div className={classes.tagcontainer}>
               {skills &&
                 skills.slice(0, 5).map((skill: any) => (
-                  <Tooltip title={skill.name} placement="bottom" key={skill.id}>
+                  <Tooltip
+                    title={skill.name || ''}
+                    placement="bottom"
+                    key={skill.id}
+                  >
                     <TemplateSkill
                       icono={skill.icon}
                       filled={lightPalette.text.primary}

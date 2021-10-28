@@ -100,7 +100,9 @@ const ProfileTimeline = ({
                 <Typography variant="h5">{item.name}</Typography>
                 <Typography variant="subtitle1">{item.institution}</Typography>
                 {isSm && (
-                  <Typography variant="subtitle2">{`${item.startDate.getFullYear()} - ${item.endDate.getFullYear()}`}</Typography>
+                  <Typography variant="subtitle2">{`${item.startDate.getFullYear()} - ${
+                    item.endDate ? item.endDate.getFullYear() : 'Today'
+                  }`}</Typography>
                 )}
               </Paper>
             </TimelineOppositeContent>
@@ -146,14 +148,12 @@ const ProfileTimeline = ({
             name: Yup.string().required('Required'),
             institution: Yup.string().required('Required'),
             startDate: Yup.date().required('Required'),
-            endDate: Yup.date()
-              .when(
-                'startDate',
-                (startDate, yup) =>
-                  startDate &&
-                  yup.min(startDate, 'End date cannot be before start date')
-              )
-              .required('Required'),
+            endDate: Yup.date().when(
+              'startDate',
+              (startDate, yup) =>
+                startDate &&
+                yup.min(startDate, 'End date cannot be before start date')
+            ),
           })}
           onSubmit={(values) => {
             if (dialogUse === 'Add') {
