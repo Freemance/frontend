@@ -13,6 +13,9 @@ export const useProfileSkillsStyle = makeStyles((theme: Theme) =>
     chip: {
       backgroundColor: theme.palette.primary.light,
       color: theme.palette.primary.contrastText,
+      '& svg': {
+        margin: 5,
+      },
     },
     deleteButton: {
       color: theme.palette.error.main,

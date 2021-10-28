@@ -45,6 +45,7 @@ export const ME = gql`
         skills {
           id
           name
+          icon
         }
       }
     }
@@ -58,6 +59,7 @@ export const AVAILABLE_SKILLS = gql`
         node {
           id
           name
+          icon
         }
       }
     }
@@ -107,6 +109,7 @@ export const PROFILE_BY_USERNAME = gql`
       skills {
         id
         name
+        icon
       }
     }
   }

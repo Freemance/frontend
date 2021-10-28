@@ -152,7 +152,7 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
   return (
     <>
       <Grid item xs={12} sm={4} md={3}>
-        <Grid container justifyContent="center">
+        <Grid container style={{ height: '100%' }} justifyContent="center">
           <Card className={classes.root}>
             <CardActionArea onClick={() => isEdit && setOpen(true)}>
               <CardMedia
@@ -169,7 +169,12 @@ const ProjectCard = ({ index, project }: IProjectCard) => {
                 <Typography gutterBottom variant="h5" component="h2">
                   {project.proyect}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" component="p">
+                <Typography
+                  className={classes.projectDescription}
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                >
                   {project.description}
                 </Typography>
               </CardContent>

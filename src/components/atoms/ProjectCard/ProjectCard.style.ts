@@ -8,10 +8,21 @@ export const useProjectCardStyle = makeStyles((theme: Theme) =>
     },
     media: {
       height: 180,
+      backgroundPositionX: 'center',
+      backgroundPositionY: 'top',
+      backgroundSize: 'contained',
     },
     mediaDialog: {
       width: 180,
       height: 180,
+    },
+    projectDescription: {
+      maxHeight: 56,
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      display: '-webkit-box',
+      '-webkit-line-clamp': 2,
+      '-webkit-box-orient': 'vertical',
     },
     dialogImageCard: {
       maxWidth: 260,
