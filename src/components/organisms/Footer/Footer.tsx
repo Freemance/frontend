@@ -68,7 +68,7 @@ const Footer = () => {
               marginTop: '-20px',
             }}
           >
-            Copyright © PapiDAO 2021
+            © PapiDAO LLC, 2021
           </Typography>
         </Grid>
       </Grid>

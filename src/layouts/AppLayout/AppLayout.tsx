@@ -52,7 +52,6 @@ const AppLayout: React.FC = () => {
         <DescriptionSection text={t('applayout.descsection5')} />
         <Sponsors />
         <TitleSection text={t('applayout.titlesection6')} />
-        <DescriptionSection text={t('applayout.descsection6')} />
         <PoweredBy />
         <TitleSection text={t('applayout.titlesection3')} />
         <DescriptionSection text={t('applayout.descsection3')} />
