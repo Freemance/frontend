@@ -42,6 +42,7 @@ const ProfileTimeline = ({
   isLoading,
   openDialog,
   setOpenDialog,
+  variant,
 }: IProfileTimeline) => {
   const classes = useProfileTimelineStyle();
 
@@ -101,7 +102,7 @@ const ProfileTimeline = ({
                 <Typography variant="subtitle1">{item.institution}</Typography>
                 {isSm && (
                   <Typography variant="subtitle2">{`${item.startDate.getFullYear()} - ${
-                    item.endDate ? item.endDate.getFullYear() : 'Today'
+                    !!item.endDate ? item.endDate.getFullYear() : 'Today'
                   }`}</Typography>
                 )}
               </Paper>
@@ -124,7 +125,9 @@ const ProfileTimeline = ({
             </TimelineSeparator>
             {!isSm && (
               <TimelineContent>
-                <Typography>{`${item.startDate.getFullYear()} - ${item.endDate.getFullYear()}`}</Typography>
+                <Typography>{`${item.startDate.getFullYear()} - ${
+                  !!item.endDate ? item.endDate.getFullYear() : 'Today'
+                }`}</Typography>
               </TimelineContent>
             )}
           </TimelineItem>
@@ -141,19 +144,34 @@ const ProfileTimeline = ({
                 : '',
             endDate:
               editIndex >= 0
-                ? items[editIndex].endDate.toISOString().split('T')[0]
+                ? !!items[editIndex].endDate
+                  ? items[editIndex].endDate.toISOString().split('T')[0]
+                  : ''
                 : '',
           }}
           validationSchema={Yup.object().shape({
             name: Yup.string().required('Required'),
             institution: Yup.string().required('Required'),
             startDate: Yup.date().required('Required'),
-            endDate: Yup.date().when(
-              'startDate',
-              (startDate, yup) =>
-                startDate &&
-                yup.min(startDate, 'End date cannot be before start date')
-            ),
+            endDate:
+              variant === 'education'
+                ? Yup.date()
+                    .when(
+                      'startDate',
+                      (startDate, yup) =>
+                        startDate &&
+                        yup.min(
+                          startDate,
+                          'End date cannot be before start date'
+                        )
+                    )
+                    .required('Required')
+                : Yup.date().when(
+                    'startDate',
+                    (startDate, yup) =>
+                      startDate &&
+                      yup.min(startDate, 'End date cannot be before start date')
+                  ),
           })}
           onSubmit={(values) => {
             if (dialogUse === 'Add') {
@@ -161,7 +179,7 @@ const ProfileTimeline = ({
                 name: values.name,
                 institution: values.institution,
                 startDate: new Date(values.startDate),
-                endDate: new Date(values.endDate),
+                endDate: !!values.endDate ? new Date(values.endDate) : null,
               });
             }
             if (dialogUse === 'Edit') {
@@ -171,7 +189,7 @@ const ProfileTimeline = ({
                   name: values.name,
                   institution: values.institution,
                   startDate: new Date(values.startDate),
-                  endDate: new Date(values.endDate),
+                  endDate: !!values.endDate ? new Date(values.endDate) : null,
                 },
                 editIndex
               );

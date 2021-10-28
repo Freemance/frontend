@@ -33,7 +33,7 @@ const ProfileExperience = () => {
       name: job.name,
       institution: job.company,
       startDate: new Date(job.startDate),
-      endDate: new Date(job.endDate),
+      endDate: !!job.endDate ? new Date(job.endDate) : null,
     }))
     .sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
 
@@ -57,7 +57,7 @@ const ProfileExperience = () => {
           name: newJob.name,
           company: newJob.institution,
           startDate: newJob.startDate.toISOString(),
-          endDate: newJob.endDate.toISOString(),
+          endDate: !!newJob.endDate ? newJob.endDate.toISOString() : null,
         },
       },
     })
@@ -93,7 +93,7 @@ const ProfileExperience = () => {
           name: editJob.name,
           company: editJob.institution,
           startDate: editJob.startDate.toISOString(),
-          endDate: editJob.endDate.toISOString(),
+          endDate: !!editJob.endDate ? editJob.endDate.toISOString() : null,
         },
       },
     })
@@ -174,6 +174,7 @@ const ProfileExperience = () => {
       isLoading={isLoading}
       openDialog={openDialog}
       setOpenDialog={setOpenDialog}
+      variant="experience"
     />
   );
 };
