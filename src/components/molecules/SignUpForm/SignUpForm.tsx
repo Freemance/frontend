@@ -71,8 +71,7 @@ export default function SignUpForm() {
       <FormikStep
         label="Your Name"
         validationSchema={Yup.object().shape({
-          firstName: Yup.string()
-            .required('Required'),
+          firstName: Yup.string().required('Required'),
           lastName: Yup.string()
             .required('Required')
             .matches(
