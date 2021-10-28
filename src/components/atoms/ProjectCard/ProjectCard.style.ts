@@ -10,7 +10,7 @@ export const useProjectCardStyle = makeStyles((theme: Theme) =>
       height: 180,
       backgroundPositionX: 'center',
       backgroundPositionY: 'top',
-      backgroundSize: 'contained',
+      backgroundSize: 'cover',
     },
     mediaDialog: {
       width: 180,
