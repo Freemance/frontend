@@ -29,16 +29,19 @@ import {
 import { ActionType, useGlobalContext } from 'src/context';
 import { SkillType } from 'src/context/state';
 import { AVAILABLE_SKILLS } from 'src/lib/apollo/user/queries';
+import TemplateSkill from '@components/atoms/Icons/TemplateSkill';
+import { lightPalette } from 'src/styles/theme/palettes';
 
 const ProfileSkills = () => {
   const classes = useProfileSkillsStyle();
 
   const { state, dispatch } = useGlobalContext();
   const { isEdit, isUser, profile } = useProfileContext();
-
+  console.log('beforeSkills: ', (isUser ? state.user.profile : profile).skills);
   const skills = [...(isUser ? state.user.profile : profile).skills].sort(
     (a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0)
   );
+  console.log('skills: ', (isUser ? state.user.profile : profile).skills);
 
   const [openAdd, setOpenAdd] = useState<boolean>(false);
 
@@ -154,6 +157,15 @@ const ProfileSkills = () => {
       {skills.map((skill, index) =>
         isEdit ? (
           <Chip
+            icon={
+              skill.icon && (
+                <TemplateSkill
+                  icono={skill.icon}
+                  filled={lightPalette.primary.contrastText}
+                />
+              )
+            }
+            className={classes.chip}
             key={index}
             color="primary"
             label={skill.name}
@@ -163,7 +175,19 @@ const ProfileSkills = () => {
             }}
           />
         ) : (
-          <Chip key={index} className={classes.chip} label={skill.name} />
+          <Chip
+            icon={
+              skill.icon && (
+                <TemplateSkill
+                  icono={skill.icon}
+                  filled={lightPalette.primary.contrastText}
+                />
+              )
+            }
+            key={index}
+            className={classes.chip}
+            label={skill.name}
+          />
         )
       )}
       <Dialog open={openAdd} onClose={handleAddClose}>

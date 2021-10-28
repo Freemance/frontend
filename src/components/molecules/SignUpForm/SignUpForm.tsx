@@ -71,12 +71,7 @@ export default function SignUpForm() {
       <FormikStep
         label="Your Name"
         validationSchema={Yup.object().shape({
-          firstName: Yup.string()
-            .required('Required')
-            .matches(
-              /^[aA-zZ\s]+$/,
-              'Only alphabets are allowed for this field '
-            ),
+          firstName: Yup.string().required('Required'),
           lastName: Yup.string()
             .required('Required')
             .matches(
