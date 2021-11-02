@@ -34,23 +34,7 @@ export default class MyDocument extends Document {
             content={theme.lightTheme.palette.primary.main}
           />
 
-          <link href="https://fonts.googleapis.com" />
-          <link href="https://fonts.gstatic.com" crossOrigin="true" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Saira:wght@700&display=swap"
-            rel="preload"
-            as="font"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Saira:ital@0;1&display=swap"
-            rel="preload"
-            as="font"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,400;0,500;1,400&display=swap"
-            rel="stylesheet"
-            as="font"
-          />
+          <link href="/saira.css" rel="stylesheet" as="font" />
         </Head>
         <body>
           <Main />

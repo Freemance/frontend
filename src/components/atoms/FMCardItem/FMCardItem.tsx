@@ -5,6 +5,7 @@ import {
   CardContent,
   Container,
   Tooltip,
+  IconButton,
 } from '@material-ui/core';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -25,67 +26,76 @@ const FMCardItem = ({ name, skills, avatar, job, identifier }: IFMCardItem) => {
 
   return (
     <Container maxWidth="lg">
-      <Link href={`/profile/${identifier}`}>
-        <Card className={classes.root}>
-          <CardContent>
-            <div className={classes.avatarWrapp}>
-              {avatar ? (
-                <Image
-                  aria-label="recipe"
-                  className={classes.avatar}
-                  loader={myLoader}
-                  src={avatar}
-                  alt={name || 'user avatar'}
-                  width={232}
-                  height={232}
-                  layout="responsive"
-                  quality={100}
-                  priority
-                />
+      <Card className={classes.root}>
+        <CardContent>
+          <Link href={`/profile/${identifier}`}>
+            <>
+              <div className={classes.avatarWrapp}>
+                {avatar ? (
+                  <Image
+                    aria-label="recipe"
+                    className={classes.avatar}
+                    loader={myLoader}
+                    src={avatar}
+                    alt={name || 'user avatar'}
+                    width={232}
+                    height={232}
+                    layout="responsive"
+                    quality={100}
+                    priority
+                  />
+                ) : (
+                  <Image
+                    aria-label="recipe"
+                    className={classes.avatar}
+                    src="/usernoexist.svg"
+                    alt="No user"
+                    width={232}
+                    height={232}
+                    layout="responsive"
+                    quality={100}
+                    priority
+                  />
+                )}
+              </div>
+              <Typography variant="h4" className={classes.titlecard}>
+                {name}
+              </Typography>
+              {job ? (
+                <Typography variant="subtitle2" className={classes.job}>
+                  {job}
+                </Typography>
               ) : (
-                <Image
-                  aria-label="recipe"
-                  className={classes.avatar}
-                  src="/usernoexist.svg"
-                  alt="No user"
-                  width={232}
-                  height={232}
-                  layout="responsive"
-                  quality={100}
-                  priority
-                />
+                <Typography variant="subtitle2" className={classes.job}>
+                  Dont position defined
+                </Typography>
               )}
-            </div>
-            <Typography variant="h4" className={classes.titlecard}>
-              {name}
-            </Typography>
-            {job ? (
-              <Typography variant="subtitle2" className={classes.job}>
-                {job}
-              </Typography>
-            ) : (
-              <Typography variant="subtitle2" className={classes.job}>
-                Dont position defined
-              </Typography>
-            )}
-            <div className={classes.tagcontainer}>
-              {skills &&
-                skills.slice(0, 5).map((skill: any) => (
-                  <Tooltip
-                    title={skill.name || ''}
-                    placement="bottom"
-                    key={skill.id}
+            </>
+          </Link>
+          <div className={classes.tagcontainer}>
+            {skills &&
+              skills.slice(0, 5).map((skill: any) => (
+                <Tooltip
+                  title={skill.name || 'Hola'}
+                  placement="top"
+                  key={skill.id}
+                >
+                  <IconButton
+                    className={classes.tag}
+                    color="inherit"
+                    href={`https://www.google.com/search?q=${skill.name}`}
+                    disableRipple={true}
                   >
                     <TemplateSkill
                       icono={skill.icon}
                       filled={lightPalette.text.primary}
                     />
-                  </Tooltip>
-                ))}
-            </div>
-          </CardContent>
-        </Card>
-      </Link>
+                  </IconButton>
+                </Tooltip>
+              ))}
+          </div>
+        </CardContent>
+      </Card>
     </Container>
   );
 };

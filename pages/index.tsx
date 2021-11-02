@@ -22,9 +22,9 @@ export default function Home() {
           type: 'website',
           images: [
             {
-              url: `${process.env.SITE_URL}/cover.png`,
-              width: 3500,
-              height: 1400,
+              url: `${process.env.NEXT_PUBLIC_SITE_URL}/cover.png`,
+              width: 1200,
+              height: 1200,
             },
           ],
         }}

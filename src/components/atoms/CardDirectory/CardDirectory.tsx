@@ -5,11 +5,14 @@ import {
   CardContent,
   Container,
   Grid,
+  IconButton,
+  Tooltip,
 } from '@material-ui/core';
 import Link from 'next/link';
 import { useCardDirectoryStyle } from './CardDirectory.style';
 import TemplateSkill from '../Icons/TemplateSkill';
 import { lightPalette } from 'src/styles/theme/palettes';
+import Image from 'next/image';
 const CardDirectory = ({ freelancers }: any) => {
   const classes = useCardDirectoryStyle();
   return (
@@ -20,24 +23,44 @@ const CardDirectory = ({ freelancers }: any) => {
             <Link href={`/profile/${freelancer.node.user.username}`}>
               <Card className={classes.root}>
                 <CardContent>
-                  <img
-                    aria-label="recipe"
-                    src={`${process.env.IMAGE_LINK}${freelancer.node.avatar}`}
-                    className={classes.avatar}
-                  />
+                  <div className={classes.avatarWrapp}>
+                    <Image
+                      aria-label="recipe"
+                      className={classes.avatar}
+                      src={`${process.env.IMAGE_LINK}600X600/${freelancer.node.avatar}`}
+                      alt={'user avatar'}
+                      width={184}
+                      height={184}
+                      layout="responsive"
+                      quality={100}
+                      priority
+                    />
+                  </div>
                   <Typography variant="h4" className={classes.titlecard}>
                     {freelancer.node.firstName} {freelancer.node.lastName}
                   </Typography>
-                  <Typography variant="subtitle2" className={classes.titlecard}>
+                  <Typography variant="subtitle2" className={classes.job}>
                     {freelancer.node.jobTitle}
                   </Typography>
                   <div className={classes.tags}>
                     {freelancer.node.skills.slice(0, 5).map((skill: any) => (
-                      <TemplateSkill
+                      <Tooltip
+                        title={skill.name || 'Hola'}
+                        placement="top"
                         key={skill.id}
-                        icono={skill.icon}
-                        filled={lightPalette.text.primary}
-                      />
+                      >
+                        <IconButton
+                          className={classes.tag}
+                          color="inherit"
+                          disableRipple={true}
+                        >
+                          <TemplateSkill
+                            key={skill.id}
+                            icono={skill.icon}
+                            filled={lightPalette.text.primary}
+                          />
+                        </IconButton>
+                      </Tooltip>
                     ))}
                   </div>
                 </CardContent>

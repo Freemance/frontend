@@ -11,7 +11,6 @@ import {
 } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import { Add as AddIcon } from '@material-ui/icons';
-
 import { useProfileSkillsStyle } from './ProfileSkills.style';
 import { useProfileContext } from '@layouts/ProfileLayout';
 import { useMutation, useQuery } from '@apollo/client';

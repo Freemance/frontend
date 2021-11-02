@@ -48,7 +48,6 @@ export const Directory = () => {
     setSelectedTag(valor);
   }
 
-  console.log(freelancers);
   return (
     <>
       <NavBar />

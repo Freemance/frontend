@@ -72,12 +72,7 @@ export default function SignUpForm() {
         label="Your Name"
         validationSchema={Yup.object().shape({
           firstName: Yup.string().required('Required'),
-          lastName: Yup.string()
-            .required('Required')
-            .matches(
-              /^[aA-zZ\s]+$/,
-              'Only alphabets are allowed for this field '
-            ),
+          lastName: Yup.string().required('Required'),
           email: Yup.string().email('Enter a valid email').required('Required'),
         })}
       >
