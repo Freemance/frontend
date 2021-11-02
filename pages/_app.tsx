@@ -42,13 +42,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         openGraph={{
           type: 'website',
           locale: 'en_IE',
-          url: `${process.env.NEXT_PUBLIC_SITE_URL}`,
+          url: `${process.env.SITE_URL}`,
           site_name: 'Freemance',
-        }}
-        twitter={{
-          handle: '@FreemanceSlyk',
-          site: '@site',
-          cardType: 'summary_large_image',
         }}
       />
 

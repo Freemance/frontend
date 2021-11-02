@@ -11,6 +11,7 @@ export interface IProfileTimeline {
   isLoading: boolean;
   openDialog: boolean;
   setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>;
+  variant: 'experience' | 'education';
 }
 
 export interface IProfileTimelineItem {

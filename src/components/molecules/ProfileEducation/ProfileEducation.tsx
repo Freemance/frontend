@@ -33,7 +33,7 @@ const ProfileEducation = () => {
       name: course.course,
       institution: course.institution,
       startDate: new Date(course.startDate),
-      endDate: new Date(course.endDate),
+      endDate: !!course.endDate ? new Date(course.endDate) : null,
     }))
     .sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
 
@@ -60,7 +60,7 @@ const ProfileEducation = () => {
           course: newCourse.name,
           institution: newCourse.institution,
           startDate: newCourse.startDate.toISOString(),
-          endDate: newCourse.endDate.toISOString(),
+          endDate: !!newCourse.endDate ? newCourse.endDate.toISOString() : null,
         },
       },
     })
@@ -96,7 +96,9 @@ const ProfileEducation = () => {
           course: editCourse.name,
           institution: editCourse.institution,
           startDate: editCourse.startDate.toISOString(),
-          endDate: editCourse.endDate.toISOString(),
+          endDate: !!editCourse.endDate
+            ? editCourse.endDate.toISOString()
+            : null,
         },
       },
     })
@@ -177,6 +179,7 @@ const ProfileEducation = () => {
       isLoading={isLoading}
       openDialog={openDialog}
       setOpenDialog={setOpenDialog}
+      variant="education"
     />
   );
 };
