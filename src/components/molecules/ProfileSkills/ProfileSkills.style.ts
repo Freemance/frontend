@@ -3,7 +3,7 @@ import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
 export const useProfileSkillsStyle = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      display: 'flex',
+      display: 'box',
       justifyContent: 'center',
       flexWrap: 'wrap',
       '& > *': {
@@ -11,6 +11,7 @@ export const useProfileSkillsStyle = makeStyles((theme: Theme) =>
       },
     },
     chip: {
+      padding: '4px',
       backgroundColor: theme.palette.primary.light,
       color: theme.palette.primary.contrastText,
       '& svg': {

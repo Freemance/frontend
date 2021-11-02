@@ -27,7 +27,7 @@ function FAQ() {
           type: 'website',
           images: [
             {
-              url: `${process.env.NEXT_PUBLIC_SITE_URL}images/cover.png`,
+              url: `${process.env.NEXT_PUBLIC_SITE_URL}/cover.png`,
               width: 600,
               height: 600,
             },

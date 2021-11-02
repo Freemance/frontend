@@ -14,14 +14,21 @@ export const useCardDirectoryStyle = makeStyles((theme: Theme) =>
       },
       background: 'transparent',
     },
+    avatarWrapp: {
+      '& div:nth-child(1)': {
+        width: '70%',
+        height: '70%',
+        margin: '0 auto !important',
+      },
+    },
     avatar: {
       display: 'flex',
       justifyContent: 'center',
       margin: 'auto',
       borderRadius: '10px',
-      width: '184.8px',
-      minHeight: '184.8px',
-      maxHeight: '184.8px',
+      width: '184px',
+      minHeight: '184px',
+      maxHeight: '184px',
       boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
     },
     titlecard: {
@@ -39,14 +46,15 @@ export const useCardDirectoryStyle = makeStyles((theme: Theme) =>
       justifyContent: 'center',
     },
     tag: {
-      marginLeft: '4px',
       backgroundColor: 'transparent',
-      cursor: 'pointer',
-      borderRadius: '10px',
-      '& :hover': {
-        background: theme.palette.error.main,
-        borderRadius: '6px',
-      },
+      width: 'auto',
+      height: 'auto',
+      opacity: '1',
+      padding: '0',
+      borderRadius: '2px',
+      display: 'flex',
+      justifyContent: 'center',
+      itemsAlign: 'center',
     },
   })
 );
