@@ -152,7 +152,7 @@ const NavBar: React.FC = () => {
                 className={classes.buttonlogo}
               >
                 <Avatar
-                  src={`${process.env.IMAGE_LINK}${avatar}`}
+                  src={avatar && `${process.env.IMAGE_LINK}150X150/${avatar}`}
                   style={{ display: 'flex', justifyContent: 'center' }}
                 />
               </Button>
@@ -182,7 +182,7 @@ const NavBar: React.FC = () => {
                           aria-labelledby="composition-button"
                           onKeyDown={handleListKeyDown}
                         >
-                          <Link href="/profile">
+                          <Link href="/profile" prefetch={true}>
                             <MenuItem>Profile</MenuItem>
                           </Link>
                           <MenuItem onClick={Logout}>Logout</MenuItem>

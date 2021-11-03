@@ -72,12 +72,7 @@ export default function SignUpForm() {
         label="Your Name"
         validationSchema={Yup.object().shape({
           firstName: Yup.string().required('Required'),
-          lastName: Yup.string()
-            .required('Required')
-            .matches(
-              /^[aA-zZ\s]+$/,
-              'Only alphabets are allowed for this field '
-            ),
+          lastName: Yup.string().required('Required'),
           email: Yup.string().email('Enter a valid email').required('Required'),
         })}
       >
@@ -116,12 +111,7 @@ export default function SignUpForm() {
       <FormikStep
         label="Slyk"
         validationSchema={Yup.object().shape({
-          slykUrl: Yup.string()
-            .matches(
-              /^\b[a-zA-Z_0-9]+\b$/,
-              'Wrong link format (just write your slyk username)'
-            )
-            .required('Required'),
+          slykUrl: Yup.string().required('Required'),
         })}
       >
         <>

@@ -52,14 +52,15 @@ export const useFMCardItem = makeStyles((theme: Theme) =>
       marginBottom: '20px',
     },
     tag: {
-      marginLeft: '4px',
       backgroundColor: 'transparent',
-      cursor: 'pointer',
-      borderRadius: '10px',
-      '& :hover': {
-        background: theme.palette.error.main,
-        borderRadius: '6px',
-      },
+      width: 'auto',
+      height: 'auto',
+      opacity: '1',
+      padding: '0',
+      borderRadius: '2px',
+      display: 'flex',
+      justifyContent: 'center',
+      itemsAlign: 'center',
     },
     tagcontainer: {
       display: 'flex',

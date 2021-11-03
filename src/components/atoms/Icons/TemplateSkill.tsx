@@ -6,7 +6,16 @@ interface IProfileTimeline {
 }
 function TemplateSkill({ icono, filled }: IProfileTimeline) {
   return (
-    <svg width={24} height={24} fill={filled}>
+    <svg
+      width={24}
+      height={24}
+      fill={filled}
+      style={{
+        justifyContent: 'space-between',
+        display: 'flex',
+        margin: '3px',
+      }}
+    >
       {icono.map((pathd, i) => (
         <path d={pathd} key={i} />
       ))}
