@@ -111,12 +111,7 @@ export default function SignUpForm() {
       <FormikStep
         label="Slyk"
         validationSchema={Yup.object().shape({
-          slykUrl: Yup.string()
-            .matches(
-              /^\b[a-zA-Z_0-9]+\b$/,
-              'Wrong link format (just write your slyk username)'
-            )
-            .required('Required'),
+          slykUrl: Yup.string().required('Required'),
         })}
       >
         <>
