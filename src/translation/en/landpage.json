@@ -1,30 +1,30 @@
 {
   "hero": {
-    "ntitle": "Hire freelancers who feel like co-founders",
-    "nsubtitle": "Discover Cuban Freelancers",
-    "nsubtitlemobile": "Discover Cuban Freelancers",
-    "buttonofhire": "Hire Freemancer",
-    "buttonofbecome": "Become Freemancer"
+    "ntitle": "Hire freelancers who work like co-founders",
+    "nsubtitle": "Owned & Operated by Freelancers",
+    "nsubtitlemobile": "Owned & Operated by Freelancers",
+    "buttonofhire": "Hire",
+    "buttonofbecome": "Freemancer"
   },
   "cardcont": {
     "1title": "Easy Hiring with Slyk",
-    "1text": "Hire high-qualified and reliable Cuba-based freelancers offering services via their Slyks.",
+    "1text": "Hire highly qualified and reliable Cuba-based freelancers offering services via their Slyks.",
     "2title": "Easy payments with QvaPay",
     "2text": "QvaPay makes it easy to pay Cuba-based freelancers. No registration needed, just pay with crypto or popular e-wallets.",
     "3title": "Reach a Global Market",
     "3text": "Freemance is the #1 platform for clients looking for reliable Cuba-based freelancers.",
     "4title": "Share and be Rewarded",
-    "4text": "Share freelancer’s Slyks with your friends and earn discounts on future purchases."
+    "4text": "Share freelancers Slyks with your networks and earn coins that can be used for discounts."
   },
   "applayout": {
     "titlesection1": "Advantages",
     "descsection1": "Hire high-quality freelancers from Cuba. Easy, compliant payments.",
     "titlesection2": "FAQs",
     "titlesection3": "Recommended Freemancers",
-    "descsection3": "All profiles are vetted and aprroved by the PAPI DAO",
+    "descsection3": "All profiles are vetted and approved by the PAPI DAO",
     "titlesection4": "Privacy Policy",
-    "titlesection5": "Companies that employs Freemancers",
-    "descsection5": "These are some companies that uses services of our Freelancers.",
+    "titlesection5": "Companies that employ Freemancers",
+    "descsection5": "These companies hire Freemancers services.",
     "titlesection6": "Powered by"
   },
   "navbar": {
