@@ -49,7 +49,7 @@ const AppLayout: React.FC = () => {
         <Hero />
         <CardLandContainer />
         <TitleSection text={t('applayout.titlesection5')} />
-        <DescriptionSection text={t('applayout.descsection5')} />
+        {/* <DescriptionSection text={t('applayout.descsection5')} /> */}
         <Sponsors />
         <TitleSection text={t('applayout.titlesection6')} />
         <PoweredBy />
