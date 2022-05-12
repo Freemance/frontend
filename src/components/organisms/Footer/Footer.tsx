@@ -68,7 +68,7 @@ const Footer = () => {
               marginTop: '-20px',
             }}
           >
-            © PapiDAO LLC, 2021
+            © Mihavi DAO LLC, 2021
           </Typography>
         </Grid>
       </Grid>
