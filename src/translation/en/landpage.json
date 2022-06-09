@@ -1,27 +1,27 @@
 {
   "hero": {
-    "ntitle": "Hire freelancers who work like co-founders",
+    "ntitle": "Hire freelancers who work like co-founders.",
     "nsubtitle": "Owned & Operated by Freelancers",
     "nsubtitlemobile": "Owned & Operated by Freelancers",
-    "buttonofhire": "Hire",
-    "buttonofbecome": "Freemancer"
+    "buttonofhire": "Freemancer",
+    "buttonofbecome": "Become a Freemancer"
   },
   "cardcont": {
     "1title": "Easy Hiring with Slyk",
     "1text": "Hire highly-qualified and reliable Cuba-based freelancers offering services via their Slyks.",
     "2title": "Easy payments with QvaPay",
     "2text": "QvaPay makes it easy to pay Cuba-based freelancers. No registration needed, just pay with crypto or popular e-wallets.",
-    "3title": "Reach a Global Market",
-    "3text": "Freemance is the #1 platform for clients looking for reliable Cuba-based freelancers.",
-    "4title": "Share and be Rewarded",
-    "4text": "Share freemancer Slyks with your networks and earn coins that can be used for discounts."
+    "3title": "Freelancer Owned",
+    "3text": "Freemance is a coin-powered community of independent freelancers.",
+    "4title": "Join & Earn",
+    "4text": "Join the Freemance coin-powered community and earn $FRE by helping us grow."
   },
   "applayout": {
     "titlesection1": "Advantages",
     "descsection1": "Hire high-quality freelancers from Cuba. Easy, compliant payments.",
     "titlesection2": "FAQs",
-    "titlesection3": "Recommended Freemancers",
-    "descsection3": "All profiles are vetted by the Mihavi DAO",
+    "titlesection3": "Top Freemancers",
+    "descsection3": "All profiles are vetted by the Freemance community",
     "titlesection4": "Privacy Policy",
     "titlesection5": "Companies that love Freemancers",
     "descsection5": "These companies hire Freemancers services.",
