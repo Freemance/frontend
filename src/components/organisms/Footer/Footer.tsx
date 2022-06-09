@@ -46,7 +46,7 @@ const Footer = () => {
             className={classes.button}
             component={ExtLink}
             target="__black"
-            href="https://twitter.com/freemanceslyk"
+            href="https://twitter.com/FreemanceSlyk"
           >
             <Twitter />
           </IconButton>
@@ -54,7 +54,7 @@ const Footer = () => {
             className={classes.button}
             component={ExtLink}
             target="__black"
-            href="https://facebook.com/slyk_cu"
+            href="https://www.facebook.com/FreemanceSlyk/"
           >
             <Facebook />
           </IconButton>
@@ -68,7 +68,7 @@ const Footer = () => {
               marginTop: '-20px',
             }}
           >
-            © Mihavi DAO LLC, 2021
+            © Freemance DAO LLC, 2022
           </Typography>
         </Grid>
       </Grid>
