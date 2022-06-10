@@ -53,6 +53,15 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
       marginBottom: '5%',
       fontSize: '1.4rem',
     },
+    sdescription: {
+      display: 'flex',
+      [theme.breakpoints.down('md')]: { justifyContent: 'center', marginLeft: '5%', marginRight: '5%', textAlign: 'center', fontSize: '1.2rem', },
+      fontWeight: 400,
+      color: theme.palette.primary.main,
+      marginTop: '5%',
+      fontSize: '1.4rem',
+      lineHeight: '1.2',
+    },
     ntitle: {
       fontWeight: 900,
       marginBottom: '5%',

@@ -48,7 +48,6 @@ const Hero = () => {
                 {t('hero.buttonofhire')}
               </Button>
             </Link>
-
             {token ? (
               <div></div>
             ) : (
@@ -64,6 +63,13 @@ const Hero = () => {
               </Link>
             )}
           </div>
+          <Typography
+            variant="h6"
+            component="h3"
+            className={classes.sdescription}
+          >
+            {t('hero.description')}
+          </Typography>
         </Grid>
         <Grid item xs={12} lg={7} md={12} xl={8} sm={12}>
           <Image

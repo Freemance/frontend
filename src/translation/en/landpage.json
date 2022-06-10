@@ -3,8 +3,9 @@
     "ntitle": "Hire freelancers who work like co-founders.",
     "nsubtitle": "Owned & Operated by Freelancers",
     "nsubtitlemobile": "Owned & Operated by Freelancers",
-    "buttonofhire": "Freemancer",
-    "buttonofbecome": "Become a Freemancer"
+    "buttonofhire": "Hire Freemancer",
+    "buttonofbecome": "Become a Freemancer",
+    "description": "Freemance is a coin-powered community of freelancers who use Slyk to offer their services, grow fast, and get paid the way they want."
   },
   "cardcont": {
     "1title": "Easy Hiring with Slyk",
@@ -18,7 +19,7 @@
   },
   "applayout": {
     "titlesection1": "Advantages",
-    "descsection1": "Hire high-quality freelancers from Cuba. Easy, compliant payments.",
+    "descsection1": "Hire high-qualified independent freelancers directly. Easy compliant payments.",
     "titlesection2": "FAQs",
     "titlesection3": "Top Freemancers",
     "descsection3": "All profiles are vetted by the Freemance community",
