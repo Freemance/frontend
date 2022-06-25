@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { Grid, Typography, Button, Hidden } from '@material-ui/core';
+import { Link as MuiLink, Grid, Typography, Button, Hidden } from '@material-ui/core';
 import Link from 'next/link';
 import Image from 'next/image';
 // Style
@@ -36,7 +36,6 @@ const Hero = () => {
               {t('hero.nsubtitlemobile')}
             </Typography>
           </Hidden>
-
           <div className={classes.heroCallToAction}>
             <Link href="/directory">
               <Button
@@ -70,6 +69,23 @@ const Hero = () => {
           >
             {t('hero.description')}
           </Typography>
+          <div className={classes.heroJoinCommunity}>
+            <MuiLink
+              href="https://freemance.slyk.io"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              <Button
+                color="primary"
+                variant="outlined"
+                size="large"
+                className={clsx(classes.outline, classes.btn)}
+              >
+                Join our community
+              </Button>
+            </MuiLink>
+          </div>
         </Grid>
         <Grid item xs={12} lg={7} md={12} xl={8} sm={12}>
           <Image

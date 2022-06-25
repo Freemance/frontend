@@ -15,6 +15,7 @@ import Sponsors from '@components/organisms/Sponsors/Sponsors';
 // Internacionalizacion
 import { useTranslation } from 'react-i18next';
 import { PoweredBy } from '@components/organisms/PoweredBy/PoweredBy';
+import SupportUs from '@components/organisms/SupportUs/SupportUs';
 
 const AppLayout: React.FC = () => {
   const { t } = useTranslation('landpage', { useSuspense: false });
@@ -56,6 +57,9 @@ const AppLayout: React.FC = () => {
         <TitleSection text={t('applayout.titlesection3')} />
         <DescriptionSection text={t('applayout.descsection3')} />
         <SliderFMProfiles />
+        <TitleSection text="Do you like Freemance?" />
+        <DescriptionSection text="Support us on:" />
+        <SupportUs />
       </Container>
       <ScrollToTop showScrollToTop={false} />
       <Footer />
