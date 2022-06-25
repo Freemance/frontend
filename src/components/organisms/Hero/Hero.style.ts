@@ -84,6 +84,23 @@ export const useHeroStyle = makeStyles((theme: Theme) =>
         margin: 'auto',
       },
     },
+    heroJoinCommunity: {
+      position: 'relative',
+      display: 'flex',
+      justifyContent: 'flex-end',
+      marginTop: '2%',
+      [theme.breakpoints.down('md')]: {
+        marginTop: '2%',
+        display: 'flex',
+        justifyContent: 'center',
+      },
+      [theme.breakpoints.down('xs')]: {
+        marginTop: '3%',
+        display: 'block',
+        width: '80%',
+        margin: 'auto',
+      },
+    },
     outline: {
       overflow: 'hidden',
       position: 'relative',
