@@ -82,7 +82,7 @@ const Hero = () => {
                 size="large"
                 className={clsx(classes.outline, classes.btn)}
               >
-                Join our community
+                Join our coin-powered community
               </Button>
             </MuiLink>
           </div>

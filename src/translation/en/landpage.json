@@ -5,13 +5,13 @@
     "nsubtitlemobile": "Owned & Operated by Freelancers",
     "buttonofhire": "Hire Freemancer",
     "buttonofbecome": "Become a Freemancer",
-    "description": "Freemance is a coin-powered community of freelancers who use Slyk to offer their services, grow fast, and get paid the way they want."
+    "description": "Freemance is a coin-powered community of independent freelancers."
   },
   "cardcont": {
     "1title": "Easy Hiring with Slyk",
-    "1text": "Hire highly-qualified and reliable Cuba-based freelancers offering services via their Slyks.",
-    "2title": "Easy payments with QvaPay",
-    "2text": "QvaPay makes it easy to pay Cuba-based freelancers. No registration needed, just pay with crypto or popular e-wallets.",
+    "1text": "Hire highly-qualified and reliable Cuba-based freelancers.",
+    "2title": "Easy Payments with QvaPay",
+    "2text": "QvaPay makes it easy to pay freelancers. No registration needed, just pay with crypto or popular e-wallets.",
     "3title": "Freelancer Owned",
     "3text": "Freemance is a coin-powered community of independent freelancers.",
     "4title": "Join & Earn",
@@ -19,7 +19,7 @@
   },
   "applayout": {
     "titlesection1": "Advantages",
-    "descsection1": "Hire high-qualified independent freelancers directly. Easy compliant payments.",
+    "descsection1": "Hire high-qualified independent freelancers directly.",
     "titlesection2": "FAQs",
     "titlesection3": "Top Freemancers",
     "descsection3": "All profiles are vetted by the Freemance community",
@@ -30,7 +30,7 @@
   },
   "navbar": {
     "buttonlogin": "Login",
-    "buttonaccess": "Get Early Access"
+    "buttonaccess": "Early Access"
   },
   "faq": {
     "ancla2": "Freemancers",
@@ -38,27 +38,23 @@
     "answer1-ancla2": "A Minimum Viable Slyk (MVS) is a Slyk with: A -30 seconds intro video, a catalog with at least one item on sell and a minimum of 30 registered users on your Slyk.",
     "ancla1": "Clients",
     "question1": "What is Freemance",
-    "answer1": "Freemance is a coin-powered community of independent freelancers who use Slyk’s fintech platform to offer their services, grow fast, and get paid the way they want.  Every freemancer has their own Minimum Viable Slyk, where anybody can book them for a consultation, hire them, and pay them in a legally compliant and easy way.",
+    "answer1": "Freemance is a coin-powered community of independent freelancers united by a common vision and a coin ($FRE).  We are play-to-learn/earn/own.",
     "question2": "What is a Minimum Viable Freemance Slyk",
-    "answer2": "A Minimum Viable Slyk (MVS) is a Slyk with an intro video, an ecommerce catalog with a consulting item and at least one item on sale, and a minimum of 30 members who have joined.",
+    "answer2": "A Minimum Viable Slyk (MVS) is a Slyk with an intro video, an ecommerce catalog with a consulting item and at least one item on sale, and a minimum of 30 members who have joined",
     "question3": "How do I join the Freemance coin-powered community",
-    "answer3": "Any freelancer in the world can be part of the Freemance coin community by joining freemance.slyk.io. You can earn $FRE by helping us grow, and redeem $FRE to purchase a freelancer template or to purchase Freemance growth services.",
+    "answer3": "Any freelancer in the world can be part of the Freemance Community by joining freemance.slyk.io. Earn $FRE by helping us grow and then redeem $FRE to purchase a freelancer ecommerce template, apply to be included in the Freemance directory, join our-coin-gated community, or purchase Freemance growth services.",
     "question4": "How can I earn $FRE",
-    "answer4": "You can earn $FRE by helping our community grow by sharing your invite link from freemance.slyk.io on social media or by completing other tasks in the Earn section.",
+    "answer4": "You can earn $FRE by helping our community grow. Share your invite link from freemance.slyk.io on social media, or complete other tasks in the Earn section of Freemance.slyk.io.",
     "question5": "What else can I do with $FRE",
-    "answer5": "You can redeem $FRE for Freemance Growth Services to help you grow your freelance business or to launch your own coin-powered community.",
-    "question6": "Does Freemance charge for hiring",
-    "answer6": "No. Freemance does not charge commissions to the contractor nor the freelancer. Payments are done through each independent freelancer’s Slyk.",
-    "question7": "Does Freemance influence the price of the services",
-    "answer7": "No. All pricings are solely determined by the professionals who are listed on the Freemance directory is an exclusive decision of theirs. These may vary depending on the agreement made with the contractor.",
-    "question8": "Does Freemance process payments",
-    "answer8": "No. All payments from clients to Freemance freelancers are made directly via the freelancers’ Slyks. Freemance does not receive or remit funds to freelancers.",
-    "question9": "Can I pay with my credit card or only with cryptocurrency",
-    "answer9": "Each freelancer chooses their Payment Methods (how they receive payments). See their Slyk for details on each Freemancer’s preferred payment currency and payment options. Feel free to contact each freelancer if you’d like them to accept a different form of payment.",
-    "question10": "Does Freemance verify and review the freelancer profiles in its directory",
-    "answer10": "Yes. Freemance actively reviews and updates its directory to maintain the highest quality of freelancers.",
-    "question11": "How many professionals can I hire",
-    "answer11": "You can hire as many professionals as you want."
+    "answer5": "You can redeem $FRE for Freemance Growth Services to help grow your freelance business or to launch your own coin-powered community.",
+    "question6": "Does Freemance charge freelancers",
+    "answer6": "No, Freemance does not charge freelancers or their clients. Payments are done through each independent freelancer’s Slyk–freelancers keep 100% of what they earn.",
+    "question7": "Does Freemance process payments",
+    "answer7": "No, all payments from clients to Freemance freelancers are made directly via the freelancers’ Slyks. Freemance does not receive or remit funds to freelancers.",
+    "question8": "Can I pay with my credit card or only with cryptocurrency",
+    "answer8": "Each freelancer chooses their Payment Methods (how they receive payments). See their Slyk for details on each Freemancer’s preferred payment currency and payment options. Feel free to contact each freelancer if you’d like them to accept a different form of payment.",
+    "question9": "Does Freemance verify and review the freelancer profiles in its directory",
+    "answer9": "Yes, Freemance actively reviews and updates its directory to maintain the highest quality of freelancers."
   },
   "privacy_policy": {
     "introduction": "Freemance implements the guidelines, standards, controls and actions established by the data protection legislation where it operates, in particular the General Data Protection Regulation – GDPR – of the European Union and the General Data Protection Law – LGPD. This privacy and data protection policy explains how our organization uses the personal data we collect from you when you use our platform and applications.",

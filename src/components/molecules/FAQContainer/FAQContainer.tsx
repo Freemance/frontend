@@ -17,8 +17,6 @@ const FAQContainer = () => {
         <FAQ question={t('faq.question7')} answer={t('faq.answer7')} />
         <FAQ question={t('faq.question8')} answer={t('faq.answer8')} />
         <FAQ question={t('faq.question9')} answer={t('faq.answer9')} />
-        <FAQ question={t('faq.question10')} answer={t('faq.answer10')} />
-        <FAQ question={t('faq.question11')} answer={t('faq.answer11')} />
       </div>
     </>
   );
