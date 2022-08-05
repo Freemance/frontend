@@ -7,6 +7,6 @@ module.exports = {
     SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   },
   images: {
-    domains: ['api.freemance.com', 'freemance-backend.herokuapp.com'],
+    domains: ['api.freemance.com'],
   },
 };
