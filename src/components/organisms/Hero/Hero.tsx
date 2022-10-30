@@ -69,7 +69,7 @@ const Hero = () => {
           >
             {t('hero.description')}
           </Typography>
-          <div className={classes.heroJoinCommunity}>
+          {/* <div className={classes.heroJoinCommunity}>
             <MuiLink
               href="https://freemance.slyk.io"
               target="_blank"
@@ -85,7 +85,7 @@ const Hero = () => {
                 Join our coin-powered community
               </Button>
             </MuiLink>
-          </div>
+          </div> */}
         </Grid>
         <Grid item xs={12} lg={7} md={12} xl={8} sm={12}>
           <Image

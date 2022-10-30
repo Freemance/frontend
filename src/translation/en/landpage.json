@@ -3,8 +3,8 @@
     "ntitle": "Hire freelancers who work like co-founders.",
     "nsubtitle": "Owned & Operated by Freelancers",
     "nsubtitlemobile": "Owned & Operated by Freelancers",
-    "buttonofhire": "Hire Freemancer",
-    "buttonofbecome": "Become a Freemancer",
+    "buttonofhire": "See our Catalog",
+    "buttonofbecome": "Submit a Request",
     "description": "Freemance is a coin-powered community of independent freelancers."
   },
   "cardcont": {
@@ -30,7 +30,7 @@
   },
   "navbar": {
     "buttonlogin": "Login",
-    "buttonaccess": "Early Access"
+    "buttonaccess": "Join Freemance"
   },
   "faq": {
     "ancla2": "Freemancers",
