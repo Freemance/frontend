@@ -1,6 +1,12 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { Link as MuiLink, Grid, Typography, Button, Hidden } from '@material-ui/core';
+import {
+  Link as MuiLink,
+  Grid,
+  Typography,
+  Button,
+  Hidden,
+} from '@material-ui/core';
 import Link from 'next/link';
 import Image from 'next/image';
 // Style
@@ -50,7 +56,7 @@ const Hero = () => {
             {token ? (
               <div></div>
             ) : (
-              <Link href="/signup">
+              <Link href="https://slyk.typeform.com/freemance">
                 <Button
                   color="primary"
                   variant="outlined"
@@ -67,9 +73,17 @@ const Hero = () => {
             component="h3"
             className={classes.sdescription}
           >
-            {t('hero.description')}
+            Freemance is a{' '}
+            <MuiLink
+              href="https://freemance.slyk.io"
+              target="_blank"
+              underline="always"
+            >
+              coin-powered community
+            </MuiLink>{' '}
+            of independent freelancers.
           </Typography>
-          <div className={classes.heroJoinCommunity}>
+          {/* <div className={classes.heroJoinCommunity}>
             <MuiLink
               href="https://freemance.slyk.io"
               target="_blank"
@@ -85,7 +99,7 @@ const Hero = () => {
                 Join our coin-powered community
               </Button>
             </MuiLink>
-          </div>
+          </div> */}
         </Grid>
         <Grid item xs={12} lg={7} md={12} xl={8} sm={12}>
           <Image
