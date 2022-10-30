@@ -50,7 +50,7 @@ const Hero = () => {
             {token ? (
               <div></div>
             ) : (
-              <Link href="/signup">
+              <Link href="https://slyk.typeform.com/freemance">
                 <Button
                   color="primary"
                   variant="outlined"
