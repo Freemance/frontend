@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { Link as MuiLink, Grid, Typography, Button, Hidden } from '@material-ui/core';
+import { Grid, Typography, Button, Hidden } from '@material-ui/core';
 import Link from 'next/link';
 import Image from 'next/image';
 // Style

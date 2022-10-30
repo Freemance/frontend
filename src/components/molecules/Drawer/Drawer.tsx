@@ -24,6 +24,10 @@ const DrawerNav = ({ variant, open, handleDrawerClose }: IDrawer) => {
       >
         <CloseIcon />
       </IconButton>
+      <DrawerList
+        text={t('navbar.buttonblog')}
+        link="http://blog.freemance.com/"
+      />
       <DrawerList text={t('navbar.buttonlogin')} link="login" />
       <DrawerList text={t('navbar.buttonaccess')} link="signup" />
     </Drawer>

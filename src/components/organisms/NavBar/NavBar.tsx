@@ -196,11 +196,16 @@ const NavBar: React.FC = () => {
           ) : (
             <>
               <Hidden xsDown>
-                <Link href="/login">
+                <Link href="http://blog.freemance.com/">
                   <Button
                     color="primary"
                     style={{ marginRight: '8px', marginLeft: 'auto' }}
                   >
+                    {t('navbar.buttonblog')}
+                  </Button>
+                </Link>
+                <Link href="/login">
+                  <Button color="primary" style={{ marginRight: '8px' }}>
                     {t('navbar.buttonlogin')}
                   </Button>
                 </Link>
