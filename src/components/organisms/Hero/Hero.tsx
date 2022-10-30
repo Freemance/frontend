@@ -1,6 +1,12 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { Grid, Typography, Button, Hidden } from '@material-ui/core';
+import {
+  Link as MuiLink,
+  Grid,
+  Typography,
+  Button,
+  Hidden,
+} from '@material-ui/core';
 import Link from 'next/link';
 import Image from 'next/image';
 // Style
@@ -67,7 +73,15 @@ const Hero = () => {
             component="h3"
             className={classes.sdescription}
           >
-            {t('hero.description')}
+            Freemance is a{' '}
+            <MuiLink
+              href="https://freemance.slyk.io"
+              target="_blank"
+              underline="always"
+            >
+              coin-powered community
+            </MuiLink>{' '}
+            of independent freelancers.
           </Typography>
           {/* <div className={classes.heroJoinCommunity}>
             <MuiLink
