@@ -13,7 +13,7 @@ import ProfileInfoEditField from '@components/atoms/ProfileInfoEditField';
 import { useGlobalContext } from 'src/context';
 import SubmitButton from '@components/atoms/SubmitButton';
 import IProfileInfo from './types';
-import { TagType } from 'src/context/state';
+import { ProfileStatus, TagType } from 'src/context/state';
 import { AVAILABLE_TAGS, IAvailableTagsRes } from 'src/lib/apollo/tags';
 
 const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
@@ -43,6 +43,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
       initialValues={{
         firstName: currentProfile.firstName,
         lastName: currentProfile.lastName,
+        slyk: currentProfile.slykUser,
         professionId: currentProfile.tag ? currentProfile.tag.id : '',
         jobTitle: currentProfile.jobTitle,
         bio: currentProfile.bio,
@@ -53,6 +54,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
       validationSchema={Yup.object().shape({
         firstName: Yup.string().required('Required').nullable(),
         lastName: Yup.string().required('Required').nullable(),
+        slyk: Yup.string().required('Required').nullable(),
         professionId: Yup.number().required('Required'),
         jobTitle: Yup.string().required('Required').nullable(),
         bio: Yup.string().required('Required').nullable(),
@@ -65,6 +67,10 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
           {
             firstName: values.firstName,
             lastName: values.lastName,
+            slykUser:
+              currentProfile.profileStatus === ProfileStatus.APPROVED
+                ? undefined
+                : values.slyk,
             jobTitle: values.jobTitle,
             bio: values.bio,
             phone: values.phone,
@@ -127,11 +133,21 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                disabled
+                disabled={
+                  currentProfile.profileStatus === ProfileStatus.APPROVED
+                }
                 label="Slyk URL"
-                defaultValue={currentProfile.slykUser}
                 variant="outlined"
                 fullWidth
+                required
+                name="slyk"
+                value={values.slyk}
+                error={touched.slyk && Boolean(errors.slyk)}
+                helperText={touched.slyk && errors.slyk}
+                onChange={(e) => {
+                  handleChange(e);
+                }}
+                onBlur={handleBlur}
               />
             </Grid>
             <Grid item xs={12} sm={6}>

@@ -50,6 +50,7 @@ export const LOGIN = gql`
             id
             name
           }
+          profileStatus
         }
       }
     }
