@@ -47,6 +47,7 @@ export const ME = gql`
           name
           icon
         }
+        profileStatus
       }
     }
   }
@@ -111,6 +112,7 @@ export const PROFILE_BY_USERNAME = gql`
         name
         icon
       }
+      profileStatus
     }
   }
 `;

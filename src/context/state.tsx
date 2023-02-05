@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export type RoleType = 'USER' | 'CONTRACTOR' | 'ADMIN';
 
 export type SkillType = {
@@ -53,7 +54,21 @@ export type ProfileType = {
   employmentHistory?: JobType[];
   courses?: CourseType[];
   skills?: SkillType[];
+  profileStatus?:
+    | ProfileStatus.PENDING
+    | ProfileStatus.REVIEWING
+    | ProfileStatus.NEEDFIX
+    | ProfileStatus.APPROVED
+    | ProfileStatus.DISAPPROVED;
 };
+
+export enum ProfileStatus {
+  PENDING = 'PENDING',
+  REVIEWING = 'REVIEWING',
+  NEEDFIX = 'NEEDFIX',
+  APPROVED = 'APPROVED',
+  DISAPPROVED = 'DISAPPROVED',
+}
 
 export type UserType = {
   id: number;

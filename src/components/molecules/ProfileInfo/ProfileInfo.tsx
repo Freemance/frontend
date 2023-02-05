@@ -13,7 +13,7 @@ import ProfileInfoEditField from '@components/atoms/ProfileInfoEditField';
 import { useGlobalContext } from 'src/context';
 import SubmitButton from '@components/atoms/SubmitButton';
 import IProfileInfo from './types';
-import { TagType } from 'src/context/state';
+import { ProfileStatus, TagType } from 'src/context/state';
 import { AVAILABLE_TAGS, IAvailableTagsRes } from 'src/lib/apollo/tags';
 
 const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
@@ -127,7 +127,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                disabled
+                disabled={currentProfile.profileStatus === ProfileStatus.APPROVED}
                 label="Slyk URL"
                 defaultValue={currentProfile.slykUser}
                 variant="outlined"
