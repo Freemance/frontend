@@ -67,7 +67,7 @@ const ProfileHeader = () => {
               tagId,
             },
           }
-    );
+    ).catch(() => {});
   };
 
   return (
