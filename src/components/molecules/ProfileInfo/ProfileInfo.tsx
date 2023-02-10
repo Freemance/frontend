@@ -252,7 +252,7 @@ const ProfileInfo = ({ isLoading, error, handleSaveInfo }: IProfileInfo) => {
             {error && (
               <Grid item xs={12}>
                 <Alert className={classes.alert} severity="error">
-                  Sorry, there{"'"}s been an error
+                  {error.message || "Sorry, there's been an error"}
                 </Alert>
               </Grid>
             )}
